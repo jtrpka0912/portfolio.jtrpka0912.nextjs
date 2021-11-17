@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
     faFacebook, 
     faTwitter, 
@@ -8,6 +7,21 @@ import {
     IconDefinition 
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import FooterSocialItem from "./footer-social-item";
+
+/**
+ * @exports
+ * @interface SocialMediaItem
+ * @description A social media item that includes url and icon component.
+ * @property { string } url - The URL hyperlink to the social media site or email.
+ * @property { string } title - HTML popup to show where the link will go to.
+ * @property { IconDefinition } icon - The fontawesome icon component.
+ */
+ export interface SocialMediaItem {
+    url: string,
+    title: string
+    icon: IconDefinition
+}
 
 /**
  * @function FooterSocial
@@ -16,19 +30,6 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
  * @returns { JSX }
  */
 const FooterSocial = () => {
-    /**
-     * @interface SocialMediaItem
-     * @description A social media item that includes url and icon component.
-     * @property { string } url - The URL hyperlink to the social media site or email.
-     * @property { string } title - HTML popup to show where the link will go to.
-     * @property { IconDefinition } icon - The fontawesome icon component.
-     */
-    interface SocialMediaItem {
-        url: string,
-        title: string
-        icon: IconDefinition
-    }
-
     /**
      * @var socialMediaItems
      * @type { SocialMediaItem[] }
@@ -43,25 +44,10 @@ const FooterSocial = () => {
         { url: 'https://stackoverflow.com/users/story/4008500', title: 'StackOverflow Developer Story', icon: faStackOverflow }
     ];
 
-    /**
-     * @var listItemClasses
-     * @type { String }
-     * @description A convenient way to apply the same style to the list item tag.
-     */
-    const listItemClasses: string = 'is-inline-block px-5';
-
     return (
         <nav className="mb-4">
             <ul>
-                { socialMediaItems.map(( item: SocialMediaItem, index: number ) => {
-                    return (
-                        <li className={ listItemClasses } title={ item.title } key={ index }>
-                            <a href={ item.url } target="_blank">
-                                <FontAwesomeIcon size="2x" icon={ item.icon } />
-                            </a>
-                        </li>
-                    );
-                }) }
+                { socialMediaItems.map(( item: SocialMediaItem, index: number ) => <FooterSocialItem item={ item } key={ index } /> ) }
             </ul>
         </nav>
     );

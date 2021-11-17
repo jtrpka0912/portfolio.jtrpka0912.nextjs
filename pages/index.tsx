@@ -1,12 +1,18 @@
 import type { NextPage } from 'next';
 import Header from '../components/layout/header/header';
 
+/**
+ * @function HomePage
+ * @implements NextPage
+ * @summary HomePage component
+ * @description The home page.
+ * @returns JSX
+ */
 const HomePage: NextPage = () => {
     return (
         <div>
             { /** Temporary */ }
             <Header />
-            <button className="button is-primary">Button</button>
         </div>
     );
 }

@@ -1,6 +1,4 @@
 import type { NextPage } from 'next';
-import Footer from '../components/layout/footer/footer';
-import Header from '../components/layout/header/header';
 
 /**
  * @function HomePage
@@ -12,9 +10,7 @@ import Header from '../components/layout/header/header';
 const HomePage: NextPage = () => {
     return (
         <div>
-            { /** Temporary */ }
-            <Header />
-            <Footer />
+            Home Page
         </div>
     );
 }

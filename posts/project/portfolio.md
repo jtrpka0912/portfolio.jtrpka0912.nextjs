@@ -9,6 +9,10 @@ technology: # List of technologies used for project
   - markdown
   - bulma
   - fontawesome
+package: # List of packages used for the project
+  npm:
+    - gray-matter
+    - markdown
 repo: # A repository url link based on which repo its located
   github: 'https://github.com/jtrpka0912/portfolio.jtrpka0912.nextjs'
 date: # Date when it started and potentially finished

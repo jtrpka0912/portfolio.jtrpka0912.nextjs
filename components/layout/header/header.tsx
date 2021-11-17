@@ -1,4 +1,5 @@
 import HeaderBrand from "./header-brand";
+import HeaderMenu from "./header-menu";
 
 /**
  * @function Header
@@ -10,6 +11,8 @@ const Header = () => {
     return (
         <header>
             <HeaderBrand />
+
+            <HeaderMenu />
         </header>
     )
 };

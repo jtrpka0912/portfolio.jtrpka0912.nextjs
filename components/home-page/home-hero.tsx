@@ -6,7 +6,11 @@
  */
 const HomeHero = () => {
     return (
-        <div></div>
+        <div className="hero is-primary is-halfheight">
+            <div className="hero-body">
+
+            </div>
+        </div>
     );
 };
 

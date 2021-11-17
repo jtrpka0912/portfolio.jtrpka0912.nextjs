@@ -7,7 +7,7 @@ import Header from '../components/layout/header/header';
  * @implements NextPage
  * @summary HomePage component
  * @description The home page.
- * @returns JSX
+ * @returns { JSX }
  */
 const HomePage: NextPage = () => {
     return (

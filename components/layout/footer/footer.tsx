@@ -1,4 +1,5 @@
 import FooterBulma from "./footer-bulma";
+import FooterSocial from "./footer-social";
 
 /**
  * @function Footer
@@ -10,6 +11,7 @@ const Footer = () => {
     return (
         <footer className="footer has-background-primary has-text-centered">
             <div className="container">
+                <FooterSocial />
                 <FooterBulma />
             </div>
         </footer>

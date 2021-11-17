@@ -1,3 +1,5 @@
+import HomeHeroTitle from "./hom-hero-title";
+
 /**
  * @function HomeHero
  * @summary Home Page Hero component
@@ -8,7 +10,9 @@ const HomeHero = () => {
     return (
         <div className="hero is-primary is-halfheight">
             <div className="hero-body">
-
+                <div className="container has-text-centered">
+                    <HomeHeroTitle />
+                </div>
             </div>
         </div>
     );

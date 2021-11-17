@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import HomeHero from '../components/home-page/home-hero';
+import HomeHero from '../components/home-page/home-hero/home-hero';
 
 /**
  * @function HomePage

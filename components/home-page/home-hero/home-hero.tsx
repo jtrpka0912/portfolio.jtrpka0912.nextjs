@@ -1,4 +1,5 @@
-import HomeHeroTitle from "./hom-hero-title";
+import HomeHeroImage from "./home-hero-image";
+import HomeHeroTitle from "./home-hero-title";
 
 /**
  * @function HomeHero
@@ -11,6 +12,7 @@ const HomeHero = () => {
         <div className="hero is-primary is-halfheight">
             <div className="hero-body">
                 <div className="container has-text-centered">
+                    <HomeHeroImage />
                     <HomeHeroTitle />
                 </div>
             </div>

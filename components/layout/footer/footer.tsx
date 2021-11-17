@@ -8,8 +8,8 @@ import FooterBulma from "./footer-bulma";
  */
 const Footer = () => {
     return (
-        <footer>
-            <div className="container py-6 has-background-primary has-text-centered">
+        <footer className="footer py-6 has-background-primary has-text-centered">
+            <div className="container">
                 <FooterBulma />
             </div>
         </footer>

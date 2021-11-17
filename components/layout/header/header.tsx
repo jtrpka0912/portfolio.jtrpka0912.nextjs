@@ -10,9 +10,11 @@ import HeaderMenu from "./header-menu";
 const Header = () => {
     return (
         <header>
-            <HeaderBrand />
+            <nav className="navbar">
+                <HeaderBrand />
 
-            <HeaderMenu />
+                <HeaderMenu />
+            </nav>
         </header>
     )
 };

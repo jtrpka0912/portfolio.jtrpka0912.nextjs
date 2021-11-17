@@ -1,3 +1,5 @@
+import FooterBulma from "./footer-bulma";
+
 /**
  * @function Footer
  * @summary Footer component
@@ -8,6 +10,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="container py-6 has-background-primary has-text-centered">
+                <FooterBulma />
             </div>
         </footer>
     );

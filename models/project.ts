@@ -1,8 +1,10 @@
+import { Post } from './Post';
+
 /**
  * @interface Project
+ * @extends Post
  * @description A single portfolio project post
  * @author J. Trpka
- * @property { string } slug The ID and URL slug for the post
  * @property { string } title Name of the project
  * @property { string[] } technology List of technologies used for project
  * @property { ProjectPackage } package List of other packages used for the project
@@ -14,10 +16,8 @@
  * @property { boolean } resume If the project relates to a job experience.
  * @property { boolean } development If the project is still in development
  * @property { boolean } featured List this project on the featured list
- * @property { string } content The main content or description of the project
  */
-export interface Project {
-    slug: string,
+export interface Project extends Post {
     title: string,
     technology: string[],
     package?: ProjectPackage,
@@ -29,7 +29,6 @@ export interface Project {
     resume: boolean,
     development: boolean,
     featured: boolean,
-    content?: string
 }
 
 /**

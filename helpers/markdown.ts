@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+import { Post } from '../models/Post';
+
 /**
  * @function getAllPostFiles
  * @description Retrieve all post files based on post category
@@ -41,12 +43,12 @@ export const getAllPosts = (category: string): object[] => {
  * @param { string } category
  * @returns { object }
  */
-export const getSinglePost = (postId: string, category: string): object => {
+export const getSinglePost = <T extends Post>(postId: string, category: string): T => {
     const filePath: string = path.join(process.cwd(), 'posts', category, postId);
     const fileContent: string = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
 
-    return {
+    return <T>{
         ...data,
         content
     };

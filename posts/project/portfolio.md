@@ -31,6 +31,7 @@ gallery:
     - 'https://via.placeholder.com/411x731'
     - 'https://via.placeholder.com/411x731'
     - 'https://via.placeholder.com/411x731'
+end: fullstack
 resume: false
 development: true
 featured: true

@@ -10,6 +10,7 @@
  * @property { ProjectDate } date A date when the project started and/if ended
  * @property { string } thumbnail A small image for the post listing
  * @property { ProjectGallery } gallery A list of images based on screen sizes
+ * @property { ProjectEnd } end Is the project front-end, back-end, or fullstack
  * @property { boolean } resume If the project relates to a job experience.
  * @property { boolean } development If the project is still in development
  * @property { boolean } featured List this project on the featured list
@@ -24,6 +25,7 @@ export interface Project {
     date: ProjectDate,
     thumbnail?: string,
     gallery?: ProjectGallery,
+    end: ProjectEnd
     resume: boolean,
     development: boolean,
     featured: boolean,
@@ -81,4 +83,15 @@ interface ProjectGallery {
     desktop?: string[],
     tablet?: string[],
     mobile?: string[]
+}
+
+/**
+ * @enum ProjectEnd
+ * @description The "end" side of the project
+ * @author J. Trpka
+ */
+export enum ProjectEnd {
+    FRONTEND = 'frontend',
+    BACKEND = 'backend',
+    FULLSTACK = 'fullstack'
 }

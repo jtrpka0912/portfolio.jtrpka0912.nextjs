@@ -9,6 +9,7 @@
  * @property { ResumeLocation } address The location of the company/employer
  * @property { ResumeContact } contact Different methods of contacting the company or employer
  * @property { boolean } featured List this job experience on the featured list
+ * @property { string } content The main content or description of the job experience
  */
 export interface Resume {
     slug: string,
@@ -17,7 +18,8 @@ export interface Resume {
     date: ResumeDate,
     address?: ResumeLocation,
     contact: ResumeContact,
-    featured: boolean
+    featured: boolean,
+    content: string
 }
 
 /**

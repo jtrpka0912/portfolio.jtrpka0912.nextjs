@@ -1,7 +1,7 @@
 ---
-slug: portfolio # The ID and URL slug for the post
-title: Portfolio # Name of the project
-technology: # List of technologies used for project
+slug: portfolio
+title: Portfolio 
+technology:
   - reactjs
   - nextjs
   - typescript
@@ -9,16 +9,16 @@ technology: # List of technologies used for project
   - markdown
   - bulma
   - fontawesome
-package: # List of packages used for the project
+package:
   npm:
     - gray-matter
     - markdown
-repo: # A repository url link based on which repo its located
+repo:
   github: 'https://github.com/jtrpka0912/portfolio.jtrpka0912.nextjs'
-date: # Date when it started and potentially finished
+date:
   started: '2021-11-16'
-thumbnail: 'https://via.placeholder.com/256x256' # Thumbnail for post listing
-gallery: # A list of images based on screen sizes
+thumbnail: 'https://via.placeholder.com/256x256'
+gallery:
   desktop: 
     - 'https://via.placeholder.com/1980x1080'
     - 'https://via.placeholder.com/1980x1080'
@@ -31,9 +31,10 @@ gallery: # A list of images based on screen sizes
     - 'https://via.placeholder.com/411x731'
     - 'https://via.placeholder.com/411x731'
     - 'https://via.placeholder.com/411x731'
-resume: false # The job experience (slug) where the project was from or false
-development: true # Is this project still in development
-featured: true # Show in a featured list
+end: fullstack
+resume: false
+development: true
+featured: true
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue eget arcu dictum varius. Nulla pellentesque dignissim enim sit amet venenatis. Velit dignissim sodales ut eu sem integer. Odio euismod lacinia at quis risus. Nisl nunc mi ipsum faucibus vitae aliquet. Lectus quam id leo in vitae turpis massa. Volutpat odio facilisis mauris sit amet massa vitae. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Ornare quam viverra orci sagittis eu volutpat odio.
 

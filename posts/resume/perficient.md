@@ -1,20 +1,20 @@
 ---
-slug: perficient # The ID and URL slug for the post
-employer: Perficient # Name of the company
-jobtitle: # The job title you started and then ended
+slug: perficient
+employer: Perficient
+jobtitle:
   started: Technical Consultant
-date: # The first day to the final day
+date:
   started: '2019-02-18'
-address: # Location of the office
+address:
   street: '38701 Seven Mile Rd.'
   suite: 'Suite 400'
   city: Livonia
   region: MI
   postal: '48152'
   country: USA
-contact: # Different ways to contact. Either by phone, email, etc...
+contact:
   phone: '734-293-4840'
-featured: true # List this post in a featured list
+featured: true
 ---
 The responsibilities of the Technical Consultant was to help serve the needs with Perficient clients and internally. As a Technical Consultant, most of the work that was done was Front-End Development with AEM using HTML, CSS (with LESS), JavaScript, and Java with some Back-End Development.
 

@@ -10,7 +10,7 @@ import matter from 'gray-matter';
  * @throws
  * @returns { string[] }
  */
-export const getAllPostFiles = (category: string): string[] => {
+const getAllPostFiles = (category: string): string[] => {
     if(!category) throw new Error('You need to supply a post path.');
 
     const folderPath: string = path.join(process.cwd(), 'posts', category);

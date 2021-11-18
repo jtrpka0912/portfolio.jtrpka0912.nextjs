@@ -1,8 +1,10 @@
+import { Post } from './Post';
+
 /**
  * @interface Resume
+ * @extends Post
  * @description A single job experience resume post
  * @author J. Trpka
- * @property { string } slug The ID and URL slug for the post
  * @property { string } employer Name of the company or employer
  * @property { ResumeJobTitle } jobtitle The job title that was given from the start and/or ended
  * @property { ResumeDate } date The first and/or last day working with the company/employer
@@ -10,14 +12,13 @@
  * @property { ResumeContact } contact Different methods of contacting the company or employer
  * @property { boolean } featured List this job experience on the featured list
  */
-export interface Resume {
-    slug: string,
+export interface Resume extends Post {
     employer: string,
     jobtitle: ResumeJobTitle,
     date: ResumeDate,
     address?: ResumeLocation,
     contact: ResumeContact,
-    featured: boolean
+    featured: boolean,
 }
 
 /**

@@ -1,4 +1,7 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
+
+import { getSinglePost } from '../helpers/markdown';
+
 import HomeHero from '../components/home-page/home-hero/home-hero';
 
 /**
@@ -14,6 +17,18 @@ const HomePage: NextPage = () => {
             <HomeHero />
         </div>
     );
+}
+
+export const getStaticProps: GetStaticProps = async() => {
+    try {
+        getSinglePost('portfolio.md', 'project');
+    } catch(error) {
+        console.error(error);
+    }
+
+    return {
+        props: {}
+    };
 }
 
 export default HomePage;

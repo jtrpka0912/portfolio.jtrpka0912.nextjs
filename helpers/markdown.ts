@@ -25,13 +25,13 @@ const getAllPostFiles = (category: string): string[] => {
  * @description Retrieve all posts from a single post category
  * @author J. Trpka
  * @param { string } category 
- * @returns { object[] }
+ * @returns { T[] }
  */
-export const getAllPosts = (category: string): object[] => {
+export const getAllPosts = <T extends Post>(category: string): T[] => {
     const files = getAllPostFiles(category);
 
     return files.map((file: string) => {
-        return getSinglePost(file, category);
+        return getSinglePost<T>(file, category);
     });
 };
 
@@ -41,7 +41,7 @@ export const getAllPosts = (category: string): object[] => {
  * @author J. Trpka
  * @param { string } postId - Filename of the markdown post
  * @param { string } category
- * @returns { object }
+ * @returns { T }
  */
 export const getSinglePost = <T extends Post>(postId: string, category: string): T => {
     const filePath: string = path.join(process.cwd(), 'posts', category, postId);

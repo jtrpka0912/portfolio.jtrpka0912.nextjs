@@ -23,9 +23,9 @@ export const getAllPostFiles = (category: string): string[] => {
  * @description Retrieve all posts from a single post category
  * @author J. Trpka
  * @param { string } category 
- * @returns { any }
+ * @returns { object[] }
  */
-export const getAllPosts = (category: string) => {
+export const getAllPosts = (category: string): object[] => {
     const files = getAllPostFiles(category);
 
     return files.map((file: string) => {
@@ -39,9 +39,9 @@ export const getAllPosts = (category: string) => {
  * @author J. Trpka
  * @param { string } postId - Filename of the markdown post
  * @param { string } category
- * @returns { any }
+ * @returns { object }
  */
-export const getSinglePost = (postId: string, category: string) => {
+export const getSinglePost = (postId: string, category: string): object => {
     const filePath: string = path.join(process.cwd(), 'posts', category, postId);
     const fileContent: string = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);

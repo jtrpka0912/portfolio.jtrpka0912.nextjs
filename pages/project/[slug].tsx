@@ -1,7 +1,11 @@
+import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+
 import { getSingleProject } from "../../helpers/project";
 import { Project } from "../../models/project";
+
+import ProjectDetailHero from "../../components/project-detail/project-detail-hero/project-detail-hero";
 
 /**
  * @interface ProjectDetailPageProps
@@ -23,7 +27,9 @@ interface ProjectDetailPageProps {
  */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     return (
-        <div>Project Detail Page</div>
+        <div className="page project-detail">
+            <ProjectDetailHero />
+        </div>
     );
 };
 

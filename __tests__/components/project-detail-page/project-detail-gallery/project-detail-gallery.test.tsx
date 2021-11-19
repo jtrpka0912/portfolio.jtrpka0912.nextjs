@@ -23,9 +23,9 @@ describe('Render component', () => {
         render(<ProjectDetailGallery />);
 
         // Act
-        const renderedElement = screen.getByText('Do not render gallery');
+        const emptyComponent = screen.getByText('There are no images in the gallery.');
 
         // Assert
-        expect(renderedElement).toBeInTheDocument();
+        expect(emptyComponent).toBeInTheDocument();
     });
 })

@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDesktop, faTabletAlt, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { ProjectGallery } from "../../../models/project";
 
 /**
@@ -25,15 +28,15 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
         <div className="gallery__tabs tabs is-centered is-boxed" role="tablist">
             <ul>
                 { gallery.desktop && gallery.desktop.length > 0 && (
-                    <li role="tab"><a>Desktop</a></li>
+                    <li role="tab"><a><FontAwesomeIcon icon={ faDesktop } /> Desktop</a></li>
                 ) }
 
                 { gallery.tablet && gallery.tablet.length > 0 && (
-                    <li role="tab"><a>Tablet</a></li>
+                    <li role="tab"><a><FontAwesomeIcon icon={ faTabletAlt } /> Tablet</a></li>
                 ) }
 
                 { gallery.mobile && gallery.mobile.length > 0 && (
-                    <li role="tab"><a>Mobile</a></li>
+                    <li role="tab"><a><FontAwesomeIcon icon={ faMobileAlt } />Mobile</a></li>
                 ) }
             </ul>
         </div>

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import { Post } from '../models/Post';
+import { Post } from '../models/post';
 
 /**
  * @function getAllPostFiles

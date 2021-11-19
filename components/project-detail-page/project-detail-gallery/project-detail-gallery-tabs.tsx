@@ -18,6 +18,7 @@ interface ProjectDetailGalleryTabsProps {
  * @summary Project detail gallery tabs component
  * @description Display the tabs for the gallery to switch the different sizes
  * @author J. Trpka
+ * @todo Add 'is-active' and aria-selected functionality to the <li> tabs.
  * @param { ProjectDetailGalleryTabsProps } props
  * @returns { JSX }
  */
@@ -28,15 +29,15 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
         <div className="gallery__tabs tabs is-centered is-boxed" role="tablist">
             <ul>
                 { gallery.desktop && gallery.desktop.length > 0 && (
-                    <li role="tab"><a><FontAwesomeIcon icon={ faDesktop } /> Desktop</a></li>
+                    <li role="tab" aria-controls="desktop-panel"><a><FontAwesomeIcon icon={ faDesktop } /> Desktop</a></li>
                 ) }
 
                 { gallery.tablet && gallery.tablet.length > 0 && (
-                    <li role="tab"><a><FontAwesomeIcon icon={ faTabletAlt } /> Tablet</a></li>
+                    <li role="tab" aria-controls="tablet-panel"><a><FontAwesomeIcon icon={ faTabletAlt } /> Tablet</a></li>
                 ) }
 
                 { gallery.mobile && gallery.mobile.length > 0 && (
-                    <li role="tab"><a><FontAwesomeIcon icon={ faMobileAlt } /> Mobile</a></li>
+                    <li role="tab" aria-controls="mobile-panel"><a><FontAwesomeIcon icon={ faMobileAlt } /> Mobile</a></li>
                 ) }
             </ul>
         </div>

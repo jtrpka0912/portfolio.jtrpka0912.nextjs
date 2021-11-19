@@ -28,6 +28,11 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     const { project } = props;
     console.info('Project', project);
 
+    // TODO: Need a better handler if project is falsey
+    if(!project) {
+        return null;
+    }
+
     return (
         <div className="page project-detail">
             Project Detail Page

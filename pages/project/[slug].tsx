@@ -5,8 +5,6 @@ import { ParsedUrlQuery } from "querystring";
 import { getSingleProject } from "../../helpers/project";
 import { Project } from "../../models/project";
 
-import ProjectDetailHero from "../../components/project-detail/project-detail-hero/project-detail-hero";
-
 /**
  * @interface ProjectDetailPageProps
  * @description The props for the project detail page
@@ -26,9 +24,12 @@ interface ProjectDetailPageProps {
  * @returns { JSX }
  */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
+    const { project } = props;
+    console.info('Project', project);
+
     return (
         <div className="page project-detail">
-            <ProjectDetailHero />
+            Project Detail Page
         </div>
     );
 };

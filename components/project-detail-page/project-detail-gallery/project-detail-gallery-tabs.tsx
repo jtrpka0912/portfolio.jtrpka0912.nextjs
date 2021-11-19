@@ -26,18 +26,30 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
     const { gallery } = props;
 
     return (
-        <div className="gallery__tabs tabs is-centered is-boxed" role="tablist">
+        <div className="gallery__tabs tabs is-centered is-boxed" role="tablist" aria-label="Project Gallery by Screen Sizes">
             <ul>
                 { gallery.desktop && gallery.desktop.length > 0 && (
-                    <li role="tab" aria-controls="desktop-panel"><a><FontAwesomeIcon icon={ faDesktop } /> Desktop</a></li>
+                    <li role="tab" aria-controls="desktop-panel">
+                        <a>
+                            <FontAwesomeIcon className="mr-2" icon={ faDesktop } /> Desktop
+                        </a>
+                    </li>
                 ) }
 
                 { gallery.tablet && gallery.tablet.length > 0 && (
-                    <li role="tab" aria-controls="tablet-panel"><a><FontAwesomeIcon icon={ faTabletAlt } /> Tablet</a></li>
+                    <li role="tab" aria-controls="tablet-panel">
+                        <a>
+                            <FontAwesomeIcon className="mr-2" icon={ faTabletAlt } /> Tablet
+                        </a>
+                    </li>
                 ) }
 
                 { gallery.mobile && gallery.mobile.length > 0 && (
-                    <li role="tab" aria-controls="mobile-panel"><a><FontAwesomeIcon icon={ faMobileAlt } /> Mobile</a></li>
+                    <li role="tab" aria-controls="mobile-panel">
+                        <a>
+                            <FontAwesomeIcon className="mr-2" icon={ faMobileAlt } /> Mobile
+                        </a>
+                    </li>
                 ) }
             </ul>
         </div>

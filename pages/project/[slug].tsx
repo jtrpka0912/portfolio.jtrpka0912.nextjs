@@ -4,6 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { getSingleProject } from "../../helpers/project";
 import { Project } from "../../models/project";
+import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 
 /**
  * @interface ProjectDetailPageProps
@@ -30,6 +31,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     return (
         <div className="page project-detail">
             Project Detail Page
+            <ProjectDetailGallery gallery={ project.gallery } />
         </div>
     );
 };

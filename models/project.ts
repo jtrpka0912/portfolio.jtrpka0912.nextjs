@@ -78,7 +78,7 @@ interface ProjectDate {
  * @property { string[] } tablet 768x1024 (iPad)
  * @property { string[] } mobile 411x731 (Pixel 2)
  */
-interface ProjectGallery {
+export interface ProjectGallery {
     desktop?: string[],
     tablet?: string[],
     mobile?: string[]

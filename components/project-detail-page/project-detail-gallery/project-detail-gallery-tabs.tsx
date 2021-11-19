@@ -36,7 +36,7 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 ) }
 
                 { gallery.mobile && gallery.mobile.length > 0 && (
-                    <li role="tab"><a><FontAwesomeIcon icon={ faMobileAlt } />Mobile</a></li>
+                    <li role="tab"><a><FontAwesomeIcon icon={ faMobileAlt } /> Mobile</a></li>
                 ) }
             </ul>
         </div>

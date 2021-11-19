@@ -42,7 +42,97 @@ describe('Render the tabs', () => {
 
         // Assert
         expect(tabs.length).toBe(1);
-        expect(desktopTab).toBeInTheDocument();
-        expect(desktopTab.querySelector('svg')?.dataset.icon).toBe('desktop');
+        checkTab(desktopTab, 'desktop');
+    });
+
+    test('Render tablet tab', () => {
+        // Arrange
+        render(<ProjectDetailGalleryTabs gallery={{
+            tablet: ['1'],
+        }} />);
+
+        const tabs = screen.getAllByRole('tab');
+        const tabletTab = tabs[0];
+
+        // Assert
+        expect(tabs.length).toBe(1);
+        checkTab(tabletTab, 'tablet-alt');
+    });
+
+    test('Render mobile tab', () => {
+        // Arrange
+        render(<ProjectDetailGalleryTabs gallery={{
+            mobile: ['1'],
+        }} />);
+
+        const tabs = screen.getAllByRole('tab');
+        const mobileTab = tabs[0];
+
+        // Assert
+        expect(tabs.length).toBe(1);
+        checkTab(mobileTab, 'mobile-alt');
+    });
+
+    test('Render desktop and tablet tab', () => {
+        // Arrange
+        render(<ProjectDetailGalleryTabs gallery={{
+            desktop: ['1'],
+            tablet: ['1']
+        }} />);
+
+        const tabs = screen.getAllByRole('tab');
+        const desktopTab = tabs[0];
+        const tabletTab = tabs[1];
+
+        // Assert
+        expect(tabs.length).toBe(2);
+        checkTab(desktopTab, 'desktop');
+        checkTab(tabletTab, 'tablet-alt');
+    });
+
+    test('Render desktop and mobile tab', () => {
+        // Arrange
+        render(<ProjectDetailGalleryTabs gallery={{
+            desktop: ['1'],
+            mobile: ['1']
+        }} />);
+
+        const tabs = screen.getAllByRole('tab');
+        const desktopTab = tabs[0];
+        const mobileTab = tabs[1];
+
+        // Assert
+        expect(tabs.length).toBe(2);
+        checkTab(desktopTab, 'desktop');
+        checkTab(mobileTab, 'mobile-alt');
+    });
+
+    test('Render tablet and mobile tab', () => {
+        // Arrange
+        render(<ProjectDetailGalleryTabs gallery={{
+            tablet: ['1'],
+            mobile: ['1']
+        }} />);
+
+        const tabs = screen.getAllByRole('tab');
+        const tabletTab = tabs[0];
+        const mobileTab = tabs[1];
+
+        // Assert
+        expect(tabs.length).toBe(2);
+        checkTab(tabletTab, 'tablet-alt');
+        checkTab(mobileTab, 'mobile-alt');
     });
 });
+
+/**
+ * @function checkTab
+ * @description Check if the tab is in the document and has the correct icon.
+ * @author J. Trpka
+ * @param { HTMLElement } tab 
+ * @param { string } icon 
+ */
+const checkTab = (tab: HTMLElement, icon: string) => {
+    expect(tab).toBeInTheDocument();
+    expect(tab.querySelector('svg')?.dataset.icon).toBe(icon);
+}

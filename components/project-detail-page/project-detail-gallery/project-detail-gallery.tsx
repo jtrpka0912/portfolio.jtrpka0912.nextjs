@@ -21,9 +21,37 @@ interface ProjectDetailGalleryProps {
 const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
     const { gallery } = props;
 
+    /**
+     * @function isGalleryAvailable
+     * @summary Is the gallery available
+     * @description Check if the gallery exists or empty then render the appropiate component
+     * @author J. Trpka
+     * @returns { boolean }
+     */
+    const isGalleryAvailable = (): boolean => {
+        // Check if there is a gallery
+        if(!gallery) {
+            return false;
+        }
+
+        // Check if all three galleries are empty
+        if( 
+            ( !gallery.desktop || gallery.desktop.length === 0 ) &&
+            ( !gallery.tablet || gallery.tablet.length === 0 ) &&
+            ( !gallery.mobile || gallery.mobile.length === 0 )
+        ) {
+            return false;
+        }
+
+        return true;
+    };
+
     return (
         <section className="section">
-
+            { isGalleryAvailable() 
+                ? <div>Render Gallery</div> 
+                : <div>Do not render gallery</div>
+            }
         </section>
     );
 };

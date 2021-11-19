@@ -1,6 +1,7 @@
 import { ProjectGallery } from "../../../models/project";
 
 import ProjectDetailGalleryEmpty from './project-detail-gallery-empty';
+import ProjectDetailGalleryTab from "./project-detail-gallery-tab";
 
 /**
  * @interface ProjectDetailGalleryProps
@@ -50,9 +51,11 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
 
     return (
         <section className="section">
-            <div className="gallery">
+            <div className="gallery container">
                 { isGalleryAvailable() 
-                    ? <div>Render Gallery</div> 
+                    ? (
+                        <ProjectDetailGalleryTab />
+                    )
                     : <ProjectDetailGalleryEmpty />
                 }
             </div>

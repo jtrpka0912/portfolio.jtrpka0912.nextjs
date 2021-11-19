@@ -12,7 +12,7 @@ describe('Render component', () => {
         }} />);
 
         // Act
-        const renderedElement = screen.getByText('Render Gallery');
+        const renderedElement = screen.getByRole('tablist');
 
         // Assert
         expect(renderedElement).toBeInTheDocument();

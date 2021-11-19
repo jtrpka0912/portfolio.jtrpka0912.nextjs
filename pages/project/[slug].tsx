@@ -3,10 +3,24 @@ import { ParsedUrlQuery } from "querystring";
 import { getSingleProject } from "../../helpers/project";
 import { Project } from "../../models/project";
 
+/**
+ * @interface ProjectDetailPageProps
+ * @description The props for the project detail page
+ * @author J. Trpka
+ * @property { Project } project
+ */
 interface ProjectDetailPageProps {
     project: Project
 }
 
+/**
+ * @function ProjectDetailPage
+ * @summary Project detail page component
+ * @description The detail page for a project
+ * @author J. Trpka
+ * @param { ProjectDetailPageProps } props 
+ * @returns { JSX }
+ */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     return (
         <div>Project Detail Page</div>
@@ -41,7 +55,7 @@ export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDet
             }
         }
     } catch(error) {
-        // TODO: Brings up unhandled runtime error with loading the 404.js file.
+        // ERROR: Brings up unhandled runtime error with loading the 404.js file.
         return {
             notFound: true
         }

@@ -1,4 +1,4 @@
-import { render, screen, getByRole } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import ProjectDetailGalleryTabs from '../../../../components/project-detail-page/project-detail-gallery/project-detail-gallery-tabs';
 
@@ -122,6 +122,38 @@ describe('Render the tabs', () => {
         expect(tabs.length).toBe(2);
         checkTab(tabletTab, 'tablet-alt');
         checkTab(mobileTab, 'mobile-alt');
+    });
+});
+
+describe('Clicking the tabs', () => {
+    let tabs: HTMLElement[];
+    let desktopTab: HTMLElement;
+    let tabletTab: HTMLElement;
+    let mobileTab: HTMLElement;
+
+    beforeEach(() => {
+        render(<ProjectDetailGalleryTabs gallery={{
+            desktop: ['1'],
+            tablet: ['2'],
+            mobile: ['3']
+        }} />);
+
+        tabs = screen.getAllByRole('tab');
+        desktopTab = tabs[0];
+        tabletTab = tabs[1];
+        mobileTab = tabs[2];
+    });
+
+    test('Click tablet tab to be active', () => {
+        // Arrange @ global
+
+        // Act
+        fireEvent.click(tabletTab);
+
+        // Assert
+        expect(desktopTab.classList.contains('is-active')).toBeFalsy();
+        expect(tabletTab.classList.contains('is-active')).toBeTruthy();
+        expect(mobileTab.classList.contains('is-active')).toBeFalsy();
     });
 });
 

@@ -3,7 +3,7 @@
 describe('Clicking the tabs', () => {
     beforeEach(() => {
         // Go to the portfolio page
-        cy.visit('localhost:3000/projects/portfolio')
+        cy.visit('localhost:3000/project/portfolio')
     });
 
     it('Check if the desktop tab is active', () => {

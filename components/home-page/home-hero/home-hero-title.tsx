@@ -11,7 +11,7 @@ const HomeHeroTitle = () => {
         <React.Fragment>
             <h1 className="title is-1 is-spaced">Jeremy Trpka</h1>
             
-            <h3 className="subtitle is-3">"I type stuff and magic happens."</h3>
+            <h3 className="subtitle is-3">&quot;I type stuff and magic happens.&quot;</h3>
         </React.Fragment>
     );
 };

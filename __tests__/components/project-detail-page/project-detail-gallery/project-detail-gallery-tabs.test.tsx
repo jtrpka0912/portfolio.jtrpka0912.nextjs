@@ -1,5 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
+import { GalleryTabs } from '../../../../models/enums/GalleryTabs';
+
 import ProjectDetailGalleryTabs from '../../../../components/project-detail-page/project-detail-gallery/project-detail-gallery-tabs';
 
 describe('Render component', () => {
@@ -7,7 +9,7 @@ describe('Render component', () => {
         // Arrange
         render(<ProjectDetailGalleryTabs gallery={{
             desktop: ['1']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const renderedElement = screen.getByRole('tablist');
 
@@ -23,7 +25,7 @@ describe('Render the tabs', () => {
             desktop: ['1'],
             tablet: ['1'],
             mobile: ['1']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
 
@@ -35,7 +37,7 @@ describe('Render the tabs', () => {
         // Arrange
         render(<ProjectDetailGalleryTabs gallery={{
             desktop: ['1'],
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const desktopTab = tabs[0];
@@ -49,7 +51,7 @@ describe('Render the tabs', () => {
         // Arrange
         render(<ProjectDetailGalleryTabs gallery={{
             tablet: ['1'],
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const tabletTab = tabs[0];
@@ -63,7 +65,7 @@ describe('Render the tabs', () => {
         // Arrange
         render(<ProjectDetailGalleryTabs gallery={{
             mobile: ['1'],
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const mobileTab = tabs[0];
@@ -78,7 +80,7 @@ describe('Render the tabs', () => {
         render(<ProjectDetailGalleryTabs gallery={{
             desktop: ['1'],
             tablet: ['1']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const desktopTab = tabs[0];
@@ -95,7 +97,7 @@ describe('Render the tabs', () => {
         render(<ProjectDetailGalleryTabs gallery={{
             desktop: ['1'],
             mobile: ['1']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const desktopTab = tabs[0];
@@ -112,7 +114,7 @@ describe('Render the tabs', () => {
         render(<ProjectDetailGalleryTabs gallery={{
             tablet: ['1'],
             mobile: ['1']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         const tabs = screen.getAllByRole('tab');
         const tabletTab = tabs[0];
@@ -136,7 +138,7 @@ describe('Clicking the tabs', () => {
             desktop: ['1'],
             tablet: ['2'],
             mobile: ['3']
-        }} />);
+        }} active={ GalleryTabs.Desktop } />);
 
         tabs = screen.getAllByRole('tab');
         desktopTab = tabs[0];
@@ -145,7 +147,7 @@ describe('Clicking the tabs', () => {
     });
 
     test('Click tablet tab to be active', () => {
-        // Arrange @ global
+        // Arrange @ global and beforeEach
 
         // Act
         fireEvent.click(tabletTab);

@@ -3,14 +3,21 @@ import { faDesktop, faTabletAlt, faMobileAlt } from '@fortawesome/free-solid-svg
 
 import { ProjectGallery } from "../../../models/project";
 
+import { GalleryTabs } from '../../../models/enums/GalleryTabs';
+
 /**
  * @interface ProjectDetailGalleryTabsProps
  * @summary Props for the project detail gallery tab component
  * @author J. Trpka
+ * @todo Make handleActive required once I figure out how to work with it in unit testing.
  * @property { ProjectGallery } gallery
+ * @property { GalleryTabs } active
+ * @property { function } handleActive
  */
 interface ProjectDetailGalleryTabsProps {
     gallery: ProjectGallery
+    active: GalleryTabs
+    handleActive: (activeTab: GalleryTabs) => void
 }
 
 /**
@@ -23,13 +30,18 @@ interface ProjectDetailGalleryTabsProps {
  * @returns { JSX }
  */
 const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
-    const { gallery } = props;
+    const { gallery, active, handleActive } = props;
 
     return (
         <div className="gallery__tabs tabs is-centered is-boxed" role="tablist" aria-label="Project Gallery by Screen Sizes">
             <ul>
                 { gallery.desktop && gallery.desktop.length > 0 && (
-                    <li role="tab" aria-controls="desktop-panel">
+                    <li role="tab" 
+                        className={ active === GalleryTabs.Desktop ? 'is-active' : undefined } 
+                        aria-selected={ active === GalleryTabs.Desktop ? 'true' : 'false' }
+                        aria-controls="desktop-panel"
+                        onClick={ () => handleActive(GalleryTabs.Desktop) }
+                    >
                         <a>
                             <FontAwesomeIcon className="mr-2" icon={ faDesktop } /> Desktop
                         </a>
@@ -37,7 +49,11 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 ) }
 
                 { gallery.tablet && gallery.tablet.length > 0 && (
-                    <li role="tab" aria-controls="tablet-panel">
+                    <li role="tab"
+                        className={ active === GalleryTabs.Tablet ? 'is-active' : undefined } 
+                        aria-selected={ active === GalleryTabs.Tablet ? 'true' : 'false' } aria-controls="tablet-panel"
+                        onClick={ () => handleActive(GalleryTabs.Tablet) }
+                    >
                         <a>
                             <FontAwesomeIcon className="mr-2" icon={ faTabletAlt } /> Tablet
                         </a>
@@ -45,7 +61,11 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 ) }
 
                 { gallery.mobile && gallery.mobile.length > 0 && (
-                    <li role="tab" aria-controls="mobile-panel">
+                    <li role="tab"
+                        className={ active === GalleryTabs.Mobile ? 'is-active' : undefined } 
+                        aria-selected={ active === GalleryTabs.Mobile ? 'true' : 'false' } aria-controls="mobile-panel"
+                        onClick={ () => handleActive(GalleryTabs.Mobile) }
+                    >
                         <a>
                             <FontAwesomeIcon className="mr-2" icon={ faMobileAlt } /> Mobile
                         </a>

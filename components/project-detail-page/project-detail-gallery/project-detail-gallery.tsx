@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import { GalleryTabs } from '../../../models/enums/GalleryTabs';
 import { ProjectGallery } from "../../../models/project";
 
 import ProjectDetailGalleryEmpty from './project-detail-gallery-empty';
@@ -22,6 +25,8 @@ interface ProjectDetailGalleryProps {
  * @returns { JSX }
  */
 const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
+    const [ active, setActive ] = useState<GalleryTabs>(GalleryTabs.Desktop);
+
     const { gallery } = props;
 
     /**
@@ -49,13 +54,29 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
         return true;
     };
 
+    /**
+     * @function handleActive
+     * @summary Change the active value
+     * @description Change the active view when a tab is clicked.
+     * @author J. Trpka 
+     * @param { GalleryTabs } activeTab 
+     * @returns { void }
+     */
+    const handleActive = (activeTab: GalleryTabs): void => {
+        setActive(activeTab);
+    }
+
     return (
         <section className="section">
             <div className="gallery container">
                 { /** Might be overkill to add the gallery check with the function, but the components need to be sure that gallery is not undefined. */
                 gallery && isGalleryAvailable() 
                     ? (
-                        <ProjectDetailGalleryTabs gallery={ gallery } />
+                        <ProjectDetailGalleryTabs 
+                            gallery={ gallery } 
+                            active={ active } 
+                            handleActive={ handleActive } 
+                        />
                     )
                     : <ProjectDetailGalleryEmpty />
                 }

@@ -13,7 +13,7 @@ describe('The Tabs', () => {
 
         // Assert
         tabs.should('have.length', expectedTabCount);
-    })
+    });
 })
 
 describe('Desktop Tab', () => {
@@ -24,12 +24,10 @@ describe('Desktop Tab', () => {
 
     it('Check if the desktop tab is active', () => {
         // Arrange
-        const tabs = cy.get('.gallery li');
+        const desktopTab = cy.get('.gallery li').eq(0);
         
-        // Arrange
-        tabs.first().should('have.class', 'is-active');
-        
-        
+        // Assert
+        desktopTab.should('have.class', 'is-active');
     });
 
     it.skip('Get the right count of items in the desktop gallery', () => {
@@ -45,13 +43,31 @@ describe('Tablet Tab', () => {
 
     it('Click the tablet tab to make it active', () => {
         // Arrange
-        const tabs = cy.get('.gallery li');
+        const tabletTab = cy.get('.gallery li').eq(1);
 
         // Action
-        tabs.eq(1).click();
+        tabletTab.click();
 
         // Assert
-        tabs.eq(1).should('have.class', 'is-active');
+        tabletTab.should('have.class', 'is-active');
+    });
+});
+
+describe('Mobile Tab', () => {
+    beforeEach(() => {
+        // Go to the portfolio page
+        cy.visit('localhost:3000/project/portfolio');
+    });
+
+    it('Click the tablet tab to make it active', () => {
+        // Arrange
+        const mobileTab = cy.get('.gallery li').eq(2);
+
+        // Action
+        mobileTab.click();
+
+        // Assert
+        mobileTab.should('have.class', 'is-active');
     });
 });
 

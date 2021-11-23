@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('The Tabs', () => {
     beforeEach(() => {
         // Go to the portfolio page

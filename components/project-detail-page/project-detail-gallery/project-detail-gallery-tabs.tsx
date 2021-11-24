@@ -38,6 +38,7 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 { gallery.desktop && gallery.desktop.length > 0 && (
                     <li role="tab" 
                         className={ active === GalleryTabs.Desktop ? 'is-active' : undefined } 
+                        id="desktop-tab"
                         aria-selected={ active === GalleryTabs.Desktop ? 'true' : 'false' }
                         aria-controls="desktop-panel"
                         onClick={ () => handleActive(GalleryTabs.Desktop) }
@@ -51,6 +52,7 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 { gallery.tablet && gallery.tablet.length > 0 && (
                     <li role="tab"
                         className={ active === GalleryTabs.Tablet ? 'is-active' : undefined } 
+                        id="tablet-tab"
                         aria-selected={ active === GalleryTabs.Tablet ? 'true' : 'false' } aria-controls="tablet-panel"
                         onClick={ () => handleActive(GalleryTabs.Tablet) }
                     >
@@ -63,6 +65,7 @@ const ProjectDetailGalleryTabs = (props: ProjectDetailGalleryTabsProps) => {
                 { gallery.mobile && gallery.mobile.length > 0 && (
                     <li role="tab"
                         className={ active === GalleryTabs.Mobile ? 'is-active' : undefined } 
+                        id="mobile-tab"
                         aria-selected={ active === GalleryTabs.Mobile ? 'true' : 'false' } aria-controls="mobile-panel"
                         onClick={ () => handleActive(GalleryTabs.Mobile) }
                     >

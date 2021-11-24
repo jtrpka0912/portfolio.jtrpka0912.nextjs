@@ -29,7 +29,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
     return (
         <div className="gallery__panel">
             { active === GalleryTabs.Desktop && (
-                <div role="tabpanel">
+                <div role="tabpanel" id="desktop-panel" aria-labelledby="desktop-tab">
                     { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => (
                         <Thumbnail 
                             key={ index }
@@ -42,7 +42,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             )}
 
             { active === GalleryTabs.Tablet && (
-                <div role="tabpanel">
+                <div role="tabpanel" id="tablet-panel" aria-labelledby="tablet-tab">
                     { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => (
                         <Thumbnail 
                             key={ index }
@@ -56,7 +56,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             )}
 
             { active === GalleryTabs.Mobile && (
-                <div role="tabpanel">
+                <div role="tabpanel" id="mobile-panel" aria-labelledby="mobile-tab">
                     { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => (
                         <Thumbnail 
                             key={ index }

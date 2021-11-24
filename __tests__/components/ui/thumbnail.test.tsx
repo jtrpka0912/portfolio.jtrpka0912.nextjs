@@ -15,9 +15,13 @@ describe('Render the component', () => {
         />);
 
         const thumbnailElement = screen.getByRole('link');
+        const imageElement = screen.getByAltText('Test Image');
+        const titleElement = screen.getByText('Test Image');
 
 
         // Assert
         expect(thumbnailElement).toBeInTheDocument();
+        expect(imageElement).toBeInTheDocument();
+        expect(titleElement).toBeInTheDocument();
     });
 });

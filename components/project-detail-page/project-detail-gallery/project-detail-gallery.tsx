@@ -29,6 +29,7 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
     const [ active, setActive ] = useState<GalleryTabs>(GalleryTabs.Desktop);
 
     useEffect(() => {
+        console.log('UseEffect');
         // Set the default tab if desktop or tablet is not available
         if(gallery) {
             if(!gallery.desktop || gallery.desktop.length === 0) {
@@ -38,8 +39,8 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
             if(!gallery.tablet || gallery.tablet.length === 0) {
                 setActive(GalleryTabs.Mobile);
             }
-        }        
-    });
+        }     
+    }, []);
 
     const { gallery } = props;
 

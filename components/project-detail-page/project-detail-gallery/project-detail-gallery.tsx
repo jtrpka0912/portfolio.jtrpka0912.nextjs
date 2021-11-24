@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { GalleryTabs } from '../../../models/enums/GalleryTabs';
 import { ProjectGallery } from "../../../models/project";
@@ -26,6 +26,21 @@ interface ProjectDetailGalleryProps {
  */
 const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
     const [ active, setActive ] = useState<GalleryTabs>(GalleryTabs.Desktop);
+
+    useEffect(() => {
+        // Set the default tab if desktop or tablet is not available
+        if(gallery) {
+            if(!gallery.desktop || gallery.desktop.length === 0) {
+                setActive(GalleryTabs.Tablet);
+                return;
+            }
+
+            if(!gallery.tablet || gallery.tablet.length === 0) {
+                setActive(GalleryTabs.Mobile);
+                return;
+            }
+        }        
+    });
 
     const { gallery } = props;
 

@@ -30,7 +30,7 @@ gallery:
     - 'https://via.placeholder.com/411x731'
 end: frontend
 resume: false
-development: false
+inDevelopment: false
 featured: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue eget arcu dictum varius. Nulla pellentesque dignissim enim sit amet venenatis. Velit dignissim sodales ut eu sem integer. Odio euismod lacinia at quis risus. Nisl nunc mi ipsum faucibus vitae aliquet. Lectus quam id leo in vitae turpis massa. Volutpat odio facilisis mauris sit amet massa vitae. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Ornare quam viverra orci sagittis eu volutpat odio.

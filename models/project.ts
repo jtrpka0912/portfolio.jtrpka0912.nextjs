@@ -14,7 +14,7 @@ import { Post } from './post';
  * @property { ProjectGallery } gallery A list of images based on screen sizes
  * @property { ProjectEnd } end Is the project front-end, back-end, or fullstack
  * @property { boolean } resume If the project relates to a job experience.
- * @property { boolean } development If the project is still in development
+ * @property { boolean } inDevelopment If the project is still in development
  * @property { boolean } featured List this project on the featured list
  */
 export interface Project extends Post {
@@ -27,7 +27,7 @@ export interface Project extends Post {
     gallery?: ProjectGallery,
     end: ProjectEnd
     resume: boolean,
-    development: boolean,
+    inDevelopment: boolean,
     featured: boolean,
 }
 

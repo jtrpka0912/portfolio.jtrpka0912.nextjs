@@ -32,12 +32,10 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
         if(gallery) {
             if(!gallery.desktop || gallery.desktop.length === 0) {
                 setActive(GalleryTabs.Tablet);
-                return;
             }
 
             if(!gallery.tablet || gallery.tablet.length === 0) {
                 setActive(GalleryTabs.Mobile);
-                return;
             }
         }        
     });

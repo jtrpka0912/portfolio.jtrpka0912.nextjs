@@ -74,14 +74,28 @@ interface ProjectDate {
  * @interface ProjectGallery
  * @description A gallery of images with different screen sizes
  * @author J. Trpka
- * @property { string[] } desktop 1980x1080 (1080p)
- * @property { string[] } tablet 768x1024 (iPad)
- * @property { string[] } mobile 411x731 (Pixel 2)
+ * @property { ProjectGalleryItem[] } desktop 1980x1080 (1080p)
+ * @property { ProjectGalleryItem[] } tablet 768x1024 (iPad)
+ * @property { ProjectGalleryItem[] } mobile 411x731 (Pixel 2)
  */
 export interface ProjectGallery {
-    desktop?: string[],
-    tablet?: string[],
-    mobile?: string[]
+    desktop?: ProjectGalleryItem[],
+    tablet?: ProjectGalleryItem[],
+    mobile?: ProjectGalleryItem[]
+}
+
+/**
+ * @interface ProjectGalleryItem
+ * @description A detail description of a project image
+ * @author J. Trpka
+ * @property { string } image Path of the image
+ * @property { string } altText
+ * @property { string } description
+ */
+export interface ProjectGalleryItem {
+    image: string,
+    altText: string
+    description?: string
 }
 
 /**

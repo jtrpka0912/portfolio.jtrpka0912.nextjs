@@ -1,5 +1,7 @@
-import { ProjectGallery } from "../../../models/project";
+import { ProjectGallery, ProjectGalleryItem } from "../../../models/project";
 import { GalleryTabs } from "../../../models/enums/GalleryTabs";
+
+import Thumbnail from "../../ui/thumbnail";
 
 /**
  * @interface ProjectDetailGalleryPanelProps
@@ -28,16 +30,41 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
         <div className="gallery__panel">
             { active === GalleryTabs.Desktop && (
                 <div role="tabpanel">
+                    { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => (
+                        <Thumbnail 
+                            key={ index }
+                            image={ galleryItem.image } 
+                            altText={ galleryItem.altText } 
+                            onClick={ () => console.info(galleryItem) }
+                        />
+                    )) }
                 </div>
             )}
 
             { active === GalleryTabs.Tablet && (
                 <div role="tabpanel">
+                    { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => (
+                        <Thumbnail 
+                            key={ index }
+                            image={ galleryItem.image } 
+                            altText={ galleryItem.altText }
+                            title="Sample Title" 
+                            onClick={ () => console.info(galleryItem) }
+                        />
+                    )) }
                 </div>
             )}
 
             { active === GalleryTabs.Mobile && (
                 <div role="tabpanel">
+                    { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => (
+                        <Thumbnail 
+                            key={ index }
+                            image={ galleryItem.image } 
+                            altText={ galleryItem.altText } 
+                            onClick={ () => console.info(galleryItem) }
+                        />
+                    )) }
                 </div>
             )}
         </div>

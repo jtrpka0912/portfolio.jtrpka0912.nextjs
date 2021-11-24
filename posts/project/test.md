@@ -21,10 +21,13 @@ thumbnail: 'https://via.placeholder.com/256x256'
 gallery:
   # Purposely leave out the desktop to test default tab coding.
   tablet:
-    - 'https://via.placeholder.com/768x1024'
+    - image: 'https://via.placeholder.com/768x1024'
+      altText: 'Sample image'
   mobile:
-    - 'https://via.placeholder.com/411x731'
-    - 'https://via.placeholder.com/411x731'
+    - image: 'https://via.placeholder.com/411x731'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/411x731'
+      altText: 'Sample image'
 end: frontend
 resume: false
 inDevelopment: false

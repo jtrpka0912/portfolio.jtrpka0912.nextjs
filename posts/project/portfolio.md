@@ -20,17 +20,26 @@ date:
 thumbnail: 'https://via.placeholder.com/256x256'
 gallery:
   desktop: 
-    - 'https://via.placeholder.com/1980x1080'
-    - 'https://via.placeholder.com/1980x1080'
-    - 'https://via.placeholder.com/1980x1080'
+    - image: 'https://via.placeholder.com/1980x1080'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/1980x1080'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/1980x1080'
+      altText: 'Sample image'
   tablet:
-    - 'https://via.placeholder.com/768x1024'
-    - 'https://via.placeholder.com/768x1024'
-    - 'https://via.placeholder.com/768x1024'
+    - image: 'https://via.placeholder.com/768x1024'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/768x1024'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/768x1024'
+      altText: 'Sample image'
   mobile:
-    - 'https://via.placeholder.com/411x731'
-    - 'https://via.placeholder.com/411x731'
-    - 'https://via.placeholder.com/411x731'
+    - image: 'https://via.placeholder.com/411x731'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/411x731'
+      altText: 'Sample image'
+    - image: 'https://via.placeholder.com/411x731'
+      altText: 'Sample image'
 end: fullstack
 resume: false
 inDevelopment: true

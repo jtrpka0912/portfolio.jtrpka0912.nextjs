@@ -24,4 +24,18 @@ describe('Render the component', () => {
         expect(imageElement).toBeInTheDocument();
         expect(titleElement).toBeInTheDocument();
     });
+
+    it('Render without title', () => {
+        // Arrange
+        render(<Thumbnail 
+            image="1"
+            altText="Alt 1"
+            onClick={ mockFunction }
+        />);
+
+        const thumbnailElement = screen.getByRole('link');
+
+        expect(thumbnailElement).toBeInTheDocument();
+        expect(thumbnailElement.querySelector('.card-header')).toBeNull();
+    })
 });

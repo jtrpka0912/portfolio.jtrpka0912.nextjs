@@ -7,7 +7,6 @@ describe('Without gallery', () => {
         // Arrange
         render(<ProjectDetailGallery />);
 
-        // Act
         const emptyComponent = screen.getByText('There are no images in the gallery.');
 
         // Assert
@@ -19,12 +18,20 @@ describe('With gallery', () => {
     test('All size galleries', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            desktop: ['1', '2', '3'],
-            tablet: ['1'],
-            mobile: ['1', '2']
+            desktop: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ],
+            tablet: [
+                { image: '1', altText: 'Alt 1' }
+            ],
+            mobile: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -34,10 +41,13 @@ describe('With gallery', () => {
     test('Just desktop', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            desktop: ['1', '2', '3']
+            desktop: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -47,10 +57,13 @@ describe('With gallery', () => {
     test('Just tablet', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            tablet: ['1', '2', '3']
+            tablet: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -60,10 +73,13 @@ describe('With gallery', () => {
     test('Just mobile', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            mobile: ['1', '2', '3']
+            mobile: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -73,11 +89,17 @@ describe('With gallery', () => {
     test('Desktop and tablet', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            desktop: ['1', '2', '3'],
-            tablet: ['1', '2']
+            desktop: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ],
+            tablet: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -87,11 +109,17 @@ describe('With gallery', () => {
     test('Desktop and mobile', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            desktop: ['1', '2', '3'],
-            mobile: ['1', '2']
+            desktop: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+            ],
+            mobile: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert
@@ -101,11 +129,17 @@ describe('With gallery', () => {
     test('Tablet and mobile', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
-            tablet: ['1', '2', '3'],
-            mobile: ['1', '2']
+            tablet: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' },
+                { image: '3', altText: 'Alt 3' }
+        ],
+            mobile: [
+                { image: '1', altText: 'Alt 1' },
+                { image: '2', altText: 'Alt 2' }
+            ]
         }} />);
 
-        // Act
         const renderedElement = screen.getByRole('tablist');
 
         // Assert

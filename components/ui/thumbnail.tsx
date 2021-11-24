@@ -10,7 +10,7 @@
 interface ThumbnailProps {
     image: string,
     altText: string,
-    title: string,
+    title?: string,
     onClick: () => void
 }
 
@@ -33,9 +33,13 @@ const Thumbnail = (props: ThumbnailProps) => {
                 </figure>
             </div>
 
-            <div className="card-header">
-                <h3 className="title is-3">{ title }</h3>
-            </div>
+            { title && (
+                <div className="card-header">
+                    <div className="card-header-title is-centered">
+                        <h5 className="title is-5">{ title }</h5>
+                    </div>
+                </div>
+            ) }
         </div>
     );
 };

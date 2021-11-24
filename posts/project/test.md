@@ -19,10 +19,7 @@ date:
   started: '2021-11-24'
 thumbnail: 'https://via.placeholder.com/256x256'
 gallery:
-  desktop: 
-    - 'https://via.placeholder.com/1980x1080'
-    - 'https://via.placeholder.com/1980x1080'
-    - 'https://via.placeholder.com/1980x1080'
+  # Purposely leave out the desktop to test default tab coding.
   tablet:
     - 'https://via.placeholder.com/768x1024'
   mobile:

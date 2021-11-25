@@ -2,6 +2,7 @@ import '../styles/index.scss';
 import type { AppProps } from 'next/app'
 
 import Layout from '../components/layout/layout';
+import Modal from '../components/ui/modal';
 
 /**
  * @function MyApp

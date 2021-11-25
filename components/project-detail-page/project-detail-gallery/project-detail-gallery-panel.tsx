@@ -26,45 +26,51 @@ interface ProjectDetailGalleryPanelProps {
 const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
     const { gallery, active } = props;
 
+    /**
+     * @function renderThumbnailColumn
+     * @summary Render the thumbnail inside a Bulma column
+     * @description Render the thumbnail image, inside of a Bulma column, for the three panels.
+     * @author J. Trpka
+     * @todo Since I can not use JSX for the return type, figure out what should be returned instead of any.
+     * @param { ProjectGalleryItem } galleryItem 
+     * @param { number } index Only used for the key
+     * @returns { any }
+     */
+    const renderThumbnailColumn = (galleryItem: ProjectGalleryItem, index: number) => {
+        return (
+            <div key={ index } className="column is-half-tablet is-one-quarter-desktop">
+                <Thumbnail 
+                    image={ galleryItem.image } 
+                    altText={ galleryItem.altText } 
+                    onClick={ () => console.info(galleryItem) }
+                />
+            </div>
+        )
+    } 
+
     return (
         <div className="gallery__panel">
             { active === GalleryTabs.Desktop && (
                 <div role="tabpanel" id="desktop-panel" aria-labelledby="desktop-tab">
-                    { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => (
-                        <Thumbnail 
-                            key={ index }
-                            image={ galleryItem.image } 
-                            altText={ galleryItem.altText } 
-                            onClick={ () => console.info(galleryItem) }
-                        />
-                    )) }
+                    <div className="columns is-multiline">
+                        { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                    </div>
                 </div>
             )}
 
             { active === GalleryTabs.Tablet && (
                 <div role="tabpanel" id="tablet-panel" aria-labelledby="tablet-tab">
-                    { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => (
-                        <Thumbnail 
-                            key={ index }
-                            image={ galleryItem.image } 
-                            altText={ galleryItem.altText }
-                            title="Sample Title" 
-                            onClick={ () => console.info(galleryItem) }
-                        />
-                    )) }
+                    <div className="columns is-multiline">
+                        { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                    </div>
                 </div>
             )}
 
             { active === GalleryTabs.Mobile && (
                 <div role="tabpanel" id="mobile-panel" aria-labelledby="mobile-tab">
-                    { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => (
-                        <Thumbnail 
-                            key={ index }
-                            image={ galleryItem.image } 
-                            altText={ galleryItem.altText } 
-                            onClick={ () => console.info(galleryItem) }
-                        />
-                    )) }
+                    <div className="columns is-multiline">
+                        { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                    </div>
                 </div>
             )}
         </div>

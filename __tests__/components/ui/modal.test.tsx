@@ -24,4 +24,6 @@ describe('Render the modal', () => {
         expect(modalElement).toBeVisible();
         expect(modalElement).toBeInTheDocument();
     });
+
+    // TODO: Perform a test to make the modal disappear after clicking the close button
 });

@@ -1,4 +1,4 @@
-describe('The Tabs', () => {
+describe('The gallery tabs', () => {
     beforeEach(() => {
         // Go to the test project page
         cy.visit('localhost:3000/project/test');
@@ -6,11 +6,11 @@ describe('The Tabs', () => {
 
     it('Count the number of tabs', () => {
         // Arrange
-        const expectedTabCount = 2;
+        const expectedAmount = 2;
 
         // Assert
         cy.get('.gallery li')
-            .should('have.length', expectedTabCount);
+            .should('have.length', expectedAmount);
     });
 });
 
@@ -20,7 +20,12 @@ describe('Count the gallery items', () => {
         cy.visit('localhost:3000/project/test');
     });
 
-    // NOTE: There are no desktop gallery items for the test project, so the tab will not show.
+    it('Fail to find the desktop tab', () => {
+        // Assert
+        cy.get('.gallery li')
+            .contains('Desktop')
+            .should('not.exist');
+    });
 
     it('Count the number of tablet gallery items', () => {
         // Arrange
@@ -28,7 +33,29 @@ describe('Count the gallery items', () => {
 
         // Assert
         cy.get('.gallery li')
+            .contains('Tablet')
+            .parent()
             .should('have.class', 'is-active');
+
+        cy.get('.gallery__panel .thumbnail')
+            .should('have.length', expectedAmount);
+    });
+
+    it('Switch and count the mobile gallery items', () => {
+        // Arrange
+        const expectedAmount = 2;
+
+        // Action
+        cy.get('.gallery li')
+            .contains('Mobile')
+            .click();
+
+        // Assert
+        cy.get('.gallery li')
+            .contains('Mobile')
+            .parent()
+            .should('have.class', 'is-active');
+
         cy.get('.gallery__panel .thumbnail')
             .should('have.length', expectedAmount);
     });

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import Modal from "../../../components/ui/modal";
 
@@ -25,5 +25,35 @@ describe('Render the modal', () => {
         expect(modalElement).toBeInTheDocument();
     });
 
-    // TODO: Perform a test to make the modal disappear after clicking the close button
+    it.skip('Close the modal when clicking the background', () => {
+        // Arrange
+        render(<Modal isActive={ true }>Hello World</Modal>);
+
+        const modalElement = screen.getByRole('dialog');
+        const modalBackgroundElement = modalElement.querySelector('.modal-background');
+
+        // Act
+        if(modalBackgroundElement) {
+            fireEvent.click(modalBackgroundElement)
+        }
+        
+        // Arrange
+        // ERROR: This is believing that the component is visible even with the modal class telling it to be display none.
+        expect(modalElement).not.toBeVisible();
+    });
+
+    it.skip('Close the modal when clicking the close button', () => {
+        // Arrange
+        render(<Modal isActive={ true }>Hello World</Modal>);
+
+        const modalElement = screen.getByRole('dialog');
+        const modalCloseButtonElement = screen.getByRole('button');
+
+        // Act
+        fireEvent.click(modalCloseButtonElement);
+        
+        // Arrange
+        // ERROR: This is believing that the component is visible even with the modal class telling it to be display none.
+        expect(modalElement).not.toBeVisible();
+    });
 });

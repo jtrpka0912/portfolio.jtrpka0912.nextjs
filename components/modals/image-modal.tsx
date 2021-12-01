@@ -7,7 +7,7 @@ import Modal from "../ui/modal";
  * @property { string } image
  * @property { string } altText
  */
-interface ImageModalProps {
+export interface ImageModalProps {
     image: string,
     altText: string
 }

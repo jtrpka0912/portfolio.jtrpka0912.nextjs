@@ -54,7 +54,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
      */
     const renderThumbnailColumn = (galleryItem: ProjectGalleryItem, index: number): React.ReactNode => {
         return (
-            <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+            <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-clickable">
                 <Thumbnail 
                     image={ galleryItem.image } 
                     altText={ galleryItem.altText } 

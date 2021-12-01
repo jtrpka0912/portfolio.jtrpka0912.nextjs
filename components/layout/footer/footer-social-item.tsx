@@ -23,7 +23,7 @@ const FooterSocialItem = (props: FooterSocialItemProps) => {
 
     return (
         <li className="footer-social-item" title={ item.title }>
-            <a href={ item.url } target="_blank">
+            <a href={ item.url } target="_blank" rel="noreferrer">
                 <FontAwesomeIcon size="2x" icon={ item.icon } />
             </a>
         </li>

@@ -1,36 +1,26 @@
 ---
-slug: portfolio
-title: Portfolio 
+slug: test
+title: Test Project for Testing Purposes
 technology:
-  - reactjs
+  - react
   - nextjs
   - typescript
-  - sass
-  - markdown
-  - bulma
-  - fontawesome
+  - reacttestinglibrary
+  - jest
+  - cypress
+  - chai
 package:
   npm:
-    - gray-matter
-    - markdown
+    - ts-jest
+    - eslint
 repo:
   github: 'https://github.com/jtrpka0912/portfolio.jtrpka0912.nextjs'
 date:
-  started: '2021-11-16'
+  started: '2021-11-24'
 thumbnail: 'https://via.placeholder.com/256x256'
 gallery:
-  desktop: 
-    - image: 'https://via.placeholder.com/1980x1080'
-      altText: 'Sample image'
-    - image: 'https://via.placeholder.com/1980x1080'
-      altText: 'Sample image'
-    - image: 'https://via.placeholder.com/1980x1080'
-      altText: 'Sample image'
+  # Purposely leave out the desktop to test default tab coding.
   tablet:
-    - image: 'https://via.placeholder.com/768x1024'
-      altText: 'Sample image'
-    - image: 'https://via.placeholder.com/768x1024'
-      altText: 'Sample image'
     - image: 'https://via.placeholder.com/768x1024'
       altText: 'Sample image'
   mobile:
@@ -38,12 +28,10 @@ gallery:
       altText: 'Sample image'
     - image: 'https://via.placeholder.com/411x731'
       altText: 'Sample image'
-    - image: 'https://via.placeholder.com/411x731'
-      altText: 'Sample image'
-end: fullstack
+end: frontend
 resume: false
-inDevelopment: true
-featured: true
+inDevelopment: false
+featured: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue eget arcu dictum varius. Nulla pellentesque dignissim enim sit amet venenatis. Velit dignissim sodales ut eu sem integer. Odio euismod lacinia at quis risus. Nisl nunc mi ipsum faucibus vitae aliquet. Lectus quam id leo in vitae turpis massa. Volutpat odio facilisis mauris sit amet massa vitae. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Ornare quam viverra orci sagittis eu volutpat odio.
 

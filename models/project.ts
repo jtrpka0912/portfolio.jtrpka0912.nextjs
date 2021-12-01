@@ -14,7 +14,7 @@ import { Post } from './post';
  * @property { ProjectGallery } gallery A list of images based on screen sizes
  * @property { ProjectEnd } end Is the project front-end, back-end, or fullstack
  * @property { boolean } resume If the project relates to a job experience.
- * @property { boolean } development If the project is still in development
+ * @property { boolean } inDevelopment If the project is still in development
  * @property { boolean } featured List this project on the featured list
  */
 export interface Project extends Post {
@@ -27,7 +27,7 @@ export interface Project extends Post {
     gallery?: ProjectGallery,
     end: ProjectEnd
     resume: boolean,
-    development: boolean,
+    inDevelopment: boolean,
     featured: boolean,
 }
 
@@ -74,14 +74,28 @@ interface ProjectDate {
  * @interface ProjectGallery
  * @description A gallery of images with different screen sizes
  * @author J. Trpka
- * @property { string[] } desktop 1980x1080 (1080p)
- * @property { string[] } tablet 768x1024 (iPad)
- * @property { string[] } mobile 411x731 (Pixel 2)
+ * @property { ProjectGalleryItem[] } desktop 1980x1080 (1080p)
+ * @property { ProjectGalleryItem[] } tablet 768x1024 (iPad)
+ * @property { ProjectGalleryItem[] } mobile 411x731 (Pixel 2)
  */
-interface ProjectGallery {
-    desktop?: string[],
-    tablet?: string[],
-    mobile?: string[]
+export interface ProjectGallery {
+    desktop?: ProjectGalleryItem[],
+    tablet?: ProjectGalleryItem[],
+    mobile?: ProjectGalleryItem[]
+}
+
+/**
+ * @interface ProjectGalleryItem
+ * @description A detail description of a project image
+ * @author J. Trpka
+ * @property { string } image Path of the image
+ * @property { string } altText
+ * @property { string } description
+ */
+export interface ProjectGalleryItem {
+    image: string,
+    altText: string
+    description?: string
 }
 
 /**

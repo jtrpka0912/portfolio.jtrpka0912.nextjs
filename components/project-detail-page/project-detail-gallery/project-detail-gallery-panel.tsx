@@ -1,7 +1,11 @@
+import { useContext } from "react";
+
 import { ProjectGallery, ProjectGalleryItem } from "../../../models/project";
 import { GalleryTabs } from "../../../models/enums/GalleryTabs";
 
 import Thumbnail from "../../ui/thumbnail";
+
+import { UiContext } from "../../context/ui";
 
 /**
  * @interface ProjectDetailGalleryPanelProps
@@ -24,7 +28,20 @@ interface ProjectDetailGalleryPanelProps {
  * @returns { JSX }
  */
 const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
+    const uiContext = useContext(UiContext);
+
     const { gallery, active } = props;
+
+    /**
+     * @function onClickHandler
+     * @event onClick
+     * @description Click the thumbnail to display the image modal of the gallery item
+     * @author J. Trpka
+     * @param { ProjectGalleryItem } galleryItem This will still work with the ImageModalData type since they both share the same properties.
+     */
+    const onClickHandler = (galleryItem: ProjectGalleryItem): void => {
+        uiContext.setImageModal(galleryItem);
+    }
 
     /**
      * @function renderThumbnailColumn
@@ -42,7 +59,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
                 <Thumbnail 
                     image={ galleryItem.image } 
                     altText={ galleryItem.altText } 
-                    onClick={ () => console.info(galleryItem) }
+                    onClick={ () => onClickHandler(galleryItem) }
                 />
             </div>
         )

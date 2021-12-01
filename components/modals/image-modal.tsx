@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "../ui/modal";
 import { UiContext } from "../context/ui";
 
@@ -10,19 +10,20 @@ import { UiContext } from "../context/ui";
  * @returns { JSX }
  */
 const ImageModal = () => {
-    let isActive: boolean = false;
-
+    const [isActive, setIsActive] = useState<boolean>(false);
     const uiContext = useContext(UiContext);
     
     // Check if the image modal data is not null
     useEffect(() => {
         if(uiContext.imageModalData) {
-            isActive = true;
+            setIsActive(true);
+        } else {
+            setIsActive(false);
         }
     }, [uiContext.imageModalData]);
 
-    const onCloseHandler = ():void => {
-        uiContext.imageModalData = null;
+    const onCloseHandler = (): void => {
+        uiContext.setImageModal(null);
     }
 
     return (

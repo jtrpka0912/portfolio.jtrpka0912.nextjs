@@ -48,14 +48,13 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
      * @summary Render the thumbnail inside a Bulma column
      * @description Render the thumbnail image, inside of a Bulma column, for the three panels.
      * @author J. Trpka
-     * @todo Since I can not use JSX for the return type, figure out what should be returned instead of any.
      * @param { ProjectGalleryItem } galleryItem 
      * @param { number } index Only used for the key
-     * @returns { any }
+     * @returns { JSX }
      */
-    const renderThumbnailColumn = (galleryItem: ProjectGalleryItem, index: number) => {
+    const renderThumbnailColumn = (galleryItem: ProjectGalleryItem, index: number): React.ReactNode => {
         return (
-            <div key={ index } className="column is-half-tablet is-one-quarter-desktop">
+            <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
                 <Thumbnail 
                     image={ galleryItem.image } 
                     altText={ galleryItem.altText } 
@@ -69,7 +68,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
         <div className="gallery__panel">
             { active === GalleryTabs.Desktop && (
                 <div role="tabpanel" id="desktop-panel" aria-labelledby="desktop-tab">
-                    <div className="columns is-multiline">
+                    <div className="columns is-mobile is-multiline">
                         { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>
@@ -77,7 +76,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
 
             { active === GalleryTabs.Tablet && (
                 <div role="tabpanel" id="tablet-panel" aria-labelledby="tablet-tab">
-                    <div className="columns is-multiline">
+                    <div className="columns is-mobile is-multiline">
                         { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>
@@ -85,7 +84,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
 
             { active === GalleryTabs.Mobile && (
                 <div role="tabpanel" id="mobile-panel" aria-labelledby="mobile-tab">
-                    <div className="columns is-multiline">
+                    <div className="columns is-mobile is-multiline">
                         { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>

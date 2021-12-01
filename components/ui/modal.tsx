@@ -5,10 +5,12 @@ import { useState } from "react";
  * @summary Modal component props
  * @author J. Trpka
  * @property { boolean } isActive
+ * @property { func } onClose
  * @property { React.ReactNode } children
  */
 interface ModalProps {
-    isActive?: boolean
+    isActive: boolean
+    onClose: () => void
     children: React.ReactNode
 }
 
@@ -22,23 +24,11 @@ interface ModalProps {
  * @returns { JSX }
  */
 const Modal = (props: ModalProps) => {
-    const [isModalActive, setIsModalActive] = useState<boolean>(props.isActive ? true : false);
-    
-    const { children } = props;
-
-    /**
-     * @function onClose
-     * @summary Close the modal
-     * @description Close the modal with either the background or the close button
-     * @author J. Trpka
-     */
-    const onClose = (): void => {
-        setIsModalActive(!isModalActive);
-    }
+    const { isActive, onClose, children } = props;
 
     return (
         <div role="dialog" 
-            className={ `modal${ isModalActive ? ' is-active' : '' }` }
+            className={ `modal${ isActive ? ' is-active' : '' }` }
         >    
             <div className="modal-background" onClick={ onClose }></div>
             { children }

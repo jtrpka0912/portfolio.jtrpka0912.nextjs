@@ -1,4 +1,6 @@
+import { useContext, useEffect } from "react";
 import Modal from "../ui/modal";
+import { UiContext } from "../context/ui";
 
 /**
  * @function ImageModal
@@ -8,13 +10,28 @@ import Modal from "../ui/modal";
  * @returns { JSX }
  */
 const ImageModal = () => {
-    const image: string = '';
-    const altText: string = '';
+    let isActive: boolean = false;
+
+    const uiContext = useContext(UiContext);
     
+    // Check if the image modal data is not null
+    useEffect(() => {
+        if(uiContext.imageModalData) {
+            isActive = true;
+        }
+    }, [uiContext.imageModalData]);
+
+    const onCloseHandler = ():void => {
+        uiContext.imageModalData = null;
+    }
+
     return (
-        <Modal>
+        <Modal isActive={ isActive } onClose={ onCloseHandler }>
             <div className="modal-content">
-                <img src={ image } alt={ altText } />
+                <img 
+                    src={ uiContext.imageModalData?.image } 
+                    alt={ uiContext.imageModalData?.altText } 
+                />
             </div>
         </Modal>
     );

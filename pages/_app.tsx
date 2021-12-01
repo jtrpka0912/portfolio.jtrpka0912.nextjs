@@ -2,6 +2,8 @@ import '../styles/index.scss';
 import type { AppProps } from 'next/app'
 
 import Layout from '../components/layout/layout';
+import UiContextProvider from '../components/context/ui';
+import ImageModal from '../components/modals/image-modal';
 
 /**
  * @function MyApp
@@ -12,10 +14,13 @@ import Layout from '../components/layout/layout';
  */
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  )
+    <UiContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <ImageModal />
+    </UiContextProvider>
+  );
 }
 
 export default MyApp

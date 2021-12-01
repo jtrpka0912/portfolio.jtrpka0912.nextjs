@@ -3,15 +3,14 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Modal from "../../../components/ui/modal";
 
 describe('Render the modal', () => {
-    it.skip('Should not be rendered', () => {
+    it('Should not be rendered', () => {
         // Arrange
         render(<Modal>Hello World</Modal>);
 
         const modalElement = screen.getByRole('dialog');
 
         // Assert
-        // ERROR: This is believing that the component is visible even with the modal class telling it to be display none.
-        expect(modalElement).not.toBeVisible();
+        expect(modalElement).not.toHaveClass('is-active');
     });
 
     it('Should be rendered with active status', () => {
@@ -23,9 +22,10 @@ describe('Render the modal', () => {
         // Assert
         expect(modalElement).toBeVisible();
         expect(modalElement).toBeInTheDocument();
+        expect(modalElement).toHaveClass('is-active');
     });
 
-    it.skip('Close the modal when clicking the background', () => {
+    it('Close the modal when clicking the background', () => {
         // Arrange
         render(<Modal isActive={ true }>Hello World</Modal>);
 
@@ -38,11 +38,10 @@ describe('Render the modal', () => {
         }
         
         // Arrange
-        // ERROR: This is believing that the component is visible even with the modal class telling it to be display none.
-        expect(modalElement).not.toBeVisible();
+        expect(modalElement).not.toHaveClass('is-active');
     });
 
-    it.skip('Close the modal when clicking the close button', () => {
+    it('Close the modal when clicking the close button', () => {
         // Arrange
         render(<Modal isActive={ true }>Hello World</Modal>);
 
@@ -53,7 +52,6 @@ describe('Render the modal', () => {
         fireEvent.click(modalCloseButtonElement);
         
         // Arrange
-        // ERROR: This is believing that the component is visible even with the modal class telling it to be display none.
-        expect(modalElement).not.toBeVisible();
+        expect(modalElement).not.toHaveClass('is-active');
     });
 });

@@ -33,7 +33,7 @@ const ImageModal = () => {
             ariaDescription="A modal to show a larger size of an image."
             onClose={ onCloseHandler }
         >
-            <div className="modal-content">
+            <div className="modal-content has-text-centered">
                 <img 
                     src={ uiContext.imageModalData?.image } 
                     alt={ uiContext.imageModalData?.altText } 

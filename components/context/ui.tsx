@@ -1,16 +1,27 @@
 // https://wanago.io/2020/09/28/react-context-api-hooks-typescript/
 
 import { createContext } from "react";
-import { ImageModalProps } from "../modals/image-modal";
+
+/**
+ * @interface ImageModalData
+ * @summary Image modal data
+ * @author J. Trpka
+ * @property { string } image
+ * @property { string } altText
+ */
+interface ImageModalData {
+    image: string,
+    altText: string
+}
 
 /**
  * @interface UiContextData
  * @summary UI context data interface
  * @author J. Trpka
- * @property { ImageModalProps | null } imageModalData If null then this should turn off the image modal
+ * @property { ImageModalData | null } imageModalData If null then this should turn off the image modal
  */
 interface UiContextData {
-    imageModalData: ImageModalProps | null
+    imageModalData: ImageModalData | null
 }
 
 /**
@@ -18,7 +29,7 @@ interface UiContextData {
  * @summary UI context default values
  * @description The default values for the UI context
  * @author J. Trpka
- * @property { ImageModalProps | null } imageModalData
+ * @property { ImageModalData | null } imageModalData
  */
 const defaultValues: UiContextData = {
     imageModalData: null

@@ -1,26 +1,15 @@
 import Modal from "../ui/modal";
 
 /**
- * @interface ImageModalProps
- * @summary Image modal props
- * @author J. Trpka
- * @property { string } image
- * @property { string } altText
- */
-export interface ImageModalProps {
-    image: string,
-    altText: string
-}
-
-/**
  * @function ImageModal
  * @summary Image modal component
  * @description A modal to display a larger image on screen.
  * @author J. Trpka
  * @returns { JSX }
  */
-const ImageModal = (props: ImageModalProps) => {
-    const { image, altText } = props;
+const ImageModal = () => {
+    const image: string = '';
+    const altText: string = '';
     
     return (
         <Modal>

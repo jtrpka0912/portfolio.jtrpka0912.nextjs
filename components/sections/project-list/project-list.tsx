@@ -37,7 +37,7 @@ const ProjectList = (props: ProjectListProps) => {
                                         className="project-list__item column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-clickable">
                                         <Thumbnail
                                             image={ project.thumbnail ? project.thumbnail : '' }
-                                            altText={ `Image of ${ project.title }` }
+                                            altText={ `Image of ${ project.title } Project` }
                                             title={ project.title }
                                             onClick={ () => console.info('Project', project ) }
                                         />

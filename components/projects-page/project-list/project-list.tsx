@@ -1,0 +1,42 @@
+import { Project } from "../../../models/project";
+import ProjectsPage from "../../../pages/project";
+
+/**
+ * @interface ProjectListProps
+ * @summary Project list props
+ * @author J. Trpka
+ * @property { Project[] } projects
+ */
+interface ProjectListProps {
+    projects: Project[]
+}
+
+/**
+ * @function ProjectList
+ * @summary Project list component
+ * @description A list of projects for the user to navigate to
+ * @author J. Trpka
+ * @param { ProjectListProps } props 
+ * @returns { JSX } 
+ */
+const ProjectList = (props: ProjectListProps) => {
+    const { projects } = props;
+
+    return (
+        <section className="section">
+            <div className="project-list container">
+                {
+                    projects.length > 0 ? (
+                        <div></div>
+                    ) : (
+                        <div className="project-list__empty">
+                            <p>Unable to find any projects.</p>
+                        </div>
+                    )
+                }
+            </div>
+        </section>
+    );
+};
+
+export default ProjectList;

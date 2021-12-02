@@ -8,7 +8,7 @@ describe('Without projects', () => {
     test('Render component without any projects', () => {
         // Arrange
         render(<ProjectList projects={ [] } />);
-        
+
         const emptyComponent = screen.getByText('Unable to find any projects.');
 
         // Assert
@@ -18,6 +18,11 @@ describe('Without projects', () => {
 
 describe('With projects', () => {
     beforeEach(() => {
+        /**
+         * @var { Project[] } projects
+         * @description A sample listing of projects to use for testing.
+         * @author J. Trpka
+         */
         const projects: Project[] = [
             {
                 slug: 'project-1',

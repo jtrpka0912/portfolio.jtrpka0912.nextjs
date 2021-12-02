@@ -1,5 +1,4 @@
 import { Project } from "../../../models/project";
-import ProjectsPage from "../../../pages/project";
 import Thumbnail from "../../ui/thumbnail";
 
 /**

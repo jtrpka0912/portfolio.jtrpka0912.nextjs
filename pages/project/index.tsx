@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import ProjectList from "../../components/projects-page/project-list/project-list";
+import ProjectList from "../../components/sections/project-list/project-list";
 
 import { getAllProjects } from "../../helpers/project";
 

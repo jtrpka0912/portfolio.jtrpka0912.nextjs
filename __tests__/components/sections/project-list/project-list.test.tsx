@@ -2,13 +2,13 @@ import { render, screen } from '@testing-library/react';
 
 import { Project, ProjectType } from '../../../../models/project';
 
-import ProjectList from '../../../../components/projects-page/project-list/project-list';
+import ProjectList from '../../../../components/sections/project-list/project-list';
 
 describe('Without projects', () => {
     test('Render component without any projects', () => {
         // Arrange
         render(<ProjectList projects={ [] } />);
-
+        
         const emptyComponent = screen.getByText('Unable to find any projects.');
 
         // Assert

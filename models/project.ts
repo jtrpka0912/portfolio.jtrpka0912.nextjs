@@ -13,7 +13,7 @@ import { Post } from './post';
  * @property { string } thumbnail A small image for the post listing
  * @property { ProjectGallery } gallery A list of images based on screen sizes
  * @property { ProjectType } end Is the project front-end, back-end, or fullstack
- * @property { boolean } resume If the project relates to a job experience.
+ * @property { string | boolean } resume If the project relates to a job experience. If it does, then add the job experience slug otherwise its false
  * @property { boolean } inDevelopment If the project is still in development
  * @property { boolean } featured List this project on the featured list
  */
@@ -26,7 +26,7 @@ export interface Project extends Post {
     thumbnail?: string,
     gallery?: ProjectGallery,
     type: ProjectType
-    resume: boolean,
+    resume: string | boolean,
     inDevelopment: boolean,
     featured: boolean,
 }

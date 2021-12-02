@@ -15,10 +15,12 @@ interface ProjectsPageProps {
 }
 
 const ProjectsPage = (props: ProjectsPageProps) => {
-    console.info('Projects', props.projects);
+    const { projects } = props;
     
     return (
-        <div>Projects Page</div>
+        <div className="page projects">
+            Projects Page
+        </div>
     );
 };
 

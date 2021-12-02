@@ -14,9 +14,17 @@ interface ProjectsPageProps {
     projects: Project[]
 }
 
+/**
+ * @function ProjectsPage
+ * @summary Projects page component
+ * @description The page that lists all projects.
+ * @author J. Trpka
+ * @param { ProjectsPageProps } props 
+ * @returns 
+ */
 const ProjectsPage = (props: ProjectsPageProps) => {
     const { projects } = props;
-    
+
     return (
         <div className="page projects">
             Projects Page

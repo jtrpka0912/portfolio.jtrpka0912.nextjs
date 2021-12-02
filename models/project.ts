@@ -12,7 +12,7 @@ import { Post } from './post';
  * @property { ProjectDate } date A date when the project started and/if ended
  * @property { string } thumbnail A small image for the post listing
  * @property { ProjectGallery } gallery A list of images based on screen sizes
- * @property { ProjectEnd } end Is the project front-end, back-end, or fullstack
+ * @property { ProjectType } end Is the project front-end, back-end, or fullstack
  * @property { boolean } resume If the project relates to a job experience.
  * @property { boolean } inDevelopment If the project is still in development
  * @property { boolean } featured List this project on the featured list
@@ -25,7 +25,7 @@ export interface Project extends Post {
     date: ProjectDate,
     thumbnail?: string,
     gallery?: ProjectGallery,
-    end: ProjectEnd
+    type: ProjectType
     resume: boolean,
     inDevelopment: boolean,
     featured: boolean,
@@ -37,10 +37,12 @@ export interface Project extends Post {
  * @author J. Trpka
  * @property { string[] } npm Names of packages from Node Package Manager
  * @property { string[] } maven Names of packages from Maven repository
+ * @property { string[] } go Names of packages from the Go Package repository
  */
 interface ProjectPackage {
     npm?: string[],
-    maven?: string[]
+    maven?: string[],
+    go?: string[]
 }
 
 /**
@@ -99,11 +101,11 @@ export interface ProjectGalleryItem {
 }
 
 /**
- * @enum ProjectEnd
- * @description The "end" side of the project
+ * @enum ProjectType
+ * @description The type of project
  * @author J. Trpka
  */
-export enum ProjectEnd {
+export enum ProjectType {
     FRONTEND = 'frontend',
     BACKEND = 'backend',
     FULLSTACK = 'fullstack'

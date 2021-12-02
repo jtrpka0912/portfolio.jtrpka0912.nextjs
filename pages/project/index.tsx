@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import ProjectList from "../../components/projects-page/project-list/project-list";
 
 import { getAllProjects } from "../../helpers/project";
 
@@ -28,6 +29,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
     return (
         <div className="page projects">
             Projects Page
+            <ProjectList projects={ projects } />
         </div>
     );
 };

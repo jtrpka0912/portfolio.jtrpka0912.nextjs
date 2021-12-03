@@ -17,8 +17,7 @@ const ImageModal = () => {
     useEffect(() => {
         if(uiContext.imageModalData) {
             setIsActive(true);
-        } else if(uiContext.imageModalData === false && uiContext.imageModalData === true) {
-            // The reason for checking if imageModalData === true is because I do not want it to be just "true". It needs the ImageModalData object.
+        } else {
             setIsActive(false);
         }
     }, [uiContext.imageModalData]);

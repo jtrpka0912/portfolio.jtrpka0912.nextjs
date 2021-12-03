@@ -10,6 +10,7 @@ import { Post } from './post';
  * @property { ResumeDate } date The first and/or last day working with the company/employer
  * @property { ResumeLocation } address The location of the company/employer
  * @property { ResumeContact } contact Different methods of contacting the company or employer
+ * @property { string[] } technology Technologies that were used throughout the entire job experience
  * @property { boolean } featured List this job experience on the featured list
  */
 export interface Resume extends Post {
@@ -18,6 +19,7 @@ export interface Resume extends Post {
     date: ResumeDate,
     address?: ResumeLocation,
     contact: ResumeContact,
+    technology: string[]
     featured: boolean,
 }
 

@@ -40,7 +40,7 @@ gallery:
       altText: 'Sample image'
     - image: 'https://via.placeholder.com/411x731'
       altText: 'Sample image'
-end: fullstack
+type: fullstack
 resume: false
 inDevelopment: true
 featured: true

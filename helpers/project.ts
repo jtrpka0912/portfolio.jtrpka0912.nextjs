@@ -35,7 +35,23 @@ export const getSingleProject = (postId: string): Project => {
 export const getAllProjects = (): Project[] => {
     const allProjects = getAllPosts<Project>(category);
 
-    return allProjects.filter((project: Project) => {
-        return !exclude.includes(project.slug);
-    });
+    return filterProjectsByEnv(allProjects);
 };
+
+/**
+ * @function filterProjectsByEnv
+ * @summary Filter projects by environment
+ * @description Filter projects that should be excluded if in production, otherwise display all projects in development.
+ * @author J. Trpka
+ * @param { Project[] } projects 
+ * @returns { Project[] }
+ */
+const filterProjectsByEnv = (projects: Project[]): Project[] => {
+    if(process.env.NODE_ENV === "production") {
+        return projects.filter((project: Project) => {
+            return !exclude.includes(project.slug);
+        });
+    }
+
+    return projects;
+}

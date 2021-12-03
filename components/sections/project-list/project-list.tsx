@@ -1,3 +1,5 @@
+import router, { useRouter } from 'next/router';
+
 import { Project } from "../../../models/project";
 import Thumbnail from "../../ui/thumbnail";
 
@@ -17,12 +19,15 @@ interface ProjectListProps {
  * @description A list of projects for the user to navigate to
  * @author J. Trpka
  * @todo Select a default thumbnail if a project does not have one.
- * @todo More of a TODO for a possible search component, but as one of its props it should just accept the number of projects found (number)
  * @param { ProjectListProps } props 
  * @returns { JSX } 
  */
 const ProjectList = (props: ProjectListProps) => {
     const { projects } = props;
+
+    const onClickHandler = (project: Project) => {
+        router.push(`/project/${ project.slug }`);
+    }
 
     return (
         <section className="section">
@@ -38,7 +43,7 @@ const ProjectList = (props: ProjectListProps) => {
                                             image={ project.thumbnail ? project.thumbnail : '' }
                                             altText={ `Image of ${ project.title } Project` }
                                             title={ project.title }
-                                            onClick={ () => console.info('Project', project ) }
+                                            onClick={ () => onClickHandler(project) }
                                         />
                                     </div>
                                 )

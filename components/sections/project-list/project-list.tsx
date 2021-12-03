@@ -1,7 +1,8 @@
-import router, { useRouter } from 'next/router';
+
 
 import { Project } from "../../../models/project";
-import Thumbnail from "../../ui/thumbnail";
+
+import ProjectListItem from './project-list-item';
 
 /**
  * @interface ProjectListProps
@@ -25,28 +26,12 @@ interface ProjectListProps {
 const ProjectList = (props: ProjectListProps) => {
     const { projects } = props;
 
-    const onClickHandler = (project: Project) => {
-        router.push(`/project/${ project.slug }`);
-    }
-
     return (
         <section className="section">
             <div className="project-list container">
                 { projects.length > 0 ? (
                     <div className="project-list__list columns is-mobile is-multiline">
-                        { projects.map((project: Project) => {
-                            return (
-                                <div key={ project.slug }
-                                    className="project-list__item column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-clickable">
-                                    <Thumbnail
-                                        image={ project.thumbnail ? project.thumbnail : '' }
-                                        altText={ `Image of ${ project.title } Project` }
-                                        title={ project.title }
-                                        onClick={ () => onClickHandler(project) }
-                                    />
-                                </div>
-                            )
-                        } ) }
+                        { projects.map((project: Project) => <ProjectListItem key={ project.slug } project={ project } /> ) }
                     </div>
                 ) : (
                     <div className="project-list__empty">

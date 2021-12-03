@@ -17,7 +17,8 @@ const ImageModal = () => {
     useEffect(() => {
         if(uiContext.imageModalData) {
             setIsActive(true);
-        } else {
+        } else if(uiContext.imageModalData === false && uiContext.imageModalData === true) {
+            // The reason for checking if imageModalData === true is because I do not want it to be just "true". It needs the ImageModalData object.
             setIsActive(false);
         }
     }, [uiContext.imageModalData]);
@@ -30,7 +31,6 @@ const ImageModal = () => {
         <Modal 
             isActive={ isActive } 
             ariaLabel="Image Preview Modal"
-            ariaDescription="A modal to show a larger size of an image."
             onClose={ onCloseHandler }
         >
             <div className="modal-content has-text-centered">

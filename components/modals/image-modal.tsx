@@ -30,7 +30,6 @@ const ImageModal = () => {
         <Modal 
             isActive={ isActive } 
             ariaLabel="Image Preview Modal"
-            ariaDescription="A modal to show a larger size of an image."
             onClose={ onCloseHandler }
         >
             <div className="modal-content has-text-centered">

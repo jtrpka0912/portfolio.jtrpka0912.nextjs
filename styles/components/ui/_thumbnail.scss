@@ -1,0 +1,11 @@
+.thumbnail {
+    .card-header-title {
+        overflow: hidden;
+        
+        .title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { projectOne, projectThree, projectTwo } from '../../../examples/projects';
+import { projectFour, projectOne, projectThree, projectTwo } from '../../../examples/projects';
 
 import ProjectList from '../../../../components/sections/project-list/project-list';
 
@@ -21,13 +21,14 @@ describe('With projects', () => {
         render(<ProjectList projects={ [
             projectOne,
             projectTwo,
-            projectThree
+            projectThree,
+            projectFour
         ] } />);
     });
 
     test('Render component with projects', () => {
         const thumbnails = screen.getAllByRole('link');
 
-        expect(thumbnails).toHaveLength(3);
+        expect(thumbnails).toHaveLength(4);
     })
 });

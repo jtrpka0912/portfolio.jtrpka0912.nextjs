@@ -7,7 +7,7 @@ export const projectOne: Project = {
     package: undefined,
     repo: undefined,
     date: { started: '1970-01-01' },
-    thumbnail: undefined,
+    thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.FULLSTACK,
     resume: false,
@@ -25,7 +25,7 @@ export const projectTwo: Project = {
     },
     repo: undefined,
     date: { started: '1970-01-01' },
-    thumbnail: undefined,
+    thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.FRONTEND,
     resume: true,
@@ -40,6 +40,24 @@ export const projectThree: Project = {
     technology: ['golang'],
     package: {
         go: ['net/http']
+    },
+    repo: undefined,
+    date: { started: '1970-01-01' },
+    thumbnail: '/path/to/image.png',
+    gallery: undefined,
+    type: ProjectType.BACKEND,
+    resume: true,
+    inDevelopment: false,
+    featured: false,
+    content: 'Foobar'
+}
+
+export const projectFour: Project = {
+    slug: 'project-4',
+    title: 'Project 4',
+    technology: ['react', 'nextjs'],
+    package: {
+        npm: ['gray-matter', 'markdown']
     },
     repo: undefined,
     date: { started: '1970-01-01' },

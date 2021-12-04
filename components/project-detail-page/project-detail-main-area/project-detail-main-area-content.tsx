@@ -22,6 +22,7 @@ const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) 
     const { project } = props;
     return (
         <div className="main-area__content">
+            <img src={ project.thumbnail } alt={ `Image of ${ project.title }` } />
             { project.content }
         </div>
     );

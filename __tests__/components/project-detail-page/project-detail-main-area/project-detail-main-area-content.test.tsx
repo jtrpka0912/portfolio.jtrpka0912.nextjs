@@ -15,5 +15,11 @@ describe('Render the component', () => {
         const contentText = screen.getByText('Foobar');
 
         expect(contentText).toBeInTheDocument();
-    })
+    });
+
+    test('Render the thumbnail in the content', () => {
+        const imageElement = screen.getByAltText('Image of Project 1');
+
+        expect(imageElement).toBeInTheDocument();
+    });
 });

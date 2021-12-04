@@ -19,6 +19,10 @@ module.exports = {
       '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$':
         '<rootDir>/__mocks__/fileMock.js',
     },
+    modulePathIgnorePatterns: [
+      // This will contain large object examples to use for component attributes/props
+      'examples' 
+    ],
     preset: "ts-jest",
     /** Add more to this array for other tests if we move the tests away from __tests__ */
     roots: [

@@ -20,8 +20,8 @@ interface ProjectDetailMainAreaSidebarProps {
  */
 const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) => {
     return (
-        <aside className="main-area__sidebar">
-
+        <aside className="main-area__sidebar column is-one-third-desktop is-half-tablet">
+            Sidebar Here
         </aside>
     );
 };

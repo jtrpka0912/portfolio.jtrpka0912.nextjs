@@ -1,4 +1,5 @@
 import { Project } from "../../../models/project";
+import ProjectDetailMainAreaContent from "./project-detail-main-area-content";
 import ProjectDetailMainAreaSidebar from "./project-detail-main-area-sidebar";
 
 interface ProjectDetailMainAreaProps {
@@ -19,8 +20,10 @@ const ProjectDetailMainArea = (props: ProjectDetailMainAreaProps) => {
     return (
         <section className="section">
             <div className="main-area container">
-                <div></div>
-                <ProjectDetailMainAreaSidebar project={ project } />
+                <div className="columns">
+                    <ProjectDetailMainAreaContent project={ project } />
+                    <ProjectDetailMainAreaSidebar project={ project } />
+                </div>
             </div>
         </section>
     );

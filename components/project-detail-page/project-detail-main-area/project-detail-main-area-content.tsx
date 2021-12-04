@@ -21,7 +21,7 @@ interface ProjectDetailMainAreaContentProps {
 const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) => {
     const { project } = props;
     return (
-        <div className="main-area__content">
+        <div className="main-area__content column is-two-thirds-desktop is-half-tablet">
             { project.thumbnail && (
                 <img src={ project.thumbnail } alt={ `Image of ${ project.title }` } />
             ) }

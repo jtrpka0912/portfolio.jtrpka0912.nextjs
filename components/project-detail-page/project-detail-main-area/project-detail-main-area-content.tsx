@@ -1,4 +1,5 @@
 import { Project } from "../../../models/project";
+import Thumbnail from "../../ui/thumbnail";
 
 /**
  * @interface ProjectDetailMainAreaContentProps
@@ -20,10 +21,16 @@ interface ProjectDetailMainAreaContentProps {
  */
 const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) => {
     const { project } = props;
+
     return (
         <div className="main-area__content column is-two-thirds-desktop is-half-tablet">
             { project.thumbnail && (
-                <img src={ project.thumbnail } alt={ `Image of ${ project.title }` } />
+                <div className="main-area__thumbnail pr-4 is-pulled-left">
+                    <Thumbnail image={ project.thumbnail }
+                        altText={ `Image of ${ project.title }` }
+                        onClick={ () => console.log(project) } 
+                    />
+                </div>
             ) }
             
             { project.content }

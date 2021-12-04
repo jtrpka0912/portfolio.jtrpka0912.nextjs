@@ -26,7 +26,7 @@ const Thumbnail = (props: ThumbnailProps) => {
     const { image, altText, title, onClick } = props;
 
     return (
-        <div role="link" title={ title } className="thumbnail card" onClick={ onClick }>
+        <div role="link" title={ title } className="thumbnail card is-clickable" onClick={ onClick }>
             <div className="card-image">
                 <figure className="image is-1by1">
                     <img src={ image } alt={ altText } />

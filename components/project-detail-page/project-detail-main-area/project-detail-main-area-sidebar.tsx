@@ -1,5 +1,11 @@
 import { Project } from "../../../models/project";
 
+/**
+ * @interface ProjectDetailMainAreaSidebarProps
+ * @summary Project detail main area sidebar props
+ * @author J. Trpka
+ * @property { Project } project
+ */
 interface ProjectDetailMainAreaSidebarProps {
     project: Project
 }

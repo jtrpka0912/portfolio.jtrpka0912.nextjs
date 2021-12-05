@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 
-import ProjectDetailSidebarRepo from "../../../../../components/project-detail-page/sidebar/project-detail-repo/project-detail-repo";
+import ProjectDetailRepo from "../../../../../components/project-detail-page/sidebar/project-detail-repo/project-detail-repo";
 
 describe('Render the component', () => {
     it('Nothing to render with no repo', () => {
-        render(<ProjectDetailSidebarRepo repo={ undefined } />);
+        render(<ProjectDetailRepo repo={ undefined } />);
 
         const element = screen.queryByRole('note');
 
@@ -12,7 +12,7 @@ describe('Render the component', () => {
     });
 
     it('Render the container at least with one repo', () => {
-        render(<ProjectDetailSidebarRepo repo={{
+        render(<ProjectDetailRepo repo={{
             gitlab: 'path/to/repo'
         }} />);
 

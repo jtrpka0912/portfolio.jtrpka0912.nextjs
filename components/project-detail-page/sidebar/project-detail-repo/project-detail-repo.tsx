@@ -1,4 +1,5 @@
 import { ProjectRepo } from '../../../../models/project';
+import ProjectDetailGithub from './project-detail-github';
 
 /**
  * @interface ProjectDetailRepoProps
@@ -27,9 +28,9 @@ const ProjectDetailRepo = (props: ProjectDetailRepoProps) => {
     }
 
     return (
-        <div role="note" aria-label="Project Repository">
+        <div className="project-detail-repo" role="note" aria-label="Project Repository">
             { repo.github && (
-                <p>Github Coming Soon</p>
+                <ProjectDetailGithub github={ repo.github } />
             ) }
 
             { repo.gitlab && (

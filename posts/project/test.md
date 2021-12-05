@@ -14,7 +14,7 @@ package:
     - ts-jest
     - eslint
 repo:
-  github: 'https://github.com/jtrpka0912/portfolio.jtrpka0912.nextjs'
+  github: 'https://github.com/octocat/hello-world'
 date:
   started: '2021-11-24'
 thumbnail: 'https://via.placeholder.com/256x256'

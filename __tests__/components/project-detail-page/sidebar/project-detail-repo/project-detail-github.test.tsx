@@ -11,5 +11,7 @@ describe('Render the component', () => {
 
         // Assert
         expect(linkElement).toBeInTheDocument();
+        expect(linkElement).toHaveAttribute('href', '/path/to/git/repo');
+        expect(linkElement).toHaveAttribute('target', '_blank');
     });
 });

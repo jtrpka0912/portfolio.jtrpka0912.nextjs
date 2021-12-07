@@ -1,15 +1,4 @@
 /**
- * @function getRepo
- * @summary Get a Github Repo
- * @description Take the URL of the Github repo, and break it down to retrieve data from Github's API.
- * @author J. Trpka
- * @param { string } repoUrl
- */
-export const getRepo = (repoUrl: string) => {
-    // wait for something
-}
-
-/**
  * @function convertRepoURLToOwnerAndRepo
  * @summary Convert repo url to owner and repo
  * @description Take a valid Github repo URL and retrieve the owner and repo values
@@ -33,3 +22,13 @@ export const convertRepoURLToOwnerAndRepo = (repoUrl: string): [string, string] 
         throw new Error('Invalid Github URL');
     }
 }
+
+// TODO Add a checker if response is either valid or an error message
+
+// EXAMPLE:
+/*
+{
+    "message": "Not Found",
+    "documentation_url": "https://docs.github.com/rest/reference/repos#get-a-repository"
+}
+*/

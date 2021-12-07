@@ -1,4 +1,4 @@
-import { convertRepoURLToOwnerAndRepo } from '../../api/github';
+import { convertRepoURLToOwnerAndRepo } from '../../../helpers/api/github';
 
 describe('convertRepoURLToOwnerAndRepo()', () => {
     test('Get owner and repo from Github repo URL', () => {

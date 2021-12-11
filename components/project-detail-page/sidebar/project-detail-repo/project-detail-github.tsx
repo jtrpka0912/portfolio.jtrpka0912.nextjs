@@ -1,4 +1,5 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faCodeBranch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useSWR from 'swr';
 
@@ -9,6 +10,7 @@ import {
 import {
     getRepo
 } from '../../../../api/github';
+import React from 'react';
 
 interface ProjectDetailGithubProps {
     github: string
@@ -32,25 +34,41 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
      */
     const githubRepoUrl = `https://api.github.com/repos/${ owner }/${ repo }`;
 
-    const { data, error } = useSWR(githubRepoUrl, () => getRepo(github));
+    const { data: repoData, error } = useSWR(githubRepoUrl, () => getRepo(github));
 
     return (
         <div className="project-detail-github">
-            { !error && !data && (
+            { // Loader content with spinning icon.
+            !error && !repoData && (
                 <FontAwesomeIcon icon={ faGithub } spin={ true } />
             )}
 
-            { !error && data && (
-                <div className="project-detail-github__link">
-                    <FontAwesomeIcon icon={ faGithub } />
-                    <a className="ml-1" 
-                        href={ github } 
-                        target="_blank"
-                    >Repository</a>
+            { // Display some of the repo data.
+            !error && repoData && (
+                <div className="project-detail-github__repo">
+                    <div className="project-detail-github__link">
+                        <FontAwesomeIcon icon={ faGithub } />
+                        <a className="ml-1" 
+                            href={ github } 
+                            target="_blank"
+                        >Repository</a>
+                    </div>
+
+                    <ul className="project-detail-github__stats">
+                        <li title="Forks">
+                            <FontAwesomeIcon icon={ faCodeBranch } />
+                            <span className="ml-1">{ repoData.forks_count }</span>
+                        </li>
+                        <li title="Stars">
+                            <FontAwesomeIcon icon={ faStar } />
+                            <span className="ml-1">{ repoData.stargazers_count }</span>
+                        </li>
+                    </ul>
                 </div>
             )}
 
-            { error && (
+            { // Display message for invalid or private repo.
+            error && (
                 <div className="project-detail-github__error">
                     <FontAwesomeIcon icon={ faGithub } /> Repo may be invalid or private.
                 </div>

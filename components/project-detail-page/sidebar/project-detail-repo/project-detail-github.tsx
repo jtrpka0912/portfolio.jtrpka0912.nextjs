@@ -61,7 +61,7 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
                         >Repository</a>
                     </div>
 
-                    <div className="project-detail-github__stats tags">
+                    <div className="project-detail-github__stats tags mt-1">
                         <li title="Forks" className="tag is-primary is-light">
                             <FontAwesomeIcon icon={ faCodeBranch } />
                             <span className="ml-1">{ repoData.forks_count }</span>

@@ -1,3 +1,5 @@
+import { GithubError } from "../../models/api/github/error";
+
 /**
  * @function convertRepoURLToOwnerAndRepo
  * @summary Convert repo url to owner and repo
@@ -23,12 +25,14 @@ export const convertRepoURLToOwnerAndRepo = (repoUrl: string): [string, string] 
     }
 }
 
-// TODO Add a checker if response is either valid or an error message
-
-// EXAMPLE:
-/*
-{
-    "message": "Not Found",
-    "documentation_url": "https://docs.github.com/rest/reference/repos#get-a-repository"
+/**
+ * @function checkIfErrorMessageResponse
+ * @summary Check if error message response
+ * @description Check if the Github response returns back an error message which contains both a message and documentation_url object.
+ * @author J. Trpka
+ * @param { any } response 
+ * @returns { boolean }
+ */
+export const checkIfErrorMessageResponse = (response: any): boolean => {
+    return response.message && response.documentation_url && Object.keys(response).length === 2;
 }
-*/

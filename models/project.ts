@@ -54,7 +54,7 @@ interface ProjectPackage {
  * @property { string } gitlab
  * @property { string } bitbucket
  */
-interface ProjectRepo {
+export interface ProjectRepo {
     github?: string,
     gitlab?: string,
     bitbucket?: string

@@ -9,7 +9,7 @@ import { getAllPosts, getSinglePost } from "./markdown";
 const category: string = 'project';
 
 /**
- * @var { string[] }
+ * @var { string[] } exclude
  * @description A list of slugs to exclude when retrieving all project posts.
  * @author J. Trpka
  */
@@ -17,6 +17,7 @@ const exclude: string[] = ['test'];
 
 /**
  * @function getSingleProject
+ * @summary Get single project
  * @description Retrieve a single project.
  * @author J. Trpka
  * @param { string } postId 
@@ -28,6 +29,7 @@ export const getSingleProject = (postId: string): Project => {
 
 /**
  * @function getAllProjects
+ * @summary Get all projects
  * @description Retrieve all (non-excluded) projects
  * @author J. Trpka
  * @returns { Project[] }

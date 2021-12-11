@@ -23,6 +23,10 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
 
     // TODO: Apparently the reason fetch was not working outside of the component was because Jest uses NodeJS which fetch wouldn't be recognized. Sigh...
 
+    // TODO: The best approach is take most of what is inside fetcher and create a new file under {root}/api/github.ts, but still keep the other helper functions like "convertRepoURLToOwnerAndRepo()" still inside the helper file.
+
+    // https://www.leighhalliday.com/mock-fetch-jest
+
     const fetcher = async () => {
         const response: Response = await fetch(githubRepoUrl, {
             headers: {

@@ -1,7 +1,9 @@
+import React from 'react';
+import useSWR from 'swr';
+
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCodeBranch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useSWR from 'swr';
 
 import {
     convertRepoURLToOwnerAndRepo 
@@ -10,8 +12,13 @@ import {
 import {
     getRepo
 } from '../../../../api/github';
-import React from 'react';
 
+/**
+ * @interface ProjectDetailGithubProps
+ * @summary Project detail github component props
+ * @author J. Trpka
+ * @property { string } github - URL to the Github Repo page
+ */
 interface ProjectDetailGithubProps {
     github: string
 }
@@ -54,16 +61,16 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
                         >Repository</a>
                     </div>
 
-                    <ul className="project-detail-github__stats">
-                        <li title="Forks">
+                    <div className="project-detail-github__stats tags">
+                        <li title="Forks" className="tag is-primary is-light">
                             <FontAwesomeIcon icon={ faCodeBranch } />
                             <span className="ml-1">{ repoData.forks_count }</span>
                         </li>
-                        <li title="Stars">
+                        <li title="Stargazers" className="tag is-primary is-light">
                             <FontAwesomeIcon icon={ faStar } />
                             <span className="ml-1">{ repoData.stargazers_count }</span>
                         </li>
-                    </ul>
+                    </div>
                 </div>
             )}
 

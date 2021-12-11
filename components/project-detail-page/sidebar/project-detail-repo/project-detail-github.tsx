@@ -34,8 +34,6 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
 
     const { data, error } = useSWR(githubRepoUrl, () => getRepo(github));
 
-    console.info('SWR', data, error);
-
     return (
         <div className="project-detail-github">
             { !error && !data && (

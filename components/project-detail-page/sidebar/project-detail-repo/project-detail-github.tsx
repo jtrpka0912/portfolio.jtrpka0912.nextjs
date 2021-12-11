@@ -21,8 +21,7 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
     const [owner, repo] = convertRepoURLToOwnerAndRepo(github);
     const githubRepoUrl = `https://api.github.com/repos/${ owner }/${ repo }`
 
-    // TODO: For the useEffect, you may need fetch from here as fetch is not defined outside of components.
-    // Might be better to integrate the loading overlay this way.
+    // TODO: Apparently the reason fetch was not working outside of the component was because Jest uses NodeJS which fetch wouldn't be recognized. Sigh...
 
     const fetcher = async () => {
         const response: Response = await fetch(githubRepoUrl, {
@@ -35,8 +34,9 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
 
         const responseJson = await response.json();
 
-        // Todo: Not a good error message. :)
-        if(checkIfErrorMessageResponse(responseJson)) throw new Error('This is an error');
+        // Might be redundant at this point since it throws a 404 anyway with a bad repo link or a private repo.
+
+        if(checkIfErrorMessageResponse(responseJson)) throw new Error('Unable to retrieve repo data.');
 
         return responseJson;
     }
@@ -47,13 +47,21 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
 
     return (
         <div className="project-detail-github">
-            <div className="project-detail-github__link">
-                <FontAwesomeIcon icon={ faGithub } />
-                <a className="ml-1" 
-                    href={ github } 
-                    target="_blank"
-                >Repository</a>
-            </div>
+            { !error && data && (
+                <div className="project-detail-github__link">
+                    <FontAwesomeIcon icon={ faGithub } />
+                    <a className="ml-1" 
+                        href={ github } 
+                        target="_blank"
+                    >Repository</a>
+                </div>
+            )}
+
+            { error && (
+                <div className="project-detail-github__error">
+                    <FontAwesomeIcon icon={ faGithub } /> Repo may be invalid or private.
+                </div>
+            )}
         </div>
     );
 };

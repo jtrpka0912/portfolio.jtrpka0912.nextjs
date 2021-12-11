@@ -1,17 +1,45 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitForOptions } from "@testing-library/react";
+
+// Using SWRConfig will allow resetting the cache.
+import { SWRConfig } from "swr";
 
 import ProjectDetailGithub from "../../../../../components/project-detail-page/sidebar/project-detail-repo/project-detail-github";
 
 describe('Render the component', () => {
-    it('Render the component', () => {
-        // Arrange
-        render(<ProjectDetailGithub github="/path/to/git/repo" />);
+    const waitForOption: waitForOptions = {
+        timeout: 1500
+    };
 
-        const linkElement = screen.getByRole('link');
+    it('Using a valid Github repo', async () => {
+        // Arrange
+        render(
+            <SWRConfig value={ { provider: () => new Map() } }>
+                <ProjectDetailGithub 
+                    github="https://github.com/octocat/hello-world" 
+                />
+            </SWRConfig>
+        );
+
+        const linkElement = await screen.findByRole('link', {}, waitForOption);
 
         // Assert
         expect(linkElement).toBeInTheDocument();
-        expect(linkElement).toHaveAttribute('href', '/path/to/git/repo');
+        expect(linkElement).toHaveAttribute('href', 'https://github.com/octocat/hello-world');
         expect(linkElement).toHaveAttribute('target', '_blank');
+    });
+
+    it('Not a valid Github repo', async () => {
+        // Arrange
+        render(
+            <SWRConfig value={ { provider: () => new Map() } }>
+                <ProjectDetailGithub 
+                    github="https://github.com/octocat/goodbye-world"
+                />
+            </SWRConfig>
+        );
+
+        const message = await screen.findByText('Repo may be invalid or private.', {}, waitForOption);
+
+        expect(message).toBeInTheDocument();
     });
 });

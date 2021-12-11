@@ -2,7 +2,13 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useSWR from 'swr';
 
-import { checkIfErrorMessageResponse, convertRepoURLToOwnerAndRepo } from '../../../../helpers/api/github';
+import {
+    convertRepoURLToOwnerAndRepo 
+} from '../../../../helpers/api/github';
+
+import {
+    getRepo
+} from '../../../../api/github';
 
 interface ProjectDetailGithubProps {
     github: string
@@ -19,33 +25,14 @@ interface ProjectDetailGithubProps {
 const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
     const { github } = props;
     const [owner, repo] = convertRepoURLToOwnerAndRepo(github);
-    const githubRepoUrl = `https://api.github.com/repos/${ owner }/${ repo }`
 
-    // TODO: Apparently the reason fetch was not working outside of the component was because Jest uses NodeJS which fetch wouldn't be recognized. Sigh...
+    /**
+     * @var { string } githubRepoUrl
+     * @description Generate the API URL for the sake of the useSWR key.
+     */
+    const githubRepoUrl = `https://api.github.com/repos/${ owner }/${ repo }`;
 
-    // TODO: The best approach is take most of what is inside fetcher and create a new file under {root}/api/github.ts, but still keep the other helper functions like "convertRepoURLToOwnerAndRepo()" still inside the helper file.
-
-    // https://www.leighhalliday.com/mock-fetch-jest
-
-    const fetcher = async () => {
-        const response: Response = await fetch(githubRepoUrl, {
-            headers: {
-                'Accept': 'application/vnd.github.v3+json'
-            }
-        });
-
-        if(!response.ok) throw new Error('Unable to retrieve repo data.');
-
-        const responseJson = await response.json();
-
-        // Might be redundant at this point since it throws a 404 anyway with a bad repo link or a private repo.
-
-        if(checkIfErrorMessageResponse(responseJson)) throw new Error('Unable to retrieve repo data.');
-
-        return responseJson;
-    }
-
-    const { data, error } = useSWR(githubRepoUrl, fetcher);
+    const { data, error } = useSWR(githubRepoUrl, () => getRepo(github));
 
     console.info('SWR', data, error);
 

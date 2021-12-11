@@ -20,18 +20,18 @@ describe('convertRepoURLToOwnerAndRepo()', () => {
         expect(results).toStrictEqual(['octocat', 'hello-world']);
     });
 
-    test('Thrown error with obvious non-Github repo URL', () => {
+    test('Throw error with obvious non-Github repo URL', () => {
         // Assert
         expect(() => {
             convertRepoURLToOwnerAndRepo('https://www.duckduckgo.com');
         }).toThrow('Invalid Github URL');
     });
 
-    test('Thrown error with missing Github repo endpoint', () => {
+    test('Throw error with missing Github repo endpoint', () => {
         // Assert
         expect(() => {
             convertRepoURLToOwnerAndRepo('https://www.github.com/octocat');
-        }).toThrow('Invalid Github URL')
+        }).toThrow('Invalid Github URL');
     });
 });
 

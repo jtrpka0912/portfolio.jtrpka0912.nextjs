@@ -38,6 +38,10 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
 
     return (
         <div className="project-detail-github">
+            { !error && !data && (
+                <FontAwesomeIcon icon={ faGithub } spin={ true } />
+            )}
+
             { !error && data && (
                 <div className="project-detail-github__link">
                     <FontAwesomeIcon icon={ faGithub } />

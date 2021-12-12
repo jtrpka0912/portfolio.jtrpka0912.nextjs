@@ -18,8 +18,14 @@ interface ProjectDetailPackageProps {
  * @returns { JSX }
  */
 const ProjectDetailPackage = (props: ProjectDetailPackageProps) => {
+    const { package: packages } = props;
+
+    if(!packages) {
+        return null;
+    }
+
     return (
-        <div></div>
+        <div className="project-detail-package"></div>
     );
 };
 

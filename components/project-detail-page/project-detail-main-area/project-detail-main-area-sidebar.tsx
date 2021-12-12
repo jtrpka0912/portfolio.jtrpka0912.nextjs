@@ -26,7 +26,7 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
     const { project } = props;
 
     return (
-        <aside className="main-area__sidebar column is-one-third-desktop is-half-tablet">
+        <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
             <Sidebar>
                 <ProjectDetailRepo repo={ project.repo } />
             </Sidebar>

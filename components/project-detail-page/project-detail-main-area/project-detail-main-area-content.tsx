@@ -23,7 +23,7 @@ const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) 
     const { project } = props;
 
     return (
-        <div className="main-area__content column is-two-thirds-desktop is-half-tablet">
+        <div className="main-area__content column is-three-quarters-desktop is-half-tablet">
             { project.thumbnail && (
                 <div className="main-area__thumbnail pr-4 is-pulled-left">
                     <Thumbnail image={ project.thumbnail }

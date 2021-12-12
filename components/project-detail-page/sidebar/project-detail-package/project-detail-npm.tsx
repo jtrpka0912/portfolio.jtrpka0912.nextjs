@@ -23,7 +23,11 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
         <div className="project-detail-npm">
             <ul>
                 { packages.map((packageItem: string) => {
-                    return <li key={ packageItem }><a href={ `https://npmjs.org/package/${ packageItem }` } target="_blank">{ packageItem }</a></li>
+                    return (
+                        <li key={ packageItem }>
+                            <a href={ `https://npmjs.org/package/${ packageItem }` } target="_blank">{ packageItem }</a>
+                        </li>
+                    );
                 }) }
             </ul>
         </div>

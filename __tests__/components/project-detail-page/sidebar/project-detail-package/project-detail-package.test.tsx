@@ -10,4 +10,14 @@ describe('Render the component', () => {
 
         expect(element).not.toBeInTheDocument();
     });
+
+    test('Render if there are any packages.', () => {
+        render(<ProjectDetailPackage package={{
+            maven: ['spring-boot-starter-test']
+        }} />);
+
+        const element = document.querySelector('.project-detail-package');
+
+        expect(element).toBeInTheDocument();
+    });
 });

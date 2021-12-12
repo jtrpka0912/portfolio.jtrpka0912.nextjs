@@ -1,4 +1,6 @@
 import { Project } from "../../../models/project";
+import ProjectDetailSidebarRepo from "../sidebar/project-detail-repo/project-detail-repo";
+
 
 /**
  * @interface ProjectDetailMainAreaSidebarProps
@@ -19,9 +21,11 @@ interface ProjectDetailMainAreaSidebarProps {
  * @returns { JSX }
  */
 const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) => {
+    const { project } = props;
+
     return (
         <aside className="main-area__sidebar column is-one-third-desktop is-half-tablet">
-            Sidebar Here
+            <ProjectDetailSidebarRepo repo={ project.repo } />
         </aside>
     );
 };

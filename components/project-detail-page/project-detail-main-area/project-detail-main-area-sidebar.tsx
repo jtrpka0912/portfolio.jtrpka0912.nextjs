@@ -1,5 +1,6 @@
 import { Project } from "../../../models/project";
 
+import Sidebar from "../../ui/sidebar";
 import ProjectDetailRepo from "../sidebar/project-detail-repo/project-detail-repo";
 import ProjectDetailPackage from '../sidebar/project-detail-package/project-detail-package';
 
@@ -26,8 +27,13 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
 
     return (
         <aside className="main-area__sidebar column is-one-third-desktop is-half-tablet">
-            <ProjectDetailRepo repo={ project.repo } />
-            <ProjectDetailPackage package={ project.package } />
+            <Sidebar>
+                <ProjectDetailRepo repo={ project.repo } />
+            </Sidebar>
+
+            <Sidebar>
+                <ProjectDetailPackage package={ project.package } />
+            </Sidebar>
         </aside>
     );
 };

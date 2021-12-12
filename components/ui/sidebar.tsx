@@ -17,7 +17,9 @@ interface SidebarProps {
  */
 const Sidebar = (props: SidebarProps) => {
     return (
-        <div></div>
+        <div className="sidebar mb-3 px-5 py-4 has-background-white-ter">
+            { props.children }
+        </div>
     );
 };
 

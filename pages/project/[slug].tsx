@@ -4,6 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { getSingleProject } from "../../helpers/project";
 import { Project } from "../../models/project";
+
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
 

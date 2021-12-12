@@ -1,4 +1,5 @@
 import { ProjectPackage } from "../../../../models/project";
+import ProjectDetailNpm from "./project-detail-npm";
 
 /**
  * @interface ProjectDetailPackageProps
@@ -30,7 +31,7 @@ const ProjectDetailPackage = (props: ProjectDetailPackageProps) => {
             aria-label="Project Packages"
         >
             { packages.npm && (
-                <p>NPM Packages coming soon</p>
+                <ProjectDetailNpm packages={ packages.npm } />
             ) }
 
             { packages.maven && (

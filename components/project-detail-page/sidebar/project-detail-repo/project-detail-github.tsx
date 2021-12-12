@@ -53,13 +53,13 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
             { // Display some of the repo data.
             !error && repoData && (
                 <div className="project-detail-github__repo">
-                    <div className="project-detail-github__link">
+                    <h5 className="project-detail-github__link">
                         <FontAwesomeIcon icon={ faGithub } />
                         <a className="ml-1" 
                             href={ github } 
                             target="_blank"
                         >Repository</a>
-                    </div>
+                    </h5>
 
                     <div className="project-detail-github__stats tags mt-1">
                         <li title="Forks" className="tag is-primary is-light">

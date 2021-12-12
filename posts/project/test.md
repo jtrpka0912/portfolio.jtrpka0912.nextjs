@@ -5,7 +5,7 @@ technology:
   - react
   - nextjs
   - typescript
-  - reacttestinglibrary
+  - react-testing-library
   - jest
   - cypress
   - chai
@@ -13,6 +13,7 @@ package:
   npm:
     - ts-jest
     - eslint
+    - swr
 repo:
   github: 'https://github.com/octocat/hello-world'
 date:

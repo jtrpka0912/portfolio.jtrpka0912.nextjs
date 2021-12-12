@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import ProjectDetailPackage from "../../../../../components/project-detail-page/sidebar/project-detail-package/project-detail-package";
 

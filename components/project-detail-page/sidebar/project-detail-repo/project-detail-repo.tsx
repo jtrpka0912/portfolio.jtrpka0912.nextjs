@@ -28,7 +28,10 @@ const ProjectDetailRepo = (props: ProjectDetailRepoProps) => {
     }
 
     return (
-        <div className="project-detail-repo" role="note" aria-label="Project Repository">
+        <div className="project-detail-repo" 
+            role="note" 
+            aria-label="Project Repository"
+        >
             { repo.github && (
                 <ProjectDetailGithub github={ repo.github } />
             ) }

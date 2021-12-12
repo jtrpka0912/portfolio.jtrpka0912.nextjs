@@ -25,7 +25,22 @@ const ProjectDetailPackage = (props: ProjectDetailPackageProps) => {
     }
 
     return (
-        <div className="project-detail-package"></div>
+        <div className="project-detail-package" 
+            role="note"
+            aria-label="Project Packages"
+        >
+            { packages.npm && (
+                <p>NPM Packages coming soon</p>
+            ) }
+
+            { packages.maven && (
+                <p>Maven repositories coming soon</p>
+            ) }
+
+            { packages.go && (
+                <p>Go packages coming soon</p>
+            ) }
+        </div>
     );
 };
 

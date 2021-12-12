@@ -39,7 +39,7 @@ export interface Project extends Post {
  * @property { string[] } maven Names of packages from Maven repository
  * @property { string[] } go Names of packages from the Go Package repository
  */
-interface ProjectPackage {
+export interface ProjectPackage {
     npm?: string[],
     maven?: string[],
     go?: string[]

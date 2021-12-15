@@ -17,8 +17,18 @@ interface TechnologyListProps {
  * @returns { JSX }
  */
 const TechnologyList = (props: TechnologyListProps) => {
+    const { technology } = props;
+
     return (
-        <div></div>
+        <div>
+            <ul>
+                { technology.map((techItem: string) => {
+                    return (
+                        <li key={ techItem }>{ techItem }</li>
+                    )
+                }) }
+            </ul>
+        </div>
     );
 };
 

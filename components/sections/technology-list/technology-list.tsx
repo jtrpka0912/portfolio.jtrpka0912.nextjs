@@ -20,15 +20,20 @@ const TechnologyList = (props: TechnologyListProps) => {
     const { technology } = props;
 
     return (
-        <div>
-            <ul>
-                { technology.map((techItem: string) => {
-                    return (
-                        <li key={ techItem }>{ techItem }</li>
-                    )
-                }) }
-            </ul>
-        </div>
+        <section className="section">
+            <div className="technology-list container">
+
+                { technology.length > 0 ? (
+                    <div className="technology-list__list columns is-mobile is-multiline">
+                        { technology.map((techItem: string) => <div key={ techItem }>{ techItem }</div>) }
+                    </div>
+                ) : (
+                    <div className="technology-list__empty">
+                        <p>There are no listed technologies.</p>
+                    </div>
+                ) }
+            </div>
+        </section>
     );
 };
 

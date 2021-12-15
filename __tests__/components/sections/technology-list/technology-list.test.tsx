@@ -2,16 +2,14 @@ import { render, screen } from "@testing-library/react";
 
 import TechnologyList from "../../../../components/sections/technology-list/technology-list";
 
-describe('Rendering the component', () => {
-    test('Count the number of technologies', () => {
+describe('Without technologies', () => {
+    test('Render component without any technologies', () => {
         // Arrange
-        render(<TechnologyList technology={[
-            'reactjs', 'react-testing-library', 'jest'
-        ]} />);
+        render(<TechnologyList technology={ [] } />);
 
-        const technologyElements = screen.getAllByRole('listitem');
+        const emptyComponent = screen.getByText('There are no listed technologies.');
 
         // Assert
-        expect(technologyElements).toHaveLength(3);
+        expect(emptyComponent).toBeInTheDocument();
     });
 });

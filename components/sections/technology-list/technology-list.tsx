@@ -24,7 +24,7 @@ const TechnologyList = (props: TechnologyListProps) => {
             <div className="technology-list container">
 
                 { technology.length > 0 ? (
-                    <div className="technology-list__list columns is-mobile is-multiline">
+                    <div className="technology-list__list columns is-mobile is-multiline" role="list">
                         { technology.map((techItem: string) => <div key={ techItem }>{ techItem }</div>) }
                     </div>
                 ) : (

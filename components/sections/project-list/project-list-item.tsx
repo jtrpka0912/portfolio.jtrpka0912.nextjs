@@ -37,7 +37,7 @@ const ProjectListItem = (props: ProjectListItemProps) => {
     }
 
     return (
-        <div className="project-list-item column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+        <div role="listitem" className="project-list-item column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
             <Thumbnail
                 image={ project.thumbnail ? project.thumbnail : '' }
                 altText={ `Image of ${ project.title } Project` }

@@ -27,7 +27,7 @@ describe('With projects', () => {
     });
 
     test('Render component with projects', () => {
-        const thumbnails = screen.getAllByRole('link');
+        const thumbnails = screen.getAllByRole('listitem');
 
         expect(thumbnails).toHaveLength(4);
     })

@@ -8,7 +8,10 @@ technology:
   - sass
   - markdown
   - bulma
-  - fontawesome
+  - font-awesome
+  - testing-library
+  - jest
+  - cypress
 package:
   npm:
     - gray-matter

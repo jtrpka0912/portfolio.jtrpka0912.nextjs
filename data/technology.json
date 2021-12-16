@@ -1,0 +1,79 @@
+{
+    "html": {
+        "title": "Hypertext Markup Language (HTML 5)",
+        "url": "https://html.spec.whatwg.org/",
+        "logo": ""
+    },
+
+    "css": {
+        "title": "Cascading Style Sheets (CSS 3)",
+        "url": "https://www.w3.org/TR/CSS/#css",
+        "logo": ""
+    },
+
+    "javascript": {
+        "title": "ECMAScript (JavaScript)",
+        "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+        "logo": ""
+    },
+
+    "reactjs": {
+        "title": "React JS",
+        "url": "https://reactjs.org/",
+        "logo": ""
+    },
+
+    "nextjs": {
+        "title": "Next JS",
+        "url": "https://nextjs.org/",
+        "logo": ""
+    },
+
+    "typescript": {
+        "title": "TypeScript",
+        "url": "https://www.typescriptlang.org/",
+        "logo": ""
+    },
+
+    "sass": {
+        "title": "Syntactically Awesome Style Sheets (SASS)",
+        "url": "https://sass-lang.com/",
+        "logo": ""
+    },
+
+    "markdown": {
+        "title": "Markdown",
+        "url": "https://daringfireball.net/projects/markdown/",
+        "logo": ""
+    },
+
+    "bulma": {
+        "title": "Bulma",
+        "url": "https://bulma.io",
+        "logo": ""
+    },
+
+    "font-awesome": {
+        "title": "Font Awesome",
+        "url": "https://fontawesome.com/",
+        "logo": ""
+    },
+
+    "testing-library": {
+        "title": "Testing Library",
+        "url": "https://testing-library.com/",
+        "logo": ""
+    },
+
+    "jest": {
+        "title": "Jest",
+        "url": "https://jestjs.io/",
+        "logo": ""
+    },
+
+    "cypress": {
+        "title": "Cypress",
+        "url": "https://www.cypress.io/",
+        "logo": ""
+    }
+}

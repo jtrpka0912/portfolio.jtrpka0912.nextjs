@@ -2,6 +2,9 @@
 slug: portfolio
 title: Portfolio 
 technology:
+  - html
+  - css
+  - javascript
   - reactjs
   - nextjs
   - typescript

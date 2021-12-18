@@ -9,7 +9,7 @@ import { Technology } from "../models/technology";
  * @returns { Technology[] }
  */
 export const getAllTechnologies = async (): Promise<Technology[]> => {
-    const response = await fetch('/hello-world.json');
+    const response = await fetch('http://localhost:3000/data/technology.json');
 
     if(!response.ok) throw new Error('Unable to retrieve technologies.');
 

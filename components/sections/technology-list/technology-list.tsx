@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+import { convertSlugsToTechnologies } from "../../../helpers/technology";
+import { Technology } from "../../../models/technology";
+
 /**
  * @interface TechnologyListProps
  * @summary Technology list component props
@@ -17,15 +21,28 @@ interface TechnologyListProps {
  * @returns { JSX }
  */
 const TechnologyList = (props: TechnologyListProps) => {
-    const { technologies } = props;
+    const { technologies: technologySlugs } = props;
+
+    const [technologyObjects, setTechnologyObjects] = useState<Technology[]>([]);
+
+    useEffect(() => {
+        if(technologySlugs.length > 0) {
+            convertSlugsToTechnologies(technologySlugs)
+                .then(setTechnologyObjects)
+                .catch((error: Error) => {
+                    // TODO: Handle errors better
+                    console.error('Error', error);
+                });
+        }
+    }, []);
 
     return (
         <section className="section">
             <div className="technology-list container">
 
-                { technologies.length > 0 ? (
+                { technologyObjects.length > 0 ? (
                     <div className="technology-list__list columns is-mobile is-multiline" role="list">
-                        { technologies.map((techItem: string) => <div key={ techItem }>{ techItem }</div>) }
+                        { technologyObjects.map((technology: Technology) => <div role="listitem" key={ technology.slug }>{ technology.title }</div>) }
                     </div>
                 ) : (
                     <div className="technology-list__empty">

@@ -1,4 +1,8 @@
-import { getAllTechnologies } from "../../helpers/technology";
+import { 
+    getAllTechnologies,
+    convertSlugsToTechnologies
+} from "../../helpers/technology";
+
 import { Technology } from "../../models/technology";
 
 const unMockedFetch = global.fetch;
@@ -74,4 +78,67 @@ describe('getAllTechnologies()', () => {
     afterEach(() => {
         global.fetch = unMockedFetch;
     });
+});
+
+describe('convertSlugsToTechnologies()', () => {
+    beforeEach(() => {
+        global.fetch = jest.fn()
+            .mockImplementation(() => 
+                Promise.resolve({
+                    ok: true,
+                    json: () => Promise.resolve([
+                        {
+                            slug: 'angular',
+                            title: 'Angular',
+                            url: '/path/to/home-page',
+                            logo: '/path/to/image'
+                        },
+                        {
+                            slug: 'typescript',
+                            title: 'TypeScript',
+                            url: '/path/to/home',
+                            logo: '/path/to/image'
+                        },
+                        {
+                            slug: 'spring-boot',
+                            title: 'Spring Boot',
+                            url: '/path/to/url',
+                            logo: ''
+                        },
+                        {
+                            slug: 'jhipster',
+                            title: 'JHipster',
+                            url: '/path/to/somewhere',
+                            logo: ''
+                        }
+                    ])
+                } as Response),
+            );
+    });
+
+    test('Retrieve technologies from slugs', async () => {
+        // Arrange
+        const technologies = await convertSlugsToTechnologies(['jhipster', 'angular']);
+
+        // Assert
+        expect(technologies).toHaveLength(2);
+        expect(technologies).toMatchObject<Technology[]>([
+            {
+                slug: 'jhipster',
+                title: 'JHipster',
+                url: '/path/to/somewhere',
+                logo: ''
+            },
+            {
+                slug: 'angular',
+                title: 'Angular',
+                url: '/path/to/home-page',
+                logo: '/path/to/image'
+            }
+        ]);
+    });
+
+    afterEach(() => {
+        global.fetch = unMockedFetch;
+    })
 });

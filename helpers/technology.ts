@@ -15,3 +15,16 @@ export const getAllTechnologies = async (): Promise<Technology[]> => {
 
     return response.json();
 }
+
+export const convertSlugsToTechnologies = async (slugs: string[]): Promise<Technology[]> => {
+    const allTechnologies = await getAllTechnologies();
+    let technologies = [];
+
+    for(const slug of slugs) {
+        const found: Technology | undefined = allTechnologies.find((tech: Technology) => tech.slug === slug);
+
+        if(found) technologies.push(found);
+    }
+
+    return technologies;
+}

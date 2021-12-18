@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, getAllByRole } from "@testing-library/react";
 
 import ProjectDetailNpm from "../../../../../components/project-detail-page/sidebar/project-detail-package/project-detail-npm";
 
@@ -11,7 +11,7 @@ describe('Render the component', () => {
 
     test('Count the number of links', () => {
         // Arrange
-        const npmLinkElements = screen.getAllByRole('link');
+        const npmLinkElements = document.querySelectorAll('.project-detail-npm__packages li a');
 
         // Assert
         expect(npmLinkElements).toHaveLength(3);
@@ -19,7 +19,7 @@ describe('Render the component', () => {
 
     test('The structure of a link', () => {
         // Arrange
-        const npmLinkElements = screen.getAllByRole('link');
+        const npmLinkElements = document.querySelectorAll('.project-detail-npm__packages li a');
 
         // Assert
         expect(npmLinkElements[0]).toHaveAttribute('href', 'https://npmjs.org/package/markdown');

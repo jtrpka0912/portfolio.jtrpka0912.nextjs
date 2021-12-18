@@ -138,7 +138,31 @@ describe('convertSlugsToTechnologies()', () => {
         ]);
     });
 
+    test('Find just one technology, but still remain an array', async () => {
+        // Arrange
+        const technology = await convertSlugsToTechnologies(['typescript']);
+
+        // Assert
+        expect(technology).toHaveLength(1);
+        expect(technology).toMatchObject<Technology[]>([
+            {
+                slug: 'typescript',
+                title: 'TypeScript',
+                url: '/path/to/home',
+                logo: '/path/to/image'
+            }
+        ]);
+    });
+
+    test('Find no technologies, return empty array', async () => {
+        // Arrange
+        const nothing = await convertSlugsToTechnologies(['vuejs', 'svelte']);
+
+        // Assert
+        expect(nothing).toHaveLength(0);
+    });
+
     afterEach(() => {
         global.fetch = unMockedFetch;
-    })
+    });
 });

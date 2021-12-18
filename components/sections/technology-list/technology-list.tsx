@@ -2,10 +2,10 @@
  * @interface TechnologyListProps
  * @summary Technology list component props
  * @author J. Trpka
- * @property { string[] } technology
+ * @property { string[] } technologies
  */
 interface TechnologyListProps {
-    technology: string[]
+    technologies: string[]
 }
 
 /**
@@ -17,15 +17,15 @@ interface TechnologyListProps {
  * @returns { JSX }
  */
 const TechnologyList = (props: TechnologyListProps) => {
-    const { technology } = props;
+    const { technologies } = props;
 
     return (
         <section className="section">
             <div className="technology-list container">
 
-                { technology.length > 0 ? (
+                { technologies.length > 0 ? (
                     <div className="technology-list__list columns is-mobile is-multiline" role="list">
-                        { technology.map((techItem: string) => <div key={ techItem }>{ techItem }</div>) }
+                        { technologies.map((techItem: string) => <div key={ techItem }>{ techItem }</div>) }
                     </div>
                 ) : (
                     <div className="technology-list__empty">

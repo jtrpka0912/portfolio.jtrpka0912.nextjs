@@ -42,7 +42,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
         <div className="page project-detail">
             Project Detail Page
             <ProjectDetailMainArea project={ project } />
-            <TechnologyList technology={ project.technology } />
+            <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />
         </div>
     );

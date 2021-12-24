@@ -19,8 +19,33 @@ interface TechnologyListItemProps {
  * @returns { JSX }
  */
 const TechnologyListItem = (props: TechnologyListItemProps) => {
+    const { technology } = props;
+    let technologyAltText: string = technology.title + 'logo';
+
+    if(!technology.logo) {
+        technologyAltText = 'Placeholder logo';
+        technology.logo = '/assets/images/placeholder-technology.png';
+    }
+
     return (
-        <div></div>
+        <a href={ technology.url }>
+            <article className="media">
+                <figure className="media-left">
+                    <p className="image is-64x64">
+                        <img 
+                            src={ technology.logo }
+                            alt={ technologyAltText } 
+                            width="64" 
+                            height="64" 
+                        />
+                    </p>
+                </figure>
+
+                <div className="media-content">
+                    <h3 className="title is-3">{ technology.title }</h3>
+                </div>
+            </article>
+        </a>
     );
 };
 

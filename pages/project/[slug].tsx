@@ -7,9 +7,13 @@ import { Project } from "../../models/project";
 
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
+import { convertSlugsToTechnologies } from "../../helpers/technology";
+import { Technology } from "../../models/technology";
+import TechnologyList from "../../components/sections/technology-list/technology-list";
 
 /**
  * @interface ProjectDetailPageProps
+ * @summary Project detail page props
  * @description The props for the project detail page
  * @author J. Trpka
  * @property { Project } project
@@ -38,6 +42,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
         <div className="page project-detail">
             Project Detail Page
             <ProjectDetailMainArea project={ project } />
+            <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />
         </div>
     );
@@ -50,14 +55,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 }
 
+/**
+ * @interface ProjectDetailStaticProps
+ * @summary Project detail static props
+ * @description The return value, of props, for the statically generated page
+ * @author J. Trpka
+ * @property { Project } project
+ */
 interface ProjectDetailStaticProps {
     project: Project
 }
 
+/**
+ * @interface ProjectDetailParams
+ * @extends ParsedUrlQuery
+ * @summary Project detail params
+ * @description The parameters passed into the statically generated page
+ * @author J. Trpka
+ * @property { string } slug
+ */
 interface ProjectDetailParams extends ParsedUrlQuery {
     slug: string
 }
 
+/**
+ * @function getStaticProps
+ * @param { any } context 
+ * @returns { ProjectDetailStaticProps }
+ */
 export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDetailParams> = async (context) => {
     try {
         const { slug } = context.params!;

@@ -2,13 +2,19 @@
 slug: portfolio
 title: Portfolio 
 technology:
+  - html
+  - css
+  - javascript
   - reactjs
   - nextjs
   - typescript
   - sass
   - markdown
   - bulma
-  - fontawesome
+  - font-awesome
+  - testing-library
+  - jest
+  - cypress
 package:
   npm:
     - gray-matter

@@ -30,7 +30,7 @@ const ProjectList = (props: ProjectListProps) => {
         <section className="section">
             <div className="project-list container">
                 { projects.length > 0 ? (
-                    <div className="project-list__list columns is-mobile is-multiline">
+                    <div className="project-list__list columns is-mobile is-multiline" role="list">
                         { projects.map((project: Project) => <ProjectListItem key={ project.slug } project={ project } /> ) }
                     </div>
                 ) : (

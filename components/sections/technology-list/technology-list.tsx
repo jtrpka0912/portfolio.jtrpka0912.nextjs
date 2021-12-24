@@ -43,9 +43,10 @@ const TechnologyList = (props: TechnologyListProps) => {
 
                 { technologyObjects.length > 0 ? (
                     <div className="technology-list__list columns is-mobile is-multiline" role="list">
-                        { technologyObjects.map((technology: Technology) => <TechnologyListItem 
-                            key={ technology.slug } 
-                            technology={ technology }/>
+                        { technologyObjects.map((technology: Technology) => 
+                            <TechnologyListItem 
+                                key={ technology.slug } 
+                                technology={ technology }/>
                         ) }
                     </div>
                 ) : (

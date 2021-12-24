@@ -30,10 +30,10 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
     return (
         <div 
             role="listitem"
-            className="technology-list-item column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-            <a href={ technology.url }>
-                <article className="media">
-                    <figure className="media-left">
+            className="technology-list-item column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+            <a href={ technology.url } target="_blank">
+                <article className="media has-background-white-ter">
+                    <figure className="media-left p-1 has-background-grey-lighter">
                         <p className="image is-64x64">
                             <img 
                                 src={ technology.logo }

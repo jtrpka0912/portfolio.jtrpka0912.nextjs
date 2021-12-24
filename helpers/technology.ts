@@ -16,6 +16,15 @@ export const getAllTechnologies = async (): Promise<Technology[]> => {
     return response.json();
 }
 
+/**
+ * @async
+ * @function convertSlugsToTechnologies
+ * @summary Convert slug strings to technology objects
+ * @description Take an array of string slugs and convert them by looking for the technology in the JSON data file.
+ * @author J. Trpka
+ * @param { string[] } slugs 
+ * @returns { Promise<Technology[]> }
+ */
 export const convertSlugsToTechnologies = async (slugs: string[]): Promise<Technology[]> => {
     const allTechnologies = await getAllTechnologies();
     let technologies = [];

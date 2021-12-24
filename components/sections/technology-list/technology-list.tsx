@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { convertSlugsToTechnologies } from "../../../helpers/technology";
 import { Technology } from "../../../models/technology";
+import TechnologyListItem from "./technology-list-item";
 
 /**
  * @interface TechnologyListProps
@@ -42,7 +43,10 @@ const TechnologyList = (props: TechnologyListProps) => {
 
                 { technologyObjects.length > 0 ? (
                     <div className="technology-list__list columns is-mobile is-multiline" role="list">
-                        { technologyObjects.map((technology: Technology) => <div role="listitem" key={ technology.slug }>{ technology.title }</div>) }
+                        { technologyObjects.map((technology: Technology) => <TechnologyListItem 
+                            key={ technology.slug } 
+                            technology={ technology }/>
+                        ) }
                     </div>
                 ) : (
                     <div className="technology-list__empty">

@@ -28,24 +28,28 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
     }
 
     return (
-        <a href={ technology.url }>
-            <article className="media">
-                <figure className="media-left">
-                    <p className="image is-64x64">
-                        <img 
-                            src={ technology.logo }
-                            alt={ technologyAltText } 
-                            width="64" 
-                            height="64" 
-                        />
-                    </p>
-                </figure>
+        <div 
+            role="listitem"
+            className="technology-list-item column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+            <a href={ technology.url }>
+                <article className="media">
+                    <figure className="media-left">
+                        <p className="image is-64x64">
+                            <img 
+                                src={ technology.logo }
+                                alt={ technologyAltText } 
+                                width="64" 
+                                height="64" 
+                            />
+                        </p>
+                    </figure>
 
-                <div className="media-content">
-                    <h3 className="title is-3">{ technology.title }</h3>
-                </div>
-            </article>
-        </a>
+                    <div className="media-content">
+                        <h5 className="subtitle is-5">{ technology.title }</h5>
+                    </div>
+                </article>
+            </a>
+        </div>
     );
 };
 

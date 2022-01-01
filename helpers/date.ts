@@ -5,6 +5,7 @@
  * @author J. Trpka
  * @param { string } simpleDate 
  * @returns { string }
+ * @throws { Error }
  */
  export const humanReadableDate = (simpleDate: string): string => {
     // Lets first convert the string to a Date object to handle date calculations.
@@ -12,6 +13,9 @@
 
     // And split the date into an array for checking missing parts of a date.
     const simpleDateArray: string[] = simpleDate.split('-');
+
+    // If an invalid date, then throw an error.
+    if(isNaN(simpleDateObj.getUTCFullYear())) throw new Error('Invalid date.');
 
     /**
      * @var { number } fullYear

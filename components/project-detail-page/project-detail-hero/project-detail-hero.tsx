@@ -24,7 +24,9 @@ const ProjectDetailTitle = (props: ProjectDetailTitleProps) => {
     return (
         <section className="hero-title hero is-primary">
             <div className="hero-body">
-                <h1 className="title is-3">{ project.title }</h1>
+                <div className="container">
+                    <h1 className="title is-3">{ project.title }</h1>
+                </div>
             </div>
         </section>
     );

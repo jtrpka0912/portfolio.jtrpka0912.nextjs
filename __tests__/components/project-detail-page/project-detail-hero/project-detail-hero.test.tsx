@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 
-import ProjectDetailTitle from "../../../../components/project-detail-page/project-detail-title/project-detail-title";
+import ProjectDetailHero from "../../../../components/project-detail-page/project-detail-hero/project-detail-hero";
 
 import { projectOne } from '../../../examples/projects';
 
 describe('Render the component', () => {
     test('Retrieve component by title', () => {
         // Arrange
-        render(<ProjectDetailTitle project={ projectOne } />);
+        render(<ProjectDetailHero project={ projectOne } />);
 
         const heroTitleElement = screen.getByText('Project 1');
 

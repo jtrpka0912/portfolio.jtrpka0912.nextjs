@@ -7,10 +7,8 @@ import { Project } from "../../models/project";
 
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
-import { convertSlugsToTechnologies } from "../../helpers/technology";
-import { Technology } from "../../models/technology";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
-import ProjectDetailTitle from "../../components/project-detail-page/project-detail-title/project-detail-title";
+import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
 
 /**
  * @interface ProjectDetailPageProps
@@ -41,7 +39,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
 
     return (
         <div className="page project-detail">
-            <ProjectDetailTitle project={ project } />
+            <ProjectDetailHero project={ project } />
             <ProjectDetailMainArea project={ project } />
             <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />

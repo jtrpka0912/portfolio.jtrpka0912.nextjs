@@ -41,11 +41,17 @@ describe('humanReadableDate()', () => {
         expect(humanDate).toBe('March 1st, 2001');
     });
 
-    test('Throw an error if invalid date.', () => {
+    test('Throw an error if invalid date (past 31st of January)', () => {
         expect(() => {
             humanReadableDate('2022-01-35');
         }).toThrowError('Invalid date.');
     });
+
+    test('Throw an error if invalid month (beyond December)', () => {
+        expect(() => {
+            humanReadableDate('2021-13-03');
+        }).toThrowError('Invalid date.');
+    })
 });
 
 describe('convertMonthNumberToString', () => {

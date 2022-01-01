@@ -41,11 +41,11 @@
      */
     let fullDate: string = '';
 
+    // Though the following will throw errors with improper values, but the date object does make it a handy pre-checker.
+
     if(simpleDateArray[1]) 
         fullMonth = convertMonthNumberToString(simpleDateObj.getUTCMonth());
     
-    
-    // https://stackoverflow.com/questions/15397372/javascript-new-date-ordinal-st-nd-rd-th/15397495
     if(simpleDateArray[2]) 
         fullDate = convertDateNumberToString(simpleDateObj.getUTCDate()) + ',';
 

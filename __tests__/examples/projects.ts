@@ -24,7 +24,7 @@ export const projectTwo: Project = {
         npm: ['lobash']
     },
     repo: undefined,
-    date: { started: '1970-01-01' },
+    date: { started: '1970-01-01', ended: '1970-05-04' },
     thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.FRONTEND,
@@ -60,7 +60,7 @@ export const projectFour: Project = {
         npm: ['gray-matter', 'markdown']
     },
     repo: undefined,
-    date: { started: '1970-01-01' },
+    date: { started: '1970-01-01', ended: '1972-02-30' },
     thumbnail: undefined,
     gallery: undefined,
     type: ProjectType.BACKEND,

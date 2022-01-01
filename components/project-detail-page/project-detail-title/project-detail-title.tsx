@@ -19,8 +19,14 @@ interface ProjectDetailTitleProps {
  * @returns { JSX }
  */
 const ProjectDetailTitle = (props: ProjectDetailTitleProps) => {
+    const { project } = props;
+
     return (
-        <div></div>
+        <section className="hero-title hero is-primary">
+            <div className="hero-body">
+                <h1 className="title is-3">{ project.title }</h1>
+            </div>
+        </section>
     );
 };
 

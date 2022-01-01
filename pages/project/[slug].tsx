@@ -10,6 +10,7 @@ import ProjectDetailMainArea from "../../components/project-detail-page/project-
 import { convertSlugsToTechnologies } from "../../helpers/technology";
 import { Technology } from "../../models/technology";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
+import ProjectDetailTitle from "../../components/project-detail-page/project-detail-title/project-detail-title";
 
 /**
  * @interface ProjectDetailPageProps
@@ -40,7 +41,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
 
     return (
         <div className="page project-detail">
-            Project Detail Page
+            <ProjectDetailTitle project={ project } />
             <ProjectDetailMainArea project={ project } />
             <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />

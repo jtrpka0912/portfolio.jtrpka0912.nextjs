@@ -8,6 +8,14 @@ describe('humanReadableDate()', () => {
         // Assert
         expect(humanDate).toBe('March 2nd, 2020');
     });
+
+    test('Print out a partial date', () => {
+        // Arrange
+        const humanDate = humanReadableDate('2021-05');
+
+        // Assert
+        expect(humanDate).toBe('May 2021');
+    });
 });
 
 describe('convertMonthNumberToString', () => {

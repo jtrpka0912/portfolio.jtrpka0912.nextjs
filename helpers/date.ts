@@ -7,8 +7,11 @@
  * @returns { string }
  */
  export const humanReadableDate = (simpleDate: string): string => {
-    // Lets first convert the string to a Date object to handle date calculations
+    // Lets first convert the string to a Date object to handle date calculations.
     const simpleDateObj: Date = new Date(simpleDate);
+
+    // And split the date into an array for checking missing parts of a date.
+    const simpleDateArray: string[] = simpleDate.split('-');
 
     /**
      * @var { number } fullYear
@@ -34,16 +37,22 @@
      */
     let fullDate: string = '';
 
-    // Date() month is zero-index with 0 being January which could lead to being false if left untouched.
-    if(simpleDateObj.getUTCMonth() + 1) 
+    if(simpleDateArray[1]) 
         fullMonth = convertMonthNumberToString(simpleDateObj.getUTCMonth());
     
     
     // https://stackoverflow.com/questions/15397372/javascript-new-date-ordinal-st-nd-rd-th/15397495
-    if(simpleDateObj.getUTCDate()) 
+    if(simpleDateArray[2]) 
         fullDate = convertDateNumberToString(simpleDateObj.getUTCDate()) + ',';
 
-    return `${ fullMonth } ${ fullDate } ${ fullYear }`;
+    
+    // Combine the results of the full values
+    const fullHumanDate: string[] = [];
+    if(fullMonth) fullHumanDate.push(fullMonth);
+    if(fullDate) fullHumanDate.push(fullDate);
+    if(fullYear) fullHumanDate.push(fullYear.toString());
+
+    return fullHumanDate.join(' ');
 }
 
 /**

@@ -67,7 +67,7 @@ export interface ProjectRepo {
  * @property { string } started
  * @property { string } ended
  */
-interface ProjectDate {
+export interface ProjectDate {
     started?: string,
     ended?: string
 }

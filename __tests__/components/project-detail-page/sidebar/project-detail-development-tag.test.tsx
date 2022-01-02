@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import ProjectDetailDevelopmentTag from "../../../../components/project-detail-page/project-detail-hero/project-detail-development-tag";
+import ProjectDetailDevelopmentTag from "../../../../components/project-detail-page/sidebar/project-detail-development-tag";
 
 describe('Render the component', () => {
     test('Render the component if in development', () => {

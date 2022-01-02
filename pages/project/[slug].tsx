@@ -9,6 +9,8 @@ import ProjectDetailGallery from "../../components/project-detail-page/project-d
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
 import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
+import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
+import { BreadcrumbLink } from "../../models/breadcrumb-link";
 
 /**
  * @interface ProjectDetailPageProps
@@ -37,9 +39,20 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
         return null;
     }
 
+    /**
+     * @var { BreadcrumbLink[] } links
+     * @description An array of breadcrumb links to build the breadcrumb component
+     * @author J. Trpka
+     */
+    const links: BreadcrumbLink[] = [
+        { text: 'Projects', url: '/project' },
+        { text: project.title, url: `/project/${ project.slug }` }
+    ];
+
     return (
         <div className="page project-detail">
             <ProjectDetailHero project={ project } />
+            <Breadcrumb links={ links } />
             <ProjectDetailMainArea project={ project } />
             <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />

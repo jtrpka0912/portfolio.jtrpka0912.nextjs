@@ -42,4 +42,17 @@ describe('Render component', () => {
         // Assert
         expect(breadcrumbItems).toHaveLength(4);
     });
+
+    test('Link without url', () => {
+        // Arrange
+        render(<Breadcrumb links={[
+            { text: 'Foo', url: '/foo' },
+            { text: 'Bar' }
+        ]} />);
+
+        const breadcrumbItems = screen.getAllByRole('listitem');
+
+        // Assert
+        expect(breadcrumbItems[2]).toHaveTextContent('Bar');
+    })
 });

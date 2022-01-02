@@ -23,7 +23,7 @@ const ProjectDetailTitle = (props: ProjectDetailTitleProps) => {
     const { project } = props;
 
     return (
-        <section className="hero-title hero is-primary">
+        <section className="hero-title hero is-info">
             <div className="hero-body">
                 <div className="container">
                     <h1 className="title is-3">{ project.title }</h1>

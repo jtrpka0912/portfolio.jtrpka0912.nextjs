@@ -29,7 +29,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     return (
         <section className="section">
             <div className="container">
-                <div className="breadcrumb" aria-label="breadcrumbs">
+                <div className="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
                     <ul>
                         <li><Link href="/">
                             <a><FontAwesomeIcon icon={ faHome } className="mr-1" />Home</a>
@@ -38,7 +38,10 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                         { links && links.map((link: BreadcrumbLink, index: number) => {
                             return (
                                 <li key={ index }
-                                    className={ (index === links.length - 1) ? `is-active` : undefined }
+                                    className={ (index === links.length - 1) 
+                                        ? `is-active` 
+                                        : undefined 
+                                    }
                                 >
                                     { link.url ? (
                                         <Link href={ link.url }><a>{ link.text }</a></Link>

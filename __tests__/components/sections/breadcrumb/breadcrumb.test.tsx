@@ -53,7 +53,7 @@ describe('Render component', () => {
         const breadcrumbItems = screen.getAllByRole('listitem');
 
         // Assert
-        expect(breadcrumbItems[2]).toHaveTextContent('Bar');
+        expect(breadcrumbItems[2].querySelector('a')).toHaveAttribute('href', '#');
     });
 
     test('Last item should have active class', () => {

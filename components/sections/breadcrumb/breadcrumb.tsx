@@ -43,7 +43,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                                     { link.url ? (
                                         <Link href={ link.url }><a>{ link.text }</a></Link>
                                     ) : (
-                                        <>{ link.text }</>
+                                        <a href="#">{ link.text }</a>
                                     ) }
                                 </li>
                             );

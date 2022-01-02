@@ -9,6 +9,7 @@ import ProjectDetailGallery from "../../components/project-detail-page/project-d
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
 import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
+import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
 
 /**
  * @interface ProjectDetailPageProps
@@ -40,6 +41,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     return (
         <div className="page project-detail">
             <ProjectDetailHero project={ project } />
+            <Breadcrumb />
             <ProjectDetailMainArea project={ project } />
             <TechnologyList technologies={ project.technology } />
             <ProjectDetailGallery gallery={ project.gallery } />

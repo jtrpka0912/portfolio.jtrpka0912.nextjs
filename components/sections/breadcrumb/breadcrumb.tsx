@@ -25,13 +25,18 @@ interface BreadcrumbProps {
  */
 const Breadcrumb = (props: BreadcrumbProps) => {
     return (
-        <div className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-                <li><Link href="/">
-                    <a><FontAwesomeIcon icon={ faHome } />Home</a>
-                </Link></li>
-            </ul>
-        </div>
+        <section className="section">
+            <div className="container">
+                <div className="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><Link href="/">
+                            <a><FontAwesomeIcon icon={ faHome } className="mr-1" />Home</a>
+                        </Link></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
     );
 };
 

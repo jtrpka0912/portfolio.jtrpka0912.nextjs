@@ -57,4 +57,18 @@ describe('Render with both starting and ending dates', () => {
         // Assert
         expect(subtitleElement).toBeInTheDocument();
     });
+
+    test('Only render starting date with invalid ending date', () => {
+        // Arrange
+        render(<ProjectDetailSubtitleDate dates={{
+            started: '2018-04-30',
+            ended: '2019-03-36'
+        }} />);
+
+        const subtitleElement = screen.queryByText('April 30th, 2018 to March 36th, 2019');
+
+        // Assert
+        expect(subtitleElement).not.toBeInTheDocument();
+        expect(subtitleElement).toBeNull();
+    });
 });

@@ -19,8 +19,13 @@ interface ProjectDetailTypeTagProps {
  * @returns { JSX }
  */
 const ProjectDetailTypeTag = (props: ProjectDetailTypeTagProps) => {
+    const { type } = props;
+
     return (
-        <div></div>
+        <div className="tags has-addons">
+            <span className="tag is-info">Project Type</span>
+            <span className="tag is-info is-light is-capitalized">{ type }</span>
+        </div>
     );
 };
 

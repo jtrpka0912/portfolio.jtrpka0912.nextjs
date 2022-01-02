@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import ProjectDetailTypeTag from "../../../../components/project-detail-page/project-detail-hero/project-detail-type-tag";
+import ProjectDetailTypeTag from "../../../../components/project-detail-page/sidebar/project-detail-type-tag";
 
 import { ProjectType } from "../../../../models/project";
 

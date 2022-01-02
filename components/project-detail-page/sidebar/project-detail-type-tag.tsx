@@ -22,7 +22,7 @@ const ProjectDetailTypeTag = (props: ProjectDetailTypeTagProps) => {
     const { type } = props;
 
     return (
-        <div className="tags has-addons">
+        <div className="development-tag tags has-addons">
             <span className="tag is-info">Project Type</span>
             <span className="tag is-info is-light is-capitalized">{ type }</span>
         </div>

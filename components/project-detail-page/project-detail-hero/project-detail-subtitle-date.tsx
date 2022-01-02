@@ -1,4 +1,5 @@
 import { ProjectDate } from '../../../models/project';
+import { humanReadableDate } from '../../../helpers/date';
 
 /**
  * @interface ProjectDetailSubtitleDateProps
@@ -19,8 +20,14 @@ interface ProjectDetailSubtitleDateProps {
  * @returns { JSX }
  */
 const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
+    const { dates } = props;
+
+    if(!dates) return null;
+
+    const startedDate: string | null = dates.started ? humanReadableDate(dates.started) : null;
+
     return (
-        <div></div>
+        <h3 className="subtitle is-6">{ startedDate }</h3>
     );
 };
 

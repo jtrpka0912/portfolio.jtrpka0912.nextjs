@@ -24,6 +24,8 @@ interface BreadcrumbProps {
  * @returns { JSX }
  */
 const Breadcrumb = (props: BreadcrumbProps) => {
+    const { links } = props;
+
     return (
         <section className="section">
             <div className="container">
@@ -32,11 +34,18 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                         <li><Link href="/">
                             <a><FontAwesomeIcon icon={ faHome } className="mr-1" />Home</a>
                         </Link></li>
+
+                        { links && links.map((link: BreadcrumbLink, index: number) => {
+                            return (
+                                <li key={ index }>
+                                    <Link href={ link.url }><a>{ link.text }</a></Link>
+                                </li>
+                            );
+                        }) }
                     </ul>
                 </div>
             </div>
         </section>
-        
     );
 };
 

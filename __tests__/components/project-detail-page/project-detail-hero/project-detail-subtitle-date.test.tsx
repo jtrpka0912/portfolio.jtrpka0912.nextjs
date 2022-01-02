@@ -71,4 +71,18 @@ describe('Render with both starting and ending dates', () => {
         expect(subtitleElement).not.toBeInTheDocument();
         expect(subtitleElement).toBeNull();
     });
+
+    test('Do not render if date range is invalid', () => {
+        // Arrange
+        render(<ProjectDetailSubtitleDate dates={{
+            started: '2012-12-04',
+            ended: '2011-02-07'
+        }} />);
+
+        const subtitleElement = screen.queryByText('December 4th, 2012 to February 7th, 2011');
+
+        // Assert
+        expect(subtitleElement).not.toBeInTheDocument();
+        expect(subtitleElement).toBeNull();
+    });
 });

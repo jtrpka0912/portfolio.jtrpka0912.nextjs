@@ -1,5 +1,5 @@
 import { ProjectDate } from '../../../models/project';
-import { humanReadableDate } from '../../../helpers/date';
+import { humanReadableDate, validDateRange } from '../../../helpers/date';
 
 /**
  * @interface ProjectDetailSubtitleDateProps
@@ -24,6 +24,11 @@ const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
 
     // Either no dates or no starting date will return nothing.
     if(!dates || !dates.started) return null;
+
+    // If date range is invalid then return nothing.
+    if(dates.ended) {
+        if(!validDateRange(dates.started, dates.ended)) return null;
+    }
 
     /**
      * @var { string } startedDate

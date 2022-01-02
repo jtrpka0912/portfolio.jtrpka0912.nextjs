@@ -22,9 +22,16 @@ interface ProjectDetailSubtitleDateProps {
 const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
     const { dates } = props;
 
-    if(!dates) return null;
+    // Either no dates or no starting date will return nothing.
+    if(!dates || !dates.started) return null;
 
-    const startedDate: string | null = dates.started ? humanReadableDate(dates.started) : null;
+    let startedDate: string;
+
+    try {
+        startedDate = humanReadableDate(dates.started);
+    } catch(err) {
+        return null;
+    }
 
     return (
         <h3 className="subtitle is-6">{ startedDate }</h3>

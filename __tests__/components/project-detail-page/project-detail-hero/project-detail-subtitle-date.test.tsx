@@ -14,4 +14,17 @@ describe('Render with just starting date', () => {
         // Assert
         expect(subtitleElement).toBeInTheDocument();
     });
+
+    test('Do not render if invalid date', () => {
+        // Arrange
+        render(<ProjectDetailSubtitleDate dates={{
+            started: '2025-01-36'
+        }} />);
+
+        const subtitleElement = screen.queryByText('January 36th, 2025');
+
+        // Assert
+        expect(subtitleElement).not.toBeInTheDocument();
+        expect(subtitleElement).toBeNull();
+    });
 });

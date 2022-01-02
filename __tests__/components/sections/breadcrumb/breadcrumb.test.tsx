@@ -54,5 +54,19 @@ describe('Render component', () => {
 
         // Assert
         expect(breadcrumbItems[2]).toHaveTextContent('Bar');
+    });
+
+    test('Last item should have active class', () => {
+        // Arrange
+        render(<Breadcrumb links={[
+            { text: 'Hello World', url: '/hello-world' },
+            { text: 'Path', url: '/hello-world/path'},
+            { text: 'Enlightment', url: '/hello-world/path/enlightment'}
+        ]} />);
+
+        const breadcrumbItems = screen.getAllByRole('listitem');
+
+        // Assert
+        expect(breadcrumbItems[3]).toHaveClass('is-active');
     })
 });

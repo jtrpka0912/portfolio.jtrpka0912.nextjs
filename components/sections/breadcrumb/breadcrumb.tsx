@@ -37,7 +37,9 @@ const Breadcrumb = (props: BreadcrumbProps) => {
 
                         { links && links.map((link: BreadcrumbLink, index: number) => {
                             return (
-                                <li key={ index }>
+                                <li key={ index }
+                                    className={ (index === links.length - 1) ? `is-active` : undefined }
+                                >
                                     { link.url ? (
                                         <Link href={ link.url }><a>{ link.text }</a></Link>
                                     ) : (

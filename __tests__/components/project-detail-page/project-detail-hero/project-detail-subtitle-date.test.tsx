@@ -28,3 +28,33 @@ describe('Render with just starting date', () => {
         expect(subtitleElement).toBeNull();
     });
 });
+
+describe('Render with just ending date', () => {
+    test('Do not render component if just ending date', () => {
+        // Arrange
+        render(<ProjectDetailSubtitleDate dates={{
+            ended: '2029-08-09'
+        }} />);
+
+        const subtitleElement = screen.queryByText(' to August 9th, 2029');
+
+        // Assert
+        expect(subtitleElement).not.toBeInTheDocument();
+        expect(subtitleElement).toBeNull();
+    });
+});
+
+describe('Render with both starting and ending dates', () => {
+    test('Render the component with both valid dates', () => {
+        // Arrange
+        render(<ProjectDetailSubtitleDate dates={{
+            started: '2019-05-10',
+            ended: '2023-07-29'
+        }} />);
+
+        const subtitleElement = screen.getByText('May 10th, 2019 to July 29th, 2023');
+
+        // Assert
+        expect(subtitleElement).toBeInTheDocument();
+    });
+});

@@ -26,6 +26,7 @@ const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
     if(!dates || !dates.started) return null;
 
     let startedDate: string;
+    let endedDate: string | null;
 
     try {
         startedDate = humanReadableDate(dates.started);
@@ -33,8 +34,17 @@ const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
         return null;
     }
 
+    try {
+        endedDate = dates.ended ? humanReadableDate(dates.ended) : null;
+    } catch(err) {
+        endedDate = null;
+    }
+
     return (
-        <h3 className="subtitle is-6">{ startedDate }</h3>
+        <h3 className="subtitle is-6">
+            { startedDate }
+            { endedDate ? ` to ${ endedDate }` : null }
+        </h3>
     );
 };
 

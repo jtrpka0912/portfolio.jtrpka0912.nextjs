@@ -22,7 +22,9 @@ const ProjectDetailDevelopmentTag = (props: ProjectDetailDevelopmentTagProps) =>
     if(!inDevelopment) return null;
 
     return (
-        <span className="tag is-info is-light">In Development</span>
+        <div className="development-tag mb-3">
+            <span className="tag is-warning is-light">In Development</span>
+        </div>
     );
 };
 

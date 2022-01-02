@@ -3,6 +3,7 @@ import { Project } from "../../../models/project";
 import Sidebar from "../../ui/sidebar";
 import ProjectDetailRepo from "../sidebar/project-detail-repo/project-detail-repo";
 import ProjectDetailPackage from '../sidebar/project-detail-package/project-detail-package';
+import ProjectDetailDevelopmentTag from "../sidebar/project-detail-development-tag";
 
 /**
  * @interface ProjectDetailMainAreaSidebarProps
@@ -27,6 +28,7 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
 
     return (
         <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
+            <ProjectDetailDevelopmentTag inDevelopment={ project.inDevelopment } />
             <Sidebar>
                 <ProjectDetailRepo repo={ project.repo } />
             </Sidebar>

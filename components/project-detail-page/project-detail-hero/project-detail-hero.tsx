@@ -1,4 +1,5 @@
 import { Project } from "../../../models/project";
+import ProjectDetailSubtitleDate from "./project-detail-subtitle-date";
 
 /**
  * @interface ProjectDetailTitleProps
@@ -26,6 +27,7 @@ const ProjectDetailTitle = (props: ProjectDetailTitleProps) => {
             <div className="hero-body">
                 <div className="container">
                     <h1 className="title is-3">{ project.title }</h1>
+                    <ProjectDetailSubtitleDate dates={ project.date } />
                 </div>
             </div>
         </section>

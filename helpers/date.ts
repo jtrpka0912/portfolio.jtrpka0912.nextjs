@@ -108,3 +108,24 @@ export const convertDateNumberToString = (numericDate: number): string => {
         default: return numericDate + 'th';
     }
 }
+
+/**
+ * @function validDateRange
+ * @summary Valid date range
+ * @description Check if the starting date is earlier than the ending date
+ * @author J. Trpka
+ * @param { string } startDate 
+ * @param { string } endDate 
+ * @returns { boolean }
+ */
+export const validDateRange = (startDate: string, endDate: string): boolean => {
+    const startDateObj: Date = new Date(startDate);
+    if(isNaN(startDateObj.getUTCFullYear())) return false;
+
+    const endDateObj: Date = new Date(endDate);
+    if(isNaN(endDateObj.getUTCFullYear())) return false;
+
+    if(startDateObj > endDateObj) return false;
+
+    return true;
+}

@@ -25,7 +25,20 @@ const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
     // Either no dates or no starting date will return nothing.
     if(!dates || !dates.started) return null;
 
+    /**
+     * @var { string } startedDate
+     * @summary Started date
+     * @description The full string starting date of a project
+     * @author J. Trpka
+     */
     let startedDate: string;
+
+    /**
+     * @var { string | null } endedDate
+     * @summary Ended date
+     * @description The full string ending date of a project
+     * @author J. Trpka
+     */
     let endedDate: string | null;
 
     try {

@@ -1,4 +1,9 @@
-import { humanReadableDate, convertMonthNumberToString, convertDateNumberToString } from "../../helpers/date";
+import { 
+    humanReadableDate, 
+    convertMonthNumberToString, 
+    convertDateNumberToString,
+    validDateRange
+} from "../../helpers/date";
 
 describe('humanReadableDate()', () => {
     test('Print out full date', () => {
@@ -140,4 +145,46 @@ describe('convertDateNumberToString', () => {
             convertDateNumberToString(50);
         }).toThrowError(errorMessage);
     });
+});
+
+describe('validDateRange', () => {
+    test('Return true with starting date being earlier than ending date', () => {
+        // Arrange
+        const isValid = validDateRange('2019-03-04', '2019-03-05');
+
+        // Assert
+        expect(isValid).toBeTruthy();
+    });
+
+    test('Return false since ending date is earlier', () => {
+        // Arrange
+        const isValid = validDateRange('2019-06-10', '2019-06-09');
+
+        // Assert
+        expect(isValid).toBeFalsy();
+    });
+
+    test('Return false if starting date is invalid', () => {
+        // Arrange
+        const isValid = validDateRange('2017-05-39', '2017-07-09');
+
+        // Assert
+        expect(isValid).toBeFalsy();
+    });
+
+    test('Return false if ending date is invalid', () => {
+        // Arrange
+        const isValid = validDateRange('2013-10-09', '2013-11-38');
+
+        // Assert
+        expect(isValid).toBeFalsy();
+    });
+
+    test('Return true if dates are the same, though not really', () => {
+        // Arrange
+        const isValid = validDateRange('2000-02-30', '2000-03-01');
+
+        // Assert
+        expect(isValid).toBeTruthy();
+    })
 });

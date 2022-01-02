@@ -1,5 +1,7 @@
 import { Project } from "../../../models/project";
+import ProjectDetailDevelopmentTag from "./project-detail-development-tag";
 import ProjectDetailSubtitleDate from "./project-detail-subtitle-date";
+import ProjectDetailTypeTag from "./project-detail-type-tag";
 
 /**
  * @interface ProjectDetailTitleProps

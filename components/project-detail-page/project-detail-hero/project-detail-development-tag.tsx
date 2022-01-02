@@ -17,8 +17,12 @@ interface ProjectDetailDevelopmentTagProps {
  * @returns { JSX }
  */
 const ProjectDetailDevelopmentTag = (props: ProjectDetailDevelopmentTagProps) => {
+    const { inDevelopment } = props;
+
+    if(!inDevelopment) return null;
+
     return (
-        <div></div>
+        <span className="tag is-info is-light">In Development</span>
     );
 };
 

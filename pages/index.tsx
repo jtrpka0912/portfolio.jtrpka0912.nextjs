@@ -17,7 +17,7 @@ const HomePage: NextPage = () => {
         <div>
             <HomeHero />
 
-            <SkeletonBase type="thumbnail" />
+            <SkeletonBase type="textline" />
         </div>
     );
 }

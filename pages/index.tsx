@@ -17,7 +17,7 @@ const HomePage: NextPage = () => {
         <div>
             <HomeHero />
 
-            <SkeletonBase type="textline" />
+            <SkeletonBase type="icon" />
         </div>
     );
 }

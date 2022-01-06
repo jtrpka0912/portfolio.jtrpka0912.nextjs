@@ -17,8 +17,10 @@ interface SkeletonBaseProps {
  * @returns { JSX }
  */
 const SkeletonBase = (props: SkeletonBaseProps) => {
+    const { type } = props;
+
     return (
-        <div></div>
+        <div className={ `skeleton ${type.toLowerCase()}` }></div>
     );
 };
 

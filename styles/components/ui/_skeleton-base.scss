@@ -1,0 +1,10 @@
+.skeleton {
+    margin-bottom: .25rem;
+    background-color: #dedede;
+    border-radius: 4px;
+
+    &.thumbnail {
+        width: 128px;
+        height: 128px;
+    }
+}

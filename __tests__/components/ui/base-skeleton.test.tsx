@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
 
-import SkeletonBase from "../../../components/ui/skeleton-base";
+import BaseSkeleton from "../../../components/ui/base-skeleton";
 
 describe('Render the component', () => {
     test('Component needs a type', () => {
         // Arrange
-        render(<SkeletonBase type="thumbnail" />);
+        render(<BaseSkeleton type="thumbnail" />);
 
         const skeletonElement = document.querySelector('.skeleton');
 

@@ -1,22 +1,22 @@
 /**
- * @interface SkeletonBaseProps
- * @summary Skeleton base props
+ * @interface BaseSkeletonProps
+ * @summary Base skeleton props
  * @author J. Trpka
  * @property { string } type // The type of skeleton component
  */
-interface SkeletonBaseProps {
+interface BaseSkeletonProps {
     type: string
 }
 
 /**
- * @function SkeletonBase
- * @summary Skeleton base component
+ * @function BaseSkeleton
+ * @summary Base skeleton component
  * @description The base component for skeleton components
  * @author J. Trpka
- * @param { SkeletonBaseProps } props 
+ * @param { BaseSkeletonProps } props 
  * @returns { JSX }
  */
-const SkeletonBase = (props: SkeletonBaseProps) => {
+const BaseSkeleton = (props: BaseSkeletonProps) => {
     const { type } = props;
 
     return (
@@ -24,4 +24,4 @@ const SkeletonBase = (props: SkeletonBaseProps) => {
     );
 };
 
-export default SkeletonBase;
+export default BaseSkeleton;

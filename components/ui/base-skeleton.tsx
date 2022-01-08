@@ -5,7 +5,7 @@
  * @property { string } type // The type of skeleton component
  */
 interface BaseSkeletonProps {
-    type: string
+    type: 'thumbnail' | 'title' | 'textline' | 'icon' | 'tag' | 'sidebar' | 'long-item'
 }
 
 /**

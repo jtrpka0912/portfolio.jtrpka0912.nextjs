@@ -3,6 +3,7 @@
     background-color: #cdcdcd;
     border-radius: 4px;
 
+    // Base skeleton modifiers
     &--thumbnail {
         width: 128px;
         height: 128px;
@@ -31,5 +32,12 @@
     &--sidebar {
         width: 100%;
         height: 64px;
+    }
+
+    // Compound skeleton components
+    &__breadcrumb {
+        & > * {
+            margin-right: 1rem;
+        }
     }
 }

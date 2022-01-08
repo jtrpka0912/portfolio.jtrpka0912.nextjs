@@ -19,8 +19,15 @@ interface BaseSkeletonProps {
 const BaseSkeleton = (props: BaseSkeletonProps) => {
     const { type } = props;
 
+    /**
+     * @var { string } typeClass
+     * @description This will prevent class conflicts with Bulma classes.
+     * @author J. Trpka
+     */
+    const typeClass: string = `skeleton--${ type.toLowerCase() }`;
+
     return (
-        <div className={ `skeleton ${type.toLowerCase()}` }></div>
+        <div className={ `skeleton ${ typeClass }` }></div>
     );
 };
 

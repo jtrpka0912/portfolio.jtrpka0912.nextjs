@@ -3,32 +3,32 @@
     background-color: #cdcdcd;
     border-radius: 4px;
 
-    &.thumbnail {
+    &--thumbnail {
         width: 128px;
         height: 128px;
     }
 
-    &.title {
+    &--title {
         width: 128px;
         height: 16px;
     }
 
-    &.textline {
+    &--textline {
         width: 100%;
         height: 14px;
     }
 
-    &.icon {
+    &--icon {
         width: 16px;
         height: 16px;
     }
 
-    &.tag {
+    &--tag {
         width: 64px;
         height: 24px;
     }
 
-    &.sidebar {
+    &--sidebar {
         width: 100%;
         height: 64px;
     }

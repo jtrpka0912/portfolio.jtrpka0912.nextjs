@@ -10,6 +10,6 @@ describe('Render the component', () => {
         const skeletonElement = document.querySelector('.skeleton');
 
         // Assert
-        expect(skeletonElement).toHaveClass('thumbnail');
+        expect(skeletonElement).toHaveClass('skeleton--thumbnail');
     });
 });

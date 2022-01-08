@@ -20,6 +20,8 @@ interface TechnologyListItemProps {
  */
 const TechnologyListItem = (props: TechnologyListItemProps) => {
     const { technology } = props;
+
+    
     let technologyAltText: string = technology.title + 'logo';
 
     if(!technology.logo) {
@@ -27,10 +29,17 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
         technology.logo = '/assets/images/placeholder-technology.png';
     }
 
+    /**
+     * @var { string } columnClasses
+     * @description All of the Bulma column classes in one variable.
+     * @author J. Trpka
+     */
+     const columnClasses = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
+
     return (
         <div 
             role="listitem"
-            className="technology-list-item column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+            className={ `technology-list-item ${ columnClasses }` }>
             <a href={ technology.url } target="_blank">
                 <article className="media has-background-white-ter">
                     <figure className="media-left p-1 has-background-grey-lighter">

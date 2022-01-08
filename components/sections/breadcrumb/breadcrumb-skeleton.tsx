@@ -1,3 +1,5 @@
+import BaseSkeleton from "../../ui/base-skeleton";
+
 /**
  * @function BreadcrumbSkeleton
  * @summary Breadcrumb skeleton
@@ -7,7 +9,11 @@
  */
 const BreadcrumbSkeleton = () => {
     return (
-        <div></div>
+        <div className="is-flex is-flex-direction-row is-flex-wrap-nowrap">
+            <BaseSkeleton type="tag" />
+            <BaseSkeleton type="tag" />
+            <BaseSkeleton type="tag" />
+        </div>
     );
 }
 

@@ -45,4 +45,10 @@
             margin-right: 1rem;
         }
     }
+
+    &__project-list {
+        .skeleton--thumbnail {
+            margin: 0 auto;
+        }
+    }
 }

@@ -1,3 +1,5 @@
+import BaseSkeleton from "../../ui/base-skeleton";
+
 /**
  * @function ProjectDetailHeroSkeleton
  * @summary Project detail hero skeleton component
@@ -7,7 +9,13 @@
  */
 const ProjectDetailHeroSkeleton = () => {
     return (
-        <div></div>
+        <section className="hero-title hero is-info">
+            <div className="hero-body">
+                <div className="container">
+                    <BaseSkeleton type="title" />
+                </div>
+            </div>
+        </section>
     );
 };
 

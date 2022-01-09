@@ -2,17 +2,24 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
+// Helpers
 import { getSingleProject } from "../../helpers/project";
-import { Project } from "../../models/project";
 
+// Models
+import { Project } from "../../models/project";
+import { BreadcrumbLink } from "../../models/breadcrumb-link";
+
+// Components
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
 import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
-import { BreadcrumbLink } from "../../models/breadcrumb-link";
+
+// Skeleton Components
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 import TechnologyListSkeleton from "../../components/sections/technology-list/technology-list-skeleton";
+import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
 
 /**
  * @interface ProjectDetailPageProps
@@ -39,6 +46,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     if(true) {
         return (
             <div className="page project-detail">
+                <ProjectDetailHeroSkeleton />
                 <BreadcrumbSkeleton />
                 <TechnologyListSkeleton />
             </div>

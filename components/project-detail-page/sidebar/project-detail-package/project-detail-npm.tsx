@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Models
 import { ProjectNPMPackage } from "../../../../models/project";
+import ExternalLinkIcon from "../../../ui/external-link-icon";
 
 /**
  * @interface ProjectDetailNpmProps
@@ -30,7 +31,7 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
     return (
         <div className="project-detail-npm">
             <h5 className="project-detail-npm__header mb-1">
-                <a href="https://www.npmjs.org" target="_blank"><FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <FontAwesomeIcon icon={ faExternalLinkAlt } className="ml-1" size="xs" /></a>
+                <a href="https://www.npmjs.org" target="_blank"><FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <ExternalLinkIcon /></a>
             </h5>
 
             <ul className="project-detail-npm__packages ml-4">
@@ -52,7 +53,7 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
                                 }
                                 { packageItem.name }
                                 
-                                <FontAwesomeIcon icon={ faExternalLinkAlt } className="ml-2" size="xs" />
+                                <ExternalLinkIcon />
                             </a>
                         </li>
                     );

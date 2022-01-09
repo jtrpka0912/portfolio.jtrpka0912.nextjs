@@ -10,6 +10,11 @@ import BaseSkeleton from "../../ui/base-skeleton";
 const ProjectDetailMainAreaSkeleton = () => {
     return (
         <section className="section">
+            <div className="main-area container">
+                <div className="columns">
+                    
+                </div>
+            </div>
         </section>
     );
 };

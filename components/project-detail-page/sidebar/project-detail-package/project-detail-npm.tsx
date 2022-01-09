@@ -1,5 +1,6 @@
 // Font Awesome
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt, faTools } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Models
@@ -29,15 +30,30 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
     return (
         <div className="project-detail-npm">
             <h5 className="project-detail-npm__header mb-1">
-                <a href="https://www.npmjs.org" target="_blank">NPM Packages</a>
+                <a href="https://www.npmjs.org" target="_blank"><FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <FontAwesomeIcon icon={ faExternalLinkAlt } className="ml-1" size="xs" /></a>
             </h5>
 
-            <ul className="project-detail-npm__packages">
+            <ul className="project-detail-npm__packages ml-4">
                 { packages.map((packageItem: ProjectNPMPackage) => {
                     return (
                         <li key={ packageItem.name }>
-                            <FontAwesomeIcon icon={ faNpm } className="mr-2" />
-                            <a href={ `https://npmjs.org/package/${ packageItem.name }` } target="_blank">{ packageItem.name }</a>
+                            <a 
+                                href={ `https://npmjs.org/package/${ packageItem.name }` } 
+                                target="_blank" 
+                                title={ packageItem.isDevDependency ? 'Dev Dependency' : undefined }
+                            >
+                                { packageItem.isDevDependency 
+                                    ? <FontAwesomeIcon 
+                                        icon={ faTools } 
+                                        size="xs" 
+                                        className="mr-2"
+                                    /> 
+                                    : null 
+                                }
+                                { packageItem.name }
+                                
+                                <FontAwesomeIcon icon={ faExternalLinkAlt } className="ml-2" size="xs" />
+                            </a>
                         </li>
                     );
                 }) }

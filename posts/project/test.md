@@ -11,9 +11,12 @@ technology:
   - chai
 package:
   npm:
-    - ts-jest
-    - eslint
-    - swr
+    - name: ts-jest
+      isDevDependency: true
+    - name: eslint
+      isDevDependency: true
+    - name: swr
+      isDevDependency: false
 repo:
   github: 'https://github.com/octocat/hello-world'
 date:

@@ -14,13 +14,13 @@ const ProjectDetailMainAreaContentSkeleton = () => {
                 <BaseSkeleton type="thumbnail" />
 
                 <div className="is-flex-grow-1">
-                    { [...Array(6)].map(e => <BaseSkeleton type="textline" />) }
+                    { [...Array(6)].map((e, index: number) => <BaseSkeleton key={ index } type="textline" />) }
                 </div>
             </div>
             
 
             <div>
-                { [...Array(9)].map(e => <BaseSkeleton type="textline" />) }
+                { [...Array(9)].map((e, index: number) => <BaseSkeleton key={ index } type="textline" />) }
             </div>
             
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import useSWR from 'swr';
 
+// Font Awesome
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCodeBranch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +13,7 @@ import {
 import {
     getRepo
 } from '../../../../api/github';
+import ExternalLinkIcon from '../../../ui/external-link-icon';
 
 /**
  * @interface ProjectDetailGithubProps
@@ -58,7 +60,7 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
                         <a className="ml-1" 
                             href={ github } 
                             target="_blank"
-                        >Repository</a>
+                        >Repository <ExternalLinkIcon /></a>
                     </h5>
 
                     <div className="project-detail-github__stats tags mt-1">

@@ -6,7 +6,11 @@ describe('Render the component', () => {
     // Realistically, there is no reason this component would ever render if there are no packages.
 
     beforeEach(() => {
-        render(<ProjectDetailNpm packages={['markdown', 'gray-matter', 'lodash']} />);
+        render(<ProjectDetailNpm packages={[
+            { name: 'markdown', isDevDependency: false },
+            { name: 'gray-matter', isDevDependency: false },
+            { name: 'lodash', isDevDependency: false }
+        ]} />);
     });
 
     test('Count the number of links', () => {

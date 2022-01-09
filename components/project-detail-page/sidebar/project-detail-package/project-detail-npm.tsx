@@ -1,14 +1,20 @@
+// Font Awesome
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt, faTools } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Models
+import { ProjectNPMPackage } from "../../../../models/project";
+import ExternalLinkIcon from "../../../ui/external-link-icon";
 
 /**
  * @interface ProjectDetailNpmProps
  * @summary Project detail NPM component props
  * @author J. Trpka
- * @property { string[] } packages
+ * @property { ProjectNPMPackage[] } packages
  */
 interface ProjectDetailNpmProps {
-    packages: string[]
+    packages: ProjectNPMPackage[]
 }
 
 /**
@@ -25,15 +31,32 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
     return (
         <div className="project-detail-npm">
             <h5 className="project-detail-npm__header mb-1">
-                <a href="https://www.npmjs.org" target="_blank">NPM Packages</a>
+                <a href="https://www.npmjs.org" target="_blank">
+                    <FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <ExternalLinkIcon />
+                </a>
             </h5>
 
-            <ul className="project-detail-npm__packages">
-                { packages.map((packageItem: string) => {
+            <ul className="project-detail-npm__packages ml-4">
+                { packages.map((packageItem: ProjectNPMPackage) => {
                     return (
-                        <li key={ packageItem }>
-                            <FontAwesomeIcon icon={ faNpm } className="mr-2" />
-                            <a href={ `https://npmjs.org/package/${ packageItem }` } target="_blank">{ packageItem }</a>
+                        <li key={ packageItem.name }>
+                            <a 
+                                href={ `https://npmjs.org/package/${ packageItem.name }` } 
+                                target="_blank" 
+                                title={ packageItem.isDevDependency ? 'Dev Dependency' : undefined }
+                            >
+                                { packageItem.isDevDependency 
+                                    ? <FontAwesomeIcon 
+                                        icon={ faTools } 
+                                        size="xs" 
+                                        className="mr-2"
+                                    /> 
+                                    : null 
+                                }
+                                { packageItem.name }
+                                
+                                <ExternalLinkIcon />
+                            </a>
                         </li>
                     );
                 }) }

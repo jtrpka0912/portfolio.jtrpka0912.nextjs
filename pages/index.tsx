@@ -6,7 +6,8 @@ import HomeHero from '../components/home-page/home-hero/home-hero';
  * @function HomePage
  * @implements NextPage
  * @summary HomePage component
- * @description The home page.
+ * @description The home page component
+ * @author J. Trpka
  * @returns { JSX }
  */
 const HomePage: NextPage = () => {

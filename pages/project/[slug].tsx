@@ -2,15 +2,26 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
+// Helpers
 import { getSingleProject } from "../../helpers/project";
-import { Project } from "../../models/project";
 
+// Models
+import { Project } from "../../models/project";
+import { BreadcrumbLink } from "../../models/breadcrumb-link";
+
+// Components
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
 import ProjectDetailMainArea from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area";
 import TechnologyList from "../../components/sections/technology-list/technology-list";
 import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
-import { BreadcrumbLink } from "../../models/breadcrumb-link";
+
+// Skeleton Components
+import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
+import TechnologyListSkeleton from "../../components/sections/technology-list/technology-list-skeleton";
+import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
+import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
+import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
 
 /**
  * @interface ProjectDetailPageProps
@@ -32,11 +43,18 @@ interface ProjectDetailPageProps {
  * @returns { JSX }
  */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
-    const { project } = props;
+    const { project } = props;project
 
-    // TODO: Need a better handler if project is falsey
     if(!project) {
-        return null;
+        return (
+            <div className="page project-detail">
+                <ProjectDetailHeroSkeleton />
+                <BreadcrumbSkeleton />
+                <ProjectDetailMainAreaSkeleton />
+                <TechnologyListSkeleton />
+                <ProjectDetailGallerySkeleton />
+            </div>
+        );        
     }
 
     /**

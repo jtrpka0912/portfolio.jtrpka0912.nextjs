@@ -36,8 +36,17 @@ const ProjectListItem = (props: ProjectListItemProps) => {
         router.push(`/project/${ project.slug }`);
     }
 
+    /**
+     * @var { string } columnClasses
+     * @description The column classes for the component.
+     * @author J. Trpka
+     */
+     const columnClasses: string = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen';
+
     return (
-        <div role="listitem" className="project-list-item column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen">
+        <div role="listitem" 
+            className={ `project-list-item ${ columnClasses }` }
+        >
             <Thumbnail
                 image={ project.thumbnail ? project.thumbnail : '' }
                 altText={ `Image of ${ project.title } Project` }

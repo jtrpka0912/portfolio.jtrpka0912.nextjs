@@ -31,7 +31,9 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
     return (
         <div className="project-detail-npm">
             <h5 className="project-detail-npm__header mb-1">
-                <a href="https://www.npmjs.org" target="_blank"><FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <ExternalLinkIcon /></a>
+                <a href="https://www.npmjs.org" target="_blank">
+                    <FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <ExternalLinkIcon />
+                </a>
             </h5>
 
             <ul className="project-detail-npm__packages ml-4">

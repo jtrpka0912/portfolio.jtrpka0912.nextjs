@@ -1,3 +1,5 @@
+import ProjectDetailMainAreaSidebarSkeleton from "./project-detail-main-area-sidebar-skeleton";
+
 /**
  * @function ProjectDetailMainAreaSkeleton
  * @summary Project detail main area skeleton component
@@ -10,7 +12,7 @@ const ProjectDetailMainAreaSkeleton = () => {
         <section className="section">
             <div className="main-area container">
                 <div className="columns">
-                    
+                    <ProjectDetailMainAreaSidebarSkeleton />
                 </div>
             </div>
         </section>

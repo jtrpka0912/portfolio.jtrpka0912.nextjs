@@ -9,7 +9,12 @@ import BaseSkeleton from "../../ui/base-skeleton";
  */
 const ProjectDetailMainAreaSidebarSkeleton = () => {
     return (
-        <aside>
+        <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
+            <BaseSkeleton type="tag" />
+            <BaseSkeleton type="tag" />
+
+            <BaseSkeleton type="sidebar" />
+            <BaseSkeleton type="sidebar" />
         </aside>
     );
 };

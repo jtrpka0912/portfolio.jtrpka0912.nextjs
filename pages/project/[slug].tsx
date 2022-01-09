@@ -20,6 +20,7 @@ import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 import TechnologyListSkeleton from "../../components/sections/technology-list/technology-list-skeleton";
 import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
+import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
 
 /**
  * @interface ProjectDetailPageProps
@@ -41,13 +42,14 @@ interface ProjectDetailPageProps {
  * @returns { JSX }
  */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
-    const { project } = props;
+    const { project } = props;project
 
     if(true) {
         return (
             <div className="page project-detail">
                 <ProjectDetailHeroSkeleton />
                 <BreadcrumbSkeleton />
+                <ProjectDetailMainAreaSkeleton />
                 <TechnologyListSkeleton />
             </div>
         );        

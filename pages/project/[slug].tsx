@@ -36,7 +36,7 @@ interface ProjectDetailPageProps {
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     const { project } = props;
 
-    if(!project) {
+    if(true) {
         return (
             <div className="page project-detail">
                 <BreadcrumbSkeleton />

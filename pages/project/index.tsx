@@ -5,7 +5,11 @@ import { getAllProjects } from "../../helpers/project";
 
 import { Project } from "../../models/project";
 import { BreadcrumbLink } from '../../models/breadcrumb-link';
+
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
+
+import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
+import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 
 /**
  * @interface ProjectsPageProps
@@ -27,6 +31,15 @@ interface ProjectsPageProps {
  */
 const ProjectsPage = (props: ProjectsPageProps) => {
     const { projects } = props;
+
+    if(!projects) {
+        return (
+            <div className="page projects">
+                <BreadcrumbSkeleton />
+                <ProjectListSkeleton />
+            </div>
+        );
+    }
 
     /**
      * @var { BreadcrumbLink[] } links

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 
 import HomeHero from '../components/home-page/home-hero/home-hero';
-import ProjectListSkeleton from '../components/sections/project-list/project-list-skeleton';
 
 /**
  * @function HomePage
@@ -15,7 +14,6 @@ const HomePage: NextPage = () => {
     return (
         <div>
             <HomeHero />
-            <ProjectListSkeleton />
         </div>
     );
 }

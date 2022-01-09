@@ -11,6 +11,8 @@ import TechnologyList from "../../components/sections/technology-list/technology
 import ProjectDetailHero from "../../components/project-detail-page/project-detail-hero/project-detail-hero";
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
 import { BreadcrumbLink } from "../../models/breadcrumb-link";
+import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
+import TechnologyListSkeleton from "../../components/sections/technology-list/technology-list-skeleton";
 
 /**
  * @interface ProjectDetailPageProps
@@ -34,9 +36,13 @@ interface ProjectDetailPageProps {
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     const { project } = props;
 
-    // TODO: Need a better handler if project is falsey
     if(!project) {
-        return null;
+        return (
+            <div className="page project-detail">
+                <BreadcrumbSkeleton />
+                <TechnologyListSkeleton />
+            </div>
+        );        
     }
 
     /**

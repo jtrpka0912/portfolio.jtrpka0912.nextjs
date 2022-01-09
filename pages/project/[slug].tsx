@@ -45,7 +45,7 @@ interface ProjectDetailPageProps {
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
     const { project } = props;project
 
-    if(true) {
+    if(!project) {
         return (
             <div className="page project-detail">
                 <ProjectDetailHeroSkeleton />

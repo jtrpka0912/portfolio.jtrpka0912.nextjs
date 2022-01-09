@@ -1,7 +1,8 @@
 .skeleton {
     margin-bottom: .25rem;
-    background-color: #dedede;
     border-radius: 4px;
+
+    animation: pulse 1s infinite;
 
     // Base skeleton modifiers
     &--thumbnail {
@@ -50,5 +51,19 @@
         .skeleton--thumbnail {
             margin: 0 auto;
         }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #dedede;
+    }
+
+    50% {
+        background-color: #d1d1d1;
+    }
+
+    100% {
+        background-color: #dedede;
     }
 }

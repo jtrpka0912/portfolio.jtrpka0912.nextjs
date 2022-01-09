@@ -17,8 +17,10 @@ technology:
   - cypress
 package:
   npm:
-    - gray-matter
-    - markdown
+    - name: gray-matter
+      isDevDependency: false
+    - name: markdown
+      isDevDependency: false
 repo:
   github: 'https://github.com/jtrpka0912/portfolio.jtrpka0912.nextjs'
 date:

@@ -1,14 +1,18 @@
+// Font Awesome
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Models
+import { ProjectNPMPackage } from "../../../../models/project";
 
 /**
  * @interface ProjectDetailNpmProps
  * @summary Project detail NPM component props
  * @author J. Trpka
- * @property { string[] } packages
+ * @property { ProjectNPMPackage[] } packages
  */
 interface ProjectDetailNpmProps {
-    packages: string[]
+    packages: ProjectNPMPackage[]
 }
 
 /**
@@ -29,11 +33,11 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
             </h5>
 
             <ul className="project-detail-npm__packages">
-                { packages.map((packageItem: string) => {
+                { packages.map((packageItem: ProjectNPMPackage) => {
                     return (
-                        <li key={ packageItem }>
+                        <li key={ packageItem.name }>
                             <FontAwesomeIcon icon={ faNpm } className="mr-2" />
-                            <a href={ `https://npmjs.org/package/${ packageItem }` } target="_blank">{ packageItem }</a>
+                            <a href={ `https://npmjs.org/package/${ packageItem.name }` } target="_blank">{ packageItem.name }</a>
                         </li>
                     );
                 }) }

@@ -35,13 +35,13 @@ export interface Project extends Post {
  * @interface ProjectPackage
  * @description A listing of packages from package managers.
  * @author J. Trpka
- * @property { ProjectNPMPackages[] } npm Names of packages from Node Package Manager.
+ * @property { ProjectNPMPackage[] } npm Names of packages from Node Package Manager.
  * @property { string[] } maven Names of packages from Maven repository.
  * @property { string[] } go Names of packages from the Go Package repository.
  * @property { string[] } nuget Names of packages for the .NET (Core) environement.
  */
 export interface ProjectPackage {
-    npm?: ProjectNPMPackages[],
+    npm?: ProjectNPMPackage[],
     maven?: string[],
     go?: string[],
     nuget?: string[]
@@ -54,7 +54,7 @@ export interface ProjectPackage {
  * @property { string } name
  * @property { boolean } isDevDependency A dependency package only suitable in the dev environment and never compiled for production
  */
-export interface ProjectNPMPackages {
+export interface ProjectNPMPackage {
     name: string,
     isDevDependency: boolean
 }

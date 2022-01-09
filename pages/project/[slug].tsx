@@ -43,7 +43,7 @@ interface ProjectDetailPageProps {
  * @returns { JSX }
  */
 const ProjectDetailPage = (props: ProjectDetailPageProps) => {
-    const { project } = props;project
+    const { project } = props;
 
     if(!project) {
         return (

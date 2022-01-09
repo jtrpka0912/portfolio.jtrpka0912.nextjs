@@ -47,7 +47,8 @@
         }
     }
 
-    &__project-list {
+    &__project-list,
+    &__project-detail-gallery {
         .skeleton--thumbnail {
             margin: 0 auto;
         }

@@ -21,6 +21,7 @@ import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-
 import TechnologyListSkeleton from "../../components/sections/technology-list/technology-list-skeleton";
 import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
 import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
+import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
 
 /**
  * @interface ProjectDetailPageProps
@@ -51,6 +52,7 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
                 <BreadcrumbSkeleton />
                 <ProjectDetailMainAreaSkeleton />
                 <TechnologyListSkeleton />
+                <ProjectDetailGallerySkeleton />
             </div>
         );        
     }

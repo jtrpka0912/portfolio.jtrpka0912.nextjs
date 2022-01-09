@@ -1,5 +1,3 @@
-import BaseSkeleton from "../../ui/base-skeleton";
-
 /**
  * @function ProjectDetailMainAreaSkeleton
  * @summary Project detail main area skeleton component

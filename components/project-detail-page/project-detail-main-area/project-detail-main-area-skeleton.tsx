@@ -1,3 +1,4 @@
+import ProjectDetailMainAreaContentSkeleton from "./project-detail-main-area-content-skeleton";
 import ProjectDetailMainAreaSidebarSkeleton from "./project-detail-main-area-sidebar-skeleton";
 
 /**
@@ -10,8 +11,9 @@ import ProjectDetailMainAreaSidebarSkeleton from "./project-detail-main-area-sid
 const ProjectDetailMainAreaSkeleton = () => {
     return (
         <section className="section">
-            <div className="main-area container">
+            <div className="container">
                 <div className="columns">
+                    <ProjectDetailMainAreaContentSkeleton />
                     <ProjectDetailMainAreaSidebarSkeleton />
                 </div>
             </div>

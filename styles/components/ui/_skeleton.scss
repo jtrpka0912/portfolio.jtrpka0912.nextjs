@@ -52,6 +52,12 @@
             margin: 0 auto;
         }
     }
+
+    &__main-area-content {
+        .skeleton--thumbnail {
+            margin-right: 0.5rem;
+        }
+    }
 }
 
 @keyframes pulse {

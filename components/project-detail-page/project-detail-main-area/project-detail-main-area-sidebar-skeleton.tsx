@@ -9,7 +9,7 @@ import BaseSkeleton from "../../ui/base-skeleton";
  */
 const ProjectDetailMainAreaSidebarSkeleton = () => {
     return (
-        <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
+        <aside className="column is-one-quarter-desktop is-half-tablet">
             <BaseSkeleton type="tag" />
             <BaseSkeleton type="tag" />
 

@@ -9,7 +9,21 @@ import BaseSkeleton from "../../ui/base-skeleton";
  */
 const ProjectDetailMainAreaContentSkeleton = () => {
     return (
-        <div></div>
+        <div className="skeleton__main-area-content column is-three-quarters-desktop is-half-tablet">
+            <div className="is-flex is-flex-direction-row is-flex-wrap-nowrap">
+                <BaseSkeleton type="thumbnail" />
+
+                <div className="is-flex-grow-1">
+                    { [...Array(6)].map(e => <BaseSkeleton type="textline" />) }
+                </div>
+            </div>
+            
+
+            <div>
+                { [...Array(9)].map(e => <BaseSkeleton type="textline" />) }
+            </div>
+            
+        </div>
     );
 };
 

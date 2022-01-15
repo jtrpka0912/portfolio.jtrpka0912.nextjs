@@ -14,6 +14,10 @@ address:
   country: USA
 contact:
   phone: '734-293-4840'
+technology:
+  - html
+  - css
+  - javascript
 featured: true
 ---
 The responsibilities of the Technical Consultant was to help serve the needs with Perficient clients and internally. As a Technical Consultant, most of the work that was done was Front-End Development with AEM using HTML, CSS (with LESS), JavaScript, and Java with some Back-End Development.

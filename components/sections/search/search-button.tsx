@@ -1,3 +1,9 @@
+// React
+import { useState, useEffect } from 'react';
+
+// NextJS
+import Link from 'next/link';
+
 /**
  * @interface SearchButtonProps
  * @summary Search button component props
@@ -19,8 +25,26 @@ interface SearchButtonProps {
  * @returns { JSX }
  */
 const SearchButton = (props: SearchButtonProps) => {
+    const { query, technology } = props;
+
+    const [queryString, setQueryString] = useState('./search');
+
+    useEffect(() => {
+        const queryBuilder: string[] = [];
+
+        if(query) {
+            queryBuilder.push(`query=${ query }`);
+        }
+
+        const queryURL = `./search?${ queryBuilder[0] }`; 
+
+        setQueryString(queryURL);
+    }, [query, technology]);
+
     return (
-        <div></div>
+        <Link href={ queryString }>
+            <a className="search__button button is-link">Filter</a>
+        </Link>
     );
 };
 

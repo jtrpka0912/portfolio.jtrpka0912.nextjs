@@ -34,6 +34,8 @@ const Search = (props: SearchProps) => {
                     { technologies.length > 0 && (
                         <SearchDropDown technologies={ technologies } />
                     ) }
+
+                    <SearchButton />
                 </div>
             </div>
         </section>

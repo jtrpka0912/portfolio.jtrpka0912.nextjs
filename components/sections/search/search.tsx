@@ -14,6 +14,8 @@ interface SearchProps {
  * @function Search
  * @summary Search component
  * @description A search component to filter items and construct a query to the search result page.
+ * @author J. Trpka
+ * @todo Might want to separate the drop down, input field, and button as their own components.
  * @param { SearchProps } props 
  * @returns { JSX }
  */
@@ -24,6 +26,7 @@ const Search = (props: SearchProps) => {
         <section className="section">
             <div className="container">
                 <div className="search">
+                    
                     { technologies.length > 0 && (
                         <div className="search__technologies select">
                             <select name="technologies">

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import Search from "../../../../components/sections/search/search";
 
@@ -36,3 +36,22 @@ describe('Technology drop down', () => {
         expect(noDropDown).not.toBeInTheDocument();
     });
 });
+
+describe('Query builder', () => {
+    test.skip('Query for just the title', () => {
+        // Arrange
+        render(<Search technologies={[]} />);
+
+        const searchBoxElement = screen.getByRole('textbox');
+        const searchButtonElement = screen.getByRole('link');
+
+        // Act
+        fireEvent.change(searchBoxElement, { 
+            target: { 
+                value: 'Portfolio'
+            }
+        });
+
+        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?query=Portfolio'));
+    });
+})

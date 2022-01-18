@@ -18,8 +18,20 @@ interface SearchProps {
  * @returns { JSX }
  */
 const Search = (props: SearchProps) => {
+    const { technologies } = props;
+
     return (
-        <div></div>
+        <section className="section">
+            <div className="container">
+                <div className="search">
+                    <div className="search__technologies select">
+                        <select name="technologies">
+                            { technologies.map((technology: Technology) => <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>) }
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 

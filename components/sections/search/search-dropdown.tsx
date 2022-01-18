@@ -16,6 +16,7 @@ interface SearchDropDownProps {
  * @description A drop down that lists all of the technologies available to filter.
  * @author J. Trpka
  * @todo Will need to wire this component to the search when the select drop down makes a change.
+ * @todo Figure out how to use a label for accessibility without showing a label. May look at the Bulma screen-reader visibility class.
  * @param { SearchDropDownProps } props 
  * @returns { JSX }
  */

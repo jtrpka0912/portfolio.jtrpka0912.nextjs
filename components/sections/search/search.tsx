@@ -1,5 +1,6 @@
 import { Technology } from '../../../models/technology';
 import SearchDropDown from './search-dropdown';
+import SearchTextbox from './search-textbox';
 
 /**
  * @interface SearchProps
@@ -27,6 +28,7 @@ const Search = (props: SearchProps) => {
         <section className="section">
             <div className="container">
                 <div className="search">
+                    <SearchTextbox />
                     
                     { technologies.length > 0 && (
                         <SearchDropDown technologies={ technologies } />

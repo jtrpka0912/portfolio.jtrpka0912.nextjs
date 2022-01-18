@@ -29,6 +29,7 @@ describe('Query builder', () => {
             }
         });
 
+        // Assert
         expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?query=Portfolio'));
     });
 })

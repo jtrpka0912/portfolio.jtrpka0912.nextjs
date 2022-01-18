@@ -25,4 +25,16 @@ describe('Render the options', () => {
 
         expect(selectElement).toBeInTheDocument();
     });
+
+    test('Render only the blank option', () => {
+        // Realistically, this component will never render if no technologies.
+        
+        // Arrange
+        render(<SearchDropDown technologies={[]} />);
+
+        const optionElements = screen.getAllByRole('option');
+
+        // Assert
+        expect(optionElements).toHaveLength(1);
+    });
 })

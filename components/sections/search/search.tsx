@@ -1,4 +1,5 @@
 import { Technology } from '../../../models/technology';
+import SearchDropDown from './search-dropdown';
 
 /**
  * @interface SearchProps
@@ -28,13 +29,7 @@ const Search = (props: SearchProps) => {
                 <div className="search">
                     
                     { technologies.length > 0 && (
-                        <div className="search__technologies select">
-                            <select name="technologies">
-                                { technologies.map((technology: Technology) => 
-                                    <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>
-                                ) }
-                            </select>
-                        </div>
+                        <SearchDropDown technologies={ technologies } />
                     ) }
                 </div>
             </div>

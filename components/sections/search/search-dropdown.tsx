@@ -19,8 +19,16 @@ interface SearchDropDownProps {
  * @returns { JSX }
  */
 const SearchDropDown = (props: SearchDropDownProps) => {
+    const { technologies } = props;
+
     return (
-        <div></div>
+        <div className="search__technologies select">
+            <select name="technologies">
+                { technologies.map((technology: Technology) => 
+                    <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>
+                ) }
+            </select>
+        </div>
     );
 };
 

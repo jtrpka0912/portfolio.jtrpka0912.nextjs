@@ -40,7 +40,10 @@ const SearchButton = (props: SearchButtonProps) => {
             queryBuilder.push(`technology=${ technology }`);
         }
 
-        const queryURL = `./search?${ queryBuilder[0] }`;
+        let queryURL = `./search?${ queryBuilder[0] }`;
+        
+        if(queryBuilder.length === 2) 
+            queryURL = `${ queryURL }&${ queryBuilder[1] }`;
 
         setQueryString(queryURL);
     }, [query, technology]);

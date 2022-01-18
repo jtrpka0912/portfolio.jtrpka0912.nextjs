@@ -27,7 +27,7 @@ interface SearchButtonProps {
 const SearchButton = (props: SearchButtonProps) => {
     const { query, technology } = props;
 
-    const [queryString, setQueryString] = useState<string>('./search');
+    const [queryString, setQueryString] = useState<string>('./project/search');
 
     useEffect(() => {
         const queryBuilder: string[] = [];
@@ -43,11 +43,11 @@ const SearchButton = (props: SearchButtonProps) => {
 
         // If none found then set query string to just search
         if(queryBuilder.length === 0) {
-            setQueryString('./search');
+            setQueryString('./project/search');
             return;
         }
 
-        let queryURL = `./search?${ queryBuilder[0] }`;
+        let queryURL = `./project/search?${ queryBuilder[0] }`;
         
         if(queryBuilder.length === 2) 
             queryURL = `${ queryURL }&${ queryBuilder[1] }`;

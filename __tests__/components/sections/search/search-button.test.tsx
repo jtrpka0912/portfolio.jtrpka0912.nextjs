@@ -60,6 +60,6 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', '/search');
+        expect(buttonElement).toHaveAttribute('href', '/project/search');
     });
 });

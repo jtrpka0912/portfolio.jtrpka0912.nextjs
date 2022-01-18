@@ -25,6 +25,27 @@ describe('Searching', () => {
 
         cy.url().should('contain', '/project/search?technology=nextjs');
     });
+
+    it('Search by both query and technology', () => {
+        cy.get('input.input')
+            .type('Testing');
+
+        cy.get('.select select')
+            .select('reactjs');
+        
+        cy.get('a.button')
+            .click();
+
+        cy.url().should('contain', '/project/search?query=Testing&technology=react');
+    });
+
+    // TODO: Unskip once project search page is completed or at least have this capability for redirect.
+    it.skip('Redirect back to the projects page if no query and technology', () => {
+        cy.get('a.button')
+            .click();
+
+        cy.url().should('contain', '/project');
+    })
 });
 
 // Not sure why this is necessary. Remove once you need to import something.

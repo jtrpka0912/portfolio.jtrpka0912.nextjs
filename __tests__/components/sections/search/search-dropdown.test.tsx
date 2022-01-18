@@ -19,9 +19,9 @@ describe('Render the options', () => {
         const selectElement = screen.getByRole('combobox');
 
         // Assert
-        expect(optionElements).toHaveLength(5);
-        expect(optionElements[2]).toHaveTextContent('CSS 3');
-        expect(optionElements[4]).toHaveValue('golang');
+        expect(optionElements).toHaveLength(6); // Including blank option
+        expect(optionElements[2]).toHaveTextContent('NextJS');
+        expect(optionElements[4]).toHaveValue('sass');
 
         expect(selectElement).toBeInTheDocument();
     });

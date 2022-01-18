@@ -26,6 +26,7 @@ const SearchDropDown = (props: SearchDropDownProps) => {
     return (
         <div className="search__technologies select">
             <select name="technologies">
+                <option value="">Select Technology</option>
                 { technologies.map((technology: Technology) => 
                     <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>
                 ) }

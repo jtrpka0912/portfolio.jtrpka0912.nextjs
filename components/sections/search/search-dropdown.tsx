@@ -15,6 +15,7 @@ interface SearchDropDownProps {
  * @summary Search drop down component
  * @description A drop down that lists all of the technologies available to filter.
  * @author J. Trpka
+ * @todo Will need to wire this component to the search when the select drop down makes a change.
  * @param { SearchDropDownProps } props 
  * @returns { JSX }
  */

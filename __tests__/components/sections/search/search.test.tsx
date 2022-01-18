@@ -15,7 +15,7 @@ describe('Technology drop down component', () => {
 });
 
 describe('Query builder', () => {
-    test.skip('Query for just the title', () => {
+    test('Query for just the title', () => {
         // Arrange
         render(<Search technologies={[]} />);
 

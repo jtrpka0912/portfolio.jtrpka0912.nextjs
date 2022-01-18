@@ -32,12 +32,19 @@ const SearchButton = (props: SearchButtonProps) => {
     useEffect(() => {
         const queryBuilder: string[] = [];
 
+        // Start building the query
         if(query) {
             queryBuilder.push(`query=${ query }`);
         }
 
         if(technology) {
             queryBuilder.push(`technology=${ technology }`);
+        }
+
+        // If none found then set query string to just search
+        if(queryBuilder.length === 0) {
+            setQueryString('./search');
+            return;
         }
 
         let queryURL = `./search?${ queryBuilder[0] }`;

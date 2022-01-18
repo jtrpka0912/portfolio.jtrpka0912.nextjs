@@ -32,4 +32,14 @@ describe('Search button query link', () => {
         // Assert
         expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=SHELF&technology=nodejs'));
     });
+
+    test('No query and technology', () => {
+        // Arrange
+        render(<SearchButton />);
+
+        const buttonElement = screen.getByRole('link');
+
+        // Assert
+        expect(buttonElement).toHaveAttribute('href', '/search');
+    });
 });

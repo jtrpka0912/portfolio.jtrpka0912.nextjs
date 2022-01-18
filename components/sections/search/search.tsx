@@ -1,4 +1,10 @@
+// React
+import { useState } from 'react';
+
+// Models
 import { Technology } from '../../../models/technology';
+
+// Child components
 import SearchButton from './search-button';
 import SearchDropDown from './search-dropdown';
 import SearchTextbox from './search-textbox';
@@ -25,17 +31,32 @@ interface SearchProps {
 const Search = (props: SearchProps) => {
     const { technologies } = props;
 
+    const [query, setQuery] = useState<string>('');
+
+    /**
+     * @function onQueryChange
+     * @summary On query change
+     * @description Set the query, for the search component, from the textbox.
+     * @author J. Trpka
+     * @param { string } queryString 
+     */
+    const onQueryChange = (queryString: string): void => {
+        setQuery(queryString);
+    }
+
     return (
         <section className="section">
             <div className="container">
                 <div className="search">
-                    <SearchTextbox />
+                    <SearchTextbox onChange={ onQueryChange } />
 
                     { technologies.length > 0 && (
                         <SearchDropDown technologies={ technologies } />
                     ) }
 
-                    <SearchButton />
+                    <SearchButton 
+                        query={ query }
+                    />
                 </div>
             </div>
         </section>

@@ -1,3 +1,5 @@
+// TODO: After completing the project search page add additional asserts.
+
 describe('Searching', () => {
     beforeEach(() => {
         // Go to the projects page
@@ -5,7 +7,6 @@ describe('Searching', () => {
     });
 
     it('Search by just query', () => {
-        // Action
         cy.get('input.input')
             .type('Testing');
 
@@ -13,6 +14,16 @@ describe('Searching', () => {
             .click();
 
         cy.url().should('contain', '/project/search?query=Testing');
+    });
+
+    it('Search by just technology', () => {
+        cy.get('.select select')
+            .select('nextjs');
+        
+        cy.get('a.button')
+            .click();
+
+        cy.url().should('contain', '/project/search?technology=nextjs');
     });
 });
 

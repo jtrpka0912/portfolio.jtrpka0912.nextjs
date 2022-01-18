@@ -13,6 +13,26 @@ describe('Search button query link', () => {
         expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=Portfolio'));
     });
 
+    test('Search by query that has spaces', () => {
+        // Arrange
+        render(<SearchButton query="Movie App" />);
+
+        const buttonElement = screen.getByRole('link');
+
+        // Assert
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=Movie%20App'));
+    });
+
+    test('Search by query with special characters', () => {
+        // Arrange
+        render(<SearchButton query="H#ll0W0r|d" />);
+
+        const buttonElement = screen.getByRole('link');
+
+        // Assert
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=H#ll0W0r|d'));
+    });
+
     test('Search by just technology', () => {
         // Arrange
         render(<SearchButton technology="react" />);

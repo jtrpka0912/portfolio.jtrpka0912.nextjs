@@ -24,11 +24,15 @@ const Search = (props: SearchProps) => {
         <section className="section">
             <div className="container">
                 <div className="search">
-                    <div className="search__technologies select">
-                        <select name="technologies">
-                            { technologies.map((technology: Technology) => <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>) }
-                        </select>
-                    </div>
+                    { technologies.length > 0 && (
+                        <div className="search__technologies select">
+                            <select name="technologies">
+                                { technologies.map((technology: Technology) => 
+                                    <option key={ technology.slug } value={ technology.slug }>{ technology.title }</option>
+                                ) }
+                            </select>
+                        </div>
+                    ) }
                 </div>
             </div>
         </section>

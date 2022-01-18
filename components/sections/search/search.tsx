@@ -32,6 +32,7 @@ const Search = (props: SearchProps) => {
     const { technologies } = props;
 
     const [query, setQuery] = useState<string>('');
+    const [technology, setTechnology] = useState<string>('');
 
     /**
      * @function onQueryChange
@@ -44,6 +45,17 @@ const Search = (props: SearchProps) => {
         setQuery(queryString);
     }
 
+    /**
+     * @function onTechnologyChange
+     * @summary On technology change
+     * @description Set the technology slug, for the search component, from the drop down.
+     * @author J. Trpka
+     * @param { string } technologySlug 
+     */
+    const onTechnologyChange = (technologySlug: string): void => {
+        setTechnology(technologySlug);
+    }
+
     return (
         <section className="section">
             <div className="container">
@@ -51,11 +63,15 @@ const Search = (props: SearchProps) => {
                     <SearchTextbox onChange={ onQueryChange } />
 
                     { technologies.length > 0 && (
-                        <SearchDropDown technologies={ technologies } />
+                        <SearchDropDown 
+                            onChange={ onTechnologyChange } 
+                            technologies={ technologies } 
+                        />
                     ) }
 
                     <SearchButton 
                         query={ query }
+                        technology={ technology }
                     />
                 </div>
             </div>

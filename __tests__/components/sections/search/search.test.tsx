@@ -32,4 +32,30 @@ describe('Query builder', () => {
         // Asserts
         expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?query=Portfolio'));
     });
+
+    test('Query for just the technology', () => {
+        // Arrange
+        render(<Search technologies={[
+            { slug: 'react', title: 'React', url: 'http://duckduckgo.com' },
+            { slug: 'nextjs', title: 'NextJS', url: 'http://duckduckgo.com' },
+            { slug: 'css', title: 'CSS 3', url: 'http://duckduckgo.com' },
+            { slug: 'sass', title: 'SASS', url: 'http://duckduckgo.com' },
+            { slug: 'golang', title: 'Go Language', url: 'http://duckduckgo.com' },
+        ]} />);
+
+        const searchDropDownElement = screen.getByRole('combobox');
+        const searchButtonElement = screen.getByRole('link');
+
+        // Act
+        fireEvent.change(searchDropDownElement, {
+            target: {
+                value: 'sass'
+            }
+        });
+
+        // Assert
+        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?technology=sass'));
+    });
+
+    
 })

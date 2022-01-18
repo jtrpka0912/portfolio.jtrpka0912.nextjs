@@ -31,6 +31,7 @@ interface ProjectsPageProps {
  * @summary Projects page component
  * @description The page that lists all projects.
  * @author J. Trpka
+ * @todo Create search skeleton
  * @param { ProjectsPageProps } props 
  * @returns 
  */
@@ -57,7 +58,6 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 
     return (
         <div className="page projects">
-            Projects Page
             <Breadcrumb links={ links } />
             <Search technologies={ technologies } />
             <ProjectList projects={ projects } />
@@ -80,6 +80,7 @@ interface ProjectsStaticProps {
 
 export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
     const projects: Project[] = getAllProjects();
+    // TODO: Maybe order alphabetically by title
     const technologies: Technology[] = await getAllTechnologies();
 
     return {

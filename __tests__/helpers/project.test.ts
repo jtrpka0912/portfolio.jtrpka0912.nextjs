@@ -65,6 +65,19 @@ describe('filterProjectsByTitle()', () => {
         // Assert
         expect(filteredProjects).toHaveLength(2);
     });
+
+    test('Return no projects', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTitle([
+            projectOne,
+            projectTwo,
+            projectThree,
+            projectFour
+        ], 'Foo Bar');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(0);
+    });
 });
 
 describe('filterProjectsByTechnology', () => {
@@ -92,5 +105,18 @@ describe('filterProjectsByTechnology', () => {
 
         // Assert
         expect(filteredProjects).toHaveLength(1);
+    });
+
+    test('Get no projects returned', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTechnology([
+            projectOne,
+            projectTwo,
+            projectThree,
+            projectFour
+        ], 'rust');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(0);
     });
 });

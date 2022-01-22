@@ -1,4 +1,5 @@
 import BaseSkeleton from "../../ui/base-skeleton";
+import Section from "../../ui/section";
 
 /**
  * @function ProjectDetailGallerySkeleton
@@ -16,8 +17,8 @@ const ProjectDetailGallerySkeleton = () => {
     const columnClasses: string = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop';
 
     return (
-        <section className="section">
-            <div className="container skeleton__project-detail-gallery">
+        <Section>
+            <div className="skeleton__project-detail-gallery">
                 <div className="columns is-mobile is-multiline">
                     <div className={ `${ columnClasses }` }>
                         <BaseSkeleton type="thumbnail" />
@@ -36,7 +37,7 @@ const ProjectDetailGallerySkeleton = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 };
 

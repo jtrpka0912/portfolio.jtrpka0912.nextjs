@@ -6,6 +6,7 @@ import { ProjectGallery } from "../../../models/project";
 import ProjectDetailGalleryEmpty from './project-detail-gallery-empty';
 import ProjectDetailGalleryTabs from "./project-detail-gallery-tabs";
 import ProjectDetailGalleryPanel from './project-detail-gallery-panel';
+import Section from '../../ui/section';
 
 /**
  * @interface ProjectDetailGalleryProps
@@ -81,10 +82,9 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
     }
 
     return (
-        <section className="section">
-            <div className="gallery container">
-                { /** Might be overkill to add the gallery check with the function, but the components need to be sure that gallery is not undefined. */
-                gallery && isGalleryAvailable() 
+        <Section>
+            <div className="gallery">
+                { gallery && isGalleryAvailable() 
                     ? (
                         <React.Fragment>
                             <ProjectDetailGalleryTabs 
@@ -101,7 +101,7 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
                     : <ProjectDetailGalleryEmpty />
                 }
             </div>
-        </section>
+        </Section>
     );
 };
 

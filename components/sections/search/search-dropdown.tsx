@@ -26,7 +26,16 @@ const SearchDropDown = (props: SearchDropDownProps) => {
 
     return (
         <div className="search__technologies select">
-            <select name="technologies" onChange={ (event) => onChange(event.target.value) }>
+            <label 
+                htmlFor="search-technologies"
+                className="is-sr-only"
+            >Search by technologies</label>
+            
+            <select 
+                name="technologies"
+                id="search-technologies" 
+                onChange={ (event) => onChange(event.target.value) }
+            >
                 <option value="">Select Technology</option>
                 { technologies.map((technology: Technology) => 
                     <option 

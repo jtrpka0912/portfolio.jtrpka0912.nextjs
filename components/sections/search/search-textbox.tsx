@@ -26,8 +26,15 @@ const SearchTextbox = (props: SearchTextboxProps) => {
     return (
         <div className="search__textbox field">
             <div className="control has-icons-left">
+                <label 
+                    htmlFor="search-query" 
+                    className="is-sr-only"
+                >Query by title</label>
+
                 <input 
                     type="text" 
+                    name="query"
+                    id="search-query"
                     className="input" 
                     placeholder="Search"
                     onChange={ (event) => onChange(event.target.value) } 

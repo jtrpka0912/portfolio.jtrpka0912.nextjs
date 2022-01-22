@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { convertSlugsToTechnologies } from "../../../helpers/technology";
 import { Technology } from "../../../models/technology";
+import Section from "../../ui/section";
 import TechnologyListItem from "./technology-list-item";
 
 /**
@@ -38,9 +39,8 @@ const TechnologyList = (props: TechnologyListProps) => {
     }, []);
 
     return (
-        <section className="section">
-            <div className="technology-list container">
-
+        <Section title="Technologies Used">
+            <div className="technology-list">
                 { technologyObjects.length > 0 ? (
                     <div className="technology-list__list columns is-mobile is-multiline" role="list">
                         { technologyObjects.map((technology: Technology) => 
@@ -55,7 +55,7 @@ const TechnologyList = (props: TechnologyListProps) => {
                     </div>
                 ) }
             </div>
-        </section>
+        </Section>
     );
 };
 

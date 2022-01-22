@@ -52,7 +52,7 @@ const Section = (props: SectionProps) => {
     return (
         <section className={`section ${ colorClass }`} style={ style }>
             { title && (
-                <h3 className="title is-3">{ title }</h3>
+                <h3 className="title is-3 has-text-centered">{ title }</h3>
             ) }
             
             <div className="container">

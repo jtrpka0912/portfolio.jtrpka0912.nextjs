@@ -10,15 +10,20 @@ import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
 
 import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
+import Search from "../../components/sections/search/search";
+import { Technology } from "../../models/technology";
+import { getAllTechnologies } from "../../helpers/technology";
 
 /**
  * @interface ProjectsPageProps
  * @summary Project page props
  * @author J. Trpka
  * @property { Project[] } projects
+ * @property { Technology[] } technologies
  */
 interface ProjectsPageProps {
     projects: Project[]
+    technologies: Technology[]
 }
 
 /**
@@ -26,11 +31,12 @@ interface ProjectsPageProps {
  * @summary Projects page component
  * @description The page that lists all projects.
  * @author J. Trpka
+ * @todo Create search skeleton
  * @param { ProjectsPageProps } props 
  * @returns 
  */
 const ProjectsPage = (props: ProjectsPageProps) => {
-    const { projects } = props;
+    const { projects, technologies } = props;
 
     if(!projects) {
         return (
@@ -52,23 +58,35 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 
     return (
         <div className="page projects">
-            Projects Page
             <Breadcrumb links={ links } />
+            <Search technologies={ technologies } />
             <ProjectList projects={ projects } />
         </div>
     );
 };
 
+/**
+ * @interface ProjectStaticProps
+ * @summary Project page static props
+ * @description The props sent to the project list page.
+ * @author J. Trpka
+ * @property { Project[] } projects
+ * @property { Technology[] } technologies
+ */
 interface ProjectsStaticProps {
     projects: Project[]
+    technologies: Technology[]
 }
 
 export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
     const projects: Project[] = getAllProjects();
+    // TODO: Maybe order alphabetically by title
+    const technologies: Technology[] = await getAllTechnologies();
 
     return {
         props: {
-            projects
+            projects,
+            technologies
         }
     };
 }

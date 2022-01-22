@@ -1,5 +1,6 @@
 import { 
-    filterProjectsByTitle 
+    filterProjectsByTitle,
+    filterProjectsByTechnology
 } from "../../helpers/project";
 
 import {
@@ -63,5 +64,20 @@ describe('filterProjectsByTitle()', () => {
 
         // Assert
         expect(filteredProjects).toHaveLength(2);
+    });
+});
+
+describe('filterProjectsByTechnology', () => {
+    test('Do not filter projects with no technology', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTechnology([
+            projectOne,
+            projectTwo,
+            projectThree,
+            projectFour
+        ], '');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(4);
     });
 });

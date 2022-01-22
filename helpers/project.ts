@@ -65,7 +65,9 @@ const filterProjectsByEnv = (projects: Project[]): Project[] => {
  * @param { string } query 
  * @returns { Project[] }
  */
-export const filterProjectsByTitle = (projects: Project[], query: string): Project[] => {
+export const filterProjectsByTitle = (projects: Project[], query?: string): Project[] => {
+    if(!query) return projects;
+
     /**
      * @var { string[] } queries
      * @description Split multiword queries into an array of word(s).
@@ -91,6 +93,8 @@ export const filterProjectsByTitle = (projects: Project[], query: string): Proje
  * @returns { Project[] }
  */
 export const filterProjectsByTechnology = 
-    (projects: Project[], technologySlug: string): Project[] => {
+    (projects: Project[], technologySlug?: string): Project[] => {
+    if(!technologySlug) return projects;
+
     return [];
 }

@@ -1,18 +1,21 @@
+// NextJS
 import { GetStaticProps } from "next";
+
+// Components
 import ProjectList from "../../components/sections/project-list/project-list";
-
-import { getAllProjects } from "../../helpers/project";
-
-import { Project } from "../../models/project";
-import { BreadcrumbLink } from '../../models/breadcrumb-link';
-
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
-
 import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 import Search from "../../components/sections/search/search";
-import { Technology } from "../../models/technology";
+
+// Helpers
+import { getAllProjects } from "../../helpers/project";
 import { getAllTechnologies } from "../../helpers/technology";
+
+// Models
+import { Project } from "../../models/project";
+import { BreadcrumbLink } from '../../models/breadcrumb-link';
+import { Technology } from "../../models/technology";
 
 /**
  * @interface ProjectsPageProps

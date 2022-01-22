@@ -66,6 +66,18 @@ const filterProjectsByEnv = (projects: Project[]): Project[] => {
  * @returns { Project[] }
  */
 export const filterProjectsByTitle = (projects: Project[], query: string): Project[] => {
+    /**
+     * @var { string[] } queries
+     * @description Split multiword queries into an array of word(s).
+     * @author J. Trpka
+     */
+    const queries: string[] = query.split(' ');
+
     return projects.filter((project: Project) => 
-        project.title.toLowerCase().includes(query.toLowerCase()));
+        // Lets first loop through all of the query strings
+        queries.some((queryString: string) => 
+            // Then check if project title has one of those query strings
+            project.title.toLowerCase().includes(queryString.toLowerCase())
+        )
+    );
 }

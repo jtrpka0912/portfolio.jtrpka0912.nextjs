@@ -51,4 +51,17 @@ describe('filterProjectsByTitle()', () => {
         expect(filteredProjects[0].title).toBe('Rester API');
         expect(filteredProjects[1].title).toBe('Rester CRM');
     });
+
+    test('Retrieve projects with more than one word', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTitle([
+            projectOne,
+            projectTwo,
+            projectThree,
+            projectFour
+        ], 'blog portfolio');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(2);
+    });
 });

@@ -49,7 +49,6 @@ const Section = (props: SectionProps) => {
         style = { backgroundColor: backgroundColor };
     }
 
-    
     return (
         <section className={`section ${ colorClass }`} style={ style }>
             { title && (

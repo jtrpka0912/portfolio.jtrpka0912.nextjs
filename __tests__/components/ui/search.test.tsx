@@ -46,4 +46,6 @@ describe('Render the component', () => {
         // Assert
         expect(sectionElement).toHaveStyle('background-color: #000');
     });
+
+    // TODO: I wonder if there is a way to check if a backgroundColor value is a valid value for backgroundColor (JS version of background-color) for the CSSProperties object.
 });

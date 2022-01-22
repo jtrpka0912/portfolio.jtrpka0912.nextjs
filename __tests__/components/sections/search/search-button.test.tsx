@@ -10,7 +10,7 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=Portfolio'));
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/query/Portfolio'));
     });
 
     test('Search by query that has spaces', () => {
@@ -20,7 +20,7 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=Movie%20App'));
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/query/Movie%20App'));
     });
 
     test('Search by query with special characters', () => {
@@ -30,7 +30,7 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=H#ll0W0r|d'));
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/query/H#ll0W0r|d'));
     });
 
     test('Search by just technology', () => {
@@ -40,7 +40,7 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?technology=react'));
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/technology/react'));
     });
 
     test('Search by query and technology', () => {
@@ -50,7 +50,7 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('?query=SHELF&technology=nodejs'));
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/query/SHELF/technology/nodejs'));
     });
 
     test('No query and technology', () => {
@@ -60,6 +60,6 @@ describe('Search button query link', () => {
         const buttonElement = screen.getByRole('link');
 
         // Assert
-        expect(buttonElement).toHaveAttribute('href', '/project/search');
+        expect(buttonElement).toHaveAttribute('href', expect.stringContaining('/'));
     });
 });

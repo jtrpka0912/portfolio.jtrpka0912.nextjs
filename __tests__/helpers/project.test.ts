@@ -80,7 +80,7 @@ describe('filterProjectsByTitle()', () => {
     });
 });
 
-describe('filterProjectsByTechnology', () => {
+describe('filterProjectsByTechnology()', () => {
     test('Do not filter projects with no technology', () => {
         // Arrange
         const filteredProjects = filterProjectsByTechnology([

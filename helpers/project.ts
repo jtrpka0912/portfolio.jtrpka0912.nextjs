@@ -81,3 +81,16 @@ export const filterProjectsByTitle = (projects: Project[], query: string): Proje
         )
     );
 }
+
+/**
+ * @function filterProjectsByTechnology
+ * @summary Filter project by technology slug
+ * @description Filter all projects that include the one technology by slug.
+ * @param { Project[] } projects 
+ * @param { string } technologySlug 
+ * @returns { Project[] }
+ */
+export const filterProjectsByTechnology = 
+    (projects: Project[], technologySlug: string): Project[] => {
+    return [];
+}

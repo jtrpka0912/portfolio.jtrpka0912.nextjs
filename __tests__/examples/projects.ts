@@ -17,8 +17,8 @@ export const projectOne: Project = {
 }
 
 export const projectTwo: Project = {
-    slug: 'corp-abc-crm',
-    title: 'Corp ABC CRM',
+    slug: 'rester-crm',
+    title: 'Rester CRM',
     technology: ['javascript', 'typescript', 'angular'],
     package: {
         npm: [{ name: 'lobash', isDevDependency: false }]

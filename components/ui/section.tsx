@@ -21,8 +21,14 @@ interface SectionProps {
  * @return { JSX }
  */
 const Section = (props: SectionProps) => {
+    const { children } = props;
+    
     return (
-        <section></section>
+        <section className="section">
+            <div className="container">
+                { children }
+            </div>
+        </section>
     );
 };
 

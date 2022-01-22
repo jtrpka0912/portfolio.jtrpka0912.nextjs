@@ -22,4 +22,17 @@ describe('filterProjectsByTitle()', () => {
         // Assert
         expect(filteredProjects).toHaveLength(4);
     });
+
+    test('Return one project with blog query', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTitle([
+            projectOne,
+            projectTwo,
+            projectFour,
+            projectThree
+        ], 'blog');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(1);
+    });
 });

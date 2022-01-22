@@ -66,5 +66,6 @@ const filterProjectsByEnv = (projects: Project[]): Project[] => {
  * @returns { Project[] }
  */
 export const filterProjectsByTitle = (projects: Project[], query: string): Project[] => {
-    return projects.filter((project: Project) => project.title.includes(query));
+    return projects.filter((project: Project) => 
+        project.title.toLowerCase().includes(query.toLowerCase()));
 }

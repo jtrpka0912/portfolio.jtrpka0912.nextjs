@@ -17,7 +17,6 @@ interface SearchTextboxProps {
  * @summary Search text box component
  * @description Use to search for items by title.
  * @author J. Trpka
- * @todo Figure out how to use a label for accessibility without showing a label. May look at the Bulma screen-reader visibility class.
  * @returns { JSX }
  */
 const SearchTextbox = (props: SearchTextboxProps) => {

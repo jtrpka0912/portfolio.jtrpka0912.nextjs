@@ -59,20 +59,31 @@ const Search = (props: SearchProps) => {
     return (
         <section className="section">
             <div className="container">
-                <div className="search">
-                    <SearchTextbox onChange={ onQueryChange } />
+                { /** Reduce the width of the search component */ }
+                <div className="columns">
+                    <div className="column is-10-desktop is-offset-1-desktop is-8-widescreen is-offset-2-widescreen is-6-fullhd is-offset-3-fullhd">
+                        <div className="search columns is-multiline">
+                            <div className="column is-half-tablet is-one-third-desktop">
+                                <SearchTextbox onChange={ onQueryChange } />
+                            </div>
 
-                    { technologies.length > 0 && (
-                        <SearchDropDown 
-                            onChange={ onTechnologyChange } 
-                            technologies={ technologies } 
-                        />
-                    ) }
-
-                    <SearchButton 
-                        query={ query }
-                        technology={ technology }
-                    />
+                            <div className="column is-half-tablet is-one-third-desktop">
+                                { technologies.length > 0 && (
+                                    <SearchDropDown 
+                                        onChange={ onTechnologyChange } 
+                                        technologies={ technologies } 
+                                    />
+                                ) }
+                            </div>
+                            
+                            <div className="column is-one-third-desktop">
+                                <SearchButton 
+                                    query={ query }
+                                    technology={ technology }
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

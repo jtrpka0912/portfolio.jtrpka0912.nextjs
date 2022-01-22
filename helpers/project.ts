@@ -50,9 +50,7 @@ export const getAllProjects = (): Project[] => {
  */
 const filterProjectsByEnv = (projects: Project[]): Project[] => {
     if(process.env.NODE_ENV === "production") {
-        return projects.filter((project: Project) => {
-            return !exclude.includes(project.slug);
-        });
+        return projects.filter((project: Project) => !exclude.includes(project.slug));
     }
 
     return projects;
@@ -67,6 +65,6 @@ const filterProjectsByEnv = (projects: Project[]): Project[] => {
  * @param { string } query 
  * @returns { Project[] }
  */
-const filterProjectsByTitle = (projects: Project[]): Project[] => {
-    return [];
+export const filterProjectsByTitle = (projects: Project[], query: string): Project[] => {
+    return projects.filter((project: Project) => project.title.includes(query));
 }

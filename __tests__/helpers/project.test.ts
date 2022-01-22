@@ -80,4 +80,17 @@ describe('filterProjectsByTechnology', () => {
         // Assert
         expect(filteredProjects).toHaveLength(4);
     });
+
+    test('Filter projects with technology slug', () => {
+        // Arrange
+        const filteredProjects = filterProjectsByTechnology([
+            projectOne,
+            projectTwo,
+            projectThree,
+            projectFour
+        ], 'nextjs');
+
+        // Assert
+        expect(filteredProjects).toHaveLength(1);
+    });
 });

@@ -96,5 +96,6 @@ export const filterProjectsByTechnology =
     (projects: Project[], technologySlug?: string): Project[] => {
     if(!technologySlug) return projects;
 
-    return [];
+    return projects.filter((project: Project) => 
+        project.technology.includes(technologySlug));
 }

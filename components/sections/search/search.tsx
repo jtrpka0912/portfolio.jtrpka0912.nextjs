@@ -56,8 +56,10 @@ const Search = (props: SearchProps) => {
         setTechnology(technologySlug);
     }
 
+    // NOTE: Though the parent node is a section, do not add the section class from Bulma. Does not need the extra padding.
+
     return (
-        <section className="section">
+        <section>
             <div className="container">
                 { /** Reduce the width of the search component */ }
                 <div className="columns">

@@ -56,8 +56,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                     }) }
                 </ul>
             </div>
-        </Section>
-                
+        </Section>  
     );
 };
 

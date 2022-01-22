@@ -57,3 +57,16 @@ const filterProjectsByEnv = (projects: Project[]): Project[] => {
 
     return projects;
 }
+
+/**
+ * @function filterProjectsByTitle
+ * @summary Filter projects by title
+ * @description Filter projects that have a query string in its title.
+ * @author J. Trpka
+ * @param { Project[] } projects
+ * @param { string } query 
+ * @returns { Project[] }
+ */
+const filterProjectsByTitle = (projects: Project[]): Project[] => {
+    return [];
+}

@@ -26,4 +26,14 @@ describe('Render the component', () => {
         expect(titleElement).toBeInTheDocument();
         expect(titleElement).toHaveTextContent('Foobar');
     });
+
+    test('Render with background color using Bulma class', () => {
+        // Arrange
+        render(<Section backgroundColor="has-background-white">Hello World</Section>);
+
+        const sectionElement = document.querySelector('.section');
+
+        // Assert
+        expect(sectionElement).toHaveClass('has-background-white');
+    });
 });

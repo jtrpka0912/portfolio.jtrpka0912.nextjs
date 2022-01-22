@@ -21,10 +21,24 @@ interface SectionProps {
  * @return { JSX }
  */
 const Section = (props: SectionProps) => {
-    const { children, title } = props;
+    const { children, title, backgroundColor } = props;
+
+    /**
+     * @var { string } colorClass
+     * @summary Color class
+     * @description If the background color is a Bulma color class then apply it to the class attribute
+     * @author J. Trpka
+     */
+    let colorClass: string = '';
+
+    // Check if the string starts with 'has' to recognize a Bulma color class
+    if(backgroundColor && 
+        backgroundColor.substring(0, 3) === 'has') {
+            colorClass = backgroundColor;
+        }
     
     return (
-        <section className="section">
+        <section className={`section ${ colorClass }`}>
             { title && (
                 <h3 className="title is-3">{ title }</h3>
             ) }

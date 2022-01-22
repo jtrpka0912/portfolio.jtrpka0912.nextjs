@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import Section from '../../../components/ui/section';
 
@@ -35,5 +35,15 @@ describe('Render the component', () => {
 
         // Assert
         expect(sectionElement).toHaveClass('has-background-white');
+    });
+
+    test('Render with background color using anything else', () => {
+        // Arrange
+        render(<Section backgroundColor="#000000">Hello World</Section>);
+
+        const sectionElement = document.querySelector('.section');
+
+        // Assert
+        expect(sectionElement).toHaveStyle('background-color: #000');
     });
 });

@@ -7,9 +7,23 @@ describe('Render the component', () => {
         // Arrange
         render(<Section><p>Hello World</p></Section>);
 
-        const textFound = screen.getByText('Hello World');
+        const sectionElement = document.querySelector('.section > .container');
+        const titleElement = document.querySelector('.title');
 
         // Assert
-        expect(textFound).toBeInTheDocument();
+        expect(sectionElement).toBeInTheDocument();
+        expect(sectionElement).toHaveTextContent('Hello World');
+        expect(titleElement).not.toBeInTheDocument();
+    });
+
+    test('Render with the title', () => {
+        // Arrange
+        render(<Section title="Foobar">Hello World</Section>);
+
+        const titleElement = document.querySelector('.title');
+
+        // Assert
+        expect(titleElement).toBeInTheDocument();
+        expect(titleElement).toHaveTextContent('Foobar');
     });
 });

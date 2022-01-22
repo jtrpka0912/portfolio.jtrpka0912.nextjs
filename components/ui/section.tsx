@@ -21,10 +21,14 @@ interface SectionProps {
  * @return { JSX }
  */
 const Section = (props: SectionProps) => {
-    const { children } = props;
+    const { children, title } = props;
     
     return (
         <section className="section">
+            { title && (
+                <h3 className="title is-3">{ title }</h3>
+            ) }
+            
             <div className="container">
                 { children }
             </div>

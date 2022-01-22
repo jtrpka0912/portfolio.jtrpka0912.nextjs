@@ -1,6 +1,7 @@
 
 
 import { Project } from "../../../models/project";
+import Section from "../../ui/section";
 
 import ProjectListItem from './project-list-item';
 
@@ -27,8 +28,8 @@ const ProjectList = (props: ProjectListProps) => {
     const { projects } = props;
 
     return (
-        <section className="section">
-            <div className="project-list container">
+        <Section>
+            <div className="project-list">
                 { projects.length > 0 ? (
                     <div className="project-list__list columns is-mobile is-multiline" role="list">
                         { projects.map((project: Project) => <ProjectListItem key={ project.slug } project={ project } /> ) }
@@ -39,7 +40,7 @@ const ProjectList = (props: ProjectListProps) => {
                     </div>
                 ) }
             </div>
-        </section>
+        </Section>
     );
 };
 

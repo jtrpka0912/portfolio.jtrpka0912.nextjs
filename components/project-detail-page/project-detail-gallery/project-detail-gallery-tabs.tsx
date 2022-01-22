@@ -25,7 +25,6 @@ interface ProjectDetailGalleryTabsProps {
  * @summary Project detail gallery tabs component
  * @description Display the tabs for the gallery to switch the different sizes
  * @author J. Trpka
- * @todo Add 'is-active' and aria-selected functionality to the <li> tabs.
  * @param { ProjectDetailGalleryTabsProps } props
  * @returns { JSX }
  */

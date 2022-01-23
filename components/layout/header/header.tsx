@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HeaderBrand from "./header-brand";
 import HeaderMenu from "./header-menu";
 
@@ -10,7 +11,7 @@ import HeaderMenu from "./header-menu";
 const Header = () => {
     return (
         <header>
-            <nav className="navbar">
+            <nav className="navbar" role="navigation" aria-label="Header Navigation">
                 <HeaderBrand />
 
                 <HeaderMenu />

@@ -24,7 +24,6 @@ interface SearchProps {
  * @summary Search component
  * @description A search component to filter items and construct a query to the search result page.
  * @author J. Trpka
- * @todo Might want to separate the drop down, input field, and button as their own components.
  * @param { SearchProps } props 
  * @returns { JSX }
  */
@@ -64,7 +63,7 @@ const Search = (props: SearchProps) => {
                 { /** Reduce the width of the search component */ }
                 <div className="columns">
                     <div className="column is-10-desktop is-offset-1-desktop is-8-widescreen is-offset-2-widescreen is-6-fullhd is-offset-3-fullhd">
-                        <div className="search columns is-multiline">
+                        <div className="search px-5 columns is-multiline">
                             <div className="column is-half-tablet is-one-third-desktop">
                                 <SearchTextbox onChange={ onQueryChange } />
                             </div>

@@ -19,7 +19,7 @@ const HeaderMenu = () => {
         if(linkElement) {
             linkElement.addEventListener('click', e => {
                 uiContext.setHeaderMobileMenu();
-            })
+            });
         }
     }, [])
     

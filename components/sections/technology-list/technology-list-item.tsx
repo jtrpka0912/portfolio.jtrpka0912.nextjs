@@ -34,14 +34,24 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
      * @description All of the Bulma column classes in one variable.
      * @author J. Trpka
      */
-     const columnClasses = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
+     const columnClasses: string = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
+
+     /**
+      * @var { string } flexClasses
+      * @description All of the Bulma flex classes in one variable
+      * @author J. Trpka
+      */
+     const mediaFlexClasses: string = 'is-flex is-flex-direction-row is-flex-wrap-nowrap is-align-items-center';
 
     return (
         <div 
             role="listitem"
             className={ `technology-list-item ${ columnClasses }` }>
             <a href={ technology.url } target="_blank">
-                <article className="media has-background-white-ter">
+                <article 
+                    className={ `media has-background-white-ter ${ mediaFlexClasses }` }
+                    title={ technology.title }
+                >
                     <figure className="media-left p-1 has-background-grey-lighter">
                         <p className="image is-64x64">
                             <img 
@@ -53,8 +63,8 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
                         </p>
                     </figure>
 
-                    <div className="media-content">
-                        <h5 className="subtitle is-5">{ technology.title }</h5>
+                    <div className="media-content pr-1">
+                        <h4 className="subtitle is-6">{ technology.title }</h4>
                     </div>
                 </article>
             </a>

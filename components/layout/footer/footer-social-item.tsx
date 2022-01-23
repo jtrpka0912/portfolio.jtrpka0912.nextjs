@@ -22,7 +22,7 @@ const FooterSocialItem = (props: FooterSocialItemProps) => {
     const { item } = props;
 
     return (
-        <li className="footer-social-item" title={ item.title }>
+        <li className="footer-social-item is-inline-block" title={ item.title }>
             <a href={ item.url } target="_blank" rel="noreferrer">
                 <FontAwesomeIcon size="2x" icon={ item.icon } />
             </a>

@@ -40,20 +40,3 @@ describe('Render the component', () => {
         expect(thumbnailElement.querySelector('.card-header')).toBeNull();
     });
 });
-
-describe('Resizing functionality', () => {
-    test('Resize a square image', () => {
-        // Arrange
-        render(<Thumbnail 
-            image="https://placekitten.com/300/300"
-            altText="Kittens"
-            onClick={ mockFunction }
-        />);
-
-        const thumbnailElement = screen.getByRole('img');
-
-        // Assert
-        expect(thumbnailElement).toHaveAttribute('width', '256');
-        expect(thumbnailElement).toHaveAttribute('height', '256');
-    });
-})

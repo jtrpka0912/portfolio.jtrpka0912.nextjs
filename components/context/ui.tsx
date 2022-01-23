@@ -18,12 +18,16 @@ interface ImageModalData {
  * @interface UiContextData
  * @summary UI context data interface
  * @author J. Trpka
+ * @property { boolean } isHeaderMobileMenuOpen
  * @property { ImageModalData | null } imageModalData If null then this should turn off the image modal
+ * @property { func } setHeaderMobileMenu
  * @property { func } setImageModal Set the data to the image modal
  */
 interface UiContextData {
-    imageModalData: ImageModalData | null,
-    setImageModal: (imageGallery: ImageModalData | null) => void
+    isHeaderMobileMenuOpen: boolean;
+    imageModalData: ImageModalData | null;
+    setHeaderMobileMenu: () => void;
+    setImageModal: (imageGallery: ImageModalData | null) => void;
 }
 
 /**
@@ -31,16 +35,20 @@ interface UiContextData {
  * @summary UI context default values
  * @description The default values for the UI context
  * @author J. Trpka
+ * @property { boolean } isHeaderMobileMenuOpen
  * @property { ImageModalData | null } imageModalData
+ * @property { func } setHeaderMobileMenu
  * @property { func } setImageModal
  */
 const defaultValues: UiContextData = {
+    isHeaderMobileMenuOpen: false,
     imageModalData: null,
+    setHeaderMobileMenu: () => undefined,
     setImageModal: (imageGallery: ImageModalData | null) => undefined
 }
 
 /**
- * @var UiContext
+ * @var { Context } UiContext
  * @summary The UI Context
  * @description The main UI context object to use with useContext hooks
  * @author J. Trpka
@@ -66,8 +74,14 @@ interface UiContextProviderProps {
  * @returns { JSX }
  */
 const UiContextProvider = (props: UiContextProviderProps) => {
+    const [isHeaderMobileMenuOpen, setIsHeaderMobileMenuOpen]
+        = useState<boolean>(defaultValues.isHeaderMobileMenuOpen);
     const [imageModalData, setImageModalData] 
         = useState<ImageModalData | null>(defaultValues.imageModalData);
+
+    const setHeaderMobileMenuHandler = (): void => {
+        setIsHeaderMobileMenuOpen(!isHeaderMobileMenuOpen);
+    }
 
     /**
      * @function setImageModalHandler
@@ -85,12 +99,15 @@ const UiContextProvider = (props: UiContextProviderProps) => {
      * @type UiContextData
      * @description The value for the UI context provider
      * @author J. Trpka
+     * @property { boolean } isHeaderMobileMenuOpen
      * @property { ImageModalData | null } imageModalData
      * @property { func } setImageModal
      */
     const values: UiContextData = {
+        isHeaderMobileMenuOpen,
         imageModalData,
-        setImageModal: setImageModalHandler
+        setImageModal: setImageModalHandler,
+        setHeaderMobileMenu: setHeaderMobileMenuHandler
     };
 
     return (

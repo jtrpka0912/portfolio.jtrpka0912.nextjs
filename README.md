@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+The following information is divided by directories:
 
-## Getting Started
+### .VSCode
+Different tasks that are used most often when developing the portfolio such as running a dev environment of NextJS and the Jest test runner.
 
-First, run the development server:
+### __Tests__
+All of the unit tests that are done using Jest and the React Testing Library. The folders are structured to mimic the root folders of the web application.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### API
+These are the third-party API requests that go to REST API services.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Components
+All of the React non-NextJS components rest. They are divided into sub-directories based on need:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Context: All of the Context API/hooks are constructed.
+- Home Page: All of the home page only components.
+- Layout: The page layout components like the header, body, and footer.
+- Modals: Each of the different modals available from the base component in _ui_
+- Project Detail Page: This will include the main area content, side bar widgets, and the image gallery.
+- Sections: Full section components that will be used throughout the rest of the web application.
+- UI: Small, reusable components that are frequently around the web app.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+### Cypress
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+All of the integration and end-to-end testing are used with Cypress
+
+### Helpers
+Helper functions, based on specific needs, are used around the web application.
+
+There is an _API_ folder that is specifically tailored to help with the API requests in the _API root_ folder.
+
+### Models
+These are the different data types used through the web application. This includes the *portfolio* and *resume* types. (Resumes are coming soon.)
+
+### Pages
+The NextJS page components rest here.
+
+### Posts
+The actual content in the form of Markdown files that populate the web application.
+
+### Public
+Assets such as images are stored in this folder. This also includes the JSON file that stores all of the technologies used for my projects and job experiences (resumes and job experiences are coming soon).
+
+### Styles
+The collection of SASS style sheets include references to the Bulma SASS files are in this folder. There is not much styling happening as this mostly utilizing the utility classes available from Bulma.

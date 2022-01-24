@@ -20,9 +20,9 @@ All of the React non-NextJS components rest. They are divided into sub-directori
 - Sections: Full section components that will be used throughout the rest of the web application.
 - UI: Small, reusable components that are frequently around the web app.
 
-### Cypress [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
-
-All of the integration and end-to-end testing are used with Cypress
+### Cypress
+All of the integration and end-to-end testing are used with Cypress  
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)  
 
 ### Helpers
 Helper functions, based on specific needs, are used around the web application.

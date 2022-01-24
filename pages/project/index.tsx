@@ -1,18 +1,20 @@
+// NextJS
 import { GetStaticProps } from "next";
+
+// Components
 import ProjectList from "../../components/sections/project-list/project-list";
+import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
+import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
+import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 
-import { getAllProjects } from "../../helpers/project";
-
+// Models
+import { Technology } from "../../models/technology";
 import { Project } from "../../models/project";
 import { BreadcrumbLink } from '../../models/breadcrumb-link';
 
-import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
-
-import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
-import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
-import Search from "../../components/sections/search/search";
-import { Technology } from "../../models/technology";
+// Helpers
 import { getAllTechnologies } from "../../helpers/technology";
+import { getAllProjects } from "../../helpers/project";
 
 /**
  * @interface ProjectsPageProps
@@ -31,12 +33,11 @@ interface ProjectsPageProps {
  * @summary Projects page component
  * @description The page that lists all projects.
  * @author J. Trpka
- * @todo Create search skeleton
  * @param { ProjectsPageProps } props 
  * @returns 
  */
 const ProjectsPage = (props: ProjectsPageProps) => {
-    const { projects, technologies } = props;
+    const { projects } = props;
 
     if(!projects) {
         return (
@@ -59,7 +60,6 @@ const ProjectsPage = (props: ProjectsPageProps) => {
     return (
         <div className="page projects">
             <Breadcrumb links={ links } />
-            <Search technologies={ technologies } />
             <ProjectList projects={ projects } />
         </div>
     );

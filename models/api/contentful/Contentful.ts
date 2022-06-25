@@ -46,7 +46,29 @@ export class Contentful {
     });
   }
 
-  public retrieveEntries = async () => {
-    console.info(await this.client.getEntries('projects'));
+  /**
+   * @function retrieveProjects
+   * @summary Retrieve Projects from Contentful
+   * @description Retrieve all projects from Contentful
+   * @author J. Trpka
+   * @returns 
+   */
+  public retrieveProjects = async () => {
+    return this.retrieveEntries('project');
   };
+  
+  /**
+   * @private
+   * @function retrieveEntries
+   * @summary Retrieve Contentful Entries
+   * @description Retrieve Contentful entries based on content type
+   * @author J. Trpka <jeremy.trpka@perficient.com>
+   * @param { string } contentType 
+   */
+  private retrieveEntries = async (contentType: string) => {
+    return this.client.getEntries({
+      content_type: contentType
+    });
+  };
+
 }

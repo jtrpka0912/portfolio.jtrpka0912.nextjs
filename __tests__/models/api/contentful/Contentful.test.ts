@@ -1,4 +1,4 @@
-import { Contentful } from "../../models/api/contentful/Contentful";
+import { Contentful } from "../../../../models/api/contentful/Contentful";
 
 describe('Contentful Constructor', () => {
   /**

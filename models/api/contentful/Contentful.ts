@@ -45,4 +45,8 @@ export class Contentful {
       accessToken: this.contentDeliveryApi
     });
   }
+
+  public retrieveEntries = async () => {
+    console.info(await this.client.getEntries('projects'));
+  };
 }

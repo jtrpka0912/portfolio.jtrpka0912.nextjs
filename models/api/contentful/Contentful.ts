@@ -1,4 +1,6 @@
-import { createClient, ContentfulClientApi } from 'contentful';
+import { createClient, ContentfulClientApi, EntryCollection } from 'contentful';
+import { ContentfulProject } from './content-types/contentful-project';
+import { ContentTypes } from './ContentTypes';
 
 /**
  * @class
@@ -51,10 +53,10 @@ export class Contentful {
    * @summary Retrieve Projects from Contentful
    * @description Retrieve all projects from Contentful
    * @author J. Trpka
-   * @returns 
+   * @returns { Promise<EntryCollection<ContentfulProject>> }
    */
-  public retrieveProjects = async () => {
-    return this.retrieveEntries('project');
+  public retrieveProjects = async (): Promise<EntryCollection<ContentfulProject>> => {
+    return this.retrieveEntries<ContentfulProject>(ContentTypes.Project);
   };
   
   /**
@@ -64,11 +66,11 @@ export class Contentful {
    * @description Retrieve Contentful entries based on content type
    * @author J. Trpka <jeremy.trpka@perficient.com>
    * @param { string } contentType 
+   * @returns { Promise<EntryCollection<T>> }
    */
-  private retrieveEntries = async (contentType: string) => {
+  private retrieveEntries = async <T>(contentType: ContentTypes): Promise<EntryCollection<T>> => {
     return this.client.getEntries({
       content_type: contentType
     });
   };
-
 }

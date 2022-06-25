@@ -45,6 +45,8 @@ describe('Retrieve Projects', () => {
 
     const actualResult = await contentful.retrieveProjects();
 
+    console.info('Result', actualResult);
+
     // Assert
     expect(actualResult).toBeTruthy();
   });

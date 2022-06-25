@@ -7,6 +7,7 @@ import Contentful from 'contentful';
  * @author J. Trpka
  */
 export type ContentfulProjectRepo = {
+  // omit the name unless needed
   github: Contentful.EntryFields.Text;
   gitlab: Contentful.EntryFields.Text;
   bitBucket: Contentful.EntryFields.Text; 

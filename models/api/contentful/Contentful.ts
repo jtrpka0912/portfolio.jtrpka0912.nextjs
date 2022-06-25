@@ -42,6 +42,8 @@ export class Contentful {
   public constructor() {
     if(!this.spaceId || !this.contentDeliveryApi) throw new Error('Please define your Contentful credentials.');
 
+    console.info('Creds', this.spaceId, this.contentDeliveryApi);
+
     this.client = createClient({
       space: this.spaceId,
       accessToken: this.contentDeliveryApi

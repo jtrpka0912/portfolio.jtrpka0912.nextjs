@@ -38,8 +38,6 @@ export class Contentful {
    * @todo Might want to pass a preview check arg
    */
   public constructor() {
-    console.info(this.spaceId, this.contentDeliveryApi);
-
     if(!this.spaceId || !this.contentDeliveryApi) throw new Error('Please define your Contentful credentials.');
 
     this.client = createClient({

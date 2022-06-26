@@ -14,16 +14,22 @@ export class ContentfulClient {
    * @property { string | undefined } spaceID
    * @author J. Trpka
    */
-  private spaceId?: string = 
-  process.env.CONTENTFUL_SPACE_ID;
+  private spaceId?: string = process.env.CONTENTFUL_SPACE_ID;
   
   /**
    * @private
    * @property { string | undefined } contentDeliveryApi
    * @author J. Trpka
    */
-  private contentDeliveryApi?: string = 
-  process.env.CONTENTFUL_CONTENT_DELIVERY;
+  private contentDeliveryApi?: string = process.env.CONTENTFUL_CONTENT_DELIVERY;
+
+  /**
+   * @private
+   * @property { string | undefined } contentPreviewApi
+   * @author J. Trpka
+   */
+  private contentPreviewApi?: string = process.env.CONTENTFUL_CONTENT_PREVIEW;
+
   
   /**
    * @private
@@ -36,14 +42,15 @@ export class ContentfulClient {
    * @constructor
    * @description Construct the Contentful wrapper by initializing the client property.
    * @author J. Trpka
-   * @todo Might want to pass a preview check arg
+   * @argument { boolean } preview - Defaults to false
    */
-  public constructor() {
-    if(!this.spaceId || !this.contentDeliveryApi) throw new Error('Please define your Contentful credentials.');
+  public constructor(preview: boolean = false) {
+    if(!this.spaceId || (!this.contentDeliveryApi || !this.contentPreviewApi)) 
+      throw new Error('Please define your Contentful credentials.');
 
     this.client = createClient({
       space: this.spaceId,
-      accessToken: this.contentDeliveryApi
+      accessToken: preview ? this.contentPreviewApi : this.contentDeliveryApi
     });
   }
   
@@ -52,7 +59,7 @@ export class ContentfulClient {
    * @function retrieveEntries
    * @summary Retrieve Contentful Entries
    * @description Retrieve Contentful entries based on content type
-   * @author J. Trpka <jeremy.trpka@perficient.com>
+   * @author J. Trpka
    * @param { string } contentType 
    * @returns { Promise<EntryCollection<T>> }
    */

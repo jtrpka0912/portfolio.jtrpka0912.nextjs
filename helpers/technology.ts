@@ -1,6 +1,7 @@
 import { Technology } from "../models/technology";
 
 /**
+ * @deprecated
  * @async
  * @function getAllTechnologies
  * @summary Get all technologies
@@ -17,6 +18,7 @@ export const getAllTechnologies = async (): Promise<Technology[]> => {
 }
 
 /**
+ * @deprecated
  * @async
  * @function convertSlugsToTechnologies
  * @summary Convert slug strings to technology objects

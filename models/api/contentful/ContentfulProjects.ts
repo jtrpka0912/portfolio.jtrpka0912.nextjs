@@ -21,8 +21,8 @@ export class ContentfulProjects {
 
   /**
    * @constructor
-   * @summary Set the Contentful client
-   * 
+   * @description Set the Contentful client
+   * @author J. Trpka
    */
   public constructor() {
     this.client = new ContentfulClient();

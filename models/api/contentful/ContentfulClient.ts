@@ -45,13 +45,23 @@ export class ContentfulClient {
    * @argument { boolean } preview - Defaults to false
    */
   public constructor(preview: boolean = false) {
-    if(!this.spaceId || (!this.contentDeliveryApi || !this.contentPreviewApi)) 
-      throw new Error('Please define your Contentful credentials.');
+    if(preview) {
+      if(!this.spaceId || !this.contentPreviewApi) 
+        throw new Error('Please define your Contentful credentials.');
 
-    this.client = createClient({
-      space: this.spaceId,
-      accessToken: preview ? this.contentPreviewApi : this.contentDeliveryApi
-    });
+      this.client = createClient({
+        space: this.spaceId,
+        accessToken: this.contentPreviewApi
+      });
+    } else {
+      if(!this.spaceId || !this.contentDeliveryApi) 
+        throw new Error('Please define your Contentful credentials.');
+      
+      this.client = createClient({
+        space: this.spaceId,
+        accessToken: this.contentDeliveryApi
+      });
+    }
   }
   
   /**

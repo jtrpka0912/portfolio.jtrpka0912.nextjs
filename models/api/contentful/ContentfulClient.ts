@@ -4,12 +4,12 @@ import { ContentTypes } from './ContentTypes';
 
 /**
  * @class
- * @name Contentful
- * @summary Contentful wrapper class
- * @description Handle all contentful actions in this wrapper class.
+ * @name ContentfulClient
+ * @summary Contentful Client Class
+ * @description Handle the client connection to Contentful
  * @author J. Trpka
  */
-export class Contentful {
+export class ContentfulClient {
   /**
    * @private 
    * @property { string | undefined } spaceID
@@ -41,8 +41,6 @@ export class Contentful {
    */
   public constructor() {
     if(!this.spaceId || !this.contentDeliveryApi) throw new Error('Please define your Contentful credentials.');
-
-    console.info('Creds', this.spaceId, this.contentDeliveryApi);
 
     this.client = createClient({
       space: this.spaceId,

@@ -2,6 +2,7 @@ import { createClient, ContentfulClientApi, EntryCollection } from 'contentful';
 import { ContentTypes } from './ContentTypes';
 
 /**
+ * @deprecated
  * @class
  * @name ContentfulClient
  * @summary Contentful Client Class
@@ -9,11 +10,7 @@ import { ContentTypes } from './ContentTypes';
  * @author J. Trpka
  */
 export class ContentfulClient {
-  /**
-   * @private 
-   * @property { string | undefined } spaceID
-   * @author J. Trpka
-   */
+  
   private spaceId?: string = process.env.CONTENTFUL_SPACE_ID;
   
   /**

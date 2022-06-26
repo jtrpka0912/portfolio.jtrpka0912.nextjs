@@ -4,6 +4,7 @@ import { ContentTypes } from "./ContentTypes";
 import { ContentfulProject } from './content-types/contentful-project';
 
 /**
+ * @deprecated
  * @class
  * @name ContentfulProjects
  * @summary Contentful project class

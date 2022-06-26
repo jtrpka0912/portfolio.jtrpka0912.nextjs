@@ -1,8 +1,8 @@
-import { ContentfulClient } from "../../../../models/api/contentful/ContentfulClient";
+import { client } from "../../../helpers/api/contentful";
 
-import { oldEnv } from '../../../../__mocks__/envVars';
+import { oldEnv } from '../../../__mocks__/envVars';
 
-describe('Contentful Constructor', () => {
+describe('client()', () => {
   beforeEach(() => {
     jest.resetModules();
     process.env = { ...oldEnv }; 
@@ -15,14 +15,14 @@ describe('Contentful Constructor', () => {
     
     // Assert
     expect(() => {
-      new ContentfulClient();
+      client();
     }).not.toThrowError();
   });
 
   test('Test if env variables are NOT set', () => {
     // Assert
     expect(() => {
-      new ContentfulClient();
+      client();
     }).toThrowError('Please define your Contentful credentials.');
   });
 

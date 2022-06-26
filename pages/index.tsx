@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 
 import HomeHero from '../components/home-page/home-hero/home-hero';
-import { ContentfulClient } from '../models/api/contentful/ContentfulClient';
 
 /**
  * @function HomePage
@@ -12,10 +11,6 @@ import { ContentfulClient } from '../models/api/contentful/ContentfulClient';
  * @returns { JSX }
  */
 const HomePage: NextPage = () => {
-    const contentful = new ContentfulClient();
-
-    contentful.retrieveProjects().then((something) => console.info(something));
-
     return (
         <div>
             <HomeHero />

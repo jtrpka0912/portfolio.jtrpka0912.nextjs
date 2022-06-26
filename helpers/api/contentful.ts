@@ -1,4 +1,5 @@
-import { createClient, ContentfulClientApi } from "contentful"
+import { createClient, ContentfulClientApi, EntryCollection } from "contentful"
+import { ContentTypes } from "../../models/api/contentful/ContentTypes";
 
 export const client = (preview: boolean = false): ContentfulClientApi => {
 
@@ -43,3 +44,18 @@ export const client = (preview: boolean = false): ContentfulClientApi => {
     });
   }
 }
+
+/**
+ * @async
+ * @function retrieveEntries
+ * @summary Retrieve Contentful Entries
+ * @description Retrieve Contentful entries based on content type
+ * @author J. Trpka
+ * @param { string } contentType 
+ * @returns { Promise<EntryCollection<T>> }
+ */
+export const retrieveEntries = async <T>(contentType: ContentTypes): Promise<EntryCollection<T>> => {
+  return client().getEntries({
+    content_type: contentType
+  });
+};

@@ -1,14 +1,14 @@
 /**
- * @interface GithubRepo
+ * @interface IGithubRepo
  * @summary Github Repo
  * @author J. Trpka
  */
-export interface GithubRepo {    
+export interface IGithubRepo {    
     id: number
     node_id: string
     name: string
     full_name: string
-    owner: GithubRepoOwner
+    owner: IGithubRepoOwner
     private: boolean
     html_url: string
     description: string
@@ -79,9 +79,9 @@ export interface GithubRepo {
     pushed_at: string // Date
     created_at: string // Date
     updated_at: string // Date
-    permissions: GithubRepoPermission
+    permissions: IGithubRepoPermission
     allow_rebase_merge: boolean
-    template_repository: GithubTemplateRepository
+    template_repository: IGithubTemplateRepository
     temp_clone_token: string
     allow_squash_merge: boolean
     allow_auto_merge: boolean
@@ -89,20 +89,20 @@ export interface GithubRepo {
     allow_merge_commit: boolean
     subscribers_count: number
     network_count: number
-    license: GithubRepoLicense // This one was missing the html_url property
-    organization: GithubRepoOrganization
-    parent: GithubParent
-    source: GithubRepoSource 
+    license: IGithubRepoLicense // This one was missing the html_url property
+    organization: IGithubRepoOrganization
+    parent: IGithubParent
+    source: IGithubRepoSource 
 }
 
 // These sub objects should stay private.
 
 /**
- * @interface GithubRepoOwner
+ * @interface IGithubRepoOwner
  * @summary Github repo owner
  * @author J. Trpka
  */
-interface GithubRepoOwner {
+interface IGithubRepoOwner {
     login: string
     id: number,
     node_id: string
@@ -124,12 +124,12 @@ interface GithubRepoOwner {
 }
 
 /**
- * @interface GithubRepoOrganization
+ * @interface IGithubRepoOrganization
  * @summary Github repo organization
  * @author J. Trpka
  * @todo Identical to GithubRepoOwner
  */
- interface GithubRepoOrganization {
+ interface IGithubRepoOrganization {
     login: string
     id: number,
     node_id: string
@@ -151,27 +151,27 @@ interface GithubRepoOwner {
 }
 
 /**
- * @interface GithubRepoPermission
+ * @interface IGithubRepoPermission
  * @summary Github repo permissions
  * @author J. Trpka
  */
-interface GithubRepoPermission {
+interface IGithubRepoPermission {
     pull: boolean
     push: boolean
     admin: boolean
 }
 
 /**
- * @interface GithubRepoTemplateRepository
+ * @interface IGithubRepoTemplateRepository
  * @summary Github repo template repository
  * @author J. Trpka
  */
-interface GithubTemplateRepository {
+interface IGithubTemplateRepository {
     id: number
     node_id: string
     name: string
     full_name: string
-    owner: GithubRepoOwner
+    owner: IGithubRepoOwner
     private: boolean
     html_url: string
     description: string
@@ -230,7 +230,7 @@ interface GithubTemplateRepository {
     open_issues: number
     open_issues_count: number
     is_template: boolean
-    license: GithubRepoLicense
+    license: IGithubRepoLicense
     topics: string[]
     has_issues: boolean
     has_projects: boolean
@@ -243,7 +243,7 @@ interface GithubTemplateRepository {
     pushed_at: string // Date
     created_at: string // Date
     updated_at: string // Date
-    permissions: GithubRepoPermission
+    permissions: IGithubRepoPermission
     allow_rebase_merge: boolean
     temp_clone_token: string
     allow_squash_merge: boolean
@@ -255,11 +255,11 @@ interface GithubTemplateRepository {
 }
 
 /**
- * @interface GithubRepoLicense
+ * @interface IGithubRepoLicense
  * @summary Github repo license
  * @author J. Trpka
  */
-interface GithubRepoLicense {
+interface IGithubRepoLicense {
     key: string
     name: string
     url: string
@@ -269,16 +269,16 @@ interface GithubRepoLicense {
 }
 
 /**
- * @interface GithubRepoParent
+ * @interface IGithubRepoParent
  * @summary Github repo parent
  * @author J. Trpka
  */
-interface GithubParent {
+interface IGithubParent {
     id: number
     node_id: string
     name: string
     full_name: string
-    owner: GithubRepoOwner
+    owner: IGithubRepoOwner
     private: boolean
     html_url: string
     description: string
@@ -346,7 +346,7 @@ interface GithubParent {
     pushed_at: string // Date
     created_at: string // Date
     updated_at: string // Date
-    permissions: GithubRepoPermission
+    permissions: IGithubRepoPermission
     allow_rebase_merge: boolean
     temp_clone_token: string
     allow_squash_merge: boolean
@@ -355,23 +355,23 @@ interface GithubParent {
     allow_merge_commit: boolean
     subscribers_count: number
     network_count: number
-    license: GithubRepoLicense
+    license: IGithubRepoLicense
     forks: number
     open_issues: number
     watchers: number
 }
 
 /**
- * @interface GithubRepoSource
+ * @interface IGithubRepoSource
  * @summary Github repo source
  * @author J. Trpka
  */
-interface GithubRepoSource {
+interface IGithubRepoSource {
     id: number
     node_id: string
     name: string
     full_name: string
-    owner: GithubRepoOwner
+    owner: IGithubRepoOwner
     private: boolean
     html_url: string
     description: string
@@ -439,7 +439,7 @@ interface GithubRepoSource {
     pushed_at: string // Date
     created_at: string // Date
     updated_at: string // Date
-    permissions: GithubRepoPermission
+    permissions: IGithubRepoPermission
     allow_rebase_merge: boolean
     temp_clone_token: string
     allow_squash_merge: boolean
@@ -448,7 +448,7 @@ interface GithubRepoSource {
     allow_merge_commit: boolean
     subscribers_count: number
     network_count: number
-    license: GithubRepoLicense,
+    license: IGithubRepoLicense,
     forks: number
     open_issues: number
     watchers: number

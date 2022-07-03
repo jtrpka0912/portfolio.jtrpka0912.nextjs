@@ -1,12 +1,11 @@
 import Contentful from 'contentful';
 
 /**
- * @type
- * @name ContentfulProjectRepo
+ * @interface ContentfulProjectRepo
  * @summary Contentful Project Repo Content Type
  * @author J. Trpka
  */
-export type ContentfulProjectRepo = {
+export interface IContentfulProjectRepo {
   // omit the name unless needed
   github: Contentful.EntryFields.Text;
   gitlab: Contentful.EntryFields.Text;

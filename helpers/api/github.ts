@@ -1,4 +1,4 @@
-import { GithubError } from "../../models/api/github/error";
+import { IGithubError } from "../../models/api/github/IGithubError";
 
 /**
  * @function convertRepoURLToOwnerAndRepo

@@ -10,7 +10,7 @@ import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-
 // Models
 import { Technology } from "../../models/technology";
 import { Project } from "../../models/project";
-import { BreadcrumbLink } from '../../models/breadcrumb-link';
+import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 
 // Helpers
 import { getAllTechnologies } from "../../helpers/technology";

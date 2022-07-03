@@ -7,7 +7,7 @@ import { getSingleProject } from "../../helpers/project";
 
 // Models
 import { Project } from "../../models/project";
-import { BreadcrumbLink } from "../../models/breadcrumb-link";
+import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 
 // Components
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";

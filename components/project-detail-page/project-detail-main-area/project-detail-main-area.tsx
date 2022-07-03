@@ -1,10 +1,10 @@
-import { Project } from "../../../models/project";
+import { IProject } from "../../../models/IProject";
 import Section from "../../ui/section";
 import ProjectDetailMainAreaContent from "./project-detail-main-area-content";
 import ProjectDetailMainAreaSidebar from "./project-detail-main-area-sidebar";
 
 interface ProjectDetailMainAreaProps {
-    project: Project
+    project: IProject
 }
 
 /**

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { ProjectGallery, ProjectGalleryItem } from "../../../models/project";
+import { IProjectGallery, IProjectGalleryItem } from "../../../models/IProject";
 import { GalleryTabs } from "../../../models/enums/GalleryTabs";
 
 import Thumbnail from "../../ui/thumbnail";
@@ -15,7 +15,7 @@ import { UiContext } from "../../context/ui";
  * @property { GalleryTabs } active
  */
 interface ProjectDetailGalleryPanelProps {
-    gallery: ProjectGallery
+    gallery: IProjectGallery
     active: GalleryTabs
 }
 
@@ -39,7 +39,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
      * @author J. Trpka
      * @param { ProjectGalleryItem } galleryItem This will still work with the ImageModalData type since they both share the same properties.
      */
-    const onClickHandler = (galleryItem: ProjectGalleryItem): void => {
+    const onClickHandler = (galleryItem: IProjectGalleryItem): void => {
         uiContext.setImageModal(galleryItem);
     }
 
@@ -52,7 +52,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
      * @param { number } index Only used for the key
      * @returns { JSX }
      */
-    const renderThumbnailColumn = (galleryItem: ProjectGalleryItem, index: number): React.ReactNode => {
+    const renderThumbnailColumn = (galleryItem: IProjectGalleryItem, index: number): React.ReactNode => {
         return (
             <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
                 <Thumbnail 
@@ -69,7 +69,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             { active === GalleryTabs.Desktop && (
                 <div role="tabpanel" id="desktop-panel" aria-labelledby="desktop-tab">
                     <div className="columns is-mobile is-multiline">
-                        { gallery.desktop && gallery.desktop.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                        { gallery.desktop && gallery.desktop.map((galleryItem: IProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>
             )}
@@ -77,7 +77,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             { active === GalleryTabs.Tablet && (
                 <div role="tabpanel" id="tablet-panel" aria-labelledby="tablet-tab">
                     <div className="columns is-mobile is-multiline">
-                        { gallery.tablet && gallery.tablet.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                        { gallery.tablet && gallery.tablet.map((galleryItem: IProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>
             )}
@@ -85,7 +85,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             { active === GalleryTabs.Mobile && (
                 <div role="tabpanel" id="mobile-panel" aria-labelledby="mobile-tab">
                     <div className="columns is-mobile is-multiline">
-                        { gallery.mobile && gallery.mobile.map((galleryItem: ProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
+                        { gallery.mobile && gallery.mobile.map((galleryItem: IProjectGalleryItem, index: number) => renderThumbnailColumn(galleryItem, index)) }
                     </div>
                 </div>
             )}

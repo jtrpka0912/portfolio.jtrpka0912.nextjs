@@ -4,17 +4,17 @@ import { faExternalLinkAlt, faTools } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Models
-import { ProjectNPMPackage } from "../../../../models/project";
+import { IProjectNPMPackage } from "../../../../models/IProject";
 import ExternalLinkIcon from "../../../ui/external-link-icon";
 
 /**
  * @interface ProjectDetailNpmProps
  * @summary Project detail NPM component props
  * @author J. Trpka
- * @property { ProjectNPMPackage[] } packages
+ * @property { IProjectNPMPackage[] } packages
  */
 interface ProjectDetailNpmProps {
-    packages: ProjectNPMPackage[]
+    packages: IProjectNPMPackage[]
 }
 
 /**
@@ -31,19 +31,20 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
     return (
         <div className="project-detail-npm">
             <h5 className="project-detail-npm__header mb-1">
-                <a href="https://www.npmjs.org" target="_blank">
+                <a href="https://www.npmjs.org" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={ faNpm } className="mr-2" />Packages <ExternalLinkIcon />
                 </a>
             </h5>
 
             <ul className="project-detail-npm__packages ml-4">
-                { packages.map((packageItem: ProjectNPMPackage) => {
+                { packages.map((packageItem: IProjectNPMPackage) => {
                     return (
                         <li key={ packageItem.name }>
                             <a 
                                 href={ `https://npmjs.org/package/${ packageItem.name }` } 
                                 target="_blank" 
-                                title={ packageItem.isDevDependency ? 'Dev Dependency' : undefined }
+                                title={ packageItem.isDevDependency ? 'Dev Dependency' : undefined } 
+                                rel="noreferrer"
                             >
                                 { packageItem.isDevDependency 
                                     ? <FontAwesomeIcon 

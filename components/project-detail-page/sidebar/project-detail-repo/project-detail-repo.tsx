@@ -1,14 +1,14 @@
-import { ProjectRepo } from '../../../../models/project';
+import { IProjectRepo } from '../../../../models/IProject';
 import ProjectDetailGithub from './project-detail-github';
 
 /**
  * @interface ProjectDetailRepoProps
  * @summary Project detail repository props
  * @author J. Trpka
- * @property { ProjectRepo } repo
+ * @property { IProjectRepo } repo
  */
 interface ProjectDetailRepoProps {
-    repo?: ProjectRepo
+    repo?: IProjectRepo
 }
 
 /**

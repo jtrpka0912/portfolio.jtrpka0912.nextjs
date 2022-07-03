@@ -1,14 +1,14 @@
-import { ProjectPackage } from "../../../../models/project";
+import { IProjectPackage } from "../../../../models/IProject";
 import ProjectDetailNpm from "./project-detail-npm";
 
 /**
  * @interface ProjectDetailPackageProps
  * @summary Project detail package component props
  * @author J. Trpka
- * @property { ProjectPackage } package
+ * @property { IProjectPackage } package
  */
 interface ProjectDetailPackageProps {
-    package?: ProjectPackage
+    package?: IProjectPackage
 }
 
 /**

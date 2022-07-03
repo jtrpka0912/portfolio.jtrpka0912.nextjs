@@ -1,4 +1,4 @@
-import { Project } from "../models/project";
+import { IProject } from "../models/IProject";
 import { getAllPosts, getSinglePost } from "./markdown";
 
 /**
@@ -26,8 +26,8 @@ const exclude: string[] = ['test'];
  * @param { string } postId 
  * @returns { Project }
  */
-export const getSingleProject = (postId: string): Project => {
-    return getSinglePost<Project>(postId, category);
+export const getSingleProject = (postId: string): IProject => {
+    return getSinglePost<IProject>(postId, category);
 };
 
 /**
@@ -38,8 +38,8 @@ export const getSingleProject = (postId: string): Project => {
  * @author J. Trpka
  * @returns { Project[] }
  */
-export const getAllProjects = (): Project[] => {
-    const allProjects = getAllPosts<Project>(category);
+export const getAllProjects = (): IProject[] => {
+    const allProjects = getAllPosts<IProject>(category);
 
     return filterProjectsByEnv(allProjects);
 };
@@ -53,9 +53,9 @@ export const getAllProjects = (): Project[] => {
  * @param { Project[] } projects 
  * @returns { Project[] }
  */
-const filterProjectsByEnv = (projects: Project[]): Project[] => {
+const filterProjectsByEnv = (projects: IProject[]): IProject[] => {
     if(process.env.NODE_ENV === "production") {
-        return projects.filter((project: Project) => {
+        return projects.filter((project: IProject) => {
             return !exclude.includes(project.slug);
         });
     }

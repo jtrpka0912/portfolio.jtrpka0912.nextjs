@@ -9,7 +9,7 @@ import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-
 
 // Models
 import { Technology } from "../../models/technology";
-import { Project } from "../../models/project";
+import { IProject } from "../../models/IProject";
 import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 
 // Helpers
@@ -24,7 +24,7 @@ import { getAllProjects } from "../../helpers/project";
  * @property { Technology[] } technologies
  */
 interface ProjectsPageProps {
-    projects: Project[]
+    projects: IProject[]
     technologies: Technology[]
 }
 
@@ -74,12 +74,12 @@ const ProjectsPage = (props: ProjectsPageProps) => {
  * @property { Technology[] } technologies
  */
 interface ProjectsStaticProps {
-    projects: Project[]
+    projects: IProject[]
     technologies: Technology[]
 }
 
 export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
-    const projects: Project[] = getAllProjects();
+    const projects: IProject[] = getAllProjects();
     // TODO: Maybe order alphabetically by title
     const technologies: Technology[] = await getAllTechnologies();
 

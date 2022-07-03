@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { ProjectType } from "../../../../models/project";
+import { ProjectType } from "../../../../models/enums/ProjectType";
 
 import ProjectListItem from "../../../../components/sections/project-list/project-list-item";
 

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faTabletAlt, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { ProjectGallery } from "../../../models/project";
+import { IProjectGallery } from "../../../models/IProject";
 
 import { GalleryTabs } from '../../../models/enums/GalleryTabs';
 
@@ -15,7 +15,7 @@ import { GalleryTabs } from '../../../models/enums/GalleryTabs';
  * @property { function } handleActive
  */
 interface ProjectDetailGalleryTabsProps {
-    gallery: ProjectGallery
+    gallery: IProjectGallery
     active: GalleryTabs
     handleActive: (activeTab: GalleryTabs) => void
 }

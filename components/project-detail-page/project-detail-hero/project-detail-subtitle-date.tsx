@@ -1,4 +1,4 @@
-import { ProjectDate } from '../../../models/project';
+import { IProjectDate } from '../../../models/IProject';
 import { humanReadableDate, validDateRange } from '../../../helpers/date';
 
 /**
@@ -8,7 +8,7 @@ import { humanReadableDate, validDateRange } from '../../../helpers/date';
  * @property { ProjectDate } dates
  */
 interface ProjectDetailSubtitleDateProps {
-    dates?: ProjectDate
+    dates?: IProjectDate
 }
 
 /**

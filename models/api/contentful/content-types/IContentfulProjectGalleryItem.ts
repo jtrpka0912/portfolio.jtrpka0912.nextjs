@@ -6,7 +6,7 @@ import Contentful from 'contentful';
  * @description The content type for the mobile, tablet, and desktop gallery items.
  * @author J. Trpka
  */
-export type IContentfulProjectGalleryItem = {
+export interface IContentfulProjectGalleryItem {
   // omit the name unless needed
   image: Contentful.Asset;
   altText: Contentful.EntryFields.Text;

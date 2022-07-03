@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import ProjectDetailTypeTag from "../../../../components/project-detail-page/sidebar/project-detail-type-tag";
 
-import { ProjectType } from "../../../../models/project";
+import { ProjectType } from '../../../../models/enums/ProjectType';
 
 describe('Render the component', () => {
     test('A front-end project', () => {

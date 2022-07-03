@@ -2,11 +2,11 @@ import Contentful from 'contentful';
 
 /**
  * @type
- * @name ContentfulNPMPackage
+ * @name IContentfulNPMPackage
  * @summary Contentful NPM Package Content Type
  * @author J. Trpka
  */
-export type ContentfulNPMPackage = {
+export interface IContentfulNPMPackage {
   name: Contentful.EntryFields.Text;
   slug: Contentful.EntryFields.Text;
 };

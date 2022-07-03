@@ -8,9 +8,9 @@ import ProjectListSkeleton from "../../components/sections/project-list/project-
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 
 // Models
-import { Technology } from "../../models/technology";
-import { Project } from "../../models/project";
-import { BreadcrumbLink } from '../../models/breadcrumb-link';
+import { ITechnology } from "../../models/ITechnology";
+import { IProject } from "../../models/IProject";
+import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 
 // Helpers
 import { getAllTechnologies } from "../../helpers/technology";
@@ -24,8 +24,8 @@ import { getAllProjects } from "../../helpers/project";
  * @property { Technology[] } technologies
  */
 interface ProjectsPageProps {
-    projects: Project[]
-    technologies: Technology[]
+    projects: IProject[]
+    technologies: ITechnology[]
 }
 
 /**
@@ -74,14 +74,14 @@ const ProjectsPage = (props: ProjectsPageProps) => {
  * @property { Technology[] } technologies
  */
 interface ProjectsStaticProps {
-    projects: Project[]
-    technologies: Technology[]
+    projects: IProject[]
+    technologies: ITechnology[]
 }
 
 export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
-    const projects: Project[] = getAllProjects();
+    const projects: IProject[] = getAllProjects();
     // TODO: Maybe order alphabetically by title
-    const technologies: Technology[] = await getAllTechnologies();
+    const technologies: ITechnology[] = await getAllTechnologies();
 
     return {
         props: {

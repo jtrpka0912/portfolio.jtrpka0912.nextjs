@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { Project } from "../../../models/project";
+import { IProject } from "../../../models/IProject";
 
 import Thumbnail from '../../ui/thumbnail';
 
@@ -11,7 +11,7 @@ import Thumbnail from '../../ui/thumbnail';
  * @property { Project } project
  */
 interface ProjectListItemProps {
-    project: Project
+    project: IProject
 }
 
 /**

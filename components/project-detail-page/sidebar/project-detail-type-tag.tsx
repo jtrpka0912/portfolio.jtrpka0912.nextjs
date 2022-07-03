@@ -1,4 +1,4 @@
-import { ProjectType } from "../../../models/project";
+import { ProjectType } from '../../../models/enums/ProjectType';
 
 /**
  * @interface ProjectDetailTypeTagProps

@@ -1,4 +1,4 @@
-import { Technology } from "../../../models/technology";
+import { ITechnology } from "../../../models/ITechnology";
 
 /**
  * @interface TechnologyListItemProps
@@ -7,7 +7,7 @@ import { Technology } from "../../../models/technology";
  * @property { Technology } technology
  */
 interface TechnologyListItemProps {
-    technology: Technology;
+    technology: ITechnology;
 }
 
 /**

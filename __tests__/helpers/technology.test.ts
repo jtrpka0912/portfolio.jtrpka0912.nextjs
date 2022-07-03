@@ -3,7 +3,7 @@ import {
     convertSlugsToTechnologies
 } from "../../helpers/technology";
 
-import { Technology } from "../../models/technology";
+import { ITechnology } from "../../models/ITechnology";
 
 const unMockedFetch = global.fetch;
 
@@ -37,7 +37,7 @@ describe('getAllTechnologies()', () => {
                 } as Response),
             );
 
-        const technologies: Technology[] = await getAllTechnologies();
+        const technologies: ITechnology[] = await getAllTechnologies();
 
         // Assert
         expect(technologies).toHaveLength(3);
@@ -53,7 +53,7 @@ describe('getAllTechnologies()', () => {
                 } as Response),
             );
 
-        const technologies: Technology[] = await getAllTechnologies();
+        const technologies: ITechnology[] = await getAllTechnologies();
 
         // Assert
         expect(technologies).toHaveLength(0);
@@ -122,7 +122,7 @@ describe('convertSlugsToTechnologies()', () => {
 
         // Assert
         expect(technologies).toHaveLength(2);
-        expect(technologies).toMatchObject<Technology[]>([
+        expect(technologies).toMatchObject<ITechnology[]>([
             {
                 slug: 'jhipster',
                 title: 'JHipster',
@@ -144,7 +144,7 @@ describe('convertSlugsToTechnologies()', () => {
 
         // Assert
         expect(technology).toHaveLength(1);
-        expect(technology).toMatchObject<Technology[]>([
+        expect(technology).toMatchObject<ITechnology[]>([
             {
                 slug: 'typescript',
                 title: 'TypeScript',

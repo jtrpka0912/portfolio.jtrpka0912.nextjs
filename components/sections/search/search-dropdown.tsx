@@ -1,4 +1,4 @@
-import { Technology } from "../../../models/technology";
+import { ITechnology } from "../../../models/ITechnology";
 
 /**
  * @interface SearchDropDownProps
@@ -8,7 +8,7 @@ import { Technology } from "../../../models/technology";
  * @property { function } onChange
  */
 interface SearchDropDownProps {
-    technologies: Technology[]
+    technologies: ITechnology[]
     onChange: (technologySlug: string) => void
 };
 
@@ -36,7 +36,7 @@ const SearchDropDown = (props: SearchDropDownProps) => {
                 onChange={ (event) => onChange(event.target.value) }
             >
                 <option value="">Select Technology</option>
-                { technologies.map((technology: Technology) => 
+                { technologies.map((technology: ITechnology) => 
                     <option 
                         key={ technology.slug } 
                         value={ technology.slug }>{ technology.title }

@@ -1,4 +1,4 @@
-import { Project } from "../../../models/project";
+import { IProject } from "../../../models/IProject";
 
 import Sidebar from "../../ui/sidebar";
 import ProjectDetailRepo from "../sidebar/project-detail-repo/project-detail-repo";
@@ -10,10 +10,10 @@ import ProjectDetailTypeTag from "../sidebar/project-detail-type-tag";
  * @interface ProjectDetailMainAreaSidebarProps
  * @summary Project detail main area sidebar props
  * @author J. Trpka
- * @property { Project } project
+ * @property { IProject } project
  */
 interface ProjectDetailMainAreaSidebarProps {
-    project: Project
+    project: IProject
 }
 
 /**

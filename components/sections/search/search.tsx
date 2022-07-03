@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // Models
-import { Technology } from '../../../models/technology';
+import { ITechnology } from '../../../models/ITechnology';
 
 // Child components
 import SearchButton from './search-button';
@@ -16,7 +16,7 @@ import SearchTextbox from './search-textbox';
  * @property { Technology[] } technologies
  */
 interface SearchProps {
-    technologies: Technology[]
+    technologies: ITechnology[]
 }
 
 /**

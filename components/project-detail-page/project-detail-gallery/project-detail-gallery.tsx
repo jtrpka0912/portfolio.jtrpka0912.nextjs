@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { GalleryTabs } from '../../../models/enums/GalleryTabs';
-import { ProjectGallery } from "../../../models/project";
+import { IProjectGallery } from "../../../models/IProject";
 
 import ProjectDetailGalleryEmpty from './project-detail-gallery-empty';
 import ProjectDetailGalleryTabs from "./project-detail-gallery-tabs";
@@ -15,7 +15,7 @@ import Section from '../../ui/section';
  * @property { ProjectGallery } gallery
  */
 interface ProjectDetailGalleryProps {
-    gallery?: ProjectGallery
+    gallery?: IProjectGallery
 }
 
 /**
@@ -26,7 +26,9 @@ interface ProjectDetailGalleryProps {
  * @param { ProjectDetailGalleryProps } props
  * @returns { JSX }
  */
-const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
+const ProjectDetailGallery = ({
+    gallery
+}: ProjectDetailGalleryProps) => {
     const [ active, setActive ] = useState<GalleryTabs>(GalleryTabs.Desktop);
 
     useEffect(() => {
@@ -40,9 +42,7 @@ const ProjectDetailGallery = (props: ProjectDetailGalleryProps) => {
                 setActive(GalleryTabs.Mobile);
             }
         }     
-    }, []);
-
-    const { gallery } = props;
+    }, [gallery]);
 
     /**
      * @function isGalleryAvailable

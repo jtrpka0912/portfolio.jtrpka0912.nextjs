@@ -1,6 +1,4 @@
-
-
-import { Project } from "../../../models/project";
+import { IProject } from "../../../models/IProject";
 import Section from "../../ui/section";
 
 import ProjectListItem from './project-list-item';
@@ -12,7 +10,7 @@ import ProjectListItem from './project-list-item';
  * @property { Project[] } projects
  */
 interface ProjectListProps {
-    projects: Project[]
+    projects: IProject[]
 }
 
 /**
@@ -32,7 +30,7 @@ const ProjectList = (props: ProjectListProps) => {
             <div className="project-list">
                 { projects.length > 0 ? (
                     <div className="project-list__list columns is-mobile is-multiline" role="list">
-                        { projects.map((project: Project) => <ProjectListItem key={ project.slug } project={ project } /> ) }
+                        { projects.map((project: IProject) => <ProjectListItem key={ project.slug } project={ project } /> ) }
                     </div>
                 ) : (
                     <div className="project-list__empty">

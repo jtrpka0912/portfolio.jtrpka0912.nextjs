@@ -1,6 +1,7 @@
-import { Project, ProjectType } from "../../models/project"
+import { IProject } from "../../models/IProject"
+import { ProjectType } from "../../models/enums/ProjectType"
 
-export const projectOne: Project = {
+export const projectOne: IProject = {
     slug: 'project-1',
     title: 'Project 1',
     technology: ['php', 'wordpress'],
@@ -10,31 +11,33 @@ export const projectOne: Project = {
     thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.FULLSTACK,
-    resume: false,
+    resume: '',
     inDevelopment: false,
     featured: false,
     content: 'Foobar'
 }
 
-export const projectTwo: Project = {
+export const projectTwo: IProject = {
     slug: 'project-2',
     title: 'Project 2',
     technology: ['javascript', 'typescript', 'angular'],
     package: {
-        npm: ['lobash']
+        npm: [
+            { name: 'lobash', isDevDependency: false }
+        ]
     },
     repo: undefined,
     date: { started: '1970-01-01', ended: '1970-05-04' },
     thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.FRONTEND,
-    resume: true,
+    resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,
     content: 'Foobar'
 }
 
-export const projectThree: Project = {
+export const projectThree: IProject = {
     slug: 'project-3',
     title: 'Project 3',
     technology: ['golang'],
@@ -46,25 +49,28 @@ export const projectThree: Project = {
     thumbnail: '/path/to/image.png',
     gallery: undefined,
     type: ProjectType.BACKEND,
-    resume: true,
+    resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,
     content: 'Foobar'
 }
 
-export const projectFour: Project = {
+export const projectFour: IProject = {
     slug: 'project-4',
     title: 'Project 4',
     technology: ['react', 'nextjs'],
     package: {
-        npm: ['gray-matter', 'markdown']
+        npm: [
+            { name: 'gray-matter', isDevDependency: false },
+            { name: 'markdown', isDevDependency: false }
+        ]
     },
     repo: undefined,
     date: { started: '1970-01-01', ended: '1972-02-30' },
     thumbnail: undefined,
     gallery: undefined,
     type: ProjectType.BACKEND,
-    resume: true,
+    resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,
     content: 'Foobar'

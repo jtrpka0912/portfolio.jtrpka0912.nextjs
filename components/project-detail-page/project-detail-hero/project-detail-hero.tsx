@@ -1,4 +1,4 @@
-import { Project } from "../../../models/project";
+import { IProject } from "../../../models/IProject";
 import ProjectDetailSubtitleDate from "./project-detail-subtitle-date";
 
 /**
@@ -8,7 +8,7 @@ import ProjectDetailSubtitleDate from "./project-detail-subtitle-date";
  * @property { Project } project
  */
 interface ProjectDetailTitleProps {
-    project: Project
+    project: IProject
 }
 
 /**

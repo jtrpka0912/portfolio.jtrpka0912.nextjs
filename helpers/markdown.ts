@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import { Post } from '../models/post';
+import { IPost } from '../models/IPost';
 
 /**
  * @function getAllPostFiles
@@ -27,7 +27,7 @@ const getAllPostFiles = (category: string): string[] => {
  * @param { string } category 
  * @returns { T[] }
  */
-export const getAllPosts = <T extends Post>(category: string): T[] => {
+export const getAllPosts = <T extends IPost>(category: string): T[] => {
     const files = getAllPostFiles(category);
 
     return files.map((file: string) => {
@@ -43,7 +43,7 @@ export const getAllPosts = <T extends Post>(category: string): T[] => {
  * @param { string } category
  * @returns { T }
  */
-export const getSinglePost = <T extends Post>(postId: string, category: string): T => {
+export const getSinglePost = <T extends IPost>(postId: string, category: string): T => {
     const filePath: string = path.join(process.cwd(), 'posts', category, postId);
     const fileContent: string = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);

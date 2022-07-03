@@ -6,8 +6,8 @@ import { ParsedUrlQuery } from "querystring";
 import { getSingleProject } from "../../helpers/project";
 
 // Models
-import { Project } from "../../models/project";
-import { BreadcrumbLink } from "../../models/breadcrumb-link";
+import { IProject } from "../../models/IProject";
+import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 
 // Components
 import ProjectDetailGallery from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery";
@@ -31,7 +31,7 @@ import ProjectDetailGallerySkeleton from "../../components/project-detail-page/p
  * @property { Project } project
  */
 interface ProjectDetailPageProps {
-    project: Project
+    project: IProject
 }
 
 /**
@@ -93,7 +93,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
  * @property { Project } project
  */
 interface ProjectDetailStaticProps {
-    project: Project
+    project: IProject
 }
 
 /**

@@ -6,8 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 // Components
-import { BreadcrumbLink } from '../../../models/breadcrumb-link';
 import Section from '../../ui/section';
+
+/**
+ * @type 
+ * @name BreadcrumbLink
+ * @summary Breadcrumb Link
+ * @description A breadcrumb link that will allow a user to navigate back a page.
+ * @author J. Trpka
+ * @property { string } text The display text
+ * @property { string } url The relative url to a page
+ */
+export type BreadcrumbLink = {
+    text: string,
+    url?: string
+}
 
 /**
  * @interface BreadcrumbProps

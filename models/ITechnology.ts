@@ -7,7 +7,7 @@
  * @property { string } url - The home page
  * @property { string } logo
  */
-export interface Technology {
+export interface ITechnology {
     slug: string
     title: string
     url: string

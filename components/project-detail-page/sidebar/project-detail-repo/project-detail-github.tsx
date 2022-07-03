@@ -59,7 +59,8 @@ const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
                         <FontAwesomeIcon icon={ faGithub } />
                         <a className="ml-1" 
                             href={ github } 
-                            target="_blank"
+                            target="_blank" 
+                            rel="noreferrer"
                         >Repository <ExternalLinkIcon /></a>
                     </h5>
 

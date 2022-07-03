@@ -47,7 +47,7 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
         <div 
             role="listitem"
             className={ `technology-list-item ${ columnClasses }` }>
-            <a href={ technology.url } target="_blank">
+            <a href={ technology.url } target="_blank" rel="noreferrer">
                 <article 
                     className={ `media has-background-white-ter ${ mediaFlexClasses }` }
                     title={ technology.title }

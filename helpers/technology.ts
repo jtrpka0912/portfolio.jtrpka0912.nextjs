@@ -1,4 +1,4 @@
-import { Technology } from "../models/technology";
+import { ITechnology } from "../models/ITechnology";
 
 /**
  * @deprecated
@@ -7,9 +7,9 @@ import { Technology } from "../models/technology";
  * @summary Get all technologies
  * @description Get all technologies from the JSON data file.
  * @author J. Trpka
- * @returns { Technology[] }
+ * @returns { ITechnology[] }
  */
-export const getAllTechnologies = async (): Promise<Technology[]> => {
+export const getAllTechnologies = async (): Promise<ITechnology[]> => {
     const response = await fetch('http://localhost:3000/data/technology.json');
 
     if(!response.ok) throw new Error('Unable to retrieve technologies.');
@@ -25,14 +25,14 @@ export const getAllTechnologies = async (): Promise<Technology[]> => {
  * @description Take an array of string slugs and convert them by looking for the technology in the JSON data file.
  * @author J. Trpka
  * @param { string[] } slugs 
- * @returns { Promise<Technology[]> }
+ * @returns { Promise<ITechnology[]> }
  */
-export const convertSlugsToTechnologies = async (slugs: string[]): Promise<Technology[]> => {
+export const convertSlugsToTechnologies = async (slugs: string[]): Promise<ITechnology[]> => {
     const allTechnologies = await getAllTechnologies();
     let technologies = [];
 
     for(const slug of slugs) {
-        const found: Technology | undefined = allTechnologies.find((tech: Technology) => tech.slug === slug);
+        const found: ITechnology | undefined = allTechnologies.find((tech: ITechnology) => tech.slug === slug);
 
         if(found) technologies.push(found);
     }

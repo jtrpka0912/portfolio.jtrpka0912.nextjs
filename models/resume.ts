@@ -1,8 +1,8 @@
-import { Post } from './post';
+import { IPost } from './IPost';
 
 /**
  * @interface Resume
- * @extends Post
+ * @extends IPost
  * @description A single job experience resume post
  * @author J. Trpka
  * @property { string } employer Name of the company or employer
@@ -13,7 +13,7 @@ import { Post } from './post';
  * @property { string[] } technology Technologies that were used throughout the entire job experience
  * @property { boolean } featured List this job experience on the featured list
  */
-export interface Resume extends Post {
+export interface Resume extends IPost {
     employer: string,
     jobtitle: ResumeJobTitle,
     date: ResumeDate,

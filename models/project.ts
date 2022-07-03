@@ -1,8 +1,9 @@
-import { Post } from './post';
+import { IPost } from './IPost';
+import { ProjectType } from './enums/ProjectType';
 
 /**
  * @interface Project
- * @extends Post
+ * @extends IPost
  * @description A single portfolio project post
  * @author J. Trpka
  * @property { string } title Name of the project
@@ -17,7 +18,7 @@ import { Post } from './post';
  * @property { boolean } inDevelopment If the project is still in development
  * @property { boolean } featured List this project on the featured list
  */
-export interface Project extends Post {
+export interface Project extends IPost {
     title: string,
     technology: string[],
     package?: ProjectPackage,
@@ -63,7 +64,7 @@ export interface ProjectNPMPackage {
  * @interface ProjectRepo
  * @description The location where the project's git repository
  * @author J. Trpka
- * @note Only one of the properties will be used.
+ * @todo Create a new interface to construct the git repo array objects
  * @property { string } github
  * @property { string } gitlab
  * @property { string } bitbucket
@@ -112,15 +113,4 @@ export interface ProjectGalleryItem {
     image: string,
     altText: string
     description?: string
-}
-
-/**
- * @enum ProjectType
- * @description The type of project
- * @author J. Trpka
- */
-export enum ProjectType {
-    FRONTEND = 'frontend',
-    BACKEND = 'backend',
-    FULLSTACK = 'fullstack'
 }

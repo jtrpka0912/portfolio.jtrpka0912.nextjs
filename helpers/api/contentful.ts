@@ -1,5 +1,5 @@
 import { createClient, ContentfulClientApi, EntryCollection } from "contentful"
-import { ContentTypes } from "../../models/api/contentful/ContentTypes";
+import { ContentTypes } from "../../models/api/contentful/enums/ContentTypes";
 
 export const client = (preview: boolean = false): ContentfulClientApi => {
 

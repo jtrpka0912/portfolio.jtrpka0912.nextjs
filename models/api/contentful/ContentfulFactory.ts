@@ -1,4 +1,4 @@
-import { Asset, Entry } from "contentful";
+import { Asset, Entry, EntryCollection } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
 import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackage, IProjectRepo } from "../../IProject";
@@ -28,29 +28,49 @@ export class ContentfulFactory {
    * @returns { IProject }
    */
   public createProject(contentfulProject: Entry<IContentfulProject>): IProject {
+    console.info('Does NPM Exist?', this.doesExist<IContentfulNpmPackage>(contentfulProject.fields.npmPackages));
+    console.info('Does Technologies Exist?', this.doesExist<IContentfulTechnology>(contentfulProject.fields.technologies));
+    console.info('Does Desktop Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.desktopProjectGallery));
+    console.info('Does Tablet Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.tabletProjectGallery));
+    console.info('Does Mobile Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.mobileProjectGallery));
+
+    console.info('Technologies', contentfulProject.fields.technologies);
+
     return {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       content: contentfulProject.fields.content,
       package: {
-        npm: contentfulProject.fields.npmPackages.map(
-          (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)
-        )
+        npm: this.doesExist<IContentfulNpmPackage>(contentfulProject.fields.npmPackages) ?
+          contentfulProject.fields.npmPackages.map(
+            (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)
+          )
+        : []
       },
       repo: this.createProjectRepo(contentfulProject.fields.repository),
-      technology: contentfulProject.fields.technologies.map((contentfulTechnology) => this.createTechnology(contentfulTechnology)),
+      technology: contentfulProject.fields.technologies.map(
+        (contentfulTechnology) => this.createTechnology(contentfulTechnology)
+      ),
       date: {
         started: contentfulProject.fields.startDate,
         ended: contentfulProject.fields.endDate
       },
-      thumbnail: this.createImage(contentfulProject.fields.thumbnail),
+      thumbnail: contentfulProject.fields.thumbnail ? 
+        this.createImage(contentfulProject.fields.thumbnail) :
+        undefined,
       gallery: {
-        desktop: contentfulProject.fields.desktopProjectGallery
-          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem)),
-        tablet: contentfulProject.fields.tabletProjectGallery
-          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem)),
-        mobile: contentfulProject.fields.mobileProjectGallery
-          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem))
+        desktop: this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.desktopProjectGallery) ? 
+          contentfulProject.fields.desktopProjectGallery.map(
+            (contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createProjectGalleryItem(contentfulGalleryItem)
+          ) : [],
+        tablet: this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.tabletProjectGallery) ? 
+          contentfulProject.fields.tabletProjectGallery.map(
+            (contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createProjectGalleryItem(contentfulGalleryItem)
+          ) : [],
+        mobile: this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.mobileProjectGallery) ?
+          contentfulProject.fields.mobileProjectGallery.map(
+            (contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createProjectGalleryItem(contentfulGalleryItem)
+          ): []
       },
       type: ProjectType.FULLSTACK,
       resume: '',
@@ -80,14 +100,14 @@ export class ContentfulFactory {
 
   /**
    * @public
-   * @function createPackageGalleryItem
-   * @summary Create Package Gallery Item from Contentful
+   * @function createProjectGalleryItem
+   * @summary Create Project Gallery Item from Contentful
    * @description Convert a Contentful project gallery item to an IProjectGalleryItem object
    * @author J. Trpka
    * @param { Entry<IContentfulProjectGalleryItem> } contentfulPackageGalleryItem 
    * @returns { IProjectGalleryItem }
    */
-  public createPackageGalleryItem(
+  public createProjectGalleryItem(
     contentfulPackageGalleryItem: Entry<IContentfulProjectGalleryItem>
   ): IProjectGalleryItem {
     return {
@@ -129,7 +149,9 @@ export class ContentfulFactory {
     return {
       name: contentfulTechnology.fields.name,
       url: contentfulTechnology.fields.url,
-      logo: this.createImage(contentfulTechnology.fields.logo)
+      logo: contentfulTechnology.fields.logo ? 
+        this.createImage(contentfulTechnology.fields.logo) : 
+        undefined
     };
   }
 
@@ -151,5 +173,9 @@ export class ContentfulFactory {
       path: contentfulAsset.fields.file.url,
       altText: contentfulAsset.fields.description
     }
+  }
+
+  private doesExist<T>(entry: Entry<T> | Entry<T>[]): boolean {
+    return !!entry;
   }
 }

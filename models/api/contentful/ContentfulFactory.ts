@@ -68,7 +68,6 @@ export class ContentfulFactory {
   public createProjectPackage(
     contentfulProjectPackage: Entry<IContentfulProjectPackage>
   ): IProjectPackage {
-    console.info(contentfulProjectPackage.fields.npm);
     return {
       npm: contentfulProjectPackage.fields.npm.map(
         (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)

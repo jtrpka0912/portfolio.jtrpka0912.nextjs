@@ -1,4 +1,5 @@
 import { Asset, Entry } from "contentful";
+import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
 import { INpmPackage, IProject, IProjectPackage, IProjectRepo } from "../../IProject";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
@@ -20,6 +21,7 @@ export class ContentfulFactory {
    * @summary Create Project from Contentful
    * @description Convert a Contentful Project entry to an IProject object
    * @author J. Trpka
+   * @todo Figure out how to deal with project type
    * @param { Entry<IContentfulProject> } contentfulProject
    * @returns { IProject }
    */
@@ -34,8 +36,12 @@ export class ContentfulFactory {
         ended: contentfulProject.fields.endDate
       },
       thumbnail: this.createImage(contentfulProject.fields.thumbnail),
-      gallery: contentfulProject.fields.desktopProjectGallery,
-      type: contentfulProject.fields.type,
+      gallery: {
+        desktop: contentfulProject.fields.desktopProjectGallery,
+        tablet: contentfulProject.fields.tabletProjectGallery,
+        mobile: contentfulProject.fields.mobileProjectGallery
+      },
+      type: ProjectType.FULLSTACK,
       resume: '',
       inDevelopment: contentfulProject.fields.inDevelopment,
       featured: contentfulProject.fields.featured
@@ -116,8 +122,7 @@ export class ContentfulFactory {
   public createImage(contentfulAsset: Asset): IImage {
     return {
       path: contentfulAsset.fields.file.url,
-      altText: contentfulAsset.fields.title,
-      description: contentfulAsset.fields.description
+      altText: contentfulAsset.fields.description
     }
   }
 }

@@ -2,9 +2,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Entry } from "contentful";
 
 import { retrieveProjectBySlug } from "../../../api/contentful/projects";
-import { IContentfulProject } from "../../../models/api/contentful/content-types/IContentfulProject";
+import { ContentfulFactory } from "../../../models/api/contentful/ContentfulFactory";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+import { IContentfulProject } from "../../../models/api/contentful/content-types/IContentfulProject";
+import { IProject } from "../../../models/IProject";
+import { IErrorResponse } from "../../../models/IErrorResponse";
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<IProject | IErrorResponse>) => {
+  const contentfulFactory: ContentfulFactory = new ContentfulFactory();
+
   try {
     /**
      * @constant { Promise<Entry<IContentfulProject>> } contentfulProjectResponse
@@ -16,10 +22,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const contentfulProjectResponse: Entry<IContentfulProject> = 
       await retrieveProjectBySlug(Array.isArray(req.query.slug) ? req.query.slug[0] : req.query.slug);
     
-    res.status(200).json(contentfulProjectResponse);
+    res.status(200).json(contentfulFactory.createProject(contentfulProjectResponse));
   } catch(e: any) {
     res.status(400).json({
-      "error": e.message
+      status: 400,
+      title: 'Retrieval Project Error',
+      message: e.message
     });
   }
 }

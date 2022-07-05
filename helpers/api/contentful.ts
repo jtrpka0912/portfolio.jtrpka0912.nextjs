@@ -51,21 +51,24 @@ export const client = (preview: boolean = false): ContentfulClientApi => {
  * @summary Retrieve Contentful Entries
  * @description Retrieve Contentful entries based on content type
  * @author J. Trpka
+ * @param { ContentTypes } contentType
  * @returns { Promise<EntryCollection<T>> }
  */
-export const retrieveEntries = async <T>(): Promise<EntryCollection<T>> => {
-  return client().getEntries<T>();
+export const retrieveEntries = async <T>(contentType: ContentTypes): Promise<EntryCollection<T>> => {
+  return client().getEntries<T>({
+    content_type: contentType
+  });
 };
 
 /**
  * @async
- * @function retrieveEntry
- * @summary Retrieve a Contentful Entry by ID
- * @description Retrieve a single Contentful Entry by ID
+ * @function retrieveEntryById
+ * @summary Retrieve Contentful entry by ID
+ * @description Retrieve a single Contentful Entry by system ID
  * @author J. Trpka
  * @param { string } id 
  * @returns { Promise<Entry<T>> }
  */
-export const retrieveEntry = async <T>(id: string): Promise<Entry<T>> => {
+export const retrieveEntryById = async <T>(id: string): Promise<Entry<T>> => {
   return client().getEntry<T>(id);
 }

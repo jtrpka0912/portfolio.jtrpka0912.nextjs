@@ -10,6 +10,7 @@ import { IContentfulTechnology } from './IContentfulTechnology';
  * @author J. Trpka
  */
 export interface IContentfulProject {
+  slug: Contentful.EntryFields.Text;
   title: Contentful.EntryFields.Text;
   type: Contentful.EntryFields.Text;
   content: Contentful.EntryFields.Text;

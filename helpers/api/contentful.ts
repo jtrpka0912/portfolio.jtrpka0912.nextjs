@@ -1,4 +1,4 @@
-import { createClient, ContentfulClientApi, EntryCollection } from "contentful"
+import { createClient, ContentfulClientApi, EntryCollection, Entry } from "contentful"
 import { ContentTypes } from "../../models/api/contentful/enums/ContentTypes";
 
 export const client = (preview: boolean = false): ContentfulClientApi => {
@@ -51,11 +51,24 @@ export const client = (preview: boolean = false): ContentfulClientApi => {
  * @summary Retrieve Contentful Entries
  * @description Retrieve Contentful entries based on content type
  * @author J. Trpka
- * @param { string } contentType 
+ * @param { ContentTypes } contentType
  * @returns { Promise<EntryCollection<T>> }
  */
 export const retrieveEntries = async <T>(contentType: ContentTypes): Promise<EntryCollection<T>> => {
-  return client().getEntries({
+  return client().getEntries<T>({
     content_type: contentType
   });
 };
+
+/**
+ * @async
+ * @function retrieveEntryById
+ * @summary Retrieve Contentful entry by ID
+ * @description Retrieve a single Contentful Entry by system ID
+ * @author J. Trpka
+ * @param { string } id 
+ * @returns { Promise<Entry<T>> }
+ */
+export const retrieveEntryById = async <T>(id: string): Promise<Entry<T>> => {
+  return client().getEntry<T>(id);
+}

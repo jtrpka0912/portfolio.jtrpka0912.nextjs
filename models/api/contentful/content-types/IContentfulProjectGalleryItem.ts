@@ -7,8 +7,6 @@ import Contentful from 'contentful';
  * @author J. Trpka
  */
 export interface IContentfulProjectGalleryItem {
-  // omit the name unless needed
   image: Contentful.Asset;
-  altText: Contentful.EntryFields.Text;
   description: Contentful.EntryFields.Text;
 };

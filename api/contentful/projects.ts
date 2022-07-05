@@ -1,6 +1,18 @@
-import { Entry } from "contentful";
-import { retrieveEntry } from "../../helpers/api/contentful"
+import { Entry, EntryCollection } from "contentful";
+import { retrieveEntries, retrieveEntry } from "../../helpers/api/contentful"
 import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject"
+
+/**
+ * @async
+ * @function retrieveProjects
+ * @summary Retreive Contentful Projects
+ * @description Retrieve all projects from Contentful
+ * @author J. Trpka
+ * @returns { Promise<EntryCollection<IContentfulProject>> }
+ */
+export const retrieveProjects = async (): Promise<EntryCollection<IContentfulProject>> => {
+  return retrieveEntries<IContentfulProject>();
+}
 
 /**
  * @async

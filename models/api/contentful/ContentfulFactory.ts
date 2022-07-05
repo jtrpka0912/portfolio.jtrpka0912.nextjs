@@ -42,9 +42,12 @@ export class ContentfulFactory {
       },
       thumbnail: this.createImage(contentfulProject.fields.thumbnail),
       gallery: {
-        desktop: this.createPackageGalleryItems(contentfulProject.fields.desktopProjectGallery),
-        tablet: this.createPackageGalleryItems(contentfulProject.fields.tabletProjectGallery),
-        mobile: this.createPackageGalleryItems(contentfulProject.fields.mobileProjectGallery)
+        desktop: contentfulProject.fields.desktopProjectGallery
+          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem)),
+        tablet: contentfulProject.fields.tabletProjectGallery
+          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem)),
+        mobile: contentfulProject.fields.mobileProjectGallery
+          .map((contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createPackageGalleryItem(contentfulGalleryItem))
       },
       type: ProjectType.FULLSTACK,
       resume: '',
@@ -65,8 +68,11 @@ export class ContentfulFactory {
   public createProjectPackage(
     contentfulProjectPackage: Entry<IContentfulProjectPackage>
   ): IProjectPackage {
+    console.info(contentfulProjectPackage.fields.npm);
     return {
-      npm: contentfulProjectPackage.fields.npm.map((contentfulNpmPackage) => this.createNpmPackage(contentfulNpmPackage)),
+      npm: contentfulProjectPackage.fields.npm.map(
+        (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)
+      ),
       maven: [],
       go: [],
       nuget: []
@@ -94,25 +100,20 @@ export class ContentfulFactory {
 
   /**
    * @public
-   * @function createPackageGalleryItems
-   * @summary Create Package Gallery Items from Contentful
-   * @description Convert an array of Contentful project gallery items to an array of IProjectGalleryItem objects 
+   * @function createPackageGalleryItem
+   * @summary Create Package Gallery Item from Contentful
+   * @description Convert a Contentful project gallery item to an IProjectGalleryItem object
    * @author J. Trpka
-   * @param { Asset } contentfulAsset 
-   * @returns { IProjectGalleryItem[] }
-   * @throws
+   * @param { Entry<IContentfulProjectGalleryItem> } contentfulPackageGalleryItem 
+   * @returns { IProjectGalleryItem }
    */
-  public createPackageGalleryItems(
-    contentfulPackageGalleryItems: Entry<IContentfulProjectGalleryItem>[]
-  ): IProjectGalleryItem[] {
-    return contentfulPackageGalleryItems.map(
-      (contentfulPackageGalleryItem: Entry<IContentfulProjectGalleryItem>) => (
-        {
-          image: this.createImage(contentfulPackageGalleryItem.fields.image),
-          description: contentfulPackageGalleryItem.fields.description
-        }
-      )
-    );
+  public createPackageGalleryItem(
+    contentfulPackageGalleryItem: Entry<IContentfulProjectGalleryItem>
+  ): IProjectGalleryItem {
+    return {
+      image: this.createImage(contentfulPackageGalleryItem.fields.image),
+      description: contentfulPackageGalleryItem.fields.description
+    };
   }
 
   /**

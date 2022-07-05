@@ -24,9 +24,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<IProject | IErr
     
     res.status(200).json(contentfulFactory.createProject(contentfulProjectResponse));
   } catch(e: any) {
+    console.trace(e);
     res.status(400).json({
       status: 400,
-      title: 'Retrieval Project Error',
+      title: 'Project Retrieval Error',
       message: e.message
     });
   }

@@ -1,4 +1,5 @@
-import { Entry } from "contentful";
+import { Asset, Entry } from "contentful";
+import { IImage } from "../../IImage";
 import { INpmPackage, IProject, IProjectPackage, IProjectRepo } from "../../IProject";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
@@ -32,7 +33,7 @@ export class ContentfulFactory {
         started: contentfulProject.fields.startDate,
         ended: contentfulProject.fields.endDate
       },
-      thumbnail: contentfulProject.fields.thumbnail,
+      thumbnail: this.createImage(contentfulProject.fields.thumbnail),
       gallery: contentfulProject.fields.desktopProjectGallery,
       type: contentfulProject.fields.type,
       resume: '',
@@ -99,6 +100,24 @@ export class ContentfulFactory {
       github: contentfulRepo.fields.github,
       gitlab: contentfulRepo.fields.gitlab,
       bitbucket: contentfulRepo.fields.bitBucket
+    }
+  }
+
+  /**
+   * @public
+   * @function createImage
+   * @summary Create Image from Contentful Asset
+   * @description Convert Contentful Asset to an IImage object
+   * @author J. Trpka
+   * @todo Check the data is correct
+   * @param { Asset } contentfulAsset 
+   * @returns { IImage }
+   */
+  public createImage(contentfulAsset: Asset): IImage {
+    return {
+      path: contentfulAsset.fields.file.url,
+      altText: contentfulAsset.fields.title,
+      description: contentfulAsset.fields.description
     }
   }
 }

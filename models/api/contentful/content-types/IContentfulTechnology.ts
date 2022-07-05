@@ -6,7 +6,7 @@ import Contentful from 'contentful';
  * @author J. Trpka
  */
 export interface IContentfulTechnology {
-  // omit the name unless needed
+  name: Contentful.EntryFields.Text;
   url: Contentful.EntryFields.Text;
   logo: Contentful.Asset;
 };

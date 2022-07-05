@@ -2,11 +2,13 @@ import { Asset, Entry } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
 import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackage, IProjectRepo } from "../../IProject";
+import { ITechnology } from "../../ITechnology";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
 import { IContentfulProjectGalleryItem } from "./content-types/IContentfulProjectGalleryItem";
 import { IContentfulProjectPackage } from "./content-types/IContentfulProjectPackage";
 import { IContentfulProjectRepo } from "./content-types/IContentfulProjectRepo";
+import { IContentfulTechnology } from "./content-types/IContentfulTechnology";
 
 /**
  * @class
@@ -30,8 +32,10 @@ export class ContentfulFactory {
     return {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
+      content: contentfulProject.fields.content,
       package: this.createProjectPackage(contentfulProject.fields.packages),
       repo: this.createProjectRepo(contentfulProject.fields.repository),
+      technology: contentfulProject.fields.technologies.map((contentfulTechnology) => this.createTechnology(contentfulTechnology)),
       date: {
         started: contentfulProject.fields.startDate,
         ended: contentfulProject.fields.endDate
@@ -62,33 +66,11 @@ export class ContentfulFactory {
     contentfulProjectPackage: Entry<IContentfulProjectPackage>
   ): IProjectPackage {
     return {
-      npm: this.createNpmPackages(contentfulProjectPackage.fields.npm),
+      npm: contentfulProjectPackage.fields.npm.map((contentfulNpmPackage) => this.createNpmPackage(contentfulNpmPackage)),
       maven: [],
       go: [],
       nuget: []
     }
-  }
-
-  /**
-   * @public
-   * @function createNpmPackage
-   * @summary Create NPM Packages from Contentful
-   * @description Convert an array of Contentful NPM Package entry to an array of INpmPackage objects
-   * @author J. Trpka
-   * @param { Entry<IContentfulNpmPackage>[] } contentfulProjectPackage 
-   * @returns { IProjectPackage[] }
-   */
-  public createNpmPackages(
-    contentfulNpmPackages: Entry<IContentfulNpmPackage>[]
-  ): INpmPackage[] {
-    return contentfulNpmPackages.map(
-      (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => (
-        {
-          name: contentfulNpmPackage.fields.name,
-          slug: contentfulNpmPackage.fields.slug
-        }
-      )
-    );
   }
 
   /**
@@ -107,26 +89,6 @@ export class ContentfulFactory {
       github: contentfulRepo.fields.github,
       gitlab: contentfulRepo.fields.gitlab,
       bitbucket: contentfulRepo.fields.bitBucket
-    }
-  }
-
-  /**
-   * @public
-   * @function createImage
-   * @summary Create Image from Contentful Asset
-   * @description Convert Contentful Asset to an IImage object
-   * @author J. Trpka
-   * @param { Asset } contentfulAsset 
-   * @returns { IImage }
-   * @throws
-   */
-  public createImage(contentfulAsset: Asset): IImage {
-    if(!contentfulAsset.fields.file.contentType.includes('image'))
-      throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
-
-    return {
-      path: contentfulAsset.fields.file.url,
-      altText: contentfulAsset.fields.description
     }
   }
 
@@ -151,5 +113,62 @@ export class ContentfulFactory {
         }
       )
     );
+  }
+
+  /**
+   * @public
+   * @function createNpmPackage
+   * @summary Create NPM Packages from Contentful
+   * @description Convert an array of Contentful NPM Package entry to an array of INpmPackage objects
+   * @author J. Trpka
+   * @param { Entry<IContentfulNpmPackage> } contentfulProjectPackage 
+   * @returns { INpmPackage }
+   */
+   public createNpmPackage(
+    contentfulNpmPackage: Entry<IContentfulNpmPackage>
+  ): INpmPackage {
+    return {
+      name: contentfulNpmPackage.fields.name,
+      slug: contentfulNpmPackage.fields.slug
+    }
+  }
+
+  /**
+   * @public
+   * @function createTechnology
+   * @summary Create Technology from Contentful
+   * @description Convert a technology from Contentful to an ITechnology object
+   * @author J. Trpka
+   * @param { Entry<IContentfulTechnology> } contentfulTechnology 
+   * @returns { ITechnology }
+   */
+  public createTechnology(
+    contentfulTechnology: Entry<IContentfulTechnology>
+  ): ITechnology {
+    return {
+      name: contentfulTechnology.fields.name,
+      url: contentfulTechnology.fields.url,
+      logo: this.createImage(contentfulTechnology.fields.logo)
+    };
+  }
+
+  /**
+   * @public
+   * @function createImage
+   * @summary Create Image from Contentful Asset
+   * @description Convert Contentful Asset to an IImage object
+   * @author J. Trpka
+   * @param { Asset } contentfulAsset 
+   * @returns { IImage }
+   * @throws
+   */
+   public createImage(contentfulAsset: Asset): IImage {
+    if(!contentfulAsset.fields.file.contentType.includes('image'))
+      throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
+
+    return {
+      path: contentfulAsset.fields.file.url,
+      altText: contentfulAsset.fields.description
+    }
   }
 }

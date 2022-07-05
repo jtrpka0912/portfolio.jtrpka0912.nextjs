@@ -1,6 +1,7 @@
 import { IPost } from './IPost';
 import { ProjectType } from './enums/ProjectType';
 import { IImage } from './IImage';
+import { ITechnology } from './ITechnology';
 
 /**
  * @interface IProject
@@ -8,7 +9,7 @@ import { IImage } from './IImage';
  * @description A single portfolio project post
  * @author J. Trpka
  * @property { string } title Name of the project
- * @property { string[] } technology List of technologies used for project
+ * @property { ITechnology[] } technology List of technologies used for project
  * @property { IProjectPackage } package List of other packages used for the project
  * @property { IProjectRepo } repo A repository URL link based on which repo its located
  * @property { IProjectDate } date A date when the project started and/if ended
@@ -20,7 +21,7 @@ import { IImage } from './IImage';
  */
 export interface IProject extends IPost {
     title: string,
-    technology: string[];
+    technology: ITechnology[];
     package?: IProjectPackage;
     repo?: IProjectRepo;
     date: IProjectDate;

@@ -1,8 +1,9 @@
 import { Entry } from "contentful";
-import { INpmPackage, IProject, IProjectPackage } from "../../IProject";
+import { INpmPackage, IProject, IProjectPackage, IProjectRepo } from "../../IProject";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
 import { IContentfulProjectPackage } from "./content-types/IContentfulProjectPackage";
+import { IContentfulProjectRepo } from "./content-types/IContentfulProjectRepo";
 
 /**
  * @class
@@ -26,8 +27,11 @@ export class ContentfulFactory {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       package: this.createProjectPackage(contentfulProject.fields.packages),
-      repo: contentfulProject.fields.repository,
-      date: contentfulProject.fields.startDate,
+      repo: this.createProjectRepo(contentfulProject.fields.repository),
+      date: {
+        started: contentfulProject.fields.startDate,
+        ended: contentfulProject.fields.endDate
+      },
       thumbnail: contentfulProject.fields.thumbnail,
       gallery: contentfulProject.fields.desktopProjectGallery,
       type: contentfulProject.fields.type,
@@ -77,5 +81,24 @@ export class ContentfulFactory {
         }
       )
     );
+  }
+
+  /**
+   * @public
+   * @function createProjectRepo
+   * @summary Create Project Repos from Contentful
+   * @description Convert Contentful Project Repositories entry to an IProjectRepo object
+   * @author J. Trpka
+   * @param { Entry<IContentfulProjectRepo> } contentfulProjectPackage 
+   * @returns { IProjectRepo }
+   */
+  public createProjectRepo(
+    contentfulRepo: Entry<IContentfulProjectRepo>
+  ): IProjectRepo {
+    return {
+      github: contentfulRepo.fields.github,
+      gitlab: contentfulRepo.fields.gitlab,
+      bitbucket: contentfulRepo.fields.bitBucket
+    }
   }
 }

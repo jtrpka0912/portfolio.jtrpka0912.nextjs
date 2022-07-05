@@ -118,8 +118,12 @@ export class ContentfulFactory {
    * @todo Check the data is correct
    * @param { Asset } contentfulAsset 
    * @returns { IImage }
+   * @throws
    */
   public createImage(contentfulAsset: Asset): IImage {
+    if(!contentfulAsset.fields.file.contentType.includes('image'))
+      throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
+
     return {
       path: contentfulAsset.fields.file.url,
       altText: contentfulAsset.fields.description

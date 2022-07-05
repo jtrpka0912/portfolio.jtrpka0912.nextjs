@@ -6,7 +6,6 @@ import { ITechnology } from "../../ITechnology";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
 import { IContentfulProjectGalleryItem } from "./content-types/IContentfulProjectGalleryItem";
-import { IContentfulProjectPackage } from "./content-types/IContentfulProjectPackage";
 import { IContentfulProjectRepo } from "./content-types/IContentfulProjectRepo";
 import { IContentfulTechnology } from "./content-types/IContentfulTechnology";
 
@@ -33,7 +32,11 @@ export class ContentfulFactory {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       content: contentfulProject.fields.content,
-      package: this.createProjectPackage(contentfulProject.fields.packages),
+      package: {
+        npm: contentfulProject.fields.npmPackages.map(
+          (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)
+        )
+      },
       repo: this.createProjectRepo(contentfulProject.fields.repository),
       technology: contentfulProject.fields.technologies.map((contentfulTechnology) => this.createTechnology(contentfulTechnology)),
       date: {
@@ -53,28 +56,6 @@ export class ContentfulFactory {
       resume: '',
       inDevelopment: contentfulProject.fields.inDevelopment,
       featured: contentfulProject.fields.featured
-    }
-  }
-
-  /**
-   * @public
-   * @function createProjectPackage
-   * @summary Create Project Package from Contentful
-   * @description Convert a Contentful Project Package entry to an IProjectPackage object
-   * @author J. Trpka
-   * @param { Entry<IContentfulProjectPackage> } contentfulProjectPackage 
-   * @returns { IProjectPackage }
-   */
-  public createProjectPackage(
-    contentfulProjectPackage: Entry<IContentfulProjectPackage>
-  ): IProjectPackage {
-    return {
-      npm: contentfulProjectPackage.fields.npm.map(
-        (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)
-      ),
-      maven: [],
-      go: [],
-      nuget: []
     }
   }
 

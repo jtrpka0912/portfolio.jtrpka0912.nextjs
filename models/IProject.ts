@@ -24,7 +24,7 @@ export interface IProject extends IPost {
     package?: IProjectPackage,
     repo?: IProjectRepo,
     date: IProjectDate,
-    thumbnail?: string,
+    thumbnail?: string, // TODO: Make it a new asset interface
     gallery?: IProjectGallery,
     type: ProjectType
     resume: string,

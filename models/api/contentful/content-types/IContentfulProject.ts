@@ -8,6 +8,7 @@ import { IContentfulTechnology } from './IContentfulTechnology';
  * @interface ContentfulProject
  * @summary Contentful Project Content Type
  * @author J. Trpka
+ * @todo Add Resume field between mobileProjectGallery and inDevelopment
  */
 export interface IContentfulProject {
   slug: Contentful.EntryFields.Text;
@@ -23,4 +24,6 @@ export interface IContentfulProject {
   desktopProjectGallery: Contentful.Entry<IContentfulProjectGalleryItem>[];
   tabletProjectGallery: Contentful.Entry<IContentfulProjectGalleryItem>[];
   mobileProjectGallery: Contentful.Entry<IContentfulProjectGalleryItem>[];
+  inDevelopment: Contentful.EntryFields.Boolean;
+  featured: Contentful.EntryFields.Boolean;
 };

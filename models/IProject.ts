@@ -36,28 +36,28 @@ export interface IProject extends IPost {
  * @interface IProjectPackage
  * @description A listing of packages from package managers.
  * @author J. Trpka
- * @property { IProjectNPMPackage[] } npm Names of packages from Node Package Manager.
+ * @property { IProjectPackage[] } npm Packages from Node Package Manager.
  * @property { string[] } maven Names of packages from Maven repository.
  * @property { string[] } go Names of packages from the Go Package repository.
  * @property { string[] } nuget Names of packages for the .NET (Core) environement.
  */
 export interface IProjectPackage {
-    npm?: IProjectNPMPackage[],
+    npm?: INpmPackage[],
     maven?: string[],
     go?: string[],
     nuget?: string[]
 }
 
 /**
- * @interface IProjectNPMPackages
- * @description A single NPM package and determine if its a dev dependency.
+ * @interface INpmPackage
+ * @description A single NPM package
  * @author J. Trpka
- * @property { string } name
- * @property { boolean } isDevDependency A dependency package only suitable in the dev environment and never compiled for production
+ * @property { string } name - Full name of package
+ * @property { string } slug - NPM URL friendly slug
  */
-export interface IProjectNPMPackage {
-    name: string,
-    isDevDependency: boolean
+export interface INpmPackage {
+    name: string;
+    slug: string;
 }
 
 /**

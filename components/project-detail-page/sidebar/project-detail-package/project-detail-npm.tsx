@@ -4,7 +4,7 @@ import { faExternalLinkAlt, faTools } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Models
-import { IProjectNPMPackage } from "../../../../models/IProject";
+import { INpmPackage } from "../../../../models/IProject";
 import ExternalLinkIcon from "../../../ui/external-link-icon";
 
 /**
@@ -14,7 +14,7 @@ import ExternalLinkIcon from "../../../ui/external-link-icon";
  * @property { IProjectNPMPackage[] } packages
  */
 interface ProjectDetailNpmProps {
-    packages: IProjectNPMPackage[]
+    packages: INpmPackage[]
 }
 
 /**
@@ -37,7 +37,7 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
             </h5>
 
             <ul className="project-detail-npm__packages ml-4">
-                { packages.map((packageItem: IProjectNPMPackage) => {
+                { packages.map((packageItem: INpmPackage) => {
                     return (
                         <li key={ packageItem.name }>
                             <a 

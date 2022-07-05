@@ -95,7 +95,19 @@ export interface IProjectDate {
  * @property { IImage[] } mobile 411x731 (Pixel 2)
  */
 export interface IProjectGallery {
-    desktop?: IImage[],
-    tablet?: IImage[],
-    mobile?: IImage[]
+    desktop?: IProjectGalleryItem[],
+    tablet?: IProjectGalleryItem[],
+    mobile?: IProjectGalleryItem[]
+}
+
+/**
+ * @interface IProjectGalleryItem
+ * @description A single project gallery media item
+ * @author J. Trpka
+ * @property { IImage } image
+ * @property { string | undefined } description
+ */
+export interface IProjectGalleryItem {
+    image: IImage;
+    description?: string;   
 }

@@ -1,9 +1,10 @@
 import { Asset, Entry } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
-import { INpmPackage, IProject, IProjectPackage, IProjectRepo } from "../../IProject";
+import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackage, IProjectRepo } from "../../IProject";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
+import { IContentfulProjectGalleryItem } from "./content-types/IContentfulProjectGalleryItem";
 import { IContentfulProjectPackage } from "./content-types/IContentfulProjectPackage";
 import { IContentfulProjectRepo } from "./content-types/IContentfulProjectRepo";
 
@@ -37,9 +38,9 @@ export class ContentfulFactory {
       },
       thumbnail: this.createImage(contentfulProject.fields.thumbnail),
       gallery: {
-        desktop: contentfulProject.fields.desktopProjectGallery,
-        tablet: contentfulProject.fields.tabletProjectGallery,
-        mobile: contentfulProject.fields.mobileProjectGallery
+        desktop: this.createPackageGalleryItems(contentfulProject.fields.desktopProjectGallery),
+        tablet: this.createPackageGalleryItems(contentfulProject.fields.tabletProjectGallery),
+        mobile: this.createPackageGalleryItems(contentfulProject.fields.mobileProjectGallery)
       },
       type: ProjectType.FULLSTACK,
       resume: '',
@@ -115,7 +116,6 @@ export class ContentfulFactory {
    * @summary Create Image from Contentful Asset
    * @description Convert Contentful Asset to an IImage object
    * @author J. Trpka
-   * @todo Check the data is correct
    * @param { Asset } contentfulAsset 
    * @returns { IImage }
    * @throws
@@ -128,5 +128,28 @@ export class ContentfulFactory {
       path: contentfulAsset.fields.file.url,
       altText: contentfulAsset.fields.description
     }
+  }
+
+  /**
+   * @public
+   * @function createPackageGalleryItems
+   * @summary Create Package Gallery Items from Contentful
+   * @description Convert an array of Contentful project gallery items to an array of IProjectGalleryItem objects 
+   * @author J. Trpka
+   * @param { Asset } contentfulAsset 
+   * @returns { IProjectGalleryItem[] }
+   * @throws
+   */
+  public createPackageGalleryItems(
+    contentfulPackageGalleryItems: Entry<IContentfulProjectGalleryItem>[]
+  ): IProjectGalleryItem[] {
+    return contentfulPackageGalleryItems.map(
+      (contentfulPackageGalleryItem: Entry<IContentfulProjectGalleryItem>) => (
+        {
+          image: this.createImage(contentfulPackageGalleryItem.fields.image),
+          description: contentfulPackageGalleryItem.fields.description
+        }
+      )
+    );
   }
 }

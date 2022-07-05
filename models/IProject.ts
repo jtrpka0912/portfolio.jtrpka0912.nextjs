@@ -1,5 +1,6 @@
 import { IPost } from './IPost';
 import { ProjectType } from './enums/ProjectType';
+import { IImage } from './IImage';
 
 /**
  * @interface IProject
@@ -11,25 +12,23 @@ import { ProjectType } from './enums/ProjectType';
  * @property { IProjectPackage } package List of other packages used for the project
  * @property { IProjectRepo } repo A repository URL link based on which repo its located
  * @property { IProjectDate } date A date when the project started and/if ended
- * @property { string } thumbnail A small image for the post listing
+ * @property { IImage } thumbnail A small image for the post listing
  * @property { IProjectGallery } gallery A list of images based on screen sizes
  * @property { ProjectType } type Is the project front-end, back-end, or fullstack
  * @property { string } resume If the project relates to a job experience. If it does, then add the job experience slug.
  * @property { boolean } inDevelopment If the project is still in development
- * @property { boolean } featured List this project on the featured list
  */
 export interface IProject extends IPost {
     title: string,
-    technology: string[],
-    package?: IProjectPackage,
-    repo?: IProjectRepo,
-    date: IProjectDate,
-    thumbnail?: string, // TODO: Make it a new asset interface
-    gallery?: IProjectGallery,
-    type: ProjectType
-    resume: string,
-    inDevelopment: boolean,
-    featured: boolean,
+    technology: string[];
+    package?: IProjectPackage;
+    repo?: IProjectRepo;
+    date: IProjectDate;
+    thumbnail?: IImage;
+    gallery?: IProjectGallery;
+    type: ProjectType;
+    resume: string;
+    inDevelopment: boolean;
 }
 
 /**
@@ -91,26 +90,12 @@ export interface IProjectDate {
  * @interface IProjectGallery
  * @description A gallery of images with different screen sizes
  * @author J. Trpka
- * @property { IProjectGalleryItem[] } desktop 1980x1080 (1080p)
- * @property { IProjectGalleryItem[] } tablet 768x1024 (iPad)
- * @property { IProjectGalleryItem[] } mobile 411x731 (Pixel 2)
+ * @property { IImage[] } desktop 1980x1080 (1080p)
+ * @property { IImage[] } tablet 768x1024 (iPad)
+ * @property { IImage[] } mobile 411x731 (Pixel 2)
  */
 export interface IProjectGallery {
-    desktop?: IProjectGalleryItem[],
-    tablet?: IProjectGalleryItem[],
-    mobile?: IProjectGalleryItem[]
-}
-
-/**
- * @interface IProjectGalleryItem
- * @description A detail description of a project image
- * @author J. Trpka
- * @property { string } image Path of the image
- * @property { string } altText
- * @property { string } description
- */
-export interface IProjectGalleryItem {
-    image: string,
-    altText: string
-    description?: string
+    desktop?: IImage[],
+    tablet?: IImage[],
+    mobile?: IImage[]
 }

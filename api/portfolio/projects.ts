@@ -9,6 +9,22 @@ const baseApi = `${process.env.PORTFOLIO_API_URL}/projects`;
 
 /**
  * @async
+ * @function retrieveProjects
+ * @summary Retrieve projects
+ * @description Call the portfolio API to retrieve all projects.
+ * @author J. Trpka
+ * @returns { Promise<IProject[]> }
+ */
+export const retrieveProjects = async (): Promise<IProject[]> => {
+  const fetchResponse: Response = await fetch(`${baseApi}`);
+
+  if(fetchResponse.status !== 200 || !fetchResponse.ok) throw new Error('Unable to retrieve projects');
+
+  return fetchResponse.json();
+}
+
+/**
+ * @async
  * @function retrieveProjectBySlug
  * @summary Retrieve project by slug
  * @description Call the portfolio API to retrieve a project by its slug.

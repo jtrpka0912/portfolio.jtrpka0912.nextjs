@@ -1,5 +1,5 @@
 import { IProject } from "../../../models/IProject";
-import Thumbnail from "../../ui/thumbnail";
+import Thumbnail from "../../ui/thumbnail/Thumbnail";
 
 /**
  * @interface ProjectDetailMainAreaContentProps
@@ -8,7 +8,7 @@ import Thumbnail from "../../ui/thumbnail";
  * @property { Project } project
  */
 interface ProjectDetailMainAreaContentProps {
-    project: IProject
+  project: IProject
 }
 
 /**
@@ -20,22 +20,22 @@ interface ProjectDetailMainAreaContentProps {
  * @returns { JSX }
  */
 const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) => {
-    const { project } = props;
+  const { project } = props;
 
-    return (
-        <div className="main-area__content column is-three-quarters-desktop is-half-tablet">
-            { project.thumbnail && (
-                <div className="main-area__thumbnail pr-4 is-pulled-left">
-                    <Thumbnail image={ project.thumbnail }
-                        altText={ `Image of ${ project.title }` }
-                        onClick={ () => console.log(project) } 
-                    />
-                </div>
-            ) }
-            
-            { project.content }
+  return (
+    <div className="main-area__content column is-three-quarters-desktop is-half-tablet">
+      {project.thumbnail && (
+        <div className="main-area__thumbnail pr-4 is-pulled-left">
+          <Thumbnail
+            image={ project.thumbnail }
+            onClick={ () => console.log(project) }
+          />
         </div>
-    );
+      )}
+
+      {project.content}
+    </div>
+  );
 };
 
 export default ProjectDetailMainAreaContent;

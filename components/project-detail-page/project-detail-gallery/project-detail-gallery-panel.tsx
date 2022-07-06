@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { IProjectGallery, IProjectGalleryItem } from "../../../models/IProject";
 import { GalleryTabs } from "../../../models/enums/GalleryTabs";
 
-import Thumbnail from "../../ui/thumbnail";
+import Thumbnail from "../../ui/thumbnail/Thumbnail";
 
 import { UiContext } from "../../context/ui";
 
@@ -59,8 +59,7 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
         return (
             <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
                 <Thumbnail 
-                    image={ galleryItem.image.path } 
-                    altText={ galleryItem.image.altText } 
+                    image={ galleryItem.image }
                     onClick={ () => onClickHandler(galleryItem) }
                 />
             </div>

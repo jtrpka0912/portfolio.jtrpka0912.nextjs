@@ -48,7 +48,7 @@ const ProjectListItem = (props: ProjectListItemProps) => {
             className={ `project-list-item ${ columnClasses }` }
         >
             <Thumbnail
-                image={ project.thumbnail || { path: '', altText: '' } }
+                image={ project.thumbnail || { path: '/assets/images/placeholder-thumbnail.png', altText: 'Placeholder Thumbnail Image' } }
                 title={ project.title }
                 onClick={ onClickHandler }
                 width={150}

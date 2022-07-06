@@ -9,7 +9,7 @@ import { ITechnology } from "../../../models/ITechnology";
  */
 interface SearchDropDownProps {
     technologies: ITechnology[]
-    onChange: (technologySlug: string) => void
+    onChange: (technologyId: string) => void
 };
 
 /**
@@ -38,8 +38,8 @@ const SearchDropDown = (props: SearchDropDownProps) => {
                 <option value="">Select Technology</option>
                 { technologies.map((technology: ITechnology) => 
                     <option 
-                        key={ technology.slug } 
-                        value={ technology.slug }>{ technology.title }
+                        key={ technology.id } 
+                        value={ technology.id }>{ technology.name }
                     </option>
                 ) }
             </select>

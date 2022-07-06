@@ -35,9 +35,6 @@ These are the different data types used through the web application. This includ
 ### Pages
 The NextJS page components rest here.
 
-### Posts
-The actual content in the form of Markdown files that populate the web application.
-
 ### Public
 Assets such as images are stored in this folder. This also includes the JSON file that stores all of the technologies used for my projects and job experiences (resumes and job experiences are coming soon).
 

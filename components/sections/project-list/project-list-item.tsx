@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import { IProject } from "../../../models/IProject";
 
-import Thumbnail from '../../ui/thumbnail';
+import Thumbnail from '../../ui/thumbnail/Thumbnail';
 
 /**
  * @interface ProjectListItemProps
@@ -48,8 +48,7 @@ const ProjectListItem = (props: ProjectListItemProps) => {
             className={ `project-list-item ${ columnClasses }` }
         >
             <Thumbnail
-                image={ project.thumbnail ? project.thumbnail : '' }
-                altText={ `Image of ${ project.title } Project` }
+                image={ project.thumbnail || { path: '', altText: '' } }
                 title={ project.title }
                 onClick={ onClickHandler }
             />

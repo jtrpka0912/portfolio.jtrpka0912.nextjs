@@ -72,7 +72,7 @@ export class ContentfulFactory {
             (contentfulGalleryItem: Entry<IContentfulProjectGalleryItem>) => this.createProjectGalleryItem(contentfulGalleryItem)
           ): []
       },
-      type: ProjectType.FULLSTACK,
+      type: contentfulProject.fields.type as ProjectType,
       resume: '',
       inDevelopment: contentfulProject.fields.inDevelopment,
       featured: contentfulProject.fields.featured
@@ -147,6 +147,7 @@ export class ContentfulFactory {
     contentfulTechnology: Entry<IContentfulTechnology>
   ): ITechnology {
     return {
+      id: contentfulTechnology.sys.id,
       name: contentfulTechnology.fields.name,
       url: contentfulTechnology.fields.url,
       logo: contentfulTechnology.fields.logo ? 

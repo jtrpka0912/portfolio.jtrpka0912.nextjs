@@ -1,16 +1,21 @@
 import { IProject } from "../../models/IProject"
 import { ProjectType } from "../../models/enums/ProjectType"
+import { angularTechnology, jhipsterTechnology, springBootTechnology, typescriptTechnology } from "./technologies"
+import { type } from "os"
 
 export const projectOne: IProject = {
     slug: 'project-1',
     title: 'Project 1',
-    technology: ['php', 'wordpress'],
+    technology: [angularTechnology, typescriptTechnology],
     package: undefined,
     repo: undefined,
     date: { started: '1970-01-01' },
-    thumbnail: '/path/to/image.png',
+    thumbnail: {
+        path: '/path/to/image.png',
+        altText: 'Image of Project 1'
+    },
     gallery: undefined,
-    type: ProjectType.FULLSTACK,
+    type: ProjectType.WEB_APPLICATION,
     resume: '',
     inDevelopment: false,
     featured: false,
@@ -20,17 +25,20 @@ export const projectOne: IProject = {
 export const projectTwo: IProject = {
     slug: 'project-2',
     title: 'Project 2',
-    technology: ['javascript', 'typescript', 'angular'],
+    technology: [angularTechnology, typescriptTechnology],
     package: {
         npm: [
-            { name: 'lobash', isDevDependency: false }
+            { name: 'Lobash', slug: 'lobash' }
         ]
     },
     repo: undefined,
     date: { started: '1970-01-01', ended: '1970-05-04' },
-    thumbnail: '/path/to/image.png',
+    thumbnail: {
+        path: '/path/to/image.png',
+        altText: 'Image of Project 2'
+    },
     gallery: undefined,
-    type: ProjectType.FRONTEND,
+    type: ProjectType.WEB_APPLICATION,
     resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,
@@ -40,15 +48,18 @@ export const projectTwo: IProject = {
 export const projectThree: IProject = {
     slug: 'project-3',
     title: 'Project 3',
-    technology: ['golang'],
+    technology: [springBootTechnology],
     package: {
         go: ['net/http']
     },
     repo: undefined,
     date: { started: '1970-01-01' },
-    thumbnail: '/path/to/image.png',
+    thumbnail: {
+        path: '/path/to/image.png',
+        altText: 'Image of Project 3'
+    },
     gallery: undefined,
-    type: ProjectType.BACKEND,
+    type: ProjectType.SYSTEM_APPLICATION,
     resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,
@@ -58,18 +69,18 @@ export const projectThree: IProject = {
 export const projectFour: IProject = {
     slug: 'project-4',
     title: 'Project 4',
-    technology: ['react', 'nextjs'],
+    technology: [angularTechnology, typescriptTechnology, springBootTechnology, jhipsterTechnology],
     package: {
         npm: [
-            { name: 'gray-matter', isDevDependency: false },
-            { name: 'markdown', isDevDependency: false }
+            { slug: 'gray-matter', name: 'Gray Matter' },
+            { slug: 'markdown', name: 'Markdown' }
         ]
     },
     repo: undefined,
     date: { started: '1970-01-01', ended: '1972-02-30' },
     thumbnail: undefined,
     gallery: undefined,
-    type: ProjectType.BACKEND,
+    type: ProjectType.MOBILE_APPLICATION,
     resume: 'a-sample-resume',
     inDevelopment: false,
     featured: false,

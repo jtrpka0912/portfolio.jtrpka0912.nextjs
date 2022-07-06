@@ -7,9 +7,9 @@ describe('Render the component', () => {
 
     beforeEach(() => {
         render(<ProjectDetailNpm packages={[
-            { name: 'markdown', isDevDependency: false },
-            { name: 'gray-matter', isDevDependency: false },
-            { name: 'lodash', isDevDependency: false }
+            { slug: 'markdown', name: 'Markdown' },
+            { slug: 'gray-matter', name: 'Gray Matter'},
+            { slug: 'lodash', name: 'Lodash' }
         ]} />);
     });
 

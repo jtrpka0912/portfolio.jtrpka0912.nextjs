@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { convertSlugsToTechnologies } from "../../../helpers/technology";
 import { ITechnology } from "../../../models/ITechnology";
 import Section from "../../ui/section";
 import TechnologyListItem from "./technology-list-item";
@@ -11,7 +9,7 @@ import TechnologyListItem from "./technology-list-item";
  * @property { string[] } technologies
  */
 interface TechnologyListProps {
-    technologies: string[]
+  technologies: ITechnology[]
 }
 
 /**
@@ -23,40 +21,28 @@ interface TechnologyListProps {
  * @returns { JSX }
  */
 const TechnologyList = (props: TechnologyListProps) => {
-    const { technologies: technologySlugs } = props;
+  const { technologies } = props;
 
-    const [technologyObjects, setTechnologyObjects] = useState<ITechnology[]>([]);
-
-    useEffect(() => {
-        if(technologySlugs.length > 0) {
-            convertSlugsToTechnologies(technologySlugs)
-                .then(setTechnologyObjects)
-                .catch((error: Error) => {
-                    // TODO: Handle errors better
-                    console.error('Error', error);
-                });
-        }
-    }, []);
-
-    return (
-        <Section title="Technologies Used">
-            <div className="technology-list">
-                { technologyObjects.length > 0 ? (
-                    <div className="technology-list__list columns is-mobile is-multiline" role="list">
-                        { technologyObjects.map((technology: ITechnology) => 
-                            <TechnologyListItem 
-                                key={ technology.slug } 
-                                technology={ technology }/>
-                        ) }
-                    </div>
-                ) : (
-                    <div className="technology-list__empty">
-                        <p>There are no listed technologies.</p>
-                    </div>
-                ) }
+  return (
+    <Section title="Technologies Used">
+      <div className="technology-list">
+        {technologies.length > 0 ?
+          (
+            <div className="technology-list__list columns is-mobile is-multiline" role="list">
+              {technologies.map((technology: ITechnology) =>
+                <TechnologyListItem
+                  key={technology.id}
+                  technology={technology} />
+              )}
             </div>
-        </Section>
-    );
+          ) : (
+            <div className="technology-list__empty">
+              <p>There are no listed technologies.</p>
+            </div>
+          )}
+      </div>
+    </Section>
+  );
 };
 
 export default TechnologyList;

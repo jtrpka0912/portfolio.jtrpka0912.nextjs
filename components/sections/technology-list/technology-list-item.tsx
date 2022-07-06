@@ -7,7 +7,7 @@ import { ITechnology } from "../../../models/ITechnology";
  * @property { Technology } technology
  */
 interface TechnologyListItemProps {
-    technology: ITechnology;
+  technology: ITechnology;
 }
 
 /**
@@ -19,57 +19,49 @@ interface TechnologyListItemProps {
  * @returns { JSX }
  */
 const TechnologyListItem = (props: TechnologyListItemProps) => {
-    const { technology } = props;
+  const { technology } = props;
+  
+  /**
+   * @constant { string } columnClasses
+   * @description All of the Bulma column classes in one variable.
+   * @author J. Trpka
+   */
+  const columnClasses: string = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
 
-    
-    let technologyAltText: string = technology.title + 'logo';
+  /**
+   * @constant { string } flexClasses
+   * @description All of the Bulma flex classes in one variable
+   * @author J. Trpka
+   */
+  const mediaFlexClasses: string = 'is-flex is-flex-direction-row is-flex-wrap-nowrap is-align-items-center';
 
-    if(!technology.logo) {
-        technologyAltText = 'Placeholder logo';
-        technology.logo = '/assets/images/placeholder-technology.png';
-    }
+  return (
+    <div
+      role="listitem"
+      className={`technology-list-item ${columnClasses}`}>
+      <a href={technology.url} target="_blank" rel="noreferrer">
+        <article
+          className={`media has-background-white-ter ${mediaFlexClasses}`}
+          title={technology.name}
+        >
+          <figure className="media-left has-background-grey-lighter">
+            <p className="image is-64x64">
+              <img
+                src={ technology.logo ? technology.logo.path : '/assets/images/placeholder-technology.png' }
+                alt={ technology.logo ? technology.logo.altText : 'Placeholder Logo' }
+                width="64"
+                height="64"
+              />
+            </p>
+          </figure>
 
-    /**
-     * @var { string } columnClasses
-     * @description All of the Bulma column classes in one variable.
-     * @author J. Trpka
-     */
-     const columnClasses: string = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
-
-     /**
-      * @var { string } flexClasses
-      * @description All of the Bulma flex classes in one variable
-      * @author J. Trpka
-      */
-     const mediaFlexClasses: string = 'is-flex is-flex-direction-row is-flex-wrap-nowrap is-align-items-center';
-
-    return (
-        <div 
-            role="listitem"
-            className={ `technology-list-item ${ columnClasses }` }>
-            <a href={ technology.url } target="_blank" rel="noreferrer">
-                <article 
-                    className={ `media has-background-white-ter ${ mediaFlexClasses }` }
-                    title={ technology.title }
-                >
-                    <figure className="media-left p-1 has-background-grey-lighter">
-                        <p className="image is-64x64">
-                            <img 
-                                src={ technology.logo }
-                                alt={ technologyAltText } 
-                                width="64" 
-                                height="64" 
-                            />
-                        </p>
-                    </figure>
-
-                    <div className="media-content pr-1">
-                        <h4 className="subtitle is-6">{ technology.title }</h4>
-                    </div>
-                </article>
-            </a>
-        </div>
-    );
+          <div className="media-content pr-1">
+            <h4 className="subtitle is-6">{technology.name}</h4>
+          </div>
+        </article>
+      </a>
+    </div>
+  );
 };
 
 export default TechnologyListItem;

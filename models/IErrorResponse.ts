@@ -8,5 +8,6 @@
  */
 export interface IErrorResponse {
   status: number;
+  title: string;
   message: string;
 }

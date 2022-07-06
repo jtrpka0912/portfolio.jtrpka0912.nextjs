@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 // Helpers
@@ -22,7 +22,11 @@ import TechnologyListSkeleton from "../../components/sections/technology-list/te
 import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
 import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
 import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
-import { retrieveProjectBySlug } from "../../api/portfolio/projects";
+import { fetchProjectBySlug } from "../../api/portfolio/projects";
+import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory";
+import { retrieveProjectBySlug } from "../../api/contentful/projects";
+import { Entry } from "contentful";
+import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
 
 /**
  * @interface ProjectDetailPageProps
@@ -110,20 +114,41 @@ interface ProjectDetailParams extends ParsedUrlQuery {
 }
 
 /**
+ * @async
  * @function getStaticProps
- * @param { any } context 
- * @returns { ProjectDetailStaticProps }
+ * @summary Props for the static generated page
+ * @description Send the page props to the static generated page
+ * @author J. Trpka
+ * @todo Figure out the return type
+ * @param { GetStaticPropsContext }
+ * @returns 
  */
 export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDetailParams> = async (context) => {
   try {
     const { slug } = context.params!;
     if (!slug) throw new Error('Unable to find project.');
 
-    const project: IProject = await retrieveProjectBySlug(slug);
+    /**
+     * @constant { ContentfulFactory } contentfulFactory
+     * @summary Contentful Factory object
+     * @description Convert Contentful entries to Portfolio objects
+     * @author J. Trpka 
+     */
+    const contentfulFactory: ContentfulFactory = new ContentfulFactory();
+
+    /**
+     * @constant { Promise<Entry<IContentfulProject>> } contentfulProjectResponse
+     * @summary Contentful project response
+     * @description Response from the Contentful API to retrieve a project by slug
+     * @author J. Trpka
+     * @note Because a single value of query can either be string or string[]; need to check if slug is an array or not
+     */
+    const contentfulProjectResponse: Entry<IContentfulProject> = 
+      await retrieveProjectBySlug(slug);
 
     return {
       props: {
-        project
+        project: contentfulFactory.createProject(contentfulProjectResponse)
       }
     }
   } catch (error) {

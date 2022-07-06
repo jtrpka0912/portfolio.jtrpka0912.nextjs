@@ -44,7 +44,7 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
           className={`media has-background-white-ter ${mediaFlexClasses}`}
           title={technology.name}
         >
-          <figure className="media-left p-1 has-background-grey-lighter">
+          <figure className="media-left has-background-grey-lighter">
             <p className="image is-64x64">
               <img
                 src={ technology.logo ? technology.logo.path : '/assets/images/placeholder-technology.png' }

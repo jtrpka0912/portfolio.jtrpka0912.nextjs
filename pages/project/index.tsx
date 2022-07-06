@@ -11,6 +11,10 @@ import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-
 import { IProject } from "../../models/IProject";
 import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
 import { fetchProjects } from "../../api/portfolio/projects";
+import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory";
+import { retrieveProjects } from "../../api/contentful/projects";
+import { Entry, EntryCollection } from "contentful";
+import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
 
 /**
  * @interface ProjectsPageProps
@@ -81,20 +85,36 @@ interface ProjectsStaticProps {
  * @returns 
  */
 export const getStaticProps: GetStaticProps<ProjectsStaticProps> = async () => {
-  /**
-   * @async
-   * @constant { IProject[] } projects
-   * @summary Fetched projects
-   * @description Take the fetched projects and list them on this page.
-   * @author J. Trpka
-   */
-  const projects: IProject[] = await fetchProjects();
+  try {
+    /**
+     * @constant { ContentfulFactory } contentfulFactory
+     * @summary Contentful Factory object
+     * @description Convert Contentful entries to Portfolio objects
+     * @author J. Trpka 
+     */
+    const contentfulFactory: ContentfulFactory = new ContentfulFactory();
+    
+    /**
+     * @constant { Promise<Entry<IContentfulProject[]>> } contentfulProjectResponse
+     * @summary Contentful projects response
+     * @description Response from the Contentful API to retrieve all projects
+     * @author J. Trpka
+     */
+    const contentfulProjectResponse: EntryCollection<IContentfulProject> = await retrieveProjects();
 
-  return {
-    props: {
-      projects,
+    return {
+      props: {
+        projects: contentfulProjectResponse.items.map(
+          (contentfulProject: Entry<IContentfulProject>) => contentfulFactory.createProject(contentfulProject)
+        )
+      }
+    };
+  } catch(error) {
+    // ERROR: Brings up unhandled runtime error with loading the 404.js file.
+    return {
+      notFound: true
     }
-  };
+  }
 }
 
 export default ProjectsPage;

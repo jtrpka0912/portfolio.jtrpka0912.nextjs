@@ -23,6 +23,10 @@ import ProjectDetailHeroSkeleton from "../../components/project-detail-page/proj
 import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
 import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
 import { fetchProjectBySlug } from "../../api/portfolio/projects";
+import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory";
+import { retrieveProjectBySlug } from "../../api/contentful/projects";
+import { Entry } from "contentful";
+import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
 
 /**
  * @interface ProjectDetailPageProps
@@ -125,17 +129,26 @@ export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDet
     if (!slug) throw new Error('Unable to find project.');
 
     /**
-     * @async
-     * @constant { IProject } project
-     * @summary Fetched project
-     * @description Take the fetched project and display it on this template page.
-     * @author J. Trpka
+     * @constant { ContentfulFactory } contentfulFactory
+     * @summary Contentful Factory object
+     * @description Convert Contentful entries to Portfolio objects
+     * @author J. Trpka 
      */
-    const project: IProject = await fetchProjectBySlug(slug);
+    const contentfulFactory: ContentfulFactory = new ContentfulFactory();
+
+    /**
+     * @constant { Promise<Entry<IContentfulProject>> } contentfulProjectResponse
+     * @summary Contentful project response
+     * @description Response from the Contentful API to retrieve a project by slug
+     * @author J. Trpka
+     * @note Because a single value of query can either be string or string[]; need to check if slug is an array or not
+     */
+    const contentfulProjectResponse: Entry<IContentfulProject> = 
+      await retrieveProjectBySlug(slug);
 
     return {
       props: {
-        project
+        project: contentfulFactory.createProject(contentfulProjectResponse)
       }
     }
   } catch (error) {

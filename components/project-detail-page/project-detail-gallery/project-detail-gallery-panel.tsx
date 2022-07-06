@@ -40,7 +40,10 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
      * @param { ProjectGalleryItem } galleryItem This will still work with the ImageModalData type since they both share the same properties.
      */
     const onClickHandler = (galleryItem: IProjectGalleryItem): void => {
-        uiContext.setImageModal(galleryItem);
+        uiContext.setImageModal({
+            image: galleryItem.image.path,
+            altText: galleryItem.image.altText
+        });
     }
 
     /**
@@ -56,8 +59,8 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
         return (
             <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
                 <Thumbnail 
-                    image={ galleryItem.image } 
-                    altText={ galleryItem.altText } 
+                    image={ galleryItem.image.path } 
+                    altText={ galleryItem.image.altText } 
                     onClick={ () => onClickHandler(galleryItem) }
                 />
             </div>

@@ -5,31 +5,31 @@ import ProjectDetailTypeTag from "../../../../components/project-detail-page/sid
 import { ProjectType } from '../../../../models/enums/ProjectType';
 
 describe('Render the component', () => {
-    test('A front-end project', () => {
+    test('A web application project', () => {
         // Arrange
-        render(<ProjectDetailTypeTag type={ ProjectType.FRONTEND } />);
+        render(<ProjectDetailTypeTag type={ ProjectType.WEB_APPLICATION } />);
 
-        const tagElement = screen.getByText(/Frontend/i);
+        const tagElement = screen.getByText(/Web Application/i);
 
         // Assert
         expect(tagElement).toBeInTheDocument();
     });
 
-    test('A back-end project', () => {
+    test('A mobile application project', () => {
         // Arrange
-        render(<ProjectDetailTypeTag type={ ProjectType.BACKEND } />);
+        render(<ProjectDetailTypeTag type={ ProjectType.MOBILE_APPLICATION } />);
 
-        const tagElement = screen.getByText(/Backend/i);
+        const tagElement = screen.getByText(/Mobile Application/i);
 
         // Assert
         expect(tagElement).toBeInTheDocument();
     });
 
-    test('A fullstack project', () => {
+    test('A system application project', () => {
         // Arrange
-        render(<ProjectDetailTypeTag type={ ProjectType.FULLSTACK } />);
+        render(<ProjectDetailTypeTag type={ ProjectType.SYSTEM_APPLICATION } />);
 
-        const tagElement = screen.getByText(/Fullstack/i);
+        const tagElement = screen.getByText(/System Application/i);
 
         // Assert
         expect(tagElement).toBeInTheDocument();

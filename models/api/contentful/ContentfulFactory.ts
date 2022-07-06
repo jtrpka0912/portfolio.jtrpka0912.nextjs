@@ -142,9 +142,7 @@ export class ContentfulFactory {
       id: contentfulTechnology.sys.id,
       name: contentfulTechnology.fields.name,
       url: contentfulTechnology.fields.url,
-      logo: contentfulTechnology.fields.logo ? 
-        this.createImage(contentfulTechnology.fields.logo) : 
-        undefined
+      logo: this.createImage(contentfulTechnology.fields.logo)
     });
   }
 
@@ -163,7 +161,7 @@ export class ContentfulFactory {
       throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
 
     return this.sanitizeObject<IImage>({
-      path: contentfulAsset.fields.file.url,
+      path: `https:${contentfulAsset.fields.file.url}`,
       altText: contentfulAsset.fields.description
     });
   }

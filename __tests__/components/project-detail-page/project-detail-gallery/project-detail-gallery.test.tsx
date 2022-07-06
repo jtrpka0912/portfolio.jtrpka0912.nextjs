@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 
 import ProjectDetailGallery from '../../../../components/project-detail-page/project-detail-gallery/project-detail-gallery';
 
+// TODO: Need to do better tests.
+
 describe('Without gallery', () => {
     test('Render component without gallery', () => {
         // Arrange
@@ -19,16 +21,16 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             desktop: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ],
             tablet: [
-                { image: '1', altText: 'Alt 1' }
+                { image: { altText: 'Alt 4', path: '/path/to/starvation.bmp' } }
             ],
             mobile: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' }
+                { image: { altText: 'Alt 5', path: '/path/to/preservation.tiff' } },
+                { image: { altText: 'Alt 6', path: '/path/to/preservation.tiff' } }
             ]
         }} />);
 
@@ -42,9 +44,9 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             desktop: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ]
         }} />);
 
@@ -58,9 +60,9 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             tablet: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ]
         }} />);
 
@@ -74,9 +76,9 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             mobile: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ]
         }} />);
 
@@ -90,13 +92,13 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             desktop: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ],
             tablet: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' }
+                { image: { altText: 'Alt 5', path: '/path/to/preservation.tiff' } },
+                { image: { altText: 'Alt 6', path: '/path/to/preservation.tiff' } }
             ]
         }} />);
 
@@ -110,13 +112,13 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             desktop: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
             ],
             mobile: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' }
+                { image: { altText: 'Alt 5', path: '/path/to/preservation.tiff' } },
+                { image: { altText: 'Alt 6', path: '/path/to/preservation.tiff' } }
             ]
         }} />);
 
@@ -130,13 +132,13 @@ describe('With gallery', () => {
         // Arrange
         render(<ProjectDetailGallery gallery={{
             tablet: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' },
-                { image: '3', altText: 'Alt 3' }
+                { image: { altText: 'Alt 1', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 2', path: '/path/to/salvation.tiff' } },
+                { image: { altText: 'Alt 3', path: '/path/to/salvation.tiff' } }
         ],
             mobile: [
-                { image: '1', altText: 'Alt 1' },
-                { image: '2', altText: 'Alt 2' }
+                { image: { altText: 'Alt 5', path: '/path/to/preservation.tiff' } },
+                { image: { altText: 'Alt 6', path: '/path/to/preservation.tiff' } }
             ]
         }} />);
 

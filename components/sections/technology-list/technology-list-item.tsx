@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ITechnology } from "../../../models/ITechnology";
 
 /**
@@ -46,9 +47,9 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
         >
           <figure className="media-left has-background-grey-lighter">
             <p className="image is-64x64">
-              <img
-                src={ technology.logo ? technology.logo.path : '/assets/images/placeholder-technology.png' }
-                alt={ technology.logo ? technology.logo.altText : 'Placeholder Logo' }
+              <Image
+                src={ technology.logo.path }
+                alt={ technology.logo.altText }
                 width="64"
                 height="64"
               />

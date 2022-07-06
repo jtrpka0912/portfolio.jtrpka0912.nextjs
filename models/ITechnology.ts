@@ -13,5 +13,5 @@ export interface ITechnology {
     id: string;
     name: string;
     url: string;
-    logo?: IImage;
+    logo: IImage;
 }

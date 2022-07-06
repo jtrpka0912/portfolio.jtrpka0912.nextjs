@@ -41,19 +41,10 @@ const ProjectDetailNpm = (props: ProjectDetailNpmProps) => {
                     return (
                         <li key={ packageItem.name }>
                             <a 
-                                href={ `https://npmjs.org/package/${ packageItem.name }` } 
-                                target="_blank" 
-                                title={ packageItem.isDevDependency ? 'Dev Dependency' : undefined } 
+                                href={ `https://npmjs.org/package/${ packageItem.slug }` } 
+                                target="_blank"
                                 rel="noreferrer"
                             >
-                                { packageItem.isDevDependency 
-                                    ? <FontAwesomeIcon 
-                                        icon={ faTools } 
-                                        size="xs" 
-                                        className="mr-2"
-                                    /> 
-                                    : null 
-                                }
                                 { packageItem.name }
                                 
                                 <ExternalLinkIcon />

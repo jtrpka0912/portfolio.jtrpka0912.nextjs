@@ -16,7 +16,6 @@ const baseApi = `${process.env.PORTFOLIO_API_URL}/projects`;
  * @returns { Promise<IProject[]> }
  */
 export const fetchProjects = async (): Promise<IProject[]> => {
-  console.info('fetchProjects', baseApi);
   const fetchResponse: Response = await fetch(`${baseApi}`);
 
   if(fetchResponse.status !== 200 || !fetchResponse.ok) throw new Error('Unable to retrieve projects');
@@ -34,7 +33,6 @@ export const fetchProjects = async (): Promise<IProject[]> => {
  * @returns { Promise<IProject> }
  */
 export const fetchProjectBySlug = async (slug: string): Promise<IProject> => {
-  console.info('fetchProjectBySlug', baseApi);
   const fetchResponse: Response = await fetch(`${baseApi}/${slug}`);
     
   if(fetchResponse.status !== 200 || !fetchResponse.ok) throw new Error('Unable to retrieve project with URL: ' + slug);

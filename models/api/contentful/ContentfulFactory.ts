@@ -28,14 +28,6 @@ export class ContentfulFactory {
    * @returns { IProject }
    */
   public createProject(contentfulProject: Entry<IContentfulProject>): IProject {
-    console.info('Does NPM Exist?', this.doesExist<IContentfulNpmPackage>(contentfulProject.fields.npmPackages));
-    console.info('Does Technologies Exist?', this.doesExist<IContentfulTechnology>(contentfulProject.fields.technologies));
-    console.info('Does Desktop Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.desktopProjectGallery));
-    console.info('Does Tablet Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.tabletProjectGallery));
-    console.info('Does Mobile Exist?', this.doesExist<IContentfulProjectGalleryItem>(contentfulProject.fields.mobileProjectGallery));
-
-    console.info('Technologies', contentfulProject.fields.technologies);
-
     return {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,

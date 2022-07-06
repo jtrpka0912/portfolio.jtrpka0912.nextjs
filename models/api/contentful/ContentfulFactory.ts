@@ -163,7 +163,7 @@ export class ContentfulFactory {
       throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
 
     return this.sanitizeObject<IImage>({
-      path: contentfulAsset.fields.file.url,
+      path: `https:${contentfulAsset.fields.file.url}`,
       altText: contentfulAsset.fields.description
     });
   }

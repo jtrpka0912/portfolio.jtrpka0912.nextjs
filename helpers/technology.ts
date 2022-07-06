@@ -32,7 +32,7 @@ export const convertSlugsToTechnologies = async (slugs: string[]): Promise<ITech
     let technologies = [];
 
     for(const slug of slugs) {
-        const found: ITechnology | undefined = allTechnologies.find((tech: ITechnology) => tech.slug === slug);
+        const found: ITechnology | undefined = allTechnologies.find((tech: ITechnology) => tech.name === slug);
 
         if(found) technologies.push(found);
     }

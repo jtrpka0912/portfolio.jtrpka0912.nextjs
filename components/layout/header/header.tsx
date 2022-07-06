@@ -9,15 +9,15 @@ import HeaderMenu from "./header-menu";
  * @returns JSX
  */
 const Header = () => {
-    return (
-        <header>
-            <nav className="navbar" role="navigation" aria-label="Header Navigation">
-                <HeaderBrand />
+  return (
+    <header>
+      <nav className="navbar" role="navigation" aria-label="Header Navigation">
+        <HeaderBrand />
 
-                <HeaderMenu />
-            </nav>
-        </header>
-    )
+        <HeaderMenu />
+      </nav>
+    </header>
+  )
 };
 
 export default Header;

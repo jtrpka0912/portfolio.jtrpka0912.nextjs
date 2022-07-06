@@ -9,15 +9,15 @@ import HeaderBurger from './header-burger';
  * @returns JSX
  */
 const HeaderBrand = () => {
-    return (
-        <div className="navbar-brand">
-            <Link href="/">
-                <a className="navbar-item">Portfolio</a>
-            </Link>
+  return (
+    <div className="navbar-brand">
+      <Link href="/">
+        <a className="navbar-item">Portfolio</a>
+      </Link>
 
-            <HeaderBurger />
-        </div>
-    )
+      <HeaderBurger />
+    </div>
+  )
 };
 
 export default HeaderBrand;

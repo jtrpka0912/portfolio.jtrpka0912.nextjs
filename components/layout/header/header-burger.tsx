@@ -12,21 +12,21 @@ import { UiContext } from "../../context/ui";
  * @returns { JSX }
  */
 const HeaderBurger = () => {
-    const uiContext = useContext(UiContext);
+  const uiContext = useContext(UiContext);
 
-    return (
-        <a role="button" 
-            className={ `navbar-burger${ uiContext.isHeaderMobileMenuOpen ? ' is-active' : '' }` }
-            aria-label="menu"
-            aria-expanded={ uiContext.isHeaderMobileMenuOpen ? 'true' : 'false' }
-            data-target="header-navigation"
-            onClick={ uiContext.setHeaderMobileMenu }
-        >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    )
+  return (
+    <a role="button"
+      className={`navbar-burger${uiContext.isHeaderMobileMenuOpen ? ' is-active' : ''}`}
+      aria-label="menu"
+      aria-expanded={uiContext.isHeaderMobileMenuOpen ? 'true' : 'false'}
+      data-target="header-navigation"
+      onClick={uiContext.setHeaderMobileMenu}
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  )
 }
 
 export default HeaderBurger;

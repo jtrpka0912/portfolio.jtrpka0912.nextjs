@@ -142,9 +142,7 @@ export class ContentfulFactory {
       id: contentfulTechnology.sys.id,
       name: contentfulTechnology.fields.name,
       url: contentfulTechnology.fields.url,
-      logo: contentfulTechnology.fields.logo ? 
-        this.createImage(contentfulTechnology.fields.logo) : 
-        undefined
+      logo: this.createImage(contentfulTechnology.fields.logo)
     });
   }
 

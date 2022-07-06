@@ -22,7 +22,7 @@ import TechnologyListSkeleton from "../../components/sections/technology-list/te
 import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
 import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
 import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
-import { retrieveProjectBySlug } from "../../api/portfolio/projects";
+import { fetchProjectBySlug } from "../../api/portfolio/projects";
 
 /**
  * @interface ProjectDetailPageProps
@@ -119,7 +119,7 @@ export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDet
     const { slug } = context.params!;
     if (!slug) throw new Error('Unable to find project.');
 
-    const project: IProject = await retrieveProjectBySlug(slug);
+    const project: IProject = await fetchProjectBySlug(slug);
 
     return {
       props: {

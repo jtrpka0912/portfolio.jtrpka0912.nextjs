@@ -1,8 +1,7 @@
 import { 
     faFacebook, 
     faTwitter, 
-    faGithub, 
-    faStackOverflow, 
+    faGithub,
     faLinkedin, 
     IconDefinition 
 } from "@fortawesome/free-brands-svg-icons";
@@ -40,8 +39,7 @@ const FooterSocial = () => {
         { url: 'https://www.facebook.com/jeremy.trpka.77/', title: 'Facebook Profile', icon: faFacebook },
         { url: 'https://twitter.com/jtrpka0912', title: 'Twitter Profile', icon: faTwitter },
         { url: 'https://www.linkedin.com/in/jeremy-trpka/', title: 'LinkedIn Profile', icon: faLinkedin },
-        { url: 'https://github.com/jtrpka0912', title: 'GitHub Profile', icon: faGithub },
-        { url: 'https://stackoverflow.com/users/story/4008500', title: 'StackOverflow Developer Story', icon: faStackOverflow }
+        { url: 'https://github.com/jtrpka0912', title: 'GitHub Profile', icon: faGithub }
     ];
 
     return (

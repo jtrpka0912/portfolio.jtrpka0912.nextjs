@@ -8,13 +8,9 @@ import ProjectListSkeleton from "../../components/sections/project-list/project-
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 
 // Models
-import { ITechnology } from "../../models/ITechnology";
 import { IProject } from "../../models/IProject";
 import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
-
-// Helpers
-import { getAllTechnologies } from "../../helpers/technology";
-import { getAllProjects } from "../../helpers/project";
+import { fetchProjects } from "../../api/portfolio/projects";
 
 /**
  * @interface ProjectsPageProps
@@ -25,7 +21,6 @@ import { getAllProjects } from "../../helpers/project";
  */
 interface ProjectsPageProps {
     projects: IProject[]
-    technologies: ITechnology[]
 }
 
 /**
@@ -71,22 +66,24 @@ const ProjectsPage = (props: ProjectsPageProps) => {
  * @description The props sent to the project list page.
  * @author J. Trpka
  * @property { Project[] } projects
- * @property { Technology[] } technologies
  */
 interface ProjectsStaticProps {
     projects: IProject[]
-    technologies: ITechnology[]
 }
 
 export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
-    const projects: IProject[] = getAllProjects();
-    // TODO: Maybe order alphabetically by title
-    const technologies: ITechnology[] = await getAllTechnologies();
+    /**
+     * @async
+     * @constant { IProject[] } projects
+     * @summary Fetched projects
+     * @description Take the fetched projects and list them on this page.
+     * @author J. Trpka
+     */
+    const projects: IProject[] = await fetchProjects();
 
     return {
         props: {
             projects,
-            technologies
         }
     };
 }

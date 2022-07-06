@@ -119,6 +119,13 @@ export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDet
     const { slug } = context.params!;
     if (!slug) throw new Error('Unable to find project.');
 
+    /**
+     * @async
+     * @constant { IProject } project
+     * @summary Fetched project
+     * @description Take the fetched project and display it on this template page.
+     * @author J. Trpka
+     */
     const project: IProject = await fetchProjectBySlug(slug);
 
     return {

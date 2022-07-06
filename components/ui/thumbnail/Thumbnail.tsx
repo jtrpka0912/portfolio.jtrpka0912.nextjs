@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ThumbnailProps } from "./Thumbnail.types";
 
 /**
@@ -11,14 +12,20 @@ import { ThumbnailProps } from "./Thumbnail.types";
 const Thumbnail = ({
   image,
   title,
+  width,
+  height,
   onClick
 }: ThumbnailProps) => {
-
   return (
     <div role="link" title={title} className="thumbnail card is-clickable" onClick={onClick}>
       <div className="card-image">
         <figure className="image is-1by1">
-          <img src={image.path} alt={image.altText} />
+          <Image 
+            src={image.path} 
+            alt={image.altText}
+            width={ width }
+            height={ height }
+          />
         </figure>
       </div>
 

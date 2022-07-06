@@ -7,11 +7,15 @@ import { IImage } from "../../../models/IImage";
  * @author J. Trpka
  * @property { IImage } image
  * @property { string } altText
- * @property { string } title
+ * @property { string | undefined } title
+ * @property { number } width
+ * @property { number } height
  * @property { function } onClick
  */
 export type ThumbnailProps = {
-  image: IImage,
-  title?: string,
-  onClick: () => void
+  image: IImage;
+  title?: string;
+  width: number;
+  height: number;
+  onClick: () => void;
 }

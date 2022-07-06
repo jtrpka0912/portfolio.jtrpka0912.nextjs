@@ -29,6 +29,8 @@ const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) 
           <Thumbnail
             image={ project.thumbnail }
             onClick={ () => console.log(project) }
+            width={200}
+            height={200}
           />
         </div>
       )}

@@ -51,6 +51,8 @@ const ProjectListItem = (props: ProjectListItemProps) => {
                 image={ project.thumbnail || { path: '', altText: '' } }
                 title={ project.title }
                 onClick={ onClickHandler }
+                width={150}
+                height={150}
             />
         </div>
     );

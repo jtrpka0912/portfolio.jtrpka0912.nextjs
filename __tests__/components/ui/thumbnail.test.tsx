@@ -9,11 +9,13 @@ describe('Render the component', () => {
     // Arrange
     render(<Thumbnail
       image={{
-        path: 'something',
+        path: '/something.png',
         altText: 'Test Image'
       }}
       title="Test Image"
       onClick={mockFunction}
+      width={100}
+      height={100}
     />);
 
     const thumbnailElement = screen.getByRole('link');
@@ -31,10 +33,12 @@ describe('Render the component', () => {
     // Arrange
     render(<Thumbnail
       image={{
-        path: '1',
+        path: '/1.jpg',
         altText: 'Alt 1'
       }}
       onClick={mockFunction}
+      width={100}
+      height={100}
     />);
 
     const thumbnailElement = screen.getByRole('link');

@@ -28,7 +28,7 @@ export class ContentfulFactory {
    * @returns { IProject }
    */
   public createProject(contentfulProject: Entry<IContentfulProject>): IProject {
-    return {
+    return this.sanitizeObject<IProject>({
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       content: contentfulProject.fields.content,
@@ -68,7 +68,7 @@ export class ContentfulFactory {
       resume: '',
       inDevelopment: contentfulProject.fields.inDevelopment,
       featured: contentfulProject.fields.featured
-    }
+    });
   }
 
   /**
@@ -83,11 +83,11 @@ export class ContentfulFactory {
   public createProjectRepo(
     contentfulRepo: Entry<IContentfulProjectRepo>
   ): IProjectRepo {
-    return {
+    return this.sanitizeObject<IProjectRepo>({
       github: contentfulRepo.fields.github,
       gitlab: contentfulRepo.fields.gitlab,
       bitbucket: contentfulRepo.fields.bitBucket
-    }
+    });
   }
 
   /**
@@ -102,10 +102,10 @@ export class ContentfulFactory {
   public createProjectGalleryItem(
     contentfulPackageGalleryItem: Entry<IContentfulProjectGalleryItem>
   ): IProjectGalleryItem {
-    return {
+    return this.sanitizeObject<IProjectGalleryItem>({
       image: this.createImage(contentfulPackageGalleryItem.fields.image),
       description: contentfulPackageGalleryItem.fields.description
-    };
+    });
   }
 
   /**
@@ -120,10 +120,10 @@ export class ContentfulFactory {
    public createNpmPackage(
     contentfulNpmPackage: Entry<IContentfulNpmPackage>
   ): INpmPackage {
-    return {
+    return this.sanitizeObject<INpmPackage>({
       name: contentfulNpmPackage.fields.name,
       slug: contentfulNpmPackage.fields.slug
-    }
+    });
   }
 
   /**
@@ -138,14 +138,14 @@ export class ContentfulFactory {
   public createTechnology(
     contentfulTechnology: Entry<IContentfulTechnology>
   ): ITechnology {
-    return {
+    return this.sanitizeObject<ITechnology>({
       id: contentfulTechnology.sys.id,
       name: contentfulTechnology.fields.name,
       url: contentfulTechnology.fields.url,
       logo: contentfulTechnology.fields.logo ? 
         this.createImage(contentfulTechnology.fields.logo) : 
         undefined
-    };
+    });
   }
 
   /**
@@ -162,13 +162,36 @@ export class ContentfulFactory {
     if(!contentfulAsset.fields.file.contentType.includes('image'))
       throw new Error('Unable to convert Contentful media asset image since it is not an image file.');
 
-    return {
+    return this.sanitizeObject<IImage>({
       path: contentfulAsset.fields.file.url,
       altText: contentfulAsset.fields.description
-    }
+    });
   }
 
+  /**
+   * @private
+   * @function doesExist
+   * @summary Does Contentful Entry exist?
+   * @description Check if the Entry exists
+   * @author J. Trpka
+   * @param { Entry<T> | Entry<T>[] } entry
+   * @returns { boolean }
+   */
   private doesExist<T>(entry: Entry<T> | Entry<T>[]): boolean {
     return !!entry;
+  }
+
+  /**
+   * @function sanitizeObject
+   * @summary Sanitize Object
+   * @description Take a Portfolio object and remove any properties that are undefined
+   * @author J. Trpka
+   * @note This is only necessary due to the NextJS serializations not allowing undefined
+   * @see https://github.com/vercel/next.js/discussions/11209
+   * @param { T } unsanitizedObject 
+   * @returns { T }
+   */
+  private sanitizeObject<T>(unsanitizedObject: T): T {
+    return JSON.parse(JSON.stringify(unsanitizedObject));
   }
 }

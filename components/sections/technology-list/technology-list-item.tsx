@@ -20,23 +20,16 @@ interface TechnologyListItemProps {
  */
 const TechnologyListItem = (props: TechnologyListItemProps) => {
   const { technology } = props;
-
-  if (!technology.logo) {
-    technology.logo = {
-      altText: 'Placeholder Logo',
-      path: '/assets/images/placeholder-technology.png'
-    }
-  }
-
+  
   /**
-   * @var { string } columnClasses
+   * @constant { string } columnClasses
    * @description All of the Bulma column classes in one variable.
    * @author J. Trpka
    */
   const columnClasses: string = 'column is-full-mobile is-one-third-tablet is-one-quarter-desktop';
 
   /**
-   * @var { string } flexClasses
+   * @constant { string } flexClasses
    * @description All of the Bulma flex classes in one variable
    * @author J. Trpka
    */
@@ -54,8 +47,8 @@ const TechnologyListItem = (props: TechnologyListItemProps) => {
           <figure className="media-left p-1 has-background-grey-lighter">
             <p className="image is-64x64">
               <img
-                src={technology.logo.path}
-                alt={technology.logo.altText}
+                src={ technology.logo ? technology.logo.path : '/assets/images/placeholder-technology.png' }
+                alt={ technology.logo ? technology.logo.altText : 'Placeholder Logo' }
                 width="64"
                 height="64"
               />

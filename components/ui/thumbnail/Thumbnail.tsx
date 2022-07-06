@@ -19,12 +19,13 @@ const Thumbnail = ({
   return (
     <div role="link" title={title} className="thumbnail card is-clickable" onClick={onClick}>
       <div className="card-image">
-        <figure className="image is-1by1">
+        <figure>
           <Image 
             src={image.path} 
             alt={image.altText}
             width={ width }
             height={ height }
+            layout="responsive"
           />
         </figure>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 // Helpers
@@ -110,9 +110,14 @@ interface ProjectDetailParams extends ParsedUrlQuery {
 }
 
 /**
+ * @async
  * @function getStaticProps
- * @param { any } context 
- * @returns { ProjectDetailStaticProps }
+ * @summary Props for the static generated page
+ * @description Send the page props to the static generated page
+ * @author J. Trpka
+ * @todo Figure out the return type
+ * @param { GetStaticPropsContext }
+ * @returns 
  */
 export const getStaticProps: GetStaticProps<ProjectDetailStaticProps, ProjectDetailParams> = async (context) => {
   try {

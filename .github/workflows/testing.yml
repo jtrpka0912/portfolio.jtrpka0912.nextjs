@@ -20,6 +20,8 @@ jobs:
           node-version: '16'
       - name: Install NPM packages
         run: npm install
+      - name: Run Web Application in Dev Mode
+        run: npm run dev
       - name: Run Jest and React Testing Library
         run: npm run jest
       - name: Build the Web Application

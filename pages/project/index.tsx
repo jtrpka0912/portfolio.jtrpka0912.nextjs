@@ -20,7 +20,7 @@ import { fetchProjects } from "../../api/portfolio/projects";
  * @property { Technology[] } technologies
  */
 interface ProjectsPageProps {
-    projects: IProject[]
+  projects: IProject[]
 }
 
 /**
@@ -32,32 +32,32 @@ interface ProjectsPageProps {
  * @returns 
  */
 const ProjectsPage = (props: ProjectsPageProps) => {
-    const { projects } = props;
+  const { projects } = props;
 
-    if(!projects) {
-        return (
-            <div className="page projects">
-                <BreadcrumbSkeleton />
-                <ProjectListSkeleton />
-            </div>
-        );
-    }
-
-    /**
-     * @var { BreadcrumbLink[] } links
-     * @description An array of breadcrumb links to build the breadcrumb component
-     * @author J. Trpka
-     */
-     const links: BreadcrumbLink[] = [
-        { text: 'Projects', url: '/project' }
-    ];
-
+  if (!projects) {
     return (
-        <div className="page projects">
-            <Breadcrumb links={ links } />
-            <ProjectList projects={ projects } />
-        </div>
+      <div className="page projects">
+        <BreadcrumbSkeleton />
+        <ProjectListSkeleton />
+      </div>
     );
+  }
+
+  /**
+   * @var { BreadcrumbLink[] } links
+   * @description An array of breadcrumb links to build the breadcrumb component
+   * @author J. Trpka
+   */
+  const links: BreadcrumbLink[] = [
+    { text: 'Projects', url: '/project' }
+  ];
+
+  return (
+    <div className="page projects">
+      <Breadcrumb links={links} />
+      <ProjectList projects={projects} />
+    </div>
+  );
 };
 
 /**
@@ -68,24 +68,33 @@ const ProjectsPage = (props: ProjectsPageProps) => {
  * @property { Project[] } projects
  */
 interface ProjectsStaticProps {
-    projects: IProject[]
+  projects: IProject[]
 }
 
-export const getStaticProps:GetStaticProps<ProjectsStaticProps> = async() => {
-    /**
-     * @async
-     * @constant { IProject[] } projects
-     * @summary Fetched projects
-     * @description Take the fetched projects and list them on this page.
-     * @author J. Trpka
-     */
-    const projects: IProject[] = await fetchProjects();
+/**
+ * @async
+ * @function getStaticProps
+ * @summary Props for the static generated page
+ * @description Send the page props to the static generated page
+ * @author J. Trpka
+ * @todo Figure out the return type
+ * @returns 
+ */
+export const getStaticProps: GetStaticProps<ProjectsStaticProps> = async () => {
+  /**
+   * @async
+   * @constant { IProject[] } projects
+   * @summary Fetched projects
+   * @description Take the fetched projects and list them on this page.
+   * @author J. Trpka
+   */
+  const projects: IProject[] = await fetchProjects();
 
-    return {
-        props: {
-            projects,
-        }
-    };
+  return {
+    props: {
+      projects,
+    }
+  };
 }
 
 export default ProjectsPage;

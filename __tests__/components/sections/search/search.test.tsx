@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import Search from "../../../../components/sections/search/search";
+import { angularTechnology, jhipsterTechnology, springBootTechnology, typescriptTechnology } from "../../../examples/technologies";
 
 describe('Technology drop down component', () => {
     test('Do not render the drop down', () => {
@@ -36,11 +37,10 @@ describe('Query builder', () => {
     test('Query for just the technology', () => {
         // Arrange
         render(<Search technologies={[
-            { slug: 'react', title: 'React', url: 'http://duckduckgo.com' },
-            { slug: 'nextjs', title: 'NextJS', url: 'http://duckduckgo.com' },
-            { slug: 'css', title: 'CSS 3', url: 'http://duckduckgo.com' },
-            { slug: 'sass', title: 'SASS', url: 'http://duckduckgo.com' },
-            { slug: 'golang', title: 'Go Language', url: 'http://duckduckgo.com' },
+            angularTechnology,
+            typescriptTechnology,
+            springBootTechnology,
+            jhipsterTechnology
         ]} />);
 
         const searchDropDownElement = screen.getByRole('combobox');
@@ -49,22 +49,21 @@ describe('Query builder', () => {
         // Act
         fireEvent.change(searchDropDownElement, {
             target: {
-                value: 'sass'
+                value: 'spring-boot'
             }
         });
 
         // Assert
-        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?technology=sass'));
+        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?technology=spring-boot'));
     });
 
     test('Query for both query and technology', () => {
         // Arrange
         render(<Search technologies={[
-            { slug: 'react', title: 'React', url: 'http://duckduckgo.com' },
-            { slug: 'nextjs', title: 'NextJS', url: 'http://duckduckgo.com' },
-            { slug: 'css', title: 'CSS 3', url: 'http://duckduckgo.com' },
-            { slug: 'sass', title: 'SASS', url: 'http://duckduckgo.com' },
-            { slug: 'golang', title: 'Go Language', url: 'http://duckduckgo.com' },
+            angularTechnology,
+            typescriptTechnology,
+            springBootTechnology,
+            jhipsterTechnology
         ]} />);
 
         const searchBoxElement = screen.getByRole('textbox');
@@ -80,10 +79,10 @@ describe('Query builder', () => {
 
         fireEvent.change(searchDropDownElement, {
             target: {
-                value: 'golang'
+                value: 'typescript'
             }
         });
 
-        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?query=Mobile&technology=golang'));
+        expect(searchButtonElement).toHaveAttribute('href', expect.stringContaining('?query=Mobile&technology=typescript'));
     })
 })

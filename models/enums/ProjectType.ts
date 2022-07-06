@@ -3,10 +3,9 @@
  * @name ProjectType
  * @description The type of project
  * @author J. Trpka
- * @todo Will need to be heavily modified
  */
 export enum ProjectType {
-  FRONTEND = 'frontend',
-  BACKEND = 'backend',
-  FULLSTACK = 'fullstack'
+  WEB_APPLICATION = 'Web Application',
+  MOBILE_APPLICATION = 'Mobile Application',
+  SYSTEM_APPLICATION = 'System Application'
 }

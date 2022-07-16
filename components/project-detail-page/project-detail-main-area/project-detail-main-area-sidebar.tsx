@@ -5,6 +5,7 @@ import ProjectDetailRepo from "../sidebar/project-detail-repo/project-detail-rep
 import ProjectDetailPackage from '../sidebar/project-detail-package/project-detail-package';
 import ProjectDetailDevelopmentTag from "../sidebar/project-detail-development-tag";
 import ProjectDetailTypeTag from "../sidebar/project-detail-type-tag";
+import ProjectPackage from "../../../models/ProjectPackage";
 
 /**
  * @interface ProjectDetailMainAreaSidebarProps
@@ -13,7 +14,7 @@ import ProjectDetailTypeTag from "../sidebar/project-detail-type-tag";
  * @property { IProject } project
  */
 interface ProjectDetailMainAreaSidebarProps {
-    project: IProject
+  project: IProject
 }
 
 /**
@@ -25,23 +26,29 @@ interface ProjectDetailMainAreaSidebarProps {
  * @returns { JSX }
  */
 const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) => {
-    const { project } = props;
+  const { project } = props;
 
-    return (
-        <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
-            <ProjectDetailDevelopmentTag inDevelopment={ project.inDevelopment } />
+  const projectPackageObject: ProjectPackage = new ProjectPackage(project.package);
 
-            <ProjectDetailTypeTag type={ project.type } />
+  console.info(projectPackageObject);
 
-            <Sidebar>
-                <ProjectDetailRepo repo={ project.repo } />
-            </Sidebar>
+  return (
+    <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
+      <ProjectDetailDevelopmentTag inDevelopment={project.inDevelopment} />
 
-            <Sidebar>
-                <ProjectDetailPackage package={ project.package } />
-            </Sidebar>
-        </aside>
-    );
+      <ProjectDetailTypeTag type={project.type} />
+
+      <Sidebar>
+        <ProjectDetailRepo repo={project.repo} />
+      </Sidebar>
+
+      { !projectPackageObject.isEmpty() ? (
+        <Sidebar>
+          <ProjectDetailPackage package={project.package} />
+        </Sidebar>
+      ) : null }
+    </aside>
+  );
 };
 
 export default ProjectDetailMainAreaSidebar;

@@ -1,4 +1,5 @@
 import { IProjectPackage } from "../../../../models/IProject";
+import ProjectPackage from "../../../../models/ProjectPackage";
 import ProjectDetailNpm from "./project-detail-npm";
 
 /**
@@ -15,30 +16,32 @@ interface ProjectDetailPackageProps {
  * @function ProjectDetailPackage
  * @summary Project detail sidebar package component
  * @description A sidebar component that list out all other miscellaneous packages used for the project.
+ * @author J. Trpka
+ * @todo Change the name of the package property, from IProject, to packages
  * @param { ProjectDetailPackageProps } props 
  * @returns { JSX }
  */
 const ProjectDetailPackage = (props: ProjectDetailPackageProps) => {
     const { package: packages } = props;
 
-    if(!packages) {
-        return null;
-    }
+    const projectPackageObject: ProjectPackage = new ProjectPackage(packages);
+
+    if(!packages || projectPackageObject.isEmpty()) return null;
 
     return (
         <div className="project-detail-package" 
             role="note"
             aria-label="Project Packages"
         >
-            { packages.npm && (
-                <ProjectDetailNpm packages={ packages.npm } />
+            { projectPackageObject.npm && (
+                <ProjectDetailNpm packages={ projectPackageObject.npm } />
             ) }
 
-            { packages.maven && (
+            { projectPackageObject.maven && (
                 <p>Maven repositories coming soon</p>
             ) }
 
-            { packages.go && (
+            { projectPackageObject.go && (
                 <p>Go packages coming soon</p>
             ) }
         </div>

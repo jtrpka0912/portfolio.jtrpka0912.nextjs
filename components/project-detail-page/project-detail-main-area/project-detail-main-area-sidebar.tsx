@@ -30,8 +30,6 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
 
   const projectPackageObject: ProjectPackage = new ProjectPackage(project.package);
 
-  console.info(projectPackageObject);
-
   return (
     <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
       <ProjectDetailDevelopmentTag inDevelopment={project.inDevelopment} />

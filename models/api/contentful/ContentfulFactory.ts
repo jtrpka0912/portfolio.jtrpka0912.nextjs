@@ -1,13 +1,12 @@
-import { Asset, Entry, EntryCollection } from "contentful";
+import { Asset, Entry } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
-import { INpmPackage, IProject, IProjectGalleryItem, IProjectGitRepository, IProjectPackages, IProjectRepo } from "../../IProject";
+import { INpmPackage, IProject, IProjectGalleryItem, IProjectGitRepository } from "../../IProject";
 import { ITechnology } from "../../ITechnology";
 import { IContentfulGitRepoLink } from "./content-types/IContentfulGitRepoLink";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
 import { IContentfulProjectGalleryItem } from "./content-types/IContentfulProjectGalleryItem";
-import { IContentfulProjectRepo } from "./content-types/IContentfulProjectRepo";
 import { IContentfulTechnology } from "./content-types/IContentfulTechnology";
 
 /**
@@ -40,7 +39,11 @@ export class ContentfulFactory {
           )
         : []
       },
-      repo: this.createProjectRepo(contentfulProject.fields.repository),
+      gitRepositories: this.doesExist<IContentfulGitRepoLink>(contentfulProject.fields.gitRepositories)
+        ? contentfulProject.fields.gitRepositories.map(
+          (contentfulProjectGitRepo: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(contentfulProjectGitRepo)
+        )
+        : [],
       technology: contentfulProject.fields.technologies.map(
         (contentfulTechnology) => this.createTechnology(contentfulTechnology)
       ),
@@ -72,37 +75,13 @@ export class ContentfulFactory {
     });
   }
 
-  /**
-   * @public
-   * @function createProjectRepo
-   * @summary Create Project Repos from Contentful
-   * @description Convert Contentful Project Repositories entry to an IProjectRepo object
-   * @author J. Trpka
-   * @param { Entry<IContentfulProjectRepo> } contentfulProjectPackage 
-   * @returns { IProjectRepo }
-   */
-  public createProjectRepo(
-    contentfulRepo: Entry<IContentfulProjectRepo>
-  ): IProjectRepo {
-    return this.sanitizeObject<IProjectRepo>({
-      github: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.github)
-        ? contentfulRepo.fields.github.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
-        : [],
-      gitlab: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.gitlab)
-        ? contentfulRepo.fields.gitlab.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
-        : [],
-      bitbucket: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.bitBucket)
-        ? contentfulRepo.fields.bitBucket.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
-        : []
-    });
-  }
-
   public createGitRepoLink(
     contentfulGitRepoLink: Entry<IContentfulGitRepoLink>
   ): IProjectGitRepository {
     return this.sanitizeObject<IProjectGitRepository>({
       label: contentfulGitRepoLink.fields.label,
-      url: contentfulGitRepoLink.fields.url
+      url: contentfulGitRepoLink.fields.url,
+      type: contentfulGitRepoLink.fields.type
     });
   }
 

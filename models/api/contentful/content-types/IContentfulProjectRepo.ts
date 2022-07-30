@@ -2,6 +2,7 @@ import Contentful from 'contentful';
 import { IContentfulGitRepoLink } from './IContentfulGitRepoLink';
 
 /**
+ * @deprecated
  * @interface ContentfulProjectRepo
  * @summary Contentful Project Repo Content Type
  * @author J. Trpka

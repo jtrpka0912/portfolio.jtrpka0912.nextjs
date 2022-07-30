@@ -8,4 +8,5 @@ import Contentful from 'contentful';
 export interface IContentfulGitRepoLink {
   label: Contentful.EntryFields.Text;
   url: Contentful.EntryFields.Text;
+  type: Contentful.EntryFields.Text;
 }

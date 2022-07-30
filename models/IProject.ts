@@ -11,7 +11,7 @@ import { ITechnology } from './ITechnology';
  * @property { string } title Name of the project
  * @property { ITechnology[] } technology List of technologies used for project
  * @property { IProjectPackage } package List of other packages used for the project
- * @property { IProjectRepo } repo A repository URL link based on which repo its located
+ * @property { IProjectGitRepository[] } gitRepositories A list of repository URL links
  * @property { IProjectDate } date A date when the project started and/if ended
  * @property { IImage } thumbnail A small image for the post listing
  * @property { IProjectGallery } gallery A list of images based on screen sizes
@@ -23,7 +23,7 @@ export interface IProject extends IPost {
     title: string,
     technology: ITechnology[];
     packages?: IProjectPackages;
-    repo?: IProjectRepo;
+    gitRepositories?: IProjectGitRepository[];
     date: IProjectDate;
     thumbnail?: IImage;
     gallery?: IProjectGallery;
@@ -61,29 +61,17 @@ export interface INpmPackage {
 }
 
 /**
- * @interface IProjectRepo
- * @description The location where the project's git repository
- * @author J. Trpka
- * @property { IProjectGitRepository } github
- * @property { IProjectGitRepository } gitlab
- * @property { IProjectGitRepository } bitbucket
- */
-export interface IProjectRepo {
-    github?: IProjectGitRepository[],
-    gitlab?: IProjectGitRepository[],
-    bitbucket?: IProjectGitRepository[]
-}
-
-/**
  * @interface IProjectGitRepository
  * @description A single repository for a project.
  * @author J. Trpka
  * @property { string } label
  * @property { string } url
+ * @property { string } type
  */
 export interface IProjectGitRepository {
     label: string;
     url: string;
+    type: string; // TODO: Make an enum
 }
 
 /**

@@ -1,4 +1,5 @@
 import Contentful from 'contentful';
+import { IContentfulGitRepoLink } from './IContentfulGitRepoLink';
 import { IContentfulNPMPackage } from './IContentfulNPMPackage';
 import { IContentfulProjectGalleryItem } from './IContentfulProjectGalleryItem';
 import { IContentfulProjectRepo } from './IContentfulProjectRepo';
@@ -17,7 +18,7 @@ export interface IContentfulProject {
   content: Contentful.EntryFields.Text;
   startDate: Contentful.EntryFields.Date;
   endDate: Contentful.EntryFields.Date;
-  repository: Contentful.Entry<IContentfulProjectRepo>;
+  gitRepositories: Contentful.Entry<IContentfulGitRepoLink>[];
   technologies: Contentful.Entry<IContentfulTechnology>[];
   npmPackages: Contentful.Entry<IContentfulNPMPackage>[];
   thumbnail: Contentful.Asset;

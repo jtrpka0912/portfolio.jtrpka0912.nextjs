@@ -1,8 +1,9 @@
 import { Asset, Entry, EntryCollection } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
-import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackages, IProjectRepo } from "../../IProject";
+import { INpmPackage, IProject, IProjectGalleryItem, IProjectGitRepository, IProjectPackages, IProjectRepo } from "../../IProject";
 import { ITechnology } from "../../ITechnology";
+import { IContentfulGitRepoLink } from "./content-types/IContentfulGitRepoLink";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
 import { IContentfulProjectGalleryItem } from "./content-types/IContentfulProjectGalleryItem";
@@ -84,9 +85,24 @@ export class ContentfulFactory {
     contentfulRepo: Entry<IContentfulProjectRepo>
   ): IProjectRepo {
     return this.sanitizeObject<IProjectRepo>({
-      github: contentfulRepo.fields.github,
-      gitlab: contentfulRepo.fields.gitlab,
-      bitbucket: contentfulRepo.fields.bitBucket
+      github: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.github)
+        ? contentfulRepo.fields.github.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
+        : [],
+      gitlab: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.gitlab)
+        ? contentfulRepo.fields.gitlab.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
+        : [],
+      bitbucket: this.doesExist<IContentfulGitRepoLink>(contentfulRepo.fields.bitBucket)
+        ? contentfulRepo.fields.bitBucket.map((s: Entry<IContentfulGitRepoLink>) => this.createGitRepoLink(s)) 
+        : []
+    });
+  }
+
+  public createGitRepoLink(
+    contentfulGitRepoLink: Entry<IContentfulGitRepoLink>
+  ): IProjectGitRepository {
+    return this.sanitizeObject<IProjectGitRepository>({
+      label: contentfulGitRepoLink.fields.label,
+      url: contentfulGitRepoLink.fields.url
     });
   }
 

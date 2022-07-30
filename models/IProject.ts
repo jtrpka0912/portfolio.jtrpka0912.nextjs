@@ -69,9 +69,9 @@ export interface INpmPackage {
  * @property { IProjectGitRepository } bitbucket
  */
 export interface IProjectRepo {
-    github?: IProjectGitRepository,
-    gitlab?: IProjectGitRepository,
-    bitbucket?: IProjectGitRepository
+    github?: IProjectGitRepository[],
+    gitlab?: IProjectGitRepository[],
+    bitbucket?: IProjectGitRepository[]
 }
 
 /**

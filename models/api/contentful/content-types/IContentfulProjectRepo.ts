@@ -8,7 +8,7 @@ import { IContentfulGitRepoLink } from './IContentfulGitRepoLink';
  */
 export interface IContentfulProjectRepo {
   // omit the name unless needed
-  github: Contentful.Entry<IContentfulGitRepoLink>;
-  gitlab: Contentful.Entry<IContentfulGitRepoLink>;
-  bitBucket: Contentful.Entry<IContentfulGitRepoLink>; 
+  github: Contentful.Entry<IContentfulGitRepoLink>[];
+  gitlab: Contentful.Entry<IContentfulGitRepoLink>[];
+  bitBucket: Contentful.Entry<IContentfulGitRepoLink>[]; 
 };

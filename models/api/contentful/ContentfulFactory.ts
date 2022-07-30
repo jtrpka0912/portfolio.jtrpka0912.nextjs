@@ -1,7 +1,7 @@
 import { Asset, Entry, EntryCollection } from "contentful";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
-import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackage, IProjectRepo } from "../../IProject";
+import { INpmPackage, IProject, IProjectGalleryItem, IProjectPackages, IProjectRepo } from "../../IProject";
 import { ITechnology } from "../../ITechnology";
 import { IContentfulNPMPackage as IContentfulNpmPackage } from "./content-types/IContentfulNPMPackage";
 import { IContentfulProject } from "./content-types/IContentfulProject";
@@ -32,7 +32,7 @@ export class ContentfulFactory {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       content: contentfulProject.fields.content,
-      package: {
+      packages: {
         npm: this.doesExist<IContentfulNpmPackage>(contentfulProject.fields.npmPackages) ?
           contentfulProject.fields.npmPackages.map(
             (contentfulNpmPackage: Entry<IContentfulNpmPackage>) => this.createNpmPackage(contentfulNpmPackage)

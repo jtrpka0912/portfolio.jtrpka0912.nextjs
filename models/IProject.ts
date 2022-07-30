@@ -22,7 +22,7 @@ import { ITechnology } from './ITechnology';
 export interface IProject extends IPost {
     title: string,
     technology: ITechnology[];
-    package?: IProjectPackage;
+    packages?: IProjectPackages;
     repo?: IProjectRepo;
     date: IProjectDate;
     thumbnail?: IImage;
@@ -33,7 +33,7 @@ export interface IProject extends IPost {
 }
 
 /**
- * @interface IProjectPackage
+ * @interface IProjectPackages
  * @description A listing of packages from package managers.
  * @author J. Trpka
  * @property { IProjectPackage[] } npm Packages from Node Package Manager.
@@ -41,7 +41,7 @@ export interface IProject extends IPost {
  * @property { string[] } go Names of packages from the Go Package repository.
  * @property { string[] } nuget Names of packages for the .NET (Core) environement.
  */
-export interface IProjectPackage {
+export interface IProjectPackages {
     npm?: INpmPackage[],
     maven?: string[],
     go?: string[],

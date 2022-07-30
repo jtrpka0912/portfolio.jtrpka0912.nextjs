@@ -1,14 +1,14 @@
-import { INpmPackage, IProjectPackage } from './IProject';
+import { INpmPackage, IProjectPackages } from './IProject';
 
 /**
  * @class
- * @name ProjectPackage
- * @implements { IProjectPackage }
+ * @name ProjectPackages
+ * @implements { IProjectPackages }
  * @summary Project Package class
  * @description Class version of the IProjectPackage
  * @author J. Trpka
  */
-class ProjectPackage implements IProjectPackage {
+class ProjectPackages implements IProjectPackages {
   /**
    * @public
    * @property { INpmPackage[] } npm
@@ -42,9 +42,9 @@ class ProjectPackage implements IProjectPackage {
    * @summary Project package constructor
    * @description Convert a IProjectPackage into a class with functionality
    * @author J. Trpka
-   * @param { IProjectPackage } projectPackage 
+   * @param { IProjectPackages } projectPackage 
    */
-  constructor(projectPackage?: IProjectPackage) {
+  constructor(projectPackage?: IProjectPackages) {
     if(!projectPackage) return;
 
     this.npm = projectPackage.npm;
@@ -85,4 +85,4 @@ class ProjectPackage implements IProjectPackage {
   }
 }
 
-export default ProjectPackage;
+export default ProjectPackages;

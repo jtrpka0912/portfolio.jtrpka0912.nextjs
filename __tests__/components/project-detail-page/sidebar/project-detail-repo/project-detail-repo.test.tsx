@@ -4,7 +4,7 @@ import ProjectDetailRepo from "../../../../../components/project-detail-page/sid
 
 describe('Render the component', () => {
   it('Nothing to render with no repo', () => {
-    render(<ProjectDetailRepo repo={undefined} />);
+    render(<ProjectDetailRepo repositories={undefined} />);
 
     const element = screen.queryByRole('note');
 
@@ -12,11 +12,9 @@ describe('Render the component', () => {
   });
 
   it('Render the container at least with one repo', () => {
-    render(<ProjectDetailRepo repo={{
-      gitlab: [
-        { label: 'Sample Repo', url: 'path/to/repo' }
-      ]
-    }} />);
+    render(<ProjectDetailRepo repositories={[
+        { label: 'Sample Repo', url: 'path/to/repo', type: 'Bit Bucket' }
+      ]} />);
 
     const element = screen.queryByRole('note');
 

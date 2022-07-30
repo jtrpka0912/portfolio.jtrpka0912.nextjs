@@ -13,7 +13,7 @@ describe('Render the component', () => {
 
     it('Render the container at least with one repo', () => {
         render(<ProjectDetailRepo repo={{
-            gitlab: 'path/to/repo'
+            gitlab: { label: 'Sample Repo', url: 'path/to/repo' }
         }} />);
 
         const element = screen.queryByRole('note');

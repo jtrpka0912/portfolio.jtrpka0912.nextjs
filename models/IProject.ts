@@ -64,15 +64,26 @@ export interface INpmPackage {
  * @interface IProjectRepo
  * @description The location where the project's git repository
  * @author J. Trpka
- * @todo Create a new interface to construct the git repo array objects
- * @property { string } github
- * @property { string } gitlab
- * @property { string } bitbucket
+ * @property { IProjectGitRepository } github
+ * @property { IProjectGitRepository } gitlab
+ * @property { IProjectGitRepository } bitbucket
  */
 export interface IProjectRepo {
-    github?: string,
-    gitlab?: string,
-    bitbucket?: string
+    github?: IProjectGitRepository,
+    gitlab?: IProjectGitRepository,
+    bitbucket?: IProjectGitRepository
+}
+
+/**
+ * @interface IProjectGitRepository
+ * @description A single repository for a project.
+ * @author J. Trpka
+ * @property { string } label
+ * @property { string } url
+ */
+export interface IProjectGitRepository {
+    label: string;
+    url: string;
 }
 
 /**

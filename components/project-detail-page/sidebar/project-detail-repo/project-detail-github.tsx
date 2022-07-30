@@ -7,22 +7,23 @@ import { faCodeBranch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-    convertRepoURLToOwnerAndRepo 
+  convertRepoURLToOwnerAndRepo
 } from '../../../../helpers/api/github';
 
 import {
-    getRepo
+  getRepo
 } from '../../../../api/github';
 import ExternalLinkIcon from '../../../ui/external-link-icon';
+import { IProjectGitRepository } from '../../../../models/IProject';
 
 /**
  * @interface ProjectDetailGithubProps
  * @summary Project detail github component props
  * @author J. Trpka
- * @property { string } github - URL to the Github Repo page
+ * @property { IProjectGitRepository[] } github
  */
 interface ProjectDetailGithubProps {
-    github: string
+  github: IProjectGitRepository
 }
 
 /**
@@ -33,58 +34,59 @@ interface ProjectDetailGithubProps {
  * @param { ProjectDetailGithubProps } props 
  * @returns { JSX }
  */
-const ProjectDetailGithub = (props: ProjectDetailGithubProps) => {
-    const { github } = props;
-    const [owner, repo] = convertRepoURLToOwnerAndRepo(github);
+const ProjectDetailGithub = ({
+  github
+}: ProjectDetailGithubProps) => {
+  const [owner, repo] = convertRepoURLToOwnerAndRepo(github.url);
 
-    /**
-     * @var { string } githubRepoUrl
-     * @description Generate the API URL for the sake of the useSWR key.
-     */
-    const githubRepoUrl = `https://api.github.com/repos/${ owner }/${ repo }`;
+  /**
+   * @var { string } githubRepoUrl
+   * @description Generate the API URL for the sake of the useSWR key.
+   */
+  const githubRepoUrl = `https://api.github.com/repos/${owner}/${repo}`;
 
-    const { data: repoData, error } = useSWR(githubRepoUrl, () => getRepo(github));
+  const { data: repoData, error } = useSWR(githubRepoUrl, () => getRepo(github.url));
 
-    return (
-        <div className="project-detail-github">
-            { // Loader content with spinning icon.
-            !error && !repoData && (
-                <FontAwesomeIcon icon={ faGithub } spin={ true } />
-            )}
+  return (
+    <div className="project-detail-github">
+      { // Loader content with spinning icon.
+        !error && !repoData && (
+          <FontAwesomeIcon icon={faGithub} spin={true} />
+        )}
 
-            { // Display some of the repo data.
-            !error && repoData && (
-                <div className="project-detail-github__repo">
-                    <h5 className="project-detail-github__link">
-                        <FontAwesomeIcon icon={ faGithub } />
-                        <a className="ml-1" 
-                            href={ github } 
-                            target="_blank" 
-                            rel="noreferrer"
-                        >Repository <ExternalLinkIcon /></a>
-                    </h5>
+      { // Display some of the repo data.
+        !error && repoData && (
+          <div className="project-detail-github__repo">
+            <h5 className="project-detail-github__link">
+              <FontAwesomeIcon icon={faGithub} />
+              <a className="ml-1"
+                href={github.url}
+                target="_blank"
+                rel="noreferrer"
+              >{github.label} <ExternalLinkIcon /></a>
+            </h5>
 
-                    <div className="project-detail-github__stats tags mt-1">
-                        <li title="Forks" className="tag is-primary is-light">
-                            <FontAwesomeIcon icon={ faCodeBranch } />
-                            <span className="ml-1">{ repoData.forks_count }</span>
-                        </li>
-                        <li title="Stargazers" className="tag is-primary is-light">
-                            <FontAwesomeIcon icon={ faStar } />
-                            <span className="ml-1">{ repoData.stargazers_count }</span>
-                        </li>
-                    </div>
-                </div>
-            )}
+            <div className="project-detail-github__stats tags mt-1">
+              <li title="Forks" className="tag is-primary is-light">
+                <FontAwesomeIcon icon={faCodeBranch} />
+                <span className="ml-1">{repoData.forks_count}</span>
+              </li>
+              <li title="Stargazers" className="tag is-primary is-light">
+                <FontAwesomeIcon icon={faStar} />
+                <span className="ml-1">{repoData.stargazers_count}</span>
+              </li>
+            </div>
+          </div>
+        )}
 
-            { // Display message for invalid or private repo.
-            error && (
-                <div className="project-detail-github__error">
-                    <FontAwesomeIcon icon={ faGithub } /> Repo may be invalid or private.
-                </div>
-            )}
-        </div>
-    );
+      { // Display message for invalid or private repo.
+        error && (
+          <div className="project-detail-github__error">
+            <FontAwesomeIcon icon={faGithub} /> Repo may be invalid or private.
+          </div>
+        )}
+    </div>
+  );
 };
 
 export default ProjectDetailGithub;

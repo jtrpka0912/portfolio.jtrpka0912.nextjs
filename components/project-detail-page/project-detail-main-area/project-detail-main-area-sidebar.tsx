@@ -37,7 +37,7 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
       <ProjectDetailTypeTag type={project.type} />
 
       <Sidebar>
-        <ProjectDetailRepo repo={project.repo} />
+        <ProjectDetailRepo repositories={project.gitRepositories} />
       </Sidebar>
 
       { !projectPackageObject.isEmpty() ? (

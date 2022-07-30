@@ -1,4 +1,4 @@
-import { IProjectRepo } from '../../../../models/IProject';
+import { IProjectGitRepository } from '../../../../models/IProject';
 import ProjectDetailGithub from './project-detail-github';
 
 /**
@@ -8,7 +8,7 @@ import ProjectDetailGithub from './project-detail-github';
  * @property { IProjectRepo } repo
  */
 interface ProjectDetailRepoProps {
-    repo?: IProjectRepo
+  repositories?: IProjectGitRepository[]
 }
 
 /**
@@ -19,32 +19,30 @@ interface ProjectDetailRepoProps {
  * @param { ProjectDetailRepoProps } props 
  * @returns { JSX }
  */
-const ProjectDetailRepo = (props: ProjectDetailRepoProps) => {
-    const { repo } = props;
+const ProjectDetailRepo = ({
+  repositories
+}: ProjectDetailRepoProps) => {
+  
+  if (!repositories) {
+    return null;
+  }
 
-    // If repo is empty
-    if(!repo) {
-        return null;
-    }
-
-    return (
-        <div className="project-detail-repo" 
-            role="note" 
-            aria-label="Project Repository"
-        >
-            { repo.github && (
-                <ProjectDetailGithub github={ repo.github } />
-            ) }
-
-            { repo.gitlab && (
-                <p>Gitlab Coming Soon</p>
-            ) }
-
-            { repo.bitbucket && (
-                <p>BitBucket Coming Soon</p>
-            ) }
-        </div>
-    );
+  return (
+    <div className="project-detail-repo"
+      role="note"
+      aria-label="Project Repository"
+    >
+      { repositories.map((repository: IProjectGitRepository, index: number) => {
+          switch(repository.type) {
+            case 'GitHub':
+              return <ProjectDetailGithub key={index} github={repository} />
+            default:
+              return <p key={index}>Coming Soon for { repository.type }</p>
+          }
+        })
+      }
+    </div>
+  );
 };
 
 export default ProjectDetailRepo;

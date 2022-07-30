@@ -2,6 +2,7 @@ import { IPost } from './IPost';
 import { ProjectType } from './enums/ProjectType';
 import { IImage } from './IImage';
 import { ITechnology } from './ITechnology';
+import { GitRepoTypes } from './enums/GitRepoTypes';
 
 /**
  * @interface IProject
@@ -11,7 +12,7 @@ import { ITechnology } from './ITechnology';
  * @property { string } title Name of the project
  * @property { ITechnology[] } technology List of technologies used for project
  * @property { IProjectPackage } package List of other packages used for the project
- * @property { IProjectRepo } repo A repository URL link based on which repo its located
+ * @property { IProjectGitRepository[] } gitRepositories A list of repository URL links
  * @property { IProjectDate } date A date when the project started and/if ended
  * @property { IImage } thumbnail A small image for the post listing
  * @property { IProjectGallery } gallery A list of images based on screen sizes
@@ -23,7 +24,7 @@ export interface IProject extends IPost {
     title: string,
     technology: ITechnology[];
     packages?: IProjectPackages;
-    repo?: IProjectRepo;
+    gitRepositories?: IProjectGitRepository[];
     date: IProjectDate;
     thumbnail?: IImage;
     gallery?: IProjectGallery;
@@ -61,18 +62,17 @@ export interface INpmPackage {
 }
 
 /**
- * @interface IProjectRepo
- * @description The location where the project's git repository
+ * @interface IProjectGitRepository
+ * @description A single repository for a project.
  * @author J. Trpka
- * @todo Create a new interface to construct the git repo array objects
- * @property { string } github
- * @property { string } gitlab
- * @property { string } bitbucket
+ * @property { string } label
+ * @property { string } url
+ * @property { GitRepoTypes } type
  */
-export interface IProjectRepo {
-    github?: string,
-    gitlab?: string,
-    bitbucket?: string
+export interface IProjectGitRepository {
+    label: string;
+    url: string;
+    type: GitRepoTypes;
 }
 
 /**

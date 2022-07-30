@@ -3,15 +3,15 @@ import { render, screen } from "@testing-library/react";
 import ImageModal from "../../../components/modals/image-modal";
 
 describe('Render the image modal', () => {
-    it('Should not be shown initially', () => {
-        // Arrange
-        render(<ImageModal />);
+  it('Should not be shown initially', () => {
+    // Arrange
+    render(<ImageModal />);
 
-        const modalElement = screen.getByRole('dialog');
+    const modalElement = screen.getByRole('dialog');
 
-        // Assert
-        expect(modalElement).not.toHaveClass('is-active');
-    });
+    // Assert
+    expect(modalElement).not.toHaveClass('is-active');
+  });
 
-    // TODO: How to test with context?
+  // TODO: How to test with state context?
 });

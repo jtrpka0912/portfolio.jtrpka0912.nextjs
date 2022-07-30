@@ -8,10 +8,10 @@
  * @property { React.ReactNode } children
  */
 interface ModalProps {
-    isActive: boolean
-    ariaLabel?: string
-    onClose: () => void
-    children: React.ReactNode
+  isActive: boolean
+  ariaLabel?: string
+  onClose: () => void
+  children: React.ReactNode
 }
 
 /**
@@ -22,22 +22,22 @@ interface ModalProps {
  * @returns { JSX }
  */
 const Modal = (props: ModalProps) => {
-    const { isActive, ariaLabel, onClose, children } = props;
+  const { isActive, ariaLabel, onClose, children } = props;
 
-    return (
-        <div role="dialog" 
-            className={ `modal${ isActive ? ' is-active' : '' }` }
-            aria-label={ ariaLabel ? ariaLabel : 'A simple modal' }
-        >    
-            <div className="modal-background" onClick={ onClose }></div>
-            { children }
-            <button 
-                className="modal-close is-large" 
-                aria-label="close"
-                onClick={ onClose }
-            ></button>
-        </div>
-    );
+  return (
+    <div role="dialog"
+      className={`modal${isActive ? ' is-active' : ''}`}
+      aria-label={ariaLabel ? ariaLabel : 'A simple modal'}
+    >
+      <div className="modal-background" onClick={onClose}></div>
+      {children}
+      <button
+        className="modal-close is-large"
+        aria-label="close"
+        onClick={onClose}
+      ></button>
+    </div>
+  );
 };
 
 export default Modal;

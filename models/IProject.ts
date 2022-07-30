@@ -2,6 +2,7 @@ import { IPost } from './IPost';
 import { ProjectType } from './enums/ProjectType';
 import { IImage } from './IImage';
 import { ITechnology } from './ITechnology';
+import { GitRepoTypes } from './enums/GitRepoTypes';
 
 /**
  * @interface IProject
@@ -66,12 +67,12 @@ export interface INpmPackage {
  * @author J. Trpka
  * @property { string } label
  * @property { string } url
- * @property { string } type
+ * @property { GitRepoTypes } type
  */
 export interface IProjectGitRepository {
     label: string;
     url: string;
-    type: string; // TODO: Make an enum
+    type: GitRepoTypes;
 }
 
 /**

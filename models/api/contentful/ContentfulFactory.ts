@@ -1,4 +1,5 @@
 import { Asset, Entry } from "contentful";
+import { GitRepoTypes } from "../../enums/GitRepoTypes";
 import { ProjectType } from "../../enums/ProjectType";
 import { IImage } from "../../IImage";
 import { INpmPackage, IProject, IProjectGalleryItem, IProjectGitRepository } from "../../IProject";
@@ -81,7 +82,7 @@ export class ContentfulFactory {
     return this.sanitizeObject<IProjectGitRepository>({
       label: contentfulGitRepoLink.fields.label,
       url: contentfulGitRepoLink.fields.url,
-      type: contentfulGitRepoLink.fields.type
+      type: contentfulGitRepoLink.fields.type as GitRepoTypes
     });
   }
 

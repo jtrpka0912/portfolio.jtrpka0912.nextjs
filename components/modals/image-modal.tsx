@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Modal from "../ui/modal";
 import { UiContext } from "../context/ui";
-import Image from "next/image";
 
 /**
  * @function ImageModal
@@ -34,12 +33,11 @@ const ImageModal = () => {
       onClose={onCloseHandler}
     >
       <div className="modal-content has-text-centered">
-        { uiContext.imageModalData ? (
-          <Image 
-            src={uiContext.imageModalData.image} 
-            alt={uiContext.imageModalData.altText}
-          />
-        ) : null }
+        <picture>
+          <source srcSet={uiContext.imageModalData?.image} type="image/png" />
+          { /* eslint-disable-next-line @next/next/no-img-element*/ }
+          <img src={uiContext.imageModalData?.image} alt={uiContext.imageModalData?.altText} />
+        </picture>
       </div>
     </Modal>
   );

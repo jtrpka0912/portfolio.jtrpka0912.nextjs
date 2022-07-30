@@ -33,11 +33,13 @@ const ImageModal = () => {
       onClose={onCloseHandler}
     >
       <div className="modal-content has-text-centered">
-        <picture>
-          <source srcSet={uiContext.imageModalData?.image} type="image/png" />
-          { /* eslint-disable-next-line @next/next/no-img-element*/ }
-          <img src={uiContext.imageModalData?.image} alt={uiContext.imageModalData?.altText} />
-        </picture>
+        { uiContext.imageModalData ? (
+          <picture>
+            <source srcSet={uiContext.imageModalData.image} type="image/png" />
+            { /* eslint-disable-next-line @next/next/no-img-element*/ }
+            <img src={uiContext.imageModalData.image} alt={uiContext.imageModalData.altText} />
+          </picture>
+        ) : null }
       </div>
     </Modal>
   );

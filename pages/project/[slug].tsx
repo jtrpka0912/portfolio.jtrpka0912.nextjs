@@ -2,9 +2,6 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-// Helpers
-import { getSingleProject } from "../../helpers/project";
-
 // Models
 import { IProject } from "../../models/IProject";
 import { BreadcrumbLink } from "../../components/sections/breadcrumb/breadcrumb";
@@ -22,7 +19,6 @@ import TechnologyListSkeleton from "../../components/sections/technology-list/te
 import ProjectDetailHeroSkeleton from "../../components/project-detail-page/project-detail-hero/project-detail-hero-skeleton";
 import ProjectDetailMainAreaSkeleton from "../../components/project-detail-page/project-detail-main-area/project-detail-main-area-skeleton";
 import ProjectDetailGallerySkeleton from "../../components/project-detail-page/project-detail-gallery/project-detail-gallery-skeleton";
-import { fetchProjectBySlug } from "../../api/portfolio/projects";
 import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory";
 import { retrieveProjectBySlug } from "../../api/contentful/projects";
 import { Entry } from "contentful";

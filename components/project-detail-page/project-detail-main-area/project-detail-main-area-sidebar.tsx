@@ -42,7 +42,7 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
 
       { !projectPackageObject.isEmpty() ? (
         <Sidebar>
-          <ProjectDetailPackage package={project.packages} />
+          <ProjectDetailPackage packages={project.packages} />
         </Sidebar>
       ) : null }
     </aside>

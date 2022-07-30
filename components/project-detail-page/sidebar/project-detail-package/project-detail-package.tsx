@@ -9,7 +9,7 @@ import ProjectDetailNpm from "./project-detail-npm";
  * @property { IProjectPackage } package
  */
 interface ProjectDetailPackageProps {
-    package?: IProjectPackages
+    packages?: IProjectPackages
 }
 
 /**
@@ -22,7 +22,7 @@ interface ProjectDetailPackageProps {
  * @returns { JSX }
  */
 const ProjectDetailPackage = (props: ProjectDetailPackageProps) => {
-    const { package: packages } = props;
+    const { packages } = props;
 
     const projectPackageObject: ProjectPackage = new ProjectPackage(packages);
 

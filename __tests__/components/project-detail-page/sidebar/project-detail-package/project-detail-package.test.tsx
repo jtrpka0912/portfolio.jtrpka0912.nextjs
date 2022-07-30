@@ -4,7 +4,7 @@ import ProjectDetailPackage from "../../../../../components/project-detail-page/
 
 describe('Render the component', () => {
     test('Do not render the content if no packages', () => {
-        render(<ProjectDetailPackage package={ undefined } />);
+        render(<ProjectDetailPackage packages={ undefined } />);
 
         const element = document.querySelector('.project-detail-package');
 
@@ -13,7 +13,7 @@ describe('Render the component', () => {
 
     test('Do not render the content if there are no packages from an empty IProject', () => {
         // Arrange
-        render(<ProjectDetailPackage package={{
+        render(<ProjectDetailPackage packages={{
             npm: [],
             go: [],
             maven: []
@@ -26,7 +26,7 @@ describe('Render the component', () => {
     });
 
     test('Render if there are any packages.', () => {
-        render(<ProjectDetailPackage package={{
+        render(<ProjectDetailPackage packages={{
             maven: ['spring-boot-starter-test']
         }} />);
 

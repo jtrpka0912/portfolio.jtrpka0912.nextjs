@@ -28,7 +28,7 @@ interface ProjectDetailMainAreaSidebarProps {
 const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) => {
   const { project } = props;
 
-  const projectPackageObject: ProjectPackage = new ProjectPackage(project.package);
+  const projectPackageObject: ProjectPackage = new ProjectPackage(project.packages);
 
   return (
     <aside className="main-area__sidebar column is-one-quarter-desktop is-half-tablet">
@@ -42,7 +42,7 @@ const ProjectDetailMainAreaSidebar = (props: ProjectDetailMainAreaSidebarProps) 
 
       { !projectPackageObject.isEmpty() ? (
         <Sidebar>
-          <ProjectDetailPackage package={project.package} />
+          <ProjectDetailPackage package={project.packages} />
         </Sidebar>
       ) : null }
     </aside>

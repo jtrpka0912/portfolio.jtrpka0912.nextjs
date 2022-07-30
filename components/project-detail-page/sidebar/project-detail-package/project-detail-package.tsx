@@ -1,4 +1,4 @@
-import { IProjectPackage } from "../../../../models/IProject";
+import { IProjectPackages } from "../../../../models/IProject";
 import ProjectPackage from "../../../../models/ProjectPackage";
 import ProjectDetailNpm from "./project-detail-npm";
 
@@ -9,7 +9,7 @@ import ProjectDetailNpm from "./project-detail-npm";
  * @property { IProjectPackage } package
  */
 interface ProjectDetailPackageProps {
-    package?: IProjectPackage
+    package?: IProjectPackages
 }
 
 /**

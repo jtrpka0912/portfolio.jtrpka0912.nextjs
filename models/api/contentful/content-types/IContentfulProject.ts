@@ -8,7 +8,7 @@ import { IContentfulTechnology } from './IContentfulTechnology';
  * @interface ContentfulProject
  * @summary Contentful Project Content Type
  * @author J. Trpka
- * @todo Add Resume field between mobileProjectGallery and inDevelopment and when content type is created
+ * @todo Add Resume field between mobileProjectGallery and inDevelopment when the content type is created
  */
 export interface IContentfulProject {
   slug: Contentful.EntryFields.Text;

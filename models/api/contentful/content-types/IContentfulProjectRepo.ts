@@ -1,4 +1,5 @@
 import Contentful from 'contentful';
+import { IContentfulGitRepoLink } from './IContentfulGitRepoLink';
 
 /**
  * @interface ContentfulProjectRepo
@@ -7,7 +8,7 @@ import Contentful from 'contentful';
  */
 export interface IContentfulProjectRepo {
   // omit the name unless needed
-  github: Contentful.EntryFields.Text;
-  gitlab: Contentful.EntryFields.Text;
-  bitBucket: Contentful.EntryFields.Text; 
+  github: Contentful.Entry<IContentfulGitRepoLink>;
+  gitlab: Contentful.Entry<IContentfulGitRepoLink>;
+  bitBucket: Contentful.Entry<IContentfulGitRepoLink>; 
 };

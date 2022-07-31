@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { projectFour, projectOne, projectThree, projectTwo } from '../../../examples/projects';
 
-import ProjectList from '../../../../components/sections/project-list/project-list';
+import ProjectList from '../../../../components/sections/project-list/ProjectList';
 
 describe('Without projects', () => {
     test('Render component without any projects', () => {

@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { retrieveFeaturedProjects } from '../api/contentful/projects';
 
 import HomeHero from '../components/home-page/home-hero/home-hero';
-import ProjectList from '../components/sections/project-list/project-list';
+import ProjectList from '../components/sections/project-list/ProjectList';
 import { IContentfulProject } from '../models/api/contentful/content-types/IContentfulProject';
 import { ContentfulFactory } from '../models/api/contentful/ContentfulFactory';
 import { IProject } from '../models/IProject';

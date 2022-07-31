@@ -29,8 +29,6 @@ interface HomePageProps {
 const HomePage: NextPage<HomePageProps> = ({
   featuredProjects
 }: HomePageProps) => {
-  console.info('projects', featuredProjects);
-  
   return (
     <div>
       <HomeHero />

@@ -33,7 +33,7 @@ const ProjectList = ({
         )}
 
         { showAll && projects.length > 0 ? (
-          <NavigationLink href="/project">
+          <NavigationLink href="/projects">
             <a className="project-list__show-all">Show All Projects</a>
           </NavigationLink>
         ): null }

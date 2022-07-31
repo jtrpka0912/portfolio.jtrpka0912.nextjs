@@ -17,7 +17,7 @@ const HeaderMenu = () => {
       className={`navbar-menu${uiContext.isHeaderMobileMenuOpen ? ' is-active' : ''}`}>
       <div className="navbar-end">
         { /* eslint-disable-next-line @next/next/no-html-link-for-pages */ }
-        <NavigationLink href="/project">
+        <NavigationLink href="/projects">
           <a className="navbar-item">Projects</a>
         </NavigationLink>
       </div>

@@ -54,3 +54,17 @@ export const retrieveProjectBySlug = async (slug: string): Promise<Entry<IConten
 
   return retrievedProjects.items[0];
 }
+
+export const retrieveFeaturedProjects = async (): Promise<EntryCollection<IContentfulProject>> => {
+  /**
+   * @constant { Promise<EntryCollection<IContentfulProject>> } retrievedProjects
+   * @summary Retrieved projects
+   * @description Retrieve all of the projects so that it can be filtered to just one item
+   * @author J. Trpka
+   */
+  const retrievedProjects: EntryCollection<IContentfulProject> = await retrieveProjects();
+  
+  retrievedProjects.items = retrievedProjects.items.filter((project: Entry<IContentfulProject>) => project.fields.featured);
+
+  return retrievedProjects;
+}

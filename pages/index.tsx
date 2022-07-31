@@ -1,5 +1,6 @@
 import { Entry, EntryCollection } from 'contentful';
 import type { GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import { retrieveFeaturedProjects } from '../api/contentful/projects';
 
 import HomeHero from '../components/home-page/home-hero/home-hero';
@@ -31,6 +32,15 @@ const HomePage: NextPage<HomePageProps> = ({
 }: HomePageProps) => {
   return (
     <div>
+      <Head>
+        <title>J. Trpka Portfolio</title>
+        <meta name="description" content="The portfolio of Jeremy Lee Trpka which includes his projects as a software developer." />
+        <meta property="og:url" content="https://jeremy.trpka.me" />
+        <meta property="og:description" content="The portfolio of Jeremy Lee Trpka which includes his projects as a software developer." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="J. Trpka Portfolio" />
+      </Head>
+
       <HomeHero />
       <ProjectList projects={ featuredProjects } showAll />
     </div>

@@ -50,4 +50,33 @@ describe('All Projects Link', () => {
 		expect(linkElement).toBeInTheDocument();
 		expect(linkElement).toHaveTextContent('Show All Projects');
 	});
+
+	test('Do not render the show all projects link', () => {
+		// Arrange
+		render(<ProjectList projects={[
+			projectOne,
+			projectTwo,
+			projectThree,
+			projectFour
+		]} />);
+
+		const linkElement = screen.queryByRole('link', {
+			name: 'Show All Projects'
+		});
+
+		// Assert
+		expect(linkElement).not.toBeInTheDocument();
+	});
+
+	test('Do not render the show all projects link if no projects', () => {
+		// Arrange
+		render(<ProjectList showAll projects={[]} />);
+
+		const linkElement = screen.queryByRole('link', {
+			name: 'Show All Projects'
+		});
+
+		// Assert
+		expect(linkElement).not.toBeInTheDocument();
+	});
 });

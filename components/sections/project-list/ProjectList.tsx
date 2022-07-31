@@ -32,7 +32,7 @@ const ProjectList = ({
           </div>
         )}
 
-        { showAll ? (
+        { showAll && projects.length > 0 ? (
           <NavigationLink href="/project">
             Show All Projects
           </NavigationLink>

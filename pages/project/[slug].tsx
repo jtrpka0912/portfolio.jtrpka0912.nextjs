@@ -23,6 +23,7 @@ import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory
 import { retrieveProjectBySlug } from "../../api/contentful/projects";
 import { Entry } from "contentful";
 import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
+import Head from "next/head";
 
 /**
  * @interface ProjectDetailPageProps
@@ -76,6 +77,26 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
       <TechnologyList technologies={project.technology} />
       <ProjectDetailGallery gallery={project.gallery} />
     </div>
+  );
+};
+
+/**
+ * @function ProjectDetailPageHead
+ * @summary Project Detail Page Head Area
+ * @description A reusable Head area of the project detail page component.
+ * @author J. Trpka
+ * @returns { React.FC }
+ */
+ const ProjectDetailPageHead = (project: IProject) => {
+  return (
+    <Head>
+      <title>J. Trpka Portfolio - { project.title }</title>
+      <meta name="description" content={ project.summary } />
+      <meta property="og:url" content={ `https://jeremy.trpka.me/project/${project.slug}` } />
+      <meta property="og:description" content={ project.summary } />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="J. Trpka Portfolio" />
+    </Head>
   );
 };
 

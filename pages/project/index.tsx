@@ -84,8 +84,8 @@ const ProjectsPageHead = () => {
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="J. Trpka Portfolio" />
     </Head>
-  )
-}
+  );
+};
 
 /**
  * @interface ProjectStaticProps

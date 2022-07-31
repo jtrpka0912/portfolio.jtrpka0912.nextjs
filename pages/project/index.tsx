@@ -2,9 +2,9 @@
 import { GetStaticProps } from "next";
 
 // Components
-import ProjectList from "../../components/sections/project-list/project-list";
+import ProjectList from "../../components/sections/project-list/ProjectList";
 import Breadcrumb from "../../components/sections/breadcrumb/breadcrumb";
-import ProjectListSkeleton from "../../components/sections/project-list/project-list-skeleton";
+import ProjectListSkeleton from "../../components/sections/project-list/ProjectList.skeleton";
 import BreadcrumbSkeleton from "../../components/sections/breadcrumb/breadcrumb-skeleton";
 
 // Models

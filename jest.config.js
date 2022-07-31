@@ -28,7 +28,8 @@ module.exports = {
     preset: "ts-jest",
     /** Add more to this array for other tests if we move the tests away from __tests__ */
     roots: [
-      "<rootDir>/__tests__"
+      "<rootDir>/__tests__",
+      "<rootDir>/components"
     ],
     testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
     testEnvironment: 'jsdom',

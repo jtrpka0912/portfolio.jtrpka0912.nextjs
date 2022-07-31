@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { UiContext } from '../../context/ui';
+import NavigationLink from '../../ui/navigation-link/NavigationLink';
 
 /**
  * @function HeaderMenu
@@ -12,24 +12,14 @@ import { UiContext } from '../../context/ui';
 const HeaderMenu = () => {
   const uiContext = useContext(UiContext);
 
-  // When the links are clicked then close the menu.
-  useEffect(() => {
-    const linkElement = document.querySelector('#header-navigation .navbar-item');
-
-    if (linkElement) {
-      linkElement.addEventListener('click', e => {
-        uiContext.setHeaderMobileMenu();
-      });
-    }
-  }, [])
-
   return (
     <div id="header-navigation"
       className={`navbar-menu${uiContext.isHeaderMobileMenuOpen ? ' is-active' : ''}`}>
       <div className="navbar-end">
-        <Link href="/project">
+        { /* eslint-disable-next-line @next/next/no-html-link-for-pages */ }
+        <NavigationLink href="/project">
           <a className="navbar-item">Projects</a>
-        </Link>
+        </NavigationLink>
       </div>
     </div>
   )

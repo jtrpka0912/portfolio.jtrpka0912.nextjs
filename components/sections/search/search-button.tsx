@@ -1,8 +1,7 @@
 // React
 import { useState, useEffect } from 'react';
 
-// NextJS
-import Link from 'next/link';
+import NavigationLink from '../../ui/navigation-link/NavigationLink';
 
 /**
  * @interface SearchButtonProps
@@ -12,8 +11,8 @@ import Link from 'next/link';
  * @property { string } technology - Slug of the technology
  */
 interface SearchButtonProps {
-    query?: string
-    technology?: string
+  query?: string
+  technology?: string
 }
 
 /**
@@ -25,41 +24,41 @@ interface SearchButtonProps {
  * @returns { JSX }
  */
 const SearchButton = (props: SearchButtonProps) => {
-    const { query, technology } = props;
+  const { query, technology } = props;
 
-    const [queryString, setQueryString] = useState<string>('./project/search');
+  const [queryString, setQueryString] = useState<string>('./project/search');
 
-    useEffect(() => {
-        const queryBuilder: string[] = [];
+  useEffect(() => {
+    const queryBuilder: string[] = [];
 
-        // Start building the query
-        if(query) {
-            queryBuilder.push(`query=${ query }`);
-        }
+    // Start building the query
+    if (query) {
+      queryBuilder.push(`query=${query}`);
+    }
 
-        if(technology) {
-            queryBuilder.push(`technology=${ technology }`);
-        }
+    if (technology) {
+      queryBuilder.push(`technology=${technology}`);
+    }
 
-        // If none found then set query string to just search
-        if(queryBuilder.length === 0) {
-            setQueryString('./project/search');
-            return;
-        }
+    // If none found then set query string to just search
+    if (queryBuilder.length === 0) {
+      setQueryString('./project/search');
+      return;
+    }
 
-        let queryURL = `./project/search?${ queryBuilder[0] }`;
-        
-        if(queryBuilder.length === 2) 
-            queryURL = `${ queryURL }&${ queryBuilder[1] }`;
+    let queryURL = `./project/search?${queryBuilder[0]}`;
 
-        setQueryString(queryURL);
-    }, [query, technology]);
+    if (queryBuilder.length === 2)
+      queryURL = `${queryURL}&${queryBuilder[1]}`;
 
-    return (
-        <Link href={ queryString }>
-            <a className="search__button button is-link">Filter</a>
-        </Link>
-    );
+    setQueryString(queryURL);
+  }, [query, technology]);
+
+  return (
+    <NavigationLink href={queryString}>
+      <a className="search__button button is-link">Filter</a>
+    </NavigationLink>
+  );
 };
 
 export default SearchButton;

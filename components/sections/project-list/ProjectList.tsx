@@ -4,6 +4,7 @@ import ProjectListItem from './project-list-item';
 import { ProjectListProps } from "./ProjectList.types";
 
 import { IProject } from "../../../models/IProject";
+import NavigationLink from "../../ui/navigation-link/NavigationLink";
 
 /**
  * @function ProjectList
@@ -15,7 +16,8 @@ import { IProject } from "../../../models/IProject";
  * @returns { JSX } 
  */
 const ProjectList = ({
-  projects
+  projects,
+  showAll = false
 }: ProjectListProps) => {
   return (
     <Section>
@@ -29,6 +31,12 @@ const ProjectList = ({
             <p>Unable to find any projects.</p>
           </div>
         )}
+
+        { showAll ? (
+          <NavigationLink href="/project">
+            Show All Projects
+          </NavigationLink>
+        ): null }
       </div>
     </Section>
   );

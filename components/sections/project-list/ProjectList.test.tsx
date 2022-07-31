@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { ByRoleOptions, render, screen } from '@testing-library/react';
 import ProjectList from './ProjectList';
 
 import { projectFour, projectOne, projectThree, projectTwo } from '../../../__tests__/examples/projects';
@@ -30,4 +30,24 @@ describe('With projects', () => {
 
 		expect(thumbnails).toHaveLength(4);
 	})
+});
+
+describe('All Projects Link', () => {
+	test('Render the show all projects link', () => {
+		// Arrange
+		render(<ProjectList showAll projects={[
+			projectOne,
+			projectTwo,
+			projectThree,
+			projectFour
+		]} />);
+
+		const linkElement = screen.getByRole('link', {
+			name: 'Show All Projects'
+		});
+
+		// Assert
+		expect(linkElement).toBeInTheDocument();
+		expect(linkElement).toHaveTextContent('Show All Projects');
+	});
 });

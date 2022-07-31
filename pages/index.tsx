@@ -32,7 +32,7 @@ const HomePage: NextPage<HomePageProps> = ({
   return (
     <div>
       <HomeHero />
-      <ProjectList projects={ featuredProjects } />
+      <ProjectList projects={ featuredProjects } showAll />
     </div>
   );
 }

@@ -8,6 +8,7 @@
 @import './layout';
 
 // Components
+// TODO: Eventually move the component styles to the component folders
 
 // - UI
 @import './components/ui/thumbnail';
@@ -21,3 +22,4 @@
 // - Sections
 @import './components/sections/search';
 @import './components/sections/technology-list';
+@import '../components/sections/project-list/ProjectList.styles'

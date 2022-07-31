@@ -16,7 +16,9 @@ const NavigationLink = (props: React.PropsWithChildren<LinkProps>) => {
   
   const onClickHandler = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.preventDefault()
-    uiContext.setHeaderMobileMenu();
+    if(uiContext.isHeaderMobileMenuOpen) {
+      uiContext.setHeaderMobileMenu();
+    }
   };
   
   return (

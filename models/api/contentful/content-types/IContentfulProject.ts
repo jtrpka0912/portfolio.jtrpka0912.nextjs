@@ -16,6 +16,7 @@ export interface IContentfulProject {
   title: Contentful.EntryFields.Text;
   type: Contentful.EntryFields.Text;
   content: Contentful.EntryFields.Text;
+  summary: Contentful.EntryFields.Text;
   startDate: Contentful.EntryFields.Date;
   endDate: Contentful.EntryFields.Date;
   gitRepositories: Contentful.Entry<IContentfulGitRepoLink>[];

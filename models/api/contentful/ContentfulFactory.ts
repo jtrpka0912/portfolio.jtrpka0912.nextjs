@@ -33,6 +33,7 @@ export class ContentfulFactory {
       title: contentfulProject.fields.title,
       slug: contentfulProject.fields.slug,
       content: contentfulProject.fields.content,
+      summary: contentfulProject.fields.summary,
       packages: {
         npm: this.doesExist<IContentfulNpmPackage>(contentfulProject.fields.npmPackages) ?
           contentfulProject.fields.npmPackages.map(

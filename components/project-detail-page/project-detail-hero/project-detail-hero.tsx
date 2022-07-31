@@ -8,7 +8,7 @@ import ProjectDetailSubtitleDate from "./project-detail-subtitle-date";
  * @property { Project } project
  */
 interface ProjectDetailTitleProps {
-    project: IProject
+  project: IProject
 }
 
 /**
@@ -20,18 +20,18 @@ interface ProjectDetailTitleProps {
  * @returns { JSX }
  */
 const ProjectDetailTitle = (props: ProjectDetailTitleProps) => {
-    const { project } = props;
+  const { project } = props;
 
-    return (
-        <section className="hero-title hero is-info">
-            <div className="hero-body">
-                <div className="container">
-                    <h1 className="title is-3">{ project.title }</h1>
-                    <ProjectDetailSubtitleDate dates={ project.date } />
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="hero-title hero is-info">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title is-3">{project.title}</h1>
+          <ProjectDetailSubtitleDate dates={project.date} />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ProjectDetailTitle;

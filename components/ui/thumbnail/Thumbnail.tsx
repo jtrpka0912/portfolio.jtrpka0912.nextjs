@@ -19,15 +19,10 @@ const Thumbnail = ({
   return (
     <div role="link" title={title} className="thumbnail card is-clickable" onClick={onClick}>
       <div className="card-image">
-        <figure style={{
-          width,
-          height
-        }}>
+        <figure style={{ width, height }}>
           <Image 
             src={image.path} 
             alt={image.altText}
-            width={ width }
-            height={ height }
             layout="fill"
             objectFit="cover"
             objectPosition="center center"

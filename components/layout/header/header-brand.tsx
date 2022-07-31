@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NavigationLink from '../../ui/navigation-link/NavigationLink';
 
 import HeaderBurger from './header-burger';
 
@@ -11,9 +11,9 @@ import HeaderBurger from './header-burger';
 const HeaderBrand = () => {
   return (
     <div className="navbar-brand">
-      <Link href="/">
+      <NavigationLink href="/">
         <a className="navbar-item">Portfolio</a>
-      </Link>
+      </NavigationLink>
 
       <HeaderBurger />
     </div>

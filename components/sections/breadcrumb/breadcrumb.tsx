@@ -1,12 +1,10 @@
-// NextJS
-import Link from 'next/link';
-
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 // Components
 import Section from '../../ui/section';
+import NavigationLink from '../../ui/navigation-link/NavigationLink';
 
 /**
  * @type 
@@ -47,9 +45,9 @@ const Breadcrumb = (props: BreadcrumbProps) => {
         <Section>
             <div className="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
                 <ul>
-                    <li><Link href="/">
+                    <li><NavigationLink href="/">
                         <a><FontAwesomeIcon icon={ faHome } className="mr-1" />Home</a>
-                    </Link></li>
+                    </NavigationLink></li>
 
                     { links && links.map((link: BreadcrumbLink, index: number) => {
                         return (
@@ -60,7 +58,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                                 }
                             >
                                 { link.url ? (
-                                    <Link href={ link.url }><a>{ link.text }</a></Link>
+                                    <NavigationLink href={ link.url }><a>{ link.text }</a></NavigationLink>
                                 ) : (
                                     <a href="#">{ link.text }</a>
                                 ) }

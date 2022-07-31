@@ -60,8 +60,8 @@ const ProjectDetailGalleryPanel = (props: ProjectDetailGalleryPanelProps) => {
             <div key={ index } className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
                 <Thumbnail 
                     image={ galleryItem.image }
-                    width={100}
-                    height={100}
+                    width={250}
+                    height={250}
                     onClick={ () => onClickHandler(galleryItem) }
                 />
             </div>

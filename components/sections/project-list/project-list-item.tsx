@@ -41,18 +41,29 @@ const ProjectListItem = (props: ProjectListItemProps) => {
      * @description The column classes for the component.
      * @author J. Trpka
      */
-     const columnClasses: string = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen';
+    const columnClasses: string = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen';
+
+    /**
+     * @constant { number } imageSize
+     * @description The size of the image both width and height
+     * @author J. Trpka
+     */
+    const imageSize = 200;
 
     return (
         <div role="listitem" 
             className={ `project-list-item ${ columnClasses }` }
+            style={{
+                width: imageSize,
+                height: imageSize
+            }}
         >
             <Thumbnail
                 image={ project.thumbnail || { path: '/assets/images/placeholder-thumbnail.png', altText: 'Placeholder Thumbnail Image' } }
                 title={ project.title }
                 onClick={ onClickHandler }
-                width={150}
-                height={150}
+                width={imageSize}
+                height={imageSize}
             />
         </div>
     );

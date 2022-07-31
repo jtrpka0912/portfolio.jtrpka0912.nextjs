@@ -11,11 +11,11 @@ import HomeHero from '../components/home-page/home-hero/home-hero';
  * @returns { JSX }
  */
 const HomePage: NextPage = () => {
-    return (
-        <div>
-            <HomeHero />
-        </div>
-    );
+  return (
+    <div>
+      <HomeHero />
+    </div>
+  );
 }
 
 export default HomePage;

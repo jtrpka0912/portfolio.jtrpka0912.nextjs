@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import { IProject } from "../../../models/IProject";
 import Thumbnail from "../../ui/thumbnail/Thumbnail";
 
@@ -35,7 +36,7 @@ const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) 
         </div>
       )}
       
-      {project.content}
+      <ReactMarkdown>{project.content}</ReactMarkdown>
     </div>
   );
 };

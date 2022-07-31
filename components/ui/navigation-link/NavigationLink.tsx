@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Link, { LinkProps } from 'next/link';
 
 import { UiContext } from '../../context/ui';
@@ -17,3 +17,5 @@ const NavigationLink = (props: React.PropsWithChildren<LinkProps>) => {
     </span>
   );
 };
+
+export default NavigationLink;

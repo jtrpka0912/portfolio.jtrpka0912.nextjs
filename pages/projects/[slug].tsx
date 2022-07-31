@@ -23,6 +23,7 @@ import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory
 import { retrieveProjectBySlug } from "../../api/contentful/projects";
 import { Entry } from "contentful";
 import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
+import Head from "next/head";
 
 /**
  * @interface ProjectDetailPageProps
@@ -49,6 +50,8 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
   if (!project) {
     return (
       <div className="page project-detail">
+        <ProjectDetailPageHead project={ project } />
+
         <ProjectDetailHeroSkeleton />
         <BreadcrumbSkeleton />
         <ProjectDetailMainAreaSkeleton />
@@ -64,18 +67,62 @@ const ProjectDetailPage = (props: ProjectDetailPageProps) => {
    * @author J. Trpka
    */
   const links: BreadcrumbLink[] = [
-    { text: 'Projects', url: '/project' },
-    { text: project.title, url: `/project/${project.slug}` }
+    { text: 'Projects', url: '/projects' },
+    { text: project.title, url: `/projects/${project.slug}` }
   ];
 
   return (
     <div className="page project-detail">
+      <ProjectDetailPageHead project={ project } />
+
       <ProjectDetailHero project={project} />
       <Breadcrumb links={links} />
       <ProjectDetailMainArea project={project} />
       <TechnologyList technologies={project.technology} />
       <ProjectDetailGallery gallery={project.gallery} />
     </div>
+  );
+};
+
+/**
+ * @type
+ * @name ProjectDetailPageHead
+ * @summary Project detail page head area component props
+ * @author J. Trpka
+ * @property { IProject } project
+ */
+type ProjectDetailPageHead = {
+  project: IProject
+}
+
+/**
+ * @function ProjectDetailPageHead
+ * @summary Project Detail Page Head Area
+ * @description A reusable Head area of the project detail page component.
+ * @author J. Trpka
+ * @returns { React.FC }
+ */
+ const ProjectDetailPageHead = ({ project }: ProjectDetailPageProps) => {
+  if(!project) return null;
+  
+  return (
+    <Head>
+      <title>J. Trpka Portfolio - { project.title }</title>
+      <meta name="description" content={ project.summary } />
+      <meta property="og:url" content={ `https://jeremy.trpka.me/project/${project.slug}` } />
+      <meta property="og:description" content={ project.summary } />
+      <meta property="og:type" content="website" />
+
+      { project.thumbnail ? (
+        <React.Fragment>
+          <meta property="og:image:url" content={ project.thumbnail.path } />
+          <meta property="og:image:secure_url" content={ project.thumbnail.path } />
+          <meta property="og:image:alt" content={ project.thumbnail.altText } />
+        </React.Fragment>
+      ) : null }
+
+      <meta property="og:site_name" content="J. Trpka Portfolio" />
+    </Head>
   );
 };
 

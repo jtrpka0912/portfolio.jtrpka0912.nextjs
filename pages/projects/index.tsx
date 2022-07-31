@@ -15,6 +15,7 @@ import { ContentfulFactory } from "../../models/api/contentful/ContentfulFactory
 import { retrieveProjects } from "../../api/contentful/projects";
 import { Entry, EntryCollection } from "contentful";
 import { IContentfulProject } from "../../models/api/contentful/content-types/IContentfulProject";
+import Head from "next/head";
 
 /**
  * @interface ProjectsPageProps
@@ -41,6 +42,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
   if (!projects) {
     return (
       <div className="page projects">
+        <ProjectsPageHead />
         <BreadcrumbSkeleton />
         <ProjectListSkeleton />
       </div>
@@ -53,14 +55,35 @@ const ProjectsPage = (props: ProjectsPageProps) => {
    * @author J. Trpka
    */
   const links: BreadcrumbLink[] = [
-    { text: 'Projects', url: '/project' }
+    { text: 'Projects', url: '/projects' }
   ];
 
   return (
     <div className="page projects">
+      <ProjectsPageHead />
       <Breadcrumb links={links} />
       <ProjectList projects={projects} />
     </div>
+  );
+};
+
+/**
+ * @function ProjectsPageHead
+ * @summary Projects Page Head Area
+ * @description A reusable Head area of the projects page component.
+ * @author J. Trpka
+ * @returns { React.FC }
+ */
+const ProjectsPageHead = () => {
+  return (
+    <Head>
+      <title>J. Trpka Portfolio - Projects</title>
+      <meta name="description" content="Jeremy Lee Trpka complete project listing including personal and (if allowed) professional projects from his job experience." />
+      <meta property="og:url" content="https://jeremy.trpka.me/project" />
+      <meta property="og:description" content="Jeremy Lee Trpka complete project listing including personal and (if allowed) professional projects from his job experience." />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="J. Trpka Portfolio" />
+    </Head>
   );
 };
 

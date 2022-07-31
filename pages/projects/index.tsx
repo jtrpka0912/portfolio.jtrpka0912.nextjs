@@ -55,7 +55,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
    * @author J. Trpka
    */
   const links: BreadcrumbLink[] = [
-    { text: 'Projects', url: '/project' }
+    { text: 'Projects', url: '/projects' }
   ];
 
   return (

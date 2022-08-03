@@ -59,7 +59,7 @@ const ProjectDetailSubtitleDate = (props: ProjectDetailSubtitleDateProps) => {
     }
 
     return (
-        <h3 className="subtitle is-6">
+        <h3 className="subtitle is-6 has-text-dark">
             { startedDate }
             { endedDate ? ` to ${ endedDate }` : null }
         </h3>

@@ -33,7 +33,7 @@ const ProjectListItem = (props: ProjectListItemProps) => {
    * @author J. Trpka
    */
   const onClickHandler = (): void => {
-    router.push(`/project/${project.slug}`);
+    router.push(`/projects/${project.slug}`);
   }
 
   /**

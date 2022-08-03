@@ -2,7 +2,8 @@
 @import './globals.css';
 @import './colors';
 
-// Bulma (Put overrides before Bulma)
+// Bulma
+@import './bulma';
 @import '../node_modules/bulma/bulma.sass';
 
 // Layout

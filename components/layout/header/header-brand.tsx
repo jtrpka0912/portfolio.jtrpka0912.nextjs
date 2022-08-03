@@ -10,7 +10,7 @@ import HeaderBurger from './header-burger';
  */
 const HeaderBrand = () => {
   return (
-    <div className="navbar-brand">
+    <div className="navbar-brand is-align-items-center">
       <NavigationLink href="/">
         <a className="navbar-item">Portfolio</a>
       </NavigationLink>

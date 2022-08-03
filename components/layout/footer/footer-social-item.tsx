@@ -8,7 +8,7 @@ import type { SocialMediaItem } from './footer-social';
  * @property { SocialMediaItem } item
  */
 interface FooterSocialItemProps {
-    item: SocialMediaItem
+  item: SocialMediaItem
 }
 
 /**
@@ -19,15 +19,19 @@ interface FooterSocialItemProps {
  * @returns { JSX }
  */
 const FooterSocialItem = (props: FooterSocialItemProps) => {
-    const { item } = props;
+  const { item } = props;
 
-    return (
-        <li className="footer-social-item is-inline-block" title={ item.title }>
-            <a href={ item.url } target="_blank" rel="noreferrer">
-                <FontAwesomeIcon size="2x" icon={ item.icon } />
-            </a>
-        </li>
-    );
+  return (
+    <li className="footer-social-item is-inline-block" title={item.title}>
+      <a className="has-text-light"
+        href={item.url} 
+        target="_blank" 
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon size="2x" icon={item.icon} />
+      </a>
+    </li>
+  );
 };
 
 export default FooterSocialItem;

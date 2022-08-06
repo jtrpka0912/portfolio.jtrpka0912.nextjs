@@ -7,4 +7,5 @@
  */
 export type SplitContentProps = {
   ariaLabel?: string;
+  children: React.ReactNode;
 }

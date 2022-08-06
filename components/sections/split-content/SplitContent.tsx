@@ -10,11 +10,12 @@ import { SplitContentProps } from "./SplitContent.types";
  * @returns { React.FC }
  */
 const SplitContent: React.FC<SplitContentProps> = ({
-  ariaLabel
+  ariaLabel,
+  children
 }: SplitContentProps) => {
   return (
     <Section ariaLabel={ ariaLabel }>
-      <div>Hello World</div>
+      { children }
     </Section>
   );
 };

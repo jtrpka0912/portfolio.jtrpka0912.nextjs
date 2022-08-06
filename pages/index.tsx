@@ -47,6 +47,7 @@ const HomePage: NextPage<HomePageProps> = ({
         ariaLabel="Introduction of Portfolio"
         image="/assets/images/sample-split-content-image.jpg"
         altText="Nothing so far."
+        flip
       >
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus magna fringilla urna porttitor rhoncus. Malesuada fames ac turpis egestas maecenas. Vel quam elementum pulvinar etiam non quam. Montes nascetur ridiculus mus mauris.</p>
         <p>Ipsum dolor sit amet consectetur adipiscing elit duis tristique. Malesuada fames ac turpis egestas integer eget aliquet. Elementum pulvinar etiam non quam. Ullamcorper dignissim cras tincidunt lobortis. Vitae suscipit tellus mauris a. Morbi blandit cursus risus at ultrices mi.</p>

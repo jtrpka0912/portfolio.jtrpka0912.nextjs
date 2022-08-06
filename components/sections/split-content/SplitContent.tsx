@@ -14,10 +14,14 @@ const SplitContent: React.FC<SplitContentProps> = ({
   ariaLabel,
   image,
   altText,
+  flip = false,
   children
 }: SplitContentProps) => {
   return (
-    <section aria-label={ ariaLabel ?? `A split content section` } className="split-content">
+    <section 
+      aria-label={ ariaLabel ?? `A split content section` } 
+      className={ `split-content${ flip ? ' split-content--flipped' : null }` }
+    >
       <div className="split-content__columns columns is-multiline is-mobile">
         <div className="split-content__text column is-full-mobile is-half-tablet">
           <div className="split-content__text-container">

@@ -1,6 +1,26 @@
 .split-content {
+  &--flipped {
+    .split-content {
+      &__text {
+        @include tablet {
+          order: 1;
+        }
+      }
+
+      &__image {
+        @include tablet {
+          order: 0;
+        }
+      }
+    }
+  }
+
   &__text {
     order: 1; // start at the bottom
+
+    @include tablet {
+      order: 0;
+    }
 
     &-container {
       padding: 0 0.75rem;
@@ -11,7 +31,7 @@
         justify-content: center;
         align-items: center;
 
-        padding: 0.75rem 0;
+        padding: 0.75rem;
       }
     }
 
@@ -22,6 +42,10 @@
 
   &__image {
     order: 0; // start at the top
+
+    @include tablet {
+      order: 1;
+    }
 
     &-container {
       position: relative;

@@ -31,7 +31,14 @@ const SplitContent: React.FC<SplitContentProps> = ({
 
         <div className="split-content__image column is-full-mobile is-half-tablet">
           <div className="split-content__image-container">
-            <Image src={ image } alt={ altText } layout="fill" objectFit="cover" />
+            <Image 
+              src={ image } 
+              placeholder="blur"
+              blurDataURL={ image } 
+              alt={ altText } 
+              layout="fill" 
+              objectFit="cover" 
+            />
           </div>
         </div>
       </div>

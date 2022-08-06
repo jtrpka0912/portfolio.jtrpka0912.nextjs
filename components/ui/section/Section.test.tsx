@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import Section from './Section';
 
@@ -46,6 +46,27 @@ describe('Render the component', () => {
     // Assert
     expect(sectionElement).toHaveStyle('background-color: #000');
   });
+});
 
-  // TODO: I wonder if there is a way to check if a backgroundColor value is a valid value for backgroundColor (JS version of background-color) for the CSSProperties object.
+describe('Aria Label', () => {
+  test('Recognize it as a region with an Aria label', () => {
+    // Arrange
+    render(<Section ariaLabel="Test Section">Hello World</Section>);
+
+    const sectionElement = screen.getByRole('region');
+
+    // Assert
+    expect(sectionElement).toBeInTheDocument();
+    expect(sectionElement).toHaveAccessibleName('Test Section');
+  });
+
+  test('Does not recognize the region with no aria label', () => {
+    // Arrange
+    render(<Section>Hello World</Section>);
+
+    const sectionElement = screen.queryByRole('region');
+
+    // Assert
+    expect(sectionElement).not.toBeInTheDocument();
+  });
 });

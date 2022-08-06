@@ -23,11 +23,9 @@ const SplitContent: React.FC<SplitContentProps> = ({
           { children }
         </div>
 
-        { image && altText ? (
-          <div className="split-content__image">
-            <Image src={ image } alt={ altText } layout="fill" />
-          </div>
-        ) : null }
+        <div className="split-content__image">
+          <Image src={ image } alt={ altText } layout="fill" />
+        </div>
       </div>
     </Section>
   );

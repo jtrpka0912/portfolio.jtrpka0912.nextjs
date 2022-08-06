@@ -4,7 +4,14 @@ import SplitContent from "./SplitContent";
 describe('Render the component', () => {
   test('Render the section', () => {
     // Arrange
-    render(<SplitContent ariaLabel="Split content section">Hello World</SplitContent>);
+    render(
+      <SplitContent 
+        ariaLabel="Split content section"
+        image="/path/to/the/image.jpg"
+        altText="Sample Image"
+      >
+        Hello World
+      </SplitContent>);
 
     const sectionElement = screen.getByRole('region');
 
@@ -17,7 +24,11 @@ describe('Render the component', () => {
 describe('The split content elements', () => {
   test('Add elements to the section', () => {
     // Arrange
-    render(<SplitContent ariaLabel="Split content testing">
+    render(<SplitContent 
+      ariaLabel="Split content testing"
+      image="/path/to/the/image.jpg"
+      altText="Sample Image"
+    >
       <p>This is a triumph!</p>
       <p>A huge success...</p>
     </SplitContent>);
@@ -29,7 +40,7 @@ describe('The split content elements', () => {
     expect(splitElement).toHaveTextContent(/A huge success/i);
   });
 
-  test('Add the optional image', () => {
+  test('Test the image', () => {
     // Arrange
     render(
       <SplitContent 

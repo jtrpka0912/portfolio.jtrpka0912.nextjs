@@ -14,7 +14,7 @@ describe('Render the component', () => {
   });
 });
 
-describe('Children elements', () => {
+describe('The split content elements', () => {
   test('Add elements to the section', () => {
     // Arrange
     render(<SplitContent ariaLabel="Split content testing">
@@ -27,5 +27,28 @@ describe('Children elements', () => {
     // Assert
     expect(splitElement).toBeInTheDocument();
     expect(splitElement).toHaveTextContent(/A huge success/i);
+  });
+
+  test('Add the optional image', () => {
+    // Arrange
+    render(
+      <SplitContent 
+        ariaLabel="Split content testing"
+        image="/path/to/the/image.jpg"
+        altText="Sample Image"
+      >
+        <p>There is cake at the end.</p>
+      </SplitContent>
+    );
+
+    const splitElement = screen.getByRole('region');
+    const imageElement = screen.getByRole('img');
+
+    // Assert
+    expect(splitElement).toBeInTheDocument();
+    expect(splitElement).not.toHaveTextContent('There is no cake at the end.');
+
+    expect(imageElement).toBeInTheDocument();
+    expect(imageElement).toHaveAccessibleName('Sample Image');
   });
 });

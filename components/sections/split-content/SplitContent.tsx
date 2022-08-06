@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import Section from "../../ui/section/Section"
 import { SplitContentProps } from "./SplitContent.types";
@@ -11,6 +12,8 @@ import { SplitContentProps } from "./SplitContent.types";
  */
 const SplitContent: React.FC<SplitContentProps> = ({
   ariaLabel,
+  image,
+  altText,
   children
 }: SplitContentProps) => {
   return (
@@ -19,6 +22,12 @@ const SplitContent: React.FC<SplitContentProps> = ({
         <div className="split-content__text">
           { children }
         </div>
+
+        { image && altText ? (
+          <div className="split-content__image">
+            <Image src={ image } alt={ altText } layout="fill" />
+          </div>
+        ) : null }
       </div>
     </Section>
   );

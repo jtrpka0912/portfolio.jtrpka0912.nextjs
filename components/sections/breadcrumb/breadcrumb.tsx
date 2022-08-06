@@ -16,8 +16,8 @@ import NavigationLink from '../../ui/navigation-link/NavigationLink';
  * @property { string } url The relative url to a page
  */
 export type BreadcrumbLink = {
-    text: string,
-    url?: string
+  text: string,
+  url?: string
 }
 
 /**
@@ -27,7 +27,7 @@ export type BreadcrumbLink = {
  * @property { BreadcrumbLink[] }
  */
 interface BreadcrumbProps {
-    links?: BreadcrumbLink[]
+  links?: BreadcrumbLink[]
 }
 
 /**
@@ -39,36 +39,36 @@ interface BreadcrumbProps {
  * @returns { JSX }
  */
 const Breadcrumb = (props: BreadcrumbProps) => {
-    const { links } = props;
+  const { links } = props;
 
-    return (
-        <Section>
-            <div className="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
-                <ul>
-                    <li><NavigationLink href="/">
-                        <a><FontAwesomeIcon icon={ faHome } className="mr-1" />Home</a>
-                    </NavigationLink></li>
+  return (
+    <Section ariaLabel="Breadcrumb Navigation">
+      <div className="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
+        <ul>
+          <li><NavigationLink href="/">
+            <a><FontAwesomeIcon icon={faHome} className="mr-1" />Home</a>
+          </NavigationLink></li>
 
-                    { links && links.map((link: BreadcrumbLink, index: number) => {
-                        return (
-                            <li key={ index }
-                                className={ (index === links.length - 1) 
-                                    ? `is-active` 
-                                    : undefined 
-                                }
-                            >
-                                { link.url ? (
-                                    <NavigationLink href={ link.url }><a>{ link.text }</a></NavigationLink>
-                                ) : (
-                                    <a href="#">{ link.text }</a>
-                                ) }
-                            </li>
-                        );
-                    }) }
-                </ul>
-            </div>
-        </Section>  
-    );
+          {links && links.map((link: BreadcrumbLink, index: number) => {
+            return (
+              <li key={index}
+                className={(index === links.length - 1)
+                  ? `is-active`
+                  : undefined
+                }
+              >
+                {link.url ? (
+                  <NavigationLink href={link.url}><a>{link.text}</a></NavigationLink>
+                ) : (
+                  <a href="#">{link.text}</a>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </Section>
+  );
 };
 
 export default Breadcrumb;

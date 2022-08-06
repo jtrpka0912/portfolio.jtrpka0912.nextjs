@@ -20,7 +20,7 @@ const ProjectList = ({
   showAll = false
 }: ProjectListProps) => {
   return (
-    <Section>
+    <Section ariaLabel="Project Listing">
       <div className="project-list is-relative">
         {projects.length > 0 ? (
           <div className="project-list__list columns is-mobile is-multiline" role="list">

@@ -1,5 +1,6 @@
 import React from "react";
 import Section from "../../ui/section/Section"
+import { SplitContentProps } from "./SplitContent.types";
 
 /**
  * @function SplitContent
@@ -8,9 +9,11 @@ import Section from "../../ui/section/Section"
  * @author J. Trpka
  * @returns { React.FC }
  */
-const SplitContent = () => {
+const SplitContent: React.FC<SplitContentProps> = ({
+  ariaLabel
+}: SplitContentProps) => {
   return (
-    <Section>
+    <Section ariaLabel={ ariaLabel }>
       <div>Hello World</div>
     </Section>
   );

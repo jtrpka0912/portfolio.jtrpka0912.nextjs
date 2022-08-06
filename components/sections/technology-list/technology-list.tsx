@@ -1,5 +1,5 @@
 import { ITechnology } from "../../../models/ITechnology";
-import Section from "../../ui/section";
+import Section from "../../ui/section/Section";
 import TechnologyListItem from "./technology-list-item";
 
 /**

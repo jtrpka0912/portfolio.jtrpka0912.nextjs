@@ -1,5 +1,5 @@
 import BaseSkeleton from "../../ui/base-skeleton";
-import Section from "../../ui/section";
+import Section from "../../ui/section/Section";
 
 /**
  * @function ProjectListSkeleton

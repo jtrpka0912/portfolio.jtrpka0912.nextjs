@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 // Components
-import Section from '../../ui/section';
+import Section from '../../ui/section/Section';
 import NavigationLink from '../../ui/navigation-link/NavigationLink';
 
 /**

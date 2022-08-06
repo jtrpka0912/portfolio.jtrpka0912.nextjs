@@ -1,4 +1,4 @@
-import Section from "../../ui/section";
+import Section from "../../ui/section/Section";
 
 import ProjectListItem from './project-list-item';
 import { ProjectListProps } from "./ProjectList.types";

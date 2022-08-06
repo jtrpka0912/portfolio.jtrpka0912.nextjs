@@ -1,4 +1,4 @@
-import Section from "../../ui/section";
+import Section from "../../ui/section/Section";
 import ProjectDetailMainAreaContentSkeleton from "./project-detail-main-area-content-skeleton";
 import ProjectDetailMainAreaSidebarSkeleton from "./project-detail-main-area-sidebar-skeleton";
 

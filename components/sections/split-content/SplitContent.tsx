@@ -18,13 +18,13 @@ const SplitContent: React.FC<SplitContentProps> = ({
 }: SplitContentProps) => {
   return (
     <Section ariaLabel={ ariaLabel ?? `A split content section` }>
-      <div className="split-content">
-        <div className="split-content__text">
+      <div className="split-content columns is-multiline is-mobile">
+        <div className="split-content__text column is-full-mobile">
           { children }
         </div>
 
-        <div className="split-content__image">
-          <Image src={ image } alt={ altText } layout="fill" />
+        <div className="split-content__image column is-full-mobile">
+          <Image src={ image } alt={ altText } layout="fill" objectFit="contain" />
         </div>
       </div>
     </Section>

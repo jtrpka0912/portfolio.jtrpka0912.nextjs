@@ -5,6 +5,7 @@ import { retrieveFeaturedProjects } from '../api/contentful/projects';
 
 import HomeHero from '../components/home-page/home-hero/home-hero';
 import ProjectList from '../components/sections/project-list/ProjectList';
+import SplitContent from '../components/sections/split-content/SplitContent';
 import { IContentfulProject } from '../models/api/contentful/content-types/IContentfulProject';
 import { ContentfulFactory } from '../models/api/contentful/ContentfulFactory';
 import { IProject } from '../models/IProject';
@@ -42,6 +43,14 @@ const HomePage: NextPage<HomePageProps> = ({
       </Head>
 
       <HomeHero />
+      <SplitContent 
+        ariaLabel="Introduction of Portfolio"
+        image="/assets/images/sample-split-content-image.jpg"
+        altText="Nothing so far."
+      >
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus magna fringilla urna porttitor rhoncus. Malesuada fames ac turpis egestas maecenas. Vel quam elementum pulvinar etiam non quam. Montes nascetur ridiculus mus mauris.</p>
+        <p>Ipsum dolor sit amet consectetur adipiscing elit duis tristique. Malesuada fames ac turpis egestas integer eget aliquet. Elementum pulvinar etiam non quam. Ullamcorper dignissim cras tincidunt lobortis. Vitae suscipit tellus mauris a. Morbi blandit cursus risus at ultrices mi.</p>
+      </SplitContent>
       <ProjectList projects={ featuredProjects } showAll />
     </div>
   );

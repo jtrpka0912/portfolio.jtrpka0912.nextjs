@@ -20,7 +20,7 @@ const SplitContent: React.FC<SplitContentProps> = ({
   return (
     <section 
       aria-label={ ariaLabel ?? `A split content section` } 
-      className={ `split-content${ flip ? ' split-content--flipped' : null }` }
+      className={ `split-content${ flip ? ' split-content--flipped' : '' }` }
     >
       <div className="split-content__columns columns is-multiline is-mobile">
         <div className="split-content__text column is-full-mobile is-half-tablet">

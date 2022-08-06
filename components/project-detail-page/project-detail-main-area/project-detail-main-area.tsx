@@ -1,5 +1,5 @@
 import { IProject } from "../../../models/IProject";
-import Section from "../../ui/section";
+import Section from "../../ui/section/Section";
 import ProjectDetailMainAreaContent from "./project-detail-main-area-content";
 import ProjectDetailMainAreaSidebar from "./project-detail-main-area-sidebar";
 

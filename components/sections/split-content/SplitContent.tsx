@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "../../ui/section"
+import Section from "../../ui/section/Section"
 
 /**
  * @function SplitContent

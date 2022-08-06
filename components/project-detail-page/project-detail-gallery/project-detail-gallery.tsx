@@ -6,7 +6,7 @@ import { IProjectGallery } from "../../../models/IProject";
 import ProjectDetailGalleryEmpty from './project-detail-gallery-empty';
 import ProjectDetailGalleryTabs from "./project-detail-gallery-tabs";
 import ProjectDetailGalleryPanel from './project-detail-gallery-panel';
-import Section from '../../ui/section';
+import Section from '../../ui/section/Section';
 
 /**
  * @interface ProjectDetailGalleryProps

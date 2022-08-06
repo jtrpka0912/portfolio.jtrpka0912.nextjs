@@ -1,0 +1,16 @@
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    height: 100vh;
+}
+
+.footer {
+    &-social-item {
+        padding: 0 2rem;
+
+        @include mobile {
+            padding: 0 0.75rem;
+        }
+    }
+}

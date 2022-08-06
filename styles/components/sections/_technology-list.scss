@@ -1,0 +1,17 @@
+$technology-item-border: 1px solid #333;
+
+.technology-list {
+    &-item {
+        .media {
+            height: 100%;
+            // Apply a border all around
+            border: $technology-item-border;
+
+            &-left {
+                height: 100%;
+                // Only apply border to the right
+                border-right: $technology-item-border;
+            }
+        }
+    }
+}

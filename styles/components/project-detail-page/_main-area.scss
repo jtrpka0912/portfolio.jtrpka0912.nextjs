@@ -1,0 +1,12 @@
+.main-area {
+    &__thumbnail {
+        width: 100%;
+        max-width: 33%;
+    }
+
+    &__content {
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}

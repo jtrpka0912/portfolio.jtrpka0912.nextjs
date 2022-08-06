@@ -1,0 +1,18 @@
+.search {
+    &__button {
+        @include desktop {
+            float: right;
+        }
+    }
+
+    &__technologies {
+        // Override the Bulma select drop down classes
+        &.select {
+            width: 100%;
+
+            select {
+                width: 100%;
+            }
+        }
+    }
+}

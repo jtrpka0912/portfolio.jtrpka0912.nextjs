@@ -1,0 +1,28 @@
+// Global
+@import './globals.css';
+@import './colors';
+
+// Bulma
+@import './bulma';
+@import '../node_modules/bulma/bulma.sass';
+
+// Layout
+@import './layout';
+
+// Components
+// TODO: Eventually move the component styles to the component folders
+
+// - UI
+@import './components/ui/thumbnail';
+@import './components/ui/sidebar';
+@import './components/ui/skeleton';
+
+// - Project Detail Page
+@import './components/project-detail-page/main-area';
+@import './components/project-detail-page/npm';
+
+// - Sections
+@import './components/sections/search';
+@import './components/sections/technology-list';
+@import '../components/sections/project-list/ProjectList.styles';
+@import '../components/sections/split-content/SplitContent.styles';

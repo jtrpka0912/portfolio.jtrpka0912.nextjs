@@ -1,0 +1,26 @@
+name: Testing with Jest
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+env:
+  PORTFOLIO_API_URL: http://localhost:3000/api
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install NPM packages
+        run: npm install
+      - name: Run Jest and React Testing Library
+        run: npm run jest
+      - name: Build the Web Application
+        run: npm run build

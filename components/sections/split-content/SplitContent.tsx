@@ -17,7 +17,7 @@ const SplitContent: React.FC<SplitContentProps> = ({
   children
 }: SplitContentProps) => {
   return (
-    <Section ariaLabel={ ariaLabel }>
+    <Section ariaLabel={ ariaLabel ?? `A split content section` }>
       <div className="split-content">
         <div className="split-content__text">
           { children }

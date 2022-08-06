@@ -19,6 +19,23 @@ describe('Render the component', () => {
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveAccessibleName('Split content section');
   });
+
+  test('Render the section without aria label', () => {
+    // Arrange
+    render(
+      <SplitContent
+        image="/path/to/the/image.jpg"
+        altText="Sample Image"
+      >
+        Hello World
+      </SplitContent>);
+
+    const sectionElement = screen.getByRole('region');
+
+    // Assert
+    expect(sectionElement).toBeInTheDocument();
+    expect(sectionElement).toHaveAccessibleName('A split content section');
+  })
 });
 
 describe('The split content elements', () => {

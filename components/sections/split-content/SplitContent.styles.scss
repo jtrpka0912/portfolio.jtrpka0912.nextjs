@@ -1,4 +1,7 @@
 .split-content {
+  background-color: $oxfordBlue;
+  color: $ghostWhite;
+
   &--flipped {
     .split-content {
       &__text {
@@ -42,6 +45,8 @@
 
   &__image {
     order: 0; // start at the top
+
+    padding-top: 0;
 
     @include tablet {
       order: 1;

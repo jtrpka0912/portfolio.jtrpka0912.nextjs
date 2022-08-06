@@ -17,17 +17,21 @@ const SplitContent: React.FC<SplitContentProps> = ({
   children
 }: SplitContentProps) => {
   return (
-    <Section ariaLabel={ ariaLabel ?? `A split content section` }>
-      <div className="split-content columns is-multiline is-mobile">
-        <div className="split-content__text column is-full-mobile">
-          { children }
+    <section aria-label={ ariaLabel ?? `A split content section` } className="split-content">
+      <div className="split-content__columns columns is-multiline is-mobile">
+        <div className="split-content__text column is-full">
+          <div className="split-content__text-container">
+            { children }
+          </div>
         </div>
 
-        <div className="split-content__image column is-full-mobile">
-          <Image src={ image } alt={ altText } layout="fill" objectFit="contain" />
+        <div className="split-content__image column is-full">
+          <div className="split-content__image-container">
+            <Image src={ image } alt={ altText } layout="fill" objectFit="cover" />
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 };
 

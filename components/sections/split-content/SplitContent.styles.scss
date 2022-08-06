@@ -1,3 +1,23 @@
 .split-content {
-  
+  &__text {
+    order: 1; // start at the bottom
+
+    &-container {
+      padding: 0 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__image {
+    order: 0; // start at the top
+
+    &-container {
+      position: relative;
+      width: 100%;
+      height: 250px;
+    }
+  }
 }

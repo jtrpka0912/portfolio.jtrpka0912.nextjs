@@ -47,12 +47,20 @@ const HomePage: NextPage<HomePageProps> = ({
         ariaLabel="Introduction of Portfolio"
         image="/assets/images/sample-split-content-image.jpg"
         altText="Nothing so far."
-        flip
       >
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus magna fringilla urna porttitor rhoncus. Malesuada fames ac turpis egestas maecenas. Vel quam elementum pulvinar etiam non quam. Montes nascetur ridiculus mus mauris.</p>
-        <p>Ipsum dolor sit amet consectetur adipiscing elit duis tristique. Malesuada fames ac turpis egestas integer eget aliquet. Elementum pulvinar etiam non quam. Ullamcorper dignissim cras tincidunt lobortis. Vitae suscipit tellus mauris a. Morbi blandit cursus risus at ultrices mi.</p>
+        <p>Hello, my name is Jeremy Trpka as you might had guessed from my domain name. I am a full-stack developer with around 10 years of experience. My previous experience had been a PHP programming developing WordPress websites by creating themes by scratch and developing extra features for the admin dashboard. Nowadays, I might consider myself a polyglot developer, and like to work with various technologies. Lately, the focus has been React development with some various backends like Node and Spring.</p>
+
+        
       </SplitContent>
       <ProjectList projects={ featuredProjects } showAll />
+      <SplitContent 
+        ariaLabel="Job and Personal Hobby"
+        image="/assets/images/sample-split-content-image.jpg"
+        altText="Nothing so far."
+        flip
+      >
+        <p>Currently, I work as a technical consultant for a major company across the world. There are times being that polyglot or a generalist does serve well, and I do like to expand my knowledge with different languages and frameworks. Besides working full-time as a developer in a consultant environment; this is also my hobby and you can check out some of my current works in my portfolio. Enjoy!</p>
+      </SplitContent>
     </div>
   );
 }

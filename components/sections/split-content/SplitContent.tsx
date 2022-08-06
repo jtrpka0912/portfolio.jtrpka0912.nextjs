@@ -22,23 +22,25 @@ const SplitContent: React.FC<SplitContentProps> = ({
       aria-label={ ariaLabel ?? `A split content section` } 
       className={ `split-content${ flip ? ' split-content--flipped' : '' }` }
     >
-      <div className="split-content__columns columns is-multiline is-mobile">
-        <div className="split-content__text column is-full-mobile is-half-tablet">
-          <div className="split-content__text-container">
-            { children }
+      <div className="container is-widescreen">
+        <div className="split-content__columns columns is-multiline is-mobile">
+          <div className="split-content__text column is-full-mobile is-half-tablet">
+            <div className="split-content__text-container">
+              { children }
+            </div>
           </div>
-        </div>
 
-        <div className="split-content__image column is-full-mobile is-half-tablet">
-          <div className="split-content__image-container">
-            <Image 
-              src={ image } 
-              placeholder="blur"
-              blurDataURL={ image } 
-              alt={ altText } 
-              layout="fill" 
-              objectFit="cover" 
-            />
+          <div className="split-content__image column is-full-mobile is-half-tablet">
+            <div className="split-content__image-container">
+              <Image 
+                src={ image } 
+                placeholder="blur"
+                blurDataURL={ image } 
+                alt={ altText } 
+                layout="fill" 
+                objectFit="cover" 
+              />
+            </div>
           </div>
         </div>
       </div>

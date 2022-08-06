@@ -19,13 +19,13 @@ const SplitContent: React.FC<SplitContentProps> = ({
   return (
     <section aria-label={ ariaLabel ?? `A split content section` } className="split-content">
       <div className="split-content__columns columns is-multiline is-mobile">
-        <div className="split-content__text column is-full">
+        <div className="split-content__text column is-full-mobile is-half-tablet">
           <div className="split-content__text-container">
             { children }
           </div>
         </div>
 
-        <div className="split-content__image column is-full">
+        <div className="split-content__image column is-full-mobile is-half-tablet">
           <div className="split-content__image-container">
             <Image src={ image } alt={ altText } layout="fill" objectFit="cover" />
           </div>

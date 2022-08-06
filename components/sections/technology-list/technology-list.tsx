@@ -24,7 +24,7 @@ const TechnologyList = (props: TechnologyListProps) => {
   const { technologies } = props;
 
   return (
-    <Section title="Technologies Used">
+    <Section ariaLabel="Technology Listing" title="Technologies Used">
       <div className="technology-list">
         {technologies.length > 0 ?
           (

@@ -11,6 +11,7 @@ import UiContextProvider from '../components/context/ui';
 import ImageModal from '../components/modals/image-modal';
 
 import * as gtag from '../helpers/api/google-analytics';
+import Head from 'next/head';
 
 /**
  * @function MyApp
@@ -58,6 +59,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           `,
         }}
       />
+
+      <Head>
+        <meta name="viewport" content= "width=device-width, initial-scale=1.0" />
+      </Head>
       
       <UiContextProvider>
         <Layout>

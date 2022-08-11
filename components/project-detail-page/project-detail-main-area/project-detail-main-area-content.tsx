@@ -29,7 +29,7 @@ const ProjectDetailMainAreaContent = (props: ProjectDetailMainAreaContentProps) 
         <div className="main-area__thumbnail pr-4 is-pulled-left">
           <Thumbnail
             image={ project.thumbnail }
-            onClick={ () => console.log(project) }
+            onClick={ () => console.log('Coming Soon') }
             width={150}
             height={150}
           />

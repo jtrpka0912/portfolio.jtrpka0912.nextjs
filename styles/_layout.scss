@@ -1,16 +1,21 @@
-.layout {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+body {
+  // NOTE: https://stackoverflow.com/questions/49642824/bulma-columns-mobile-overflowing-body
+  overflow-x: hidden;
+}
 
-    height: 100vh;
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  height: 100vh;
 }
 
 .footer {
-    &-social-item {
-        padding: 0 2rem;
+  &-social-item {
+    padding: 0 2rem;
 
-        @include mobile {
-            padding: 0 0.75rem;
-        }
+    @include mobile {
+      padding: 0 0.75rem;
     }
+  }
 }

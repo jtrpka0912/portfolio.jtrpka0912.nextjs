@@ -1,4 +1,5 @@
 .split-content {
+  overflow: hidden; // TODO: Band-aide fix...
   background-color: $oxfordBlue;
   color: $ghostWhite;
 
@@ -46,7 +47,7 @@
   &__image {
     order: 0; // start at the top
 
-    padding-top: 0;
+    padding: 0;
 
     @include tablet {
       order: 1;

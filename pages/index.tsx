@@ -48,7 +48,7 @@ const HomePage: NextPage<HomePageProps> = ({
         image="/assets/images/homepage/detroit-skyline.jpg"
         altText="Photo of the Detroit skyline from across the shoreline. Photo by Anon from Pexels."
       >
-        <p>Hello, my name is Jeremy Trpka, as you might had guessed from my domain name. I am a full-stack developer, currently residing in the Detroit area, with around 10 years of experience. My previous experience had been a PHP programming developing WordPress websites by creating themes by scratch and developing extra features for the admin dashboard. Nowadays, I might consider myself a polyglot developer, and like to work with various technologies. Lately, the focus has been React development with some various backends like Node and Spring.</p>
+        <p>Hello, my name is Jeremy Trpka, as you might had guessed from my domain name. I am a full-stack developer, currently residing in the Detroit area, with around 10 years of experience. My previous experience had been a PHP programming developing WordPress websites by creating themes by scratch and developing extra features for the admin dashboard. Nowadays, I might consider myself a polyglot developer, and like to work with various technologies. Lately, my focus with hobby projects is working in the .NET ecosystem.</p>
       </SplitContent>
 
       <ProjectList projects={ featuredProjects } showAll />
@@ -59,7 +59,7 @@ const HomePage: NextPage<HomePageProps> = ({
         altText="A group of people with laptops sitting around a wooden table. Photo by fauxels from Pexels."
         flip
       >
-        <p>Currently, I work as a technical consultant for a major company across the world. There are times being that polyglot or a generalist does serve well, and I do like to expand my knowledge with different languages and frameworks. Besides working full-time as a developer in a consultant environment; this is also my hobby and you can check out some of my current works in my portfolio. Enjoy!</p>
+        <p>I mainly like to work as a Full-Stack Developer as I enjoy working on both front-end and back-end work. Though I do tend to focus a little more on the front-end development, I really do not mind delving into the back-end code making API with the MVC (model view controller) pattern with different frameworks from different languages. Please enjoy this simple, but detailed portfolio.</p>
       </SplitContent>
     </div>
   );

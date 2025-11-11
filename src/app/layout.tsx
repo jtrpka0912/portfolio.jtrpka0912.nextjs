@@ -1,5 +1,7 @@
 import '../sass/global.scss';
+
 import type { Metadata } from "next";
+import { Provider } from '@/components/nextjs/ui/provider'
 
 /**
  * @type {RootLayoutProps}
@@ -36,9 +38,9 @@ export const metadata: Metadata = {
  */
 const RootLayout = ({ children }: RootLayoutProps): React.ReactNode => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src/sass')]
+  },
+  experimental: {
+    optimizePackageImports: ['@chakra-ui/react']
   }
 };
 

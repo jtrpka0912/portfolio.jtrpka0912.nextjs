@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading } from '@chakra-ui/react';
 
 /**
  * @function Home
@@ -14,6 +14,6 @@ const Home = (): React.ReactNode => {
       <Heading>Hello World</Heading>
     </div>
   );
-}
+};
 
 export default Home;

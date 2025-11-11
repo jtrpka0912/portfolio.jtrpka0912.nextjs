@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prettier": "npx prettier . --write",
+    "prettier-check": "npx prettier . --check"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.29.0",
@@ -23,9 +25,9 @@
     "@chromatic-com/storybook": "^4.1.2",
     "@storybook/addon-a11y": "^10.0.7",
     "@storybook/addon-docs": "^10.0.7",
+    "@storybook/addon-themes": "^10.0.7",
     "@storybook/addon-vitest": "^10.0.7",
     "@storybook/nextjs-vite": "^10.0.7",
-    "@storybook/addon-themes": "^10.0.7",
     "@types/node": "^20",
     "@types/react": "^19.2.3",
     "@types/react-dom": "^19",
@@ -34,8 +36,10 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-storybook": "^10.0.7",
     "playwright": "^1.56.1",
+    "prettier": "3.6.2",
     "sass": "^1.94.0",
     "storybook": "^10.0.7",
     "typescript": "^5",

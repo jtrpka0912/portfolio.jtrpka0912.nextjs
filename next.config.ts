@@ -1,14 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 import * as path from 'path';
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
   sassOptions: {
-    includePaths: [path.join(process.cwd(), 'src/sass')]
+    includePaths: [path.join(process.cwd(), 'src/sass')],
   },
   experimental: {
-    optimizePackageImports: ['@chakra-ui/react']
-  }
+    optimizePackageImports: ['@chakra-ui/react'],
+  },
 };
 
 export default nextConfig;

@@ -1,3 +1,4 @@
+import '../sass/global.scss';
 import type { Metadata } from "next";
 
 /**

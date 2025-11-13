@@ -1,4 +1,7 @@
-import { Box, Heading } from "@chakra-ui/react"
+import { Box, Link as ChakraLink } from "@chakra-ui/react"
+import { faHouse } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 /**
  * @function MainHeader
@@ -10,7 +13,16 @@ import { Box, Heading } from "@chakra-ui/react"
 const MainHeader = () => {
     return (
         <Box as="header" backgroundColor="teal.muted" p="2">
-            <Heading as="h1">Hello, World!</Heading>
+            <ChakraLink asChild>
+                <Link href="/">
+                    <FontAwesomeIcon
+                        icon={faHouse}
+                        size="lg"
+                        widthAuto
+                        aria-label="Return to Home Page"
+                    />
+                </Link>
+            </ChakraLink>
         </Box>
     );
 };

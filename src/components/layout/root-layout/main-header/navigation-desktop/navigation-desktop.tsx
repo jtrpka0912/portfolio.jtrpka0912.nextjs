@@ -10,7 +10,7 @@ import { List } from "@chakra-ui/react";
  */
 const NavigationDesktop = (): React.ReactNode => {
   return (
-    <List.Root variant="plain" colorPalette="blue">
+    <List.Root hideBelow="lg" variant="plain" colorPalette="blue">
       <List.Item>
         <PortfolioLink color="blue.subtle" href="/">Home</PortfolioLink>
       </List.Item>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import NavigationMobile from './navigation-mobile/navigation-mobile';
 import NavigationDesktop from './navigation-desktop/navigation-desktop';
+import { MainHeaderNavigationLink } from './main-header.types';
 
 /**
  * @function MainHeader
@@ -14,6 +15,10 @@ import NavigationDesktop from './navigation-desktop/navigation-desktop';
  * @returns { React.ReactNode }
  */
 const MainHeader = (): React.ReactNode => {
+  const navigationLinks: MainHeaderNavigationLink[] = [
+    { id: 'home', href: '/', children: 'Home' }
+  ];
+
   return (
     <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" alignItems="center" py="2" px="3">
       <ChakraLink asChild color="blue.subtle">

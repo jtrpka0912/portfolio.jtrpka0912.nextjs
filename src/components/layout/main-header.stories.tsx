@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import MainHeader from './main-header';
+import MainHeaderComponent from './main-header';
 
 const meta = {
-  component: MainHeader,
-  title: 'Portfolio/Layout/Main Header',
-} satisfies Meta<typeof MainHeader>;
+    component: MainHeaderComponent,
+    title: 'Portfolio/Layout/Main Header',
+} satisfies Meta<typeof MainHeaderComponent>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const PrimaryMainHeader: Story = {};
+export const MainHeader: Story = {};

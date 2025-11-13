@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import MainHeaderNavigationMobileComponent from './navigation-mobile';
+import NavigationMobileComponent from './navigation-mobile';
 
 const meta = {
-    component: MainHeaderNavigationMobileComponent,
+    component: NavigationMobileComponent,
     title: 'Portfolio/Layout/Main Header/Navigation Mobile'
-} satisfies Meta<typeof MainHeaderNavigationMobileComponent>;
+} satisfies Meta<typeof NavigationMobileComponent>;
 
 export default meta;
 

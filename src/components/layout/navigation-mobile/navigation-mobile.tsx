@@ -1,28 +1,37 @@
-import { Button, Link as ChakraLink, Menu } from '@chakra-ui/react';
-import { faBars, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { Box, Link as ChakraLink, IconButton, Menu } from '@chakra-ui/react';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-const MainHeaderNavigationMobile = () => {
+/**
+ * @function MainHeaderNavigationMobile
+ * @summary Navigation Component for Main Header on Mobile Screens
+ * @description A simple drop-down menu that has navigation links for the portfolio website. This is only for small screens.
+ * @author J. Trpka <jtrpka0912@gmail.com>
+ * @returns {React.ReactNode}
+ */
+const NavigationMobile = () => {
 	return (
-		<Menu.Root>
-			<Menu.Trigger asChild>
-				<Button variant="outline" size="lg">
-					<FontAwesomeIcon icon={faBars} />
-				</Button>
-			</Menu.Trigger>
+		<Box hideFrom="lg">
+			<Menu.Root>
+				<Menu.Trigger asChild>
+					<IconButton variant="outline" size="lg" colorPalette="blue" color="blue.subtle" _hover={{ color: 'blue.solid' }}>
+						<FontAwesomeIcon icon={faBars} />
+					</IconButton>
+				</Menu.Trigger>
 
-			<Menu.Positioner>
-				<Menu.Content>
-					<Menu.Item asChild value="link-to-home">
-						<ChakraLink asChild>
-							<Link href="/">Home</Link>
-						</ChakraLink>
-					</Menu.Item>
-				</Menu.Content>
-			</Menu.Positioner>
-		</Menu.Root>
+				<Menu.Positioner>
+					<Menu.Content>
+						<Menu.Item asChild value="link-to-home">
+							<ChakraLink asChild>
+								<Link href="/">Home</Link>
+							</ChakraLink>
+						</Menu.Item>
+					</Menu.Content>
+				</Menu.Positioner>
+			</Menu.Root>
+		</Box>
 	);
 };
 
-export default MainHeaderNavigationMobile;
+export default NavigationMobile;

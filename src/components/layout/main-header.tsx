@@ -1,8 +1,9 @@
-import { Link as ChakraLink, Flex } from '@chakra-ui/react';
+import { Link as ChakraLink, Flex, Icon } from '@chakra-ui/react';
 import { faHouse } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
+import NavigationMobile from './navigation-mobile/navigation-mobile';
 
 /**
  * @function MainHeader
@@ -13,14 +14,19 @@ import React from 'react';
  */
 const MainHeader = () => {
   return (
-    <Flex as="header" direction="row" justify="space-between" backgroundColor="teal.muted" p="2">
-      <ChakraLink asChild>
+    <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" py="2" px="3">
+      <ChakraLink asChild color="blue.subtle">
         <Link href="/">
-          <FontAwesomeIcon icon={faHouse} size="lg" widthAuto aria-label="Return to Home Page" />
+          <Icon color="blue.subtle">
+            <FontAwesomeIcon icon={faHouse} size="lg" widthAuto aria-label="Return to Home Page" />
+          </Icon>
+
         </Link>
       </ChakraLink>
 
-      <React.Fragment></React.Fragment>
+      <React.Fragment>
+        <NavigationMobile />
+      </React.Fragment>
     </Flex>
   );
 };

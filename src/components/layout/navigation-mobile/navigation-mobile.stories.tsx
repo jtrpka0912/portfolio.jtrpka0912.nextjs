@@ -4,7 +4,7 @@ import NavigationMobileComponent from './navigation-mobile';
 
 const meta = {
     component: NavigationMobileComponent,
-    title: 'Portfolio/Layout/Main Header/Navigation Mobile'
+    title: 'Portfolio/Layout/Main Header/Navigation - Mobile'
 } satisfies Meta<typeof NavigationMobileComponent>;
 
 export default meta;

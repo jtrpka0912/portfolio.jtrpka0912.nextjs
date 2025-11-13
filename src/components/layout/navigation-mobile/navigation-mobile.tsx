@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 /**
  * @function NavigationMobile
- * @summary Navigation Component for Main Header for Mobile Screens
+ * @summary Navigation Component for the Main Header on Mobile Screens
  * @description A simple drop-down menu that has navigation links for the portfolio website. This is only for small screens.
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns {React.ReactNode}
  */
-const NavigationMobile = () => {
+const NavigationMobile = (): React.ReactNode => {
 	return (
 		<Box hideFrom="lg">
 			<Menu.Root>

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
 import NavigationMobile from './navigation-mobile/navigation-mobile';
+import NavigationDesktop from './navigation-desktop/navigation-desktop';
 
 /**
  * @function MainHeader
@@ -12,7 +13,7 @@ import NavigationMobile from './navigation-mobile/navigation-mobile';
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns { React.ReactNode }
  */
-const MainHeader = () => {
+const MainHeader = (): React.ReactNode => {
   return (
     <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" py="2" px="3">
       <ChakraLink asChild color="blue.subtle">
@@ -25,6 +26,7 @@ const MainHeader = () => {
       </ChakraLink>
 
       <React.Fragment>
+        <NavigationDesktop />
         <NavigationMobile />
       </React.Fragment>
     </Flex>

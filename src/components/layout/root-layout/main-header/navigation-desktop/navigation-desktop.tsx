@@ -3,7 +3,7 @@ import { List } from "@chakra-ui/react";
 
 /**
  * @function NavigationDesktop
- * @summary Navigation Component for the Main Header on Desktop Screens
+ * @summary Navigation Component for the Root Header on Desktop Screens
  * @description A simple horizontal list of navigation links for the portfolio website. This is only for large screens.
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns {React.ReactNode}

@@ -4,7 +4,7 @@ import NavigationDesktopComponent from './navigation-desktop';
 
 const meta = {
   component: NavigationDesktopComponent,
-  title: 'Portfolio/Layout/Main Header/Navigation - Desktop'
+  title: 'Portfolio/Layout/Root Layout/Root Header/Navigation - Desktop'
 } satisfies Meta<typeof NavigationDesktopComponent>;
 
 export default meta;

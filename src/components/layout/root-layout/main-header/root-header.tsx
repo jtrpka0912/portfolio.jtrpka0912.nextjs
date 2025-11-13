@@ -5,17 +5,17 @@ import Link from 'next/link';
 import React from 'react';
 import NavigationMobile from './navigation-mobile/navigation-mobile';
 import NavigationDesktop from './navigation-desktop/navigation-desktop';
-import { MainHeaderNavigationLink } from './main-header.types';
+import { RootHeaderNavigationLink } from './root-header.types';
 
 /**
- * @function MainHeader
- * @summary Main Header Component
- * @description The main header for the NextJS root layout
+ * @function RootHeader
+ * @summary Root Header Component
+ * @description The header for the NextJS root layout
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns { React.ReactNode }
  */
-const MainHeader = (): React.ReactNode => {
-  const navigationLinks: MainHeaderNavigationLink[] = [
+const RootHeader = (): React.ReactNode => {
+  const navigationLinks: RootHeaderNavigationLink[] = [
     { id: 'home', href: '/', children: 'Home' }
   ];
 
@@ -38,4 +38,4 @@ const MainHeader = (): React.ReactNode => {
   );
 };
 
-export default MainHeader;
+export default RootHeader;

@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 /**
- * @function MainHeaderNavigationMobile
- * @summary Navigation Component for Main Header on Mobile Screens
+ * @function NavigationMobile
+ * @summary Navigation Component for Main Header for Mobile Screens
  * @description A simple drop-down menu that has navigation links for the portfolio website. This is only for small screens.
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns {React.ReactNode}

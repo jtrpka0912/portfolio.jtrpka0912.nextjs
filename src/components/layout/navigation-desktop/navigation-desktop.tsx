@@ -1,3 +1,6 @@
+import PortfolioLink from "@/components/common/portfolio-link/portfolio-link";
+import { List } from "@chakra-ui/react";
+
 /**
  * @function NavigationDesktop
  * @summary Navigation Component for the Main Header on Desktop Screens
@@ -7,7 +10,11 @@
  */
 const NavigationDesktop = (): React.ReactNode => {
   return (
-    <p>Hello, World!</p>
+    <List.Root variant="plain" colorPalette="blue">
+      <List.Item>
+        <PortfolioLink color="blue.subtle" href="/">Home</PortfolioLink>
+      </List.Item>
+    </List.Root>
   );
 };
 

@@ -15,7 +15,7 @@ import NavigationDesktop from './navigation-desktop/navigation-desktop';
  */
 const MainHeader = (): React.ReactNode => {
   return (
-    <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" py="2" px="3">
+    <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" alignItems="center" py="2" px="3">
       <ChakraLink asChild color="blue.subtle">
         <Link href="/">
           <Icon color="blue.subtle">

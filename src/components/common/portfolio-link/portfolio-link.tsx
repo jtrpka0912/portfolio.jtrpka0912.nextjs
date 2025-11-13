@@ -11,10 +11,11 @@ import NextJSLink from "next/link";
  */
 const PortfolioLink = ({
   href,
-  children
+  children,
+  ...chakraui
 }: PortfolioLinkProps): React.ReactNode => {
   return (
-    <ChakraLink asChild>
+    <ChakraLink asChild {...chakraui}>
       <NextJSLink href={href}>{children}</NextJSLink>
     </ChakraLink>
   );

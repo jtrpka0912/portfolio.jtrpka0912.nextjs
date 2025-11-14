@@ -14,7 +14,6 @@ import { Tooltip } from "@/components/nextjs/ui/tooltip";
  * @returns {React.ReactNode}
  */
 const RootFooter = (): React.ReactNode => {
-
   /**
    * @const {RootFooterSocialNetworkIconLink[]} socialNetworkLinks
    * @summary Array of Professional Social Network Links + Email
@@ -36,7 +35,7 @@ const RootFooter = (): React.ReactNode => {
             <Tooltip key={link.id} showArrow content={link.label}>
               <PortfolioLink href={link.href} title={link.label} aria-label={link.label}>
                 <Icon colorPalette="blue" color="blue.subtle">
-                  <FontAwesomeIcon icon={link.icon} aria-label={link.label} />
+                  <FontAwesomeIcon icon={link.icon} size="2xl" aria-label={link.label} />
                 </Icon>
               </PortfolioLink>
             </Tooltip>

@@ -15,7 +15,6 @@ import PortfolioLink from '@/components/common/portfolio-link/portfolio-link';
  * @returns { React.ReactNode }
  */
 const RootHeader = (): React.ReactNode => {
-
   /**
    * @const {RootHeaderNavigationLink[]} navigationLinks
    * @summary Array of Navigation Links
@@ -29,7 +28,7 @@ const RootHeader = (): React.ReactNode => {
     <Flex as="header" colorPalette="blue" bgColor="blue.solid" direction="row" justify="space-between" alignItems="center" py="2" px="3">
       <PortfolioLink href="/">
         <Icon color="blue.subtle">
-          <FontAwesomeIcon icon={faHouse} aria-label="Return to Home Page" />
+          <FontAwesomeIcon icon={faHouse} size="lg" aria-label="Return to Home Page" />
         </Icon>
       </PortfolioLink>
 

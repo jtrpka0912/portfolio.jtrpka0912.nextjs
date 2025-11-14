@@ -1,12 +1,10 @@
 import RootLayout from '@/components/layout/root-layout/root-layout';
-import contentful from '@/services/contentful';
 import { Heading } from '@chakra-ui/react';
 
 /**
  * @function Home
  * @summary Home page component
- * @description The home page component
- * @description This will likely be removed once I start creating pages in the page directory
+ * @description The home page component.
  * @author NextJS
  * @returns {React.ReactNode}
  */

@@ -1,4 +1,3 @@
-import '../sass/global.scss'; // NOTE: I wonder if I even need SASS with the styling props with Chakra.
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import type { Metadata } from 'next';

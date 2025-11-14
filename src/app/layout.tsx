@@ -44,11 +44,7 @@ const RootLayout = ({ children }: RootLayoutProps): React.ReactNode => {
     <html lang="en" suppressHydrationWarning>
       <body>
         <Provider enableColorScheme enableSystem={false}>
-          <RootHeader />
-          <main>
-            {children}
-          </main>
-          <RootFooter />
+          {children}
         </Provider>
       </body>
     </html>

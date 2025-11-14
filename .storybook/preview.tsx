@@ -1,6 +1,6 @@
 import '../src/sass/global.scss';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import type { Preview } from '@storybook/nextjs-vite';
+import type { Preview } from '@storybook/nextjs';
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
 
 const preview: Preview = {

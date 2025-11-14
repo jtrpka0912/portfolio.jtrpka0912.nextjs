@@ -13,10 +13,10 @@ This is the second iteration of my Portfolio built with NextJS and Chakra UI.
 - [Storybook](https://storybook.js.org/docs)
 - [Storybook with NextJS](https://storybook.js.org/docs/get-started/frameworks/nextjs?renderer=react)
 
-### SASS (deprecating)
+### Contentful
 
-- [SASS with NextJS](https://nextjs.org/docs/app/guides/sass)
-- [SASS with Storybook](https://storybook.js.org/docs/get-started/frameworks/nextjs?renderer=react#sassscss)
+- [Contentful](https://www.contentful.com/developers/)
+- [Contentful with NextJS](https://www.contentful.com/developers/docs/tools/vercel/vercel-nextjs/vercel-nextjs-toolkit/)
 
 ### Chakra UI
 

@@ -15,6 +15,12 @@ import { RootHeaderNavigationLink } from './root-header.types';
  * @returns { React.ReactNode }
  */
 const RootHeader = (): React.ReactNode => {
+
+  /**
+   * @const {RootHeaderNavigationLink[]} navigationLinks
+   * @summary Array of Navigation Links
+   * @author J.Trpka<jtrpka0912@gmail.com>
+   */
   const navigationLinks: RootHeaderNavigationLink[] = [
     { id: 'home', href: '/', children: 'Home' }
   ];
@@ -31,8 +37,8 @@ const RootHeader = (): React.ReactNode => {
       </ChakraLink>
 
       <React.Fragment>
-        <NavigationDesktop />
-        <NavigationMobile />
+        <NavigationDesktop links={navigationLinks} />
+        <NavigationMobile links={navigationLinks} />
       </React.Fragment>
     </Flex>
   );

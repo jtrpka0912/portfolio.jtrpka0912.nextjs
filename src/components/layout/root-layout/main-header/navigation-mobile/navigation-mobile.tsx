@@ -2,6 +2,8 @@ import { Box, Link as ChakraLink, IconButton, Menu } from '@chakra-ui/react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { RootHeaderNavigationLink, RootHeaderNavigationProps } from '../root-header.types';
+import PortfolioLink from '@/components/common/portfolio-link/portfolio-link';
 
 /**
  * @function NavigationMobile
@@ -10,7 +12,9 @@ import Link from 'next/link';
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns {React.ReactNode}
  */
-const NavigationMobile = (): React.ReactNode => {
+const NavigationMobile = ({
+	links
+}: RootHeaderNavigationProps): React.ReactNode => {
 	return (
 		<Box hideFrom="lg">
 			<Menu.Root>
@@ -22,11 +26,13 @@ const NavigationMobile = (): React.ReactNode => {
 
 				<Menu.Positioner>
 					<Menu.Content>
-						<Menu.Item asChild value="link-to-home">
-							<ChakraLink asChild>
-								<Link href="/">Home</Link>
-							</ChakraLink>
-						</Menu.Item>
+						{links.map((link: RootHeaderNavigationLink) => {
+							return (
+								<Menu.Item asChild key={link.id} value={link.id}>
+									<PortfolioLink href={link.href}>{link.children}</PortfolioLink>
+								</Menu.Item>
+							);
+						})}
 					</Menu.Content>
 				</Menu.Positioner>
 			</Menu.Root>

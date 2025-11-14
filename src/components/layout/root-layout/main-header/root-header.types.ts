@@ -12,3 +12,14 @@ export type RootHeaderNavigationLink = {
   href: string;
   children: React.ReactNode;
 };
+
+/**
+ * @type {RootHeaderNavigationProps}
+ * @summary Root Header Navigation Component Props
+ * @description Props for the two versions of the navigation components (mobile, desktop).
+ * @author J.Trpka<jtrpka0912@gmail.com>
+ * @prop {RootHeaderNavigationLink[]} links - The navigation links
+ */
+export type RootHeaderNavigationProps = {
+  links: RootHeaderNavigationLink[];
+};

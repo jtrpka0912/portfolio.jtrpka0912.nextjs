@@ -1,5 +1,6 @@
 import PortfolioLink from "@/components/common/portfolio-link/portfolio-link";
-import { List } from "@chakra-ui/react";
+import { Flex, List } from "@chakra-ui/react";
+import { RootHeaderNavigationLink, RootHeaderNavigationProps } from "../root-header.types";
 
 /**
  * @function NavigationDesktop
@@ -8,13 +9,18 @@ import { List } from "@chakra-ui/react";
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @returns {React.ReactNode}
  */
-const NavigationDesktop = (): React.ReactNode => {
+const NavigationDesktop = ({
+  links
+}: RootHeaderNavigationProps): React.ReactNode => {
   return (
-    <List.Root hideBelow="lg" variant="plain" colorPalette="blue">
-      <List.Item>
-        <PortfolioLink color="blue.subtle" href="/">Home</PortfolioLink>
-      </List.Item>
-    </List.Root>
+    <Flex direction="row-reverse" gap="3">
+      {links.map((link: RootHeaderNavigationLink) => {
+        return (
+          <PortfolioLink key={link.id} color="blue.subtle" href={link.href}>{link.children}</PortfolioLink>
+        );
+      })}
+    </Flex>
+
   );
 };
 

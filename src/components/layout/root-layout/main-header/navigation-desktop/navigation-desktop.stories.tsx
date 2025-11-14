@@ -12,6 +12,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NavigationDesktop: Story = {
+  args: {
+    links: [
+      { id: 'home', href: "/", children: 'Home' },
+      { id: 'DuckDuckGo', href: 'https://www.duckduckgo.com', children: 'DuckDuckGo' }
+    ]
+  },
   decorators: [
     (Story) => {
       return (

@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Center } from "@chakra-ui/react"
 
 /**
  * @function RootFooter
@@ -9,10 +9,10 @@ import { Box } from "@chakra-ui/react"
  */
 const RootFooter = (): React.ReactNode => {
   return (
-    <Box as="footer">
+    <Center as="footer" colorPalette="blue" bgColor="blue.solid" py="10" color="blue.subtle">
       <p>Hello, World!</p>
-    </Box>
+    </Center>
   );
 };
 
-export default RootFooter
+export default RootFooter;

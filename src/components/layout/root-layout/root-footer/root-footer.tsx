@@ -4,6 +4,7 @@ import { faFacebook, faGithub, faLinkedinIn, faXing, faXTwitter } from "@fortawe
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import PortfolioLink from "@/components/common/portfolio-link/portfolio-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Tooltip } from "@/components/nextjs/ui/tooltip";
 
 /**
  * @function RootFooter
@@ -32,11 +33,13 @@ const RootFooter = (): React.ReactNode => {
       <Flex direction={{ lgDown: 'column', lg: 'row' }} gap="5">
         {socialNetworkLinks.map((link: RootFooterSocialNetworkIconLink) => {
           return (
-            <PortfolioLink key={link.id} href={link.href} title={link.label} aria-label={link.label}>
-              <Icon size="2xl" colorPalette="blue" color="blue.subtle">
-                <FontAwesomeIcon icon={link.icon} size="2xl" />
-              </Icon>
-            </PortfolioLink>
+            <Tooltip key={link.id} showArrow content={link.label}>
+              <PortfolioLink href={link.href} title={link.label} aria-label={link.label}>
+                <Icon size="2xl" colorPalette="blue" color="blue.subtle">
+                  <FontAwesomeIcon icon={link.icon} size="2xl" />
+                </Icon>
+              </PortfolioLink>
+            </Tooltip>
           );
         })}
       </Flex>

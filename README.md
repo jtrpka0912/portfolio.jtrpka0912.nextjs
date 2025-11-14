@@ -14,3 +14,5 @@ This is the second iteration of my Portfolio built with NextJS and Chakra UI.
 - [Chakra UI with Storybook](https://www.chakra-ui.com/docs/get-started/frameworks/storybook)
 - [Prettier](https://prettier.io/docs/)
 - [Prettier with NextJS](https://nextjs.org/docs/pages/api-reference/config/eslint#with-prettier)
+- [Font Awesome](https://fontawesome.com/)
+- [Font Awesome with React](https://docs.fontawesome.com/web/use-with/react)

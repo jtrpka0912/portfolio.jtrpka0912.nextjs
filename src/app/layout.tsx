@@ -2,6 +2,8 @@ import '../sass/global.scss';
 
 import type { Metadata } from 'next';
 import { Provider } from '@/components/nextjs/ui/provider';
+import RootHeader from '@/components/layout/root-layout/root-header/root-header';
+import RootFooter from '@/components/layout/root-layout/root-footer/root-footer';
 
 /**
  * @type {RootLayoutProps}
@@ -40,7 +42,13 @@ const RootLayout = ({ children }: RootLayoutProps): React.ReactNode => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <RootHeader />
+          <main>
+            {children}
+          </main>
+          <RootFooter />
+        </Provider>
       </body>
     </html>
   );

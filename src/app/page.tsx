@@ -1,3 +1,5 @@
+import RootLayout from '@/components/layout/root-layout/root-layout';
+import contentful from '@/services/contentful';
 import { Heading } from '@chakra-ui/react';
 
 /**
@@ -10,9 +12,9 @@ import { Heading } from '@chakra-ui/react';
  */
 const Home = (): React.ReactNode => {
   return (
-    <div>
+    <RootLayout>
       <Heading>Hello World</Heading>
-    </div>
+    </RootLayout>
   );
 };
 

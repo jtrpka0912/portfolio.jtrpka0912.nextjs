@@ -3,24 +3,22 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import type { Metadata } from 'next';
 import { Provider } from '@/components/nextjs/ui/provider';
-import RootHeader from '@/components/layout/root-layout/root-header/root-header';
-import RootFooter from '@/components/layout/root-layout/root-footer/root-footer';
 
 /**
- * @type {RootLayoutProps}
- * @summary Root layout component props
+ * @type {NextJSRootLayoutProps}
+ * @summary NextJS root layout component props
  * @description The type definition for the root layout component
  * @author J. Trpka <jtrpka0912@gmail.com>
  * @prop {React.ReactNode} children
  */
-type RootLayoutProps = {
+type NextJSRootLayoutProps = {
   children: React.ReactNode;
 };
 
 /**
  * @constant {Metadata} metadata
  * @summary HTML Metadata
- * @description Metadata object for the root layout
+ * @description Metadata object for the NextJS Root Layout
  * @link https://nextjs.org/docs/app/getting-started/metadata-and-og-images#static-metadata
  * @author J. trpka <jtrpka0912@gmail.com>
  */
@@ -30,16 +28,16 @@ export const metadata: Metadata = {
 };
 
 /**
- * @function RootLayout
- * @summary Next.JS Root Layout Component
- * @description The main document layout for the NextJS application
+ * @function NextJSRootLayout
+ * @summary NextJS Root Layout Component
+ * @description The NextJS app router root layout.
  * @link https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout
  * @link https://nextjs.org/docs/app/getting-started/project-structure
  * @author J. Trpka <jtrpka0912@gmail.com>
- * @param {RootLayoutProps} props
+ * @param {NextJSRootLayoutProps} props
  * @returns {React.ReactNode}
  */
-const RootLayout = ({ children }: RootLayoutProps): React.ReactNode => {
+const NextJSRootLayout = ({ children }: NextJSRootLayoutProps): React.ReactNode => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
@@ -51,4 +49,4 @@ const RootLayout = ({ children }: RootLayoutProps): React.ReactNode => {
   );
 };
 
-export default RootLayout;
+export default NextJSRootLayout;

@@ -13,7 +13,7 @@ const NavigationDesktop = ({
   links
 }: RootHeaderNavigationProps): React.ReactNode => {
   return (
-    <Flex direction="row-reverse" gap="3">
+    <Flex hideBelow="lg" direction="row-reverse" gap="3">
       {links.map((link: RootHeaderNavigationLink) => {
         return (
           <PortfolioLink key={link.id} color="blue.subtle" href={link.href}>{link.children}</PortfolioLink>

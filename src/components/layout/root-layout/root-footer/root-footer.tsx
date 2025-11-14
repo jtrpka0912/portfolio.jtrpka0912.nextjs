@@ -35,8 +35,8 @@ const RootFooter = (): React.ReactNode => {
           return (
             <Tooltip key={link.id} showArrow content={link.label}>
               <PortfolioLink href={link.href} title={link.label} aria-label={link.label}>
-                <Icon size="2xl" colorPalette="blue" color="blue.subtle">
-                  <FontAwesomeIcon icon={link.icon} size="2xl" />
+                <Icon colorPalette="blue" color="blue.subtle">
+                  <FontAwesomeIcon icon={link.icon} aria-label={link.label} />
                 </Icon>
               </PortfolioLink>
             </Tooltip>

@@ -18,7 +18,7 @@ const ProjectCard = ({
   return (
     <Card.Root>
       <Card.Header>
-        <Card.Title>Hello, World!</Card.Title>
+        <Card.Title>{name}</Card.Title>
       </Card.Header>
     </Card.Root>
   );

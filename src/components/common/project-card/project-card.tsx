@@ -1,4 +1,6 @@
-import { Card, Heading } from "@chakra-ui/react";
+import { Card } from "@chakra-ui/react";
+import React from "react";
+import { ProjectCardProps } from "./project-card.types";
 
 /**
  * @function ProjectCard
@@ -7,7 +9,12 @@ import { Card, Heading } from "@chakra-ui/react";
  * @author J. Trpka<jtrpka0912@gmail.com>
  * @returns {React.ReactNode}
  */
-const ProjectCard = (): React.ReactNode => {
+const ProjectCard = ({
+  id,
+  name,
+  thumbnail,
+  featuredTechnologies
+}: ProjectCardProps): React.ReactNode => {
   return (
     <Card.Root>
       <Card.Header>

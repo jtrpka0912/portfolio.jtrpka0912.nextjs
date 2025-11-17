@@ -5,7 +5,14 @@ import { ProjectCardFeaturedTechnology, ProjectCardProps } from './project-card.
 
 const meta = {
   component: ProjectCardComponent,
-  title: 'Portfolio/Common/Project Card'
+  title: 'Portfolio/Common/Project Card',
+  decorators: [
+    (Story) => (
+      <div style={{ width: '300px' }}>
+        <Story />
+      </div>
+    )
+  ]
 } satisfies Meta<typeof ProjectCardComponent>;
 
 export default meta;

@@ -4,7 +4,7 @@ import PortfolioLinkComponent from './portfolio-link';
 
 const meta = {
   component: PortfolioLinkComponent,
-  title: 'Portfolio/Common/Portfolio Link'
+  title: 'Portfolio/Common/Utilities/Portfolio Link'
 } satisfies Meta<typeof PortfolioLinkComponent>;
 
 export default meta;

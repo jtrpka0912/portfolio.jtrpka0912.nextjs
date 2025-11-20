@@ -26,24 +26,21 @@ const ProjectCard = ({
   altThumbnail = `${name} Thumbnail`,
   featuredTechnologies
 }: ProjectCardProps): React.ReactNode => {
-  /**
-   * @const {string} justifyTechnologiesStyle
-   * @summary Justify items styling for Technologies Thumbnail Overlay
-   * @description Adjust the flow of the technology thumbnails depending on the number of items
-   * @author J. Trpka<jtrpka0912@gmail.com>
-   */
-  const justifyTechnologiesStyle = featuredTechnologies.length > 4 ? 'space-between' : 'flex-start';
+
+  const technologyThumbnailSize: number = 35;
 
   return (
-    <Card.Root w="300px">
+    <Card.Root w="300px" size="sm" variant="elevated">
       <Card.Header>
         <Card.Title>{name}</Card.Title>
       </Card.Header>
 
       <Box position="relative" height="250px">
         <PortfolioImage src={thumbnail} alt={altThumbnail} fill />
+      </Box>
 
-        <Flex position="absolute" bottom="2" zIndex="10" gap="2" width="100%" px="2" opacity={0.9} justify={justifyTechnologiesStyle}>
+      <Card.Body>
+        <Flex as="section" gap="3" width="100%" p="2" justify="center">
           {featuredTechnologies
             .slice(0, 5) // Only show up to 5 technologies
             .map((technology) => {
@@ -51,12 +48,12 @@ const ProjectCard = ({
 
               return (
                 <PortfolioLink key={technology.name} href={technology.url} target="_blank">
-                  <PortfolioImage src={logo} alt={`Logo of ${technology.name}`} width={50} height={50} display="inline-block" borderColor="black" borderWidth="1px" borderStyle="solid" shadow="lg" shadowColor="black" />
+                  <PortfolioImage src={logo} alt={`Logo of ${technology.name}`} width={technologyThumbnailSize} height={technologyThumbnailSize} display="inline-block" borderColor="black" borderWidth="1px" borderStyle="solid" shadow="lg" shadowColor="black" />
                 </PortfolioLink>
               );
             })}
         </Flex>
-      </Box>
+      </Card.Body>
     </Card.Root>
   );
 };

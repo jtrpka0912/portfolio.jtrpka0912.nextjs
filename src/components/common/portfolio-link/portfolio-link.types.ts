@@ -1,4 +1,4 @@
-import { LinkProps } from '@chakra-ui/react';
+import type { LinkProps } from '@chakra-ui/react';
 
 /**
  * @type {PortfolioLinkProps}

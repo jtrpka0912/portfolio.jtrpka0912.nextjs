@@ -3,6 +3,7 @@ import React from "react";
 import { ProjectCardProps } from "./project-card.types";
 import PortfolioImage from "../portfolio-image/portfolio-image";
 import PortfolioLink from "../portfolio-link/portfolio-link";
+import { Tooltip } from "@/components/nextjs/ui/tooltip";
 
 /**
  * @const {string} PLACEHOLDER_PATH
@@ -48,7 +49,9 @@ const ProjectCard = ({
 
               return (
                 <PortfolioLink key={technology.name} href={technology.url} target="_blank">
-                  <PortfolioImage src={logo} alt={`Logo of ${technology.name}`} width={technologyThumbnailSize} height={technologyThumbnailSize} display="inline-block" borderColor="black" borderWidth="1px" borderStyle="solid" shadow="lg" shadowColor="black" />
+                  <Tooltip content={technology.name}>
+                    <PortfolioImage src={logo} alt={`Logo of ${technology.name}`} width={technologyThumbnailSize} height={technologyThumbnailSize} display="inline-block" borderColor="black" borderWidth="1px" borderStyle="solid" shadow="lg" shadowColor="black" />
+                  </Tooltip>
                 </PortfolioLink>
               );
             })}

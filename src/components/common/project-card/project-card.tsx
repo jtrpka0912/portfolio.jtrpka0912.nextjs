@@ -25,6 +25,7 @@ const ProjectCard = ({
   name,
   thumbnail = PLACEHOLDER_PATH,
   altThumbnail = `${name} Thumbnail`,
+  inDevelopment,
   featuredTechnologies
 }: ProjectCardProps): React.ReactNode => {
 

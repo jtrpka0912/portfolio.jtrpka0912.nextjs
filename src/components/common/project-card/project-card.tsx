@@ -22,10 +22,11 @@ const ProjectCard = ({
     <Card.Root>
       <Card.Header>
         <Card.Title>{name}</Card.Title>
-        <Box position="relative" height="250px">
-          <PortfolioImage src={thumbnail} alt={altThumbnail} fill />
-        </Box>
       </Card.Header>
+
+      <Box position="relative" height="250px">
+        <PortfolioImage src={thumbnail} alt={altThumbnail} fill />
+      </Box>
     </Card.Root>
   );
 };

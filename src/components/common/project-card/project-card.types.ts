@@ -1,5 +1,3 @@
-import type { StaticImageData } from 'next/image';
-
 /**
  * @type {ProjectCardProps}
  * @summary Project Card Component Props

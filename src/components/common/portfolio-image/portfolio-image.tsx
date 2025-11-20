@@ -17,7 +17,7 @@ const PortfolioImage = ({
   alt,
   width,
   height,
-  fill = false, // Enforce the developer if image should fill
+  fill = false, // Enforce the developer if the image should fill
   ...chakraUI
 }: PortfolioImageProps) => {
   return (

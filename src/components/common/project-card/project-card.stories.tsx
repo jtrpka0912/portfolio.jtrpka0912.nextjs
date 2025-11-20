@@ -90,6 +90,7 @@ const PROJECT_CARD_PROPS_WITH_TECHNOLOGIES: ProjectCardProps = {
   id: 'something-something',
   name: 'New Portfolio Project',
   thumbnail: 'https://images.ctfassets.net/1ea5gpr70vv1/3Oo0gL52cTeq6TVmhy6Ob1/b84e2286fee2262f325a2e35299d5305/portfolio-thumbnail.png',
+  inDevelopment: true,
   featuredTechnologies: [
     REACT_TECHNOLOGY,
     NEXTJS_TECHNOLOGY,
@@ -106,6 +107,7 @@ const PROJECT_CARD_PROPS_WITH_NO_THUMBNAIL: ProjectCardProps = {
   id: 'something-something',
   name: 'Developing Project',
   thumbnail: undefined,
+  inDevelopment: true,
   featuredTechnologies: [
     JAVASCRIPT_TECHNOLOGY,
     TYPESCRIPT_TECHNOLOGY
@@ -114,13 +116,14 @@ const PROJECT_CARD_PROPS_WITH_NO_THUMBNAIL: ProjectCardProps = {
 
 /**
  * @const {ProjectCardProps} PROJECT_CARD_PROPS_WITH_TOO_MANY_TECHNOLOGIES
- * @description An example of a card with too many technologies.
+ * @description An example of a card with too many technologies and is no longer in development.
  * @author J. Trpka<jtrpka0912@gmail.com>
  */
 const PROJECT_CARD_PROPS_WITH_TOO_MANY_TECHNOLOGIES: ProjectCardProps = {
   id: 'something-something',
   name: 'Overloaded Project',
   thumbnail: 'https://images.ctfassets.net/1ea5gpr70vv1/etEmLWXWUDqIIJ5NjiJYr/c9f35e7f554c24cd5a2a8abcc5fc726e/thumbnail.png',
+  inDevelopment: false,
   featuredTechnologies: [
     JAVASCRIPT_TECHNOLOGY,
     TYPESCRIPT_TECHNOLOGY,
@@ -148,7 +151,6 @@ export const ProjectCardWithIgnoredTechnologies: Story = {
         <p style={{
           paddingTop: '1rem',
           fontStyle: 'italic',
-          textAlign: 'center'
         }}>There are {PROJECT_CARD_PROPS_WITH_TOO_MANY_TECHNOLOGIES.featuredTechnologies.length} technologies which only five are going to show.</p>
       </div>
     )

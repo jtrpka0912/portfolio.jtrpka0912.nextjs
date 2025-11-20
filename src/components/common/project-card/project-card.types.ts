@@ -9,6 +9,7 @@
  * @default thumbnail - Static Image Placeholder
  * @prop {string} altThumbnail - The alt text for the project thumbnail
  * @default altThumbnail - {Project Name} Thumbnail
+ * @prop {boolean} inDevelopment - Is the project still being developed
  * @prop {ProjectCardFeaturedTechnology[]} featuredTechnologies - A list of one to five technologies (six or more will be ignored) that was used to build the project.
  */
 export type ProjectCardProps = {
@@ -16,6 +17,7 @@ export type ProjectCardProps = {
   name: string;
   thumbnail?: string;
   altThumbnail?: string;
+  inDevelopment: boolean;
   featuredTechnologies: ProjectCardFeaturedTechnology[];
 };
 

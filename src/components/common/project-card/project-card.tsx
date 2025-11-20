@@ -1,4 +1,4 @@
-import { Box, Card, Flex } from "@chakra-ui/react";
+import { Box, Card, Flex, Tag } from "@chakra-ui/react";
 import React from "react";
 import { ProjectCardProps } from "./project-card.types";
 import PortfolioImage from "../portfolio-image/portfolio-image";
@@ -32,7 +32,15 @@ const ProjectCard = ({
   const technologyThumbnailSize: number = 35;
 
   return (
-    <Card.Root w="300px" size="sm" variant="elevated">
+    <Card.Root w="300px" size="sm" variant="elevated" position="relative">
+      {inDevelopment ? (
+        <Tooltip content="This project is currently in development.">
+          <Tag.Root position="absolute" top="1.5" right="1.5">
+            <Tag.Label textTransform="uppercase">Dev</Tag.Label>
+          </Tag.Root>
+        </Tooltip>
+      ) : null}
+
       <Card.Header>
         <Card.Title>{name}</Card.Title>
       </Card.Header>

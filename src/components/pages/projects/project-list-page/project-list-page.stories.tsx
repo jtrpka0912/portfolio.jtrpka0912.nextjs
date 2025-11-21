@@ -4,7 +4,7 @@ import ProjectListPageComponent from './project-list-page';
 
 const meta = {
   component: ProjectListPageComponent,
-  title: 'Portfolio/Page/ProjectList'
+  title: 'Portfolio/Page/Projects/Project List'
 } satisfies Meta<typeof ProjectListPageComponent>;
 
 export default meta;

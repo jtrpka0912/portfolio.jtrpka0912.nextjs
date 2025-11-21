@@ -1,5 +1,4 @@
 import type { ProjectCardProps } from '@/components/common/project-card/project-card.types';
-import { TypeProject } from '@/models/contentful/generated';
 
 /**
  * @type {ProjectListPageProps}

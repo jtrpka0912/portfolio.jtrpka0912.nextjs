@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import ProjectListPageComponent from './page';
+import ProjectListPageComponent from './project-list-page';
 
 const meta = {
   component: ProjectListPageComponent,
@@ -11,4 +11,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const ProjectListPage: Story = {};
+export const EmptyProjectListPage: Story = {
+  args: { projects: [] }
+};

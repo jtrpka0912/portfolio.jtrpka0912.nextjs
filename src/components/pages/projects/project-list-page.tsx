@@ -1,6 +1,7 @@
 import RootLayout from "@/components/layout/root-layout/root-layout";
 import { Heading } from "@chakra-ui/react";
 import React from "react";
+import { ProjectListPageProps } from "./project-list-page.types";
 
 /**
  * @function ProjectListPage
@@ -9,7 +10,9 @@ import React from "react";
  * @author J. Trpka<jtrpka0912@gmail.com>
  * @returns {React.ReactNode}
  */
-const ProjectListPage = (): React.ReactNode => {
+const ProjectListPage = ({
+  projects
+}: ProjectListPageProps): React.ReactNode => {
   return (
     <RootLayout>
       <Heading as="h1">Projects</Heading>

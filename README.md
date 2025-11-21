@@ -2,6 +2,32 @@
 
 This is the second iteration of my Portfolio built with NextJS and Chakra UI.
 
+## Commands
+
+### Contentful
+
+To generate the Contentful content types from the Portfolio space run the following commands:
+
+- `npm run export-contentful` This will create a Contentful export file from Contentful CLI named `contentful-export.json` using a config file.
+- `npm run generate-contentful-types` This uses the `cf-content-types-generator` package to generate _TypeScript_ `types` and `interfaces` in the `src/modes/contentful/generated` directory
+
+These files are ignored and should not be commited to a Git repository.
+
+#### Contentful Export Config File
+
+You will need to create a config file for the Contentful CLI exporter.
+
+```json
+// contentful-export-config.json
+
+{
+  // Retrieve the space id from `contentful space list`
+  "space-id": "id of space",
+  // Retrieve the environment id from `contentful space environment list`
+  "environment-id": "id of environment"
+}
+```
+
 ## References
 
 ### Main Framework
@@ -17,6 +43,11 @@ This is the second iteration of my Portfolio built with NextJS and Chakra UI.
 
 - [Contentful](https://www.contentful.com/developers/)
 - [Contentful with NextJS](https://www.contentful.com/developers/docs/tools/vercel/vercel-nextjs/vercel-nextjs-toolkit/)
+
+#### Contentful CLI
+
+- [Contentful CLI](https://github.com/contentful/contentful-cli)
+- [CF Content Types Generator CLI](https://github.com/contentful-userland/cf-content-types-generator)
 
 ### Chakra UI
 

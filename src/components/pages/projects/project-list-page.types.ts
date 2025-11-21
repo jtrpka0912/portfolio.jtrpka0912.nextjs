@@ -1,3 +1,5 @@
+import { TypeProject } from '@/models/contentful';
+
 /**
  * @type {ProjectListPageProps}
  * @summary Project List Page Component Props
@@ -6,5 +8,5 @@
  * @prop {object[]} projects - An array of projects
  */
 export type ProjectListPageProps = {
-  projects: object[];
+  projects: TypeProject[];
 };

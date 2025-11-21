@@ -21,7 +21,7 @@ const RootHeader = (): React.ReactNode => {
    * @author J.Trpka<jtrpka0912@gmail.com>
    */
   const navigationLinks: RootHeaderNavigationLink[] = [
-    { id: 'home', href: '/', children: 'Home' }
+    { id: 'project-list', href: '/projects', children: 'Projects' }
   ];
 
   return (

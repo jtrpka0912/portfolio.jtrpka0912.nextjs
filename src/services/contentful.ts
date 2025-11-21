@@ -32,6 +32,6 @@ const retrieveAccessToken = (): string => {
 export default contentful.createClient({
   space: retrieveSpaceID(),
   accessToken: retrieveAccessToken(),
-  environment: env.CONTENTFUL_ENVIRONMENT ?? 'master',
+  environment: env.CONTENTFUL_ENVIRONMENT ? env.CONTENTFUL_ENVIRONMENT : 'master',
   host: env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
 });

@@ -1,3 +1,5 @@
+'use client'
+
 import PortfolioLink from "@/components/common/portfolio-link/portfolio-link";
 import { Flex, List } from "@chakra-ui/react";
 import { RootHeaderNavigationLink, RootHeaderNavigationProps } from "../root-header.types";

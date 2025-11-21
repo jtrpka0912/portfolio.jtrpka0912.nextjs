@@ -1,3 +1,5 @@
+'use client'
+
 import { Image as ChakraImage } from "@chakra-ui/react"
 import NextImage from "next/image";
 import { PortfolioImageProps } from "./portfolio-image.types";

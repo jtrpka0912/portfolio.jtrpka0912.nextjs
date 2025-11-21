@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Card, Flex, Tag } from "@chakra-ui/react";
 import React from "react";
 import { ProjectCardProps } from "./project-card.types";

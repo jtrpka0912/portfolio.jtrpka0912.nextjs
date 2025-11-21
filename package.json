@@ -12,7 +12,7 @@
     "prettier": "npx prettier . --write",
     "prettier-check": "npx prettier . --check",
     "export-contentful": "contentful space export --content-file=contentful-export.json --config=contentful-export-config.json",
-    "generate-contentful-types": "cf-content-types-generator ./contentful-export.json -o ./src/models/contentful/generated"
+    "generate-contentful-types": "cf-content-types-generator ./contentful-export.json -o ./src/models/contentful/generated --v10"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.29.0",

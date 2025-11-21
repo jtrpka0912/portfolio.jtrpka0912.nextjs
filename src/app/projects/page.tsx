@@ -1,4 +1,6 @@
-import ProjectListPage from "@/components/pages/projects/project-list-page";
+import ProjectListPage from "@/components/pages/projects/project-list-page/project-list-page";
+import { TypeProject, TypeProjectSkeleton } from "@/models/contentful/generated";
+import contentful from "@/services/contentful";
 
 /**
  * @function ProjectListPageRenderer
@@ -8,6 +10,10 @@ import ProjectListPage from "@/components/pages/projects/project-list-page";
  * @returns {React.ReactNode}
  */
 const ProjectListPageRenderer = async (): Promise<React.ReactNode> => {
+  const contentfulProjects = await contentful.getEntries<TypeProjectSkeleton>();
+
+  console.info(contentfulProjects);
+
   return (
     <ProjectListPage projects={[]} />
   );

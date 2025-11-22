@@ -1,9 +1,11 @@
 'use client'
 
 import RootLayout from "@/components/layout/root-layout/root-layout";
-import { Heading } from "@chakra-ui/react";
+import { Center, EmptyState, Grid, Heading, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
 import { ProjectListPageProps } from "./project-list-page.types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * @function ProjectListPage
@@ -17,7 +19,36 @@ const ProjectListPage = ({
 }: ProjectListPageProps): React.ReactNode => {
   return (
     <RootLayout>
-      <Heading as="h1">Projects</Heading>
+      {projects.length > 0 ? (
+        <React.Fragment>
+          <Heading as="h1">Projects</Heading>
+
+          <Grid templateColumns="repeat(3 1fr)">
+
+          </Grid>
+        </React.Fragment>
+      ) : (
+        <Center>
+          <EmptyState.Root>
+            <EmptyState.Content gap="4">
+              <EmptyState.Indicator>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </EmptyState.Indicator>
+
+              <EmptyState.Title>
+                <Heading>No Projects Found</Heading>
+              </EmptyState.Title>
+
+              <EmptyState.Description textAlign="center">
+                <Text mb="1">There are no projects found in my portfolio.</Text>
+                <Text>This is likely an error and I suggest to contact me to troubleshoot the problem.</Text>
+              </EmptyState.Description>
+            </EmptyState.Content>
+          </EmptyState.Root>
+        </Center>
+      )}
+
+
     </RootLayout>
   );
 };

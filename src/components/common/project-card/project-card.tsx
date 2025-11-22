@@ -23,7 +23,7 @@ const PLACEHOLDER_PATH: string = '/assets/images/placeholder-thumbnail.png';
  * @returns {React.ReactNode}
  */
 const ProjectCard = ({
-  id,
+  slug,
   name,
   thumbnail = PLACEHOLDER_PATH,
   altThumbnail = `${name} Thumbnail`,

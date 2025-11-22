@@ -9,6 +9,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@chakra-ui/react'],
   },
+  images: {
+    remotePatterns: [
+      // Contentful Image Repo
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

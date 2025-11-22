@@ -7,9 +7,8 @@ import { ProjectListPageProps } from "./project-list-page.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import ProjectCard from "@/components/common/project-card/project-card";
-import { TypeProject, TypeProjectSkeleton, TypeTechnologySkeleton } from "@/models/contentful/generated";
-import { ChainModifiers, Entry } from "contentful";
-import { Type } from "typescript";
+import { TypeProjectSkeleton, TypeTechnologySkeleton } from "@/models/contentful/generated";
+import { Entry } from "contentful";
 import { ProjectCardFeaturedTechnology } from "@/components/common/project-card/project-card.types";
 
 /**
@@ -59,23 +58,28 @@ const ProjectListPage = ({
           <Heading as="h1">Projects</Heading>
 
           <Grid templateColumns="repeat(4, 1fr)">
-            {projects.map((project) => {
+            {projects.map((project: Entry<TypeProjectSkeleton>) => {
               const technologies: Entry<TypeTechnologySkeleton>[] = project.fields.technologies !== undefined ?
                 project.fields.technologies as Entry<TypeTechnologySkeleton>[] : [];
 
               return (
                 <ProjectCard
-                  name={project.fields.title as string}
-                  slug={project.fields.slug as string}
-                  inDevelopment={project.fields.inDevelopment as boolean}
+                  key={project.fields.slug}
+                  name={project.fields.title}
+                  slug={project.fields.slug}
+                  inDevelopment={project.fields.inDevelopment}
                   featuredTechnologies={
                     technologies
                       .slice(0, 5)
                       .map((technology: Entry<TypeTechnologySkeleton>) => {
                         const featuredTechnology: ProjectCardFeaturedTechnology = {
                           name: technology.fields.name as string,
-                          url: technology.fields.url as string
+                          url: technology.fields.url as string,
+                          // BUGFIX: The "fields" for logo DOES exist but the Contentful typing is broke.
+                          // Its suggested to use `withoutUnresolvableLinks`, but no difference.
+                          logo: technology.fields.logo ? `https:${technology.fields.logo.fields.file.url}` : undefined
                         }
+
                         return featuredTechnology;
                       })
                   }

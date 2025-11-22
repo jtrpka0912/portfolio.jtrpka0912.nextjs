@@ -39,4 +39,4 @@ export default contentful.createClient({
   accessToken: retrieveAccessToken(),
   environment: env.CONTENTFUL_ENVIRONMENT ? env.CONTENTFUL_ENVIRONMENT : 'master',
   host: env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
-});
+}).withoutUnresolvableLinks; // <-- This doesn't seem to fix AssetLink typing.

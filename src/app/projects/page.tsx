@@ -12,7 +12,6 @@ import { EntryCollection } from "contentful";
  */
 const ProjectListPageRenderer = async (): Promise<React.ReactNode> => {
   const contentfulProjects: EntryCollection<TypeProjectSkeleton> = await contentful
-    .withoutUnresolvableLinks
     .getEntries<TypeProjectSkeleton>({
       content_type: 'project'
     });

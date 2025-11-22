@@ -27,7 +27,7 @@ export type ProjectCardProps = {
  * @description Data of the featured technologies used to build the project
  * @author J. Trpka<jtrpka0912@gmail.com>
  * @prop {string} name - Name of the technology
- * @prop {string} logo - URL of the technology logo
+ * @prop {string|undefined} logo - URL of the technology logo
  * @default logo - Static Image Placeholder
  * @prop {string} url - URL to the technology website
  */

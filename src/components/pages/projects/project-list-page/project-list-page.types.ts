@@ -1,5 +1,4 @@
-import type { ProjectCardProps } from '@/components/common/project-card/project-card.types';
-import { TypeProject, TypeProjectSkeleton } from '@/models/contentful/generated';
+import { TypeProjectSkeleton } from '@/models/contentful/generated';
 import { Entry } from 'contentful';
 
 /**

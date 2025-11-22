@@ -29,6 +29,11 @@ const retrieveAccessToken = (): string => {
   return env.CONTENTFUL_CONTENT_API_KEY;
 };
 
+/**
+ * @summary Contentful Client
+ * @description Create the Contentful Client via the JavaScript SDK.
+ * @author J. Trpka<jtrpka0912@gmail.com>
+ */
 export default contentful.createClient({
   space: retrieveSpaceID(),
   accessToken: retrieveAccessToken(),

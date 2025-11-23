@@ -1,7 +1,4 @@
 import ProjectListPage from "@/components/pages/projects/project-list-page/project-list-page";
-import { TypeProjectSkeleton } from "@/models/contentful/generated";
-import contentful from "@/services/contentful-client";
-import { EntryCollection } from "contentful";
 
 /**
  * @function ProjectListPageRenderer
@@ -11,13 +8,8 @@ import { EntryCollection } from "contentful";
  * @returns {React.ReactNode}
  */
 const ProjectListPageRenderer = async (): Promise<React.ReactNode> => {
-  const contentfulProjects: EntryCollection<TypeProjectSkeleton> = await contentful
-    .getEntries<TypeProjectSkeleton>({
-      content_type: 'project'
-    });
-
   return (
-    <ProjectListPage projects={contentfulProjects.items} />
+    <ProjectListPage projects={[]} />
   );
 };
 

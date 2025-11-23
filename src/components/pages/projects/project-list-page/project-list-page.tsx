@@ -1,7 +1,7 @@
 'use client'
 
 import RootLayout from "@/components/layout/root-layout/root-layout";
-import { Center, EmptyState, Grid, Heading, Text } from "@chakra-ui/react";
+import { Center, Container, EmptyState, Grid, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { ProjectListPageProps } from "./project-list-page.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,10 +54,10 @@ const ProjectListPage = ({
   return (
     <RootLayout>
       {projects.length > 0 ? (
-        <React.Fragment>
-          <Heading as="h1">Projects</Heading>
+        <Container py="5">
+          <Heading as="h1" textAlign="center">Projects</Heading>
 
-          <Grid templateColumns="repeat(4, 1fr)">
+          <Grid templateColumns="repeat(4, 1fr)" gap="5" mt="6">
             {projects.map((project: Entry<TypeProjectSkeleton>) => {
               const technologies: Entry<TypeTechnologySkeleton>[] = project.fields.technologies !== undefined ?
                 project.fields.technologies as Entry<TypeTechnologySkeleton>[] : [];
@@ -88,7 +88,7 @@ const ProjectListPage = ({
             })}
 
           </Grid>
-        </React.Fragment>
+        </Container>
       ) : (
         <NoProjectsEmptyState />
       )}

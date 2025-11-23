@@ -10,7 +10,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prettier": "npx prettier . --write",
-    "prettier-check": "npx prettier . --check"
+    "prettier-check": "npx prettier . --check",
+    "export-contentful": "contentful space export --config=contentful-export-config.json",
+    "generate-contentful-types": "cf-content-types-generator ./contentful-export.json -o ./src/models/contentful/generated --v10 --response"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.29.0",
@@ -37,6 +39,7 @@
     "@types/react": "^19.2.3",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "cf-content-types-generator": "^2.16.1",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "eslint-config-prettier": "^10.1.8",

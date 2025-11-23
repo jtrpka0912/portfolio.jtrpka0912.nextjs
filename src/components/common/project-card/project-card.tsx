@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Card, Flex, Tag } from "@chakra-ui/react";
 import React from "react";
 import { ProjectCardProps } from "./project-card.types";
@@ -21,7 +23,7 @@ const PLACEHOLDER_PATH: string = '/assets/images/placeholder-thumbnail.png';
  * @returns {React.ReactNode}
  */
 const ProjectCard = ({
-  id,
+  slug,
   name,
   thumbnail = PLACEHOLDER_PATH,
   altThumbnail = `${name} Thumbnail`,

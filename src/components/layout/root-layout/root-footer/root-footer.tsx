@@ -1,3 +1,5 @@
+'use client'
+
 import { Center, Flex, Icon } from "@chakra-ui/react"
 import { RootFooterSocialNetworkIconLink } from "./root-footer.types";
 import { faFacebook, faGithub, faLinkedinIn, faXing, faXTwitter } from "@fortawesome/free-brands-svg-icons";

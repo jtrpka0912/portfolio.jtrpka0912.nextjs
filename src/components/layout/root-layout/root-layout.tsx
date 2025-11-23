@@ -1,3 +1,5 @@
+'use client'
+
 import { Box } from "@chakra-ui/react"
 import { RootLayoutProps } from "./root-layout.types";
 import React from "react";

@@ -87,7 +87,7 @@ const CYPRESS_TECHNOLOGY: ProjectCardFeaturedTechnology = {
  * @author J. Trpka<jtrpka0912@gmail.com>
  */
 const PROJECT_CARD_PROPS_WITH_TECHNOLOGIES: ProjectCardProps = {
-  id: 'something-something',
+  slug: 'something-something',
   name: 'New Portfolio Project',
   thumbnail: 'https://images.ctfassets.net/1ea5gpr70vv1/3Oo0gL52cTeq6TVmhy6Ob1/b84e2286fee2262f325a2e35299d5305/portfolio-thumbnail.png',
   inDevelopment: true,
@@ -104,7 +104,7 @@ const PROJECT_CARD_PROPS_WITH_TECHNOLOGIES: ProjectCardProps = {
  * @author J. Trpka<jtrpka0912@gmail.com>
  */
 const PROJECT_CARD_PROPS_WITH_NO_THUMBNAIL: ProjectCardProps = {
-  id: 'something-something',
+  slug: 'something-something',
   name: 'Developing Project',
   thumbnail: undefined,
   inDevelopment: true,
@@ -120,7 +120,7 @@ const PROJECT_CARD_PROPS_WITH_NO_THUMBNAIL: ProjectCardProps = {
  * @author J. Trpka<jtrpka0912@gmail.com>
  */
 const PROJECT_CARD_PROPS_WITH_TOO_MANY_TECHNOLOGIES: ProjectCardProps = {
-  id: 'something-something',
+  slug: 'something-something',
   name: 'Overloaded Project',
   thumbnail: 'https://images.ctfassets.net/1ea5gpr70vv1/etEmLWXWUDqIIJ5NjiJYr/c9f35e7f554c24cd5a2a8abcc5fc726e/thumbnail.png',
   inDevelopment: false,

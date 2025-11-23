@@ -1,19 +1,16 @@
-import RootLayout from '@/components/layout/root-layout/root-layout';
-import { Heading } from '@chakra-ui/react';
+import HomePage from '@/components/pages/home/home-page';
 
 /**
- * @function Home
- * @summary Home page component
- * @description The home page component.
+ * @function HomePageRenderer
+ * @summary Home page component renderer.
+ * @description Render the home page UI component.
  * @author NextJS
  * @returns {React.ReactNode}
  */
-const Home = (): React.ReactNode => {
+const HomePageRenderer = (): React.ReactNode => {
   return (
-    <RootLayout>
-      <Heading>Hello World</Heading>
-    </RootLayout>
+    <HomePage />
   );
 };
 
-export default Home;
+export default HomePageRenderer;

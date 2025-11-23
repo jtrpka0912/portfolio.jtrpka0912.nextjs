@@ -34,6 +34,8 @@ yarn-error.log*
 .env*
 !.env.sample
 
+# generated files
+src/**/generated
 
 # vercel
 .vercel
@@ -42,5 +44,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# storybook
 *storybook.log
 storybook-static
+
+# contentful
+contentful-export*

@@ -1,3 +1,5 @@
+'use client'
+
 import { Link as ChakraLink } from "@chakra-ui/react"
 import { PortfolioLinkProps } from "./portfolio-link.types";
 import NextJSLink from "next/link";

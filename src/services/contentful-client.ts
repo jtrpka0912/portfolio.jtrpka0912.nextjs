@@ -24,18 +24,19 @@ const retrieveSpaceID = (): string => {
  * @returns {string} The API key depending on current Node environment
  */
 const retrieveAccessToken = (): string => {
-  if (env.NODE_ENV === 'production') {
-    if (!env.CONTENTFUL_CONTENT_DELIVERY_API) throw Error('Content Delivery API not set');
-    return env.CONTENTFUL_CONTENT_DELIVERY_API;
-  } else {
-    if (!env.CONTENTFUL_CONTENT_PREVIEW_API) throw Error('Content Preview API not set');
-    return env.CONTENTFUL_CONTENT_PREVIEW_API;
-  }
+  if (!env.CONTENTFUL_CONTENT_API_KEY) throw new Error('Content API Key not set');
+
+  return env.CONTENTFUL_CONTENT_API_KEY;
 };
 
+/**
+ * @summary Contentful Client
+ * @description Create the Contentful Client via the JavaScript SDK.
+ * @author J. Trpka<jtrpka0912@gmail.com>
+ */
 export default contentful.createClient({
   space: retrieveSpaceID(),
   accessToken: retrieveAccessToken(),
-  environment: env.CONTENTFUL_ENVIRONMENT ?? 'master',
+  environment: env.CONTENTFUL_ENVIRONMENT ? env.CONTENTFUL_ENVIRONMENT : 'master',
   host: env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
-});
+}).withoutUnresolvableLinks; // <-- This doesn't seem to fix AssetLink typing.

@@ -1,10 +1,10 @@
 /**
  * @class
- * @name ContentfulRestApi
- * @summary Contentful REST API Service Class
+ * @name ContentfulClient
+ * @summary Contentful REST API Client
  * @author J. Trpka<jtrpka0912@gmail.com>
  */
-export default class ContentfulRestApi {
+export default class ContentfulClient {
   /**
    * @private
    * @static
@@ -58,9 +58,9 @@ export default class ContentfulRestApi {
 
     const searchParams: string[][] = [['access_token', this.apiKey]];
 
-    const url: URL = ContentfulRestApi.buildURL(endpoint, searchParams);
+    const url: URL = ContentfulClient.buildURL(endpoint, searchParams);
 
-    return ContentfulRestApi.sendRequest<object>(url);
+    return ContentfulClient.sendRequest<object>(url);
   };
 
   /**
@@ -99,7 +99,7 @@ export default class ContentfulRestApi {
   private static buildURL = (endpoint: string, searchParams: string[][] = []): URL => {
     const urlSearchParams: URLSearchParams = new URLSearchParams(searchParams);
 
-    const url = new URL(`${ContentfulRestApi.BASE_URL}/${endpoint}${urlSearchParams.toString()}`);
+    const url = new URL(`${ContentfulClient.BASE_URL}/${endpoint}${urlSearchParams.toString()}`);
 
     return url;
   };

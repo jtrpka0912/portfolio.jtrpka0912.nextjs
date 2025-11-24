@@ -56,7 +56,9 @@ export default class ContentfulClient {
   private getEntries = async (): Promise<object> => {
     const endpoint = `/spaces/${this.spaceID}/environments/${this.environment}/entries`;
 
-    const searchParams: string[][] = [['access_token', this.apiKey]];
+    const searchParams: EntriesSearchParams = {
+      access_token: this.apiKey,
+    };
 
     const url: URL = ContentfulClient.buildURL(endpoint, searchParams);
 
@@ -96,11 +98,19 @@ export default class ContentfulClient {
    * @param {string} endpoint - The endpoint for the REST API request.
    * @returns {URL}
    */
-  private static buildURL = (endpoint: string, searchParams: string[][] = []): URL => {
-    const urlSearchParams: URLSearchParams = new URLSearchParams(searchParams);
+  private static buildURL = (endpoint: string, searchParams: UrlParams): URL => {
+    const urlSearchParams: URLSearchParams = new URLSearchParams(Object.entries(searchParams));
 
     const url = new URL(`${ContentfulClient.BASE_URL}/${endpoint}${urlSearchParams.toString()}`);
 
     return url;
   };
 }
+
+type UrlParams = {
+  access_token: string;
+};
+
+type EntriesSearchParams = UrlParams & {
+  content_type?: string;
+};

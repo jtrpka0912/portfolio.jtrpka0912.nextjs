@@ -66,10 +66,10 @@ type ItemSystem = {
  * @summary Content type data
  * @description Information of the content type
  * @author J. Trpka<jtrpka0912@gmail.com>
- * @param {LinkSystem} sys - Content type system data
+ * @param {System} sys - Content type system data
  */
 type ContentType = {
-  sys: LinkSystem;
+  sys: System;
 };
 
 /**
@@ -95,7 +95,7 @@ export type IncludedEntries = {
  * @param {LinkSystem} sys - Link system data
  */
 export type Link = {
-  sys: LinkSystem;
+  sys: System;
 };
 
 /**
